@@ -1,0 +1,62 @@
+<ion-side-menus enable-menu-with-back-views="false">
+  <ion-side-menu-content>
+    <ion-nav-bar align-title="center" class="bar-stable">
+      <ion-nav-back-button></ion-nav-back-button>
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+
+
+
+  <ion-side-menu side="left">
+    <ion-header-bar class="bar-stable">
+      <img src="./img/aitch3_logo6.svg">
+    </ion-header-bar>
+    <ion-content>
+      <div class="list">
+        <a class="item" menu-close href="#/app/main">
+          홈
+        </a>
+        <a class="item item-divider" menu-close ng-if="!isLogin" href="#/app/myPage">
+          <i class="{{iconStatus}}"></i> {{loginStatus}}
+        </a>
+        <div class="item item-divider" ng-if="isLogin">
+          <i class="{{iconStatus}}"></i> {{loginStatus}}
+        </div>
+        <a class="item indent20" menu-close href="#/app/myPage">
+          마이페이지
+        </a>
+        <a class="item indent20" menu-close href="#/app/myActivity">
+          내 활동내역
+        </a>
+        <a class="item indent20" menu-close href="#/app/myAccount">
+          내 정보
+        </a>
+        <div class="item item-divider">
+          더보기
+        </div>
+        <a class="item indent20" menu-close href="#/app/browse">
+          공지사항
+        </a>
+        <a class="item indent20" menu-close href="#/app/terms">
+          약관정보
+        </a>
+        <a class="item indent20" menu-close href="#/app/browse">
+          홈페이지
+        </a>
+        <a class="item indent20" menu-close ng-click="facebookOpen()">
+          페이스북
+        </a>
+        <div class="item item-divider" style="">
+          버전정보 <span id="versionNum">1.0.0</span>
+        </div>
+
+      </div>
+    </ion-content>
+  </ion-side-menu>
+
+</ion-side-menus>

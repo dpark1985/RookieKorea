@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" width="16" height="6.6" viewBox="0, 0, 320, 132">
+  <g id="Background">
+    <rect x="0" y="0" width="320" height="132" fill="#FFFFFF"/>
+  </g>
+  <g id="Layer_1">
+    <text transform="matrix(1, 0, 0, 1, 170.467, 82.5)">
+      <tspan x="-72.16" y="18" font-family="HelveticaNeue-Bold" font-size="48" fill="#65656C">aitch</tspan>
+    </text>
+    <text transform="matrix(1, -0, 0, 1, 251.03, 60.501)">
+      <tspan x="-37.599" y="39.001" font-family="HelveticaNeue-Bold" font-size="106" fill="#0C6CB5">3</tspan>
+    </text>
+    <path d="M48.25,106.5 L270.75,107" fill-opacity="0" stroke="#000000" stroke-width="1"/>
+    <path d="M56.941,24 L90.941,24 L90.941,58 L56.941,58 L56.941,24 z" fill="#0081C2"/>
+    <path d="M95.941,24 L134.941,24 L134.941,63 L95.941,63 L95.941,24 z" fill="#65656C"/>
+    <path d="M56.941,63 L95.941,63 L95.941,102 L56.941,102 L56.941,63 z" fill="#65656C"/>
+    <text transform="matrix(1, 0, 0, 1, 159, 119.5)">
+      <tspan x="-104.01" y="-3.5" font-family="HelveticaNeue-Bold" font-size="10" fill="#65656C">Power of three H, we can make a difference</tspan>
+    </text>
+    <path d="M48.25,20.167 L270.75,20.667" fill-opacity="0" stroke="#000000" stroke-width="1"/>
+  </g>
+  <g id="Layer_2" display="none"/>
+</svg>

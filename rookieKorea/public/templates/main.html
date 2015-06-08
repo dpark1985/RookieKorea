@@ -1,0 +1,70 @@
+<ion-view>
+	<ion-nav-title>
+		<img src="./img/aitch3_logo6.svg">
+	</ion-nav-title>
+
+	
+	<ion-content>
+
+		<div class="row rowCenter">
+			<div class="col">
+				<div class="list list-inset searchBox">
+				  <label class="item item-input">
+				    <i class="icon ion-search placeholder-icon"></i>
+				    <input type="text" placeholder="검색">
+				  </label>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="row rowCenter">
+			<a class="col-33 mainAtag" href="#/app/main/tennis" >
+				<div class="ion-gear-a mainImgStyle mainImgStyle" ></div>
+				<h5 class="mainTextStyle">테니스</h5>
+			</a>
+			<a class="col-33 mainAtag" href="#/app/main/soccer" >
+				<div class="ion-gear-a mainImgStyle" ></div>
+				<h5 class="mainTextStyle">축구</h5>
+			</a>
+			<a class="col-33 mainAtag" href="#/app/main/basketball" >
+				<div class="ion-gear-a mainImgStyle" ></div>
+				<h5 class="mainTextStyle">농구</h5>
+			</a>
+		</div>
+		<div class="row rowCenter">
+			<a class="col-33 mainAtag" href="#/app/main/baseball" >
+				<div class="ion-gear-a mainImgStyle" ></div>
+				<h5 class="mainTextStyle">야구</h5>
+			</a>
+			<a class="col-33 mainAtag" href="#/app/main/boweling" >
+				<div class="ion-gear-a mainImgStyle" ></div>
+				<h5 class="mainTextStyle">볼링</h5>
+			</a>
+			<a class="col-33 mainAtag" href="#/app/main/bedminton" >
+				<div class="ion-gear-a mainImgStyle" ></div>
+				<h5 class="mainTextStyle">배드민턴</h5>
+			</a>
+		</div>
+		<div class="row rowCenter">
+			<a class="col-33 mainAtag" href="#" >
+				
+			</a>
+			<a class="col-33 mainAtag" href="#" >
+				
+			</a>
+			<a class="col-33 mainAtag" href="#/app/setting" >
+				<div class="ion-gear-a mainImgStyle" ></div>
+				<h5 class="mainTextStyle">setting</h5>
+			</a>
+		</div>
+
+
+
+		<ion-list>
+		  <ion-item ng-repeat="mainlist in mainlists" href="#/app/playlist/{{mainlist.id}}">
+		    {{mainlist.title}}
+		  </ion-item>
+		</ion-list>
+	</ion-content>
+</ion-view>

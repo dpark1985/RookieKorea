@@ -1,0 +1,45 @@
+<ion-view view-title="마이페이지">
+  <ion-content>
+
+	<div class="" ng-if="!isLogin">
+    	<p>
+    		로그인이 필요합니다.
+    	</p>
+		<a class="button button-full button-positive" ng-click="goToSetting()">
+		  로그인
+		</a>
+	</div>
+
+	<div ng-if="isLogin">
+		<div class="article1">
+			<img src="http://img.tf.co.kr/article/home/2015/05/28/20155601432775942.jpg" alt="..." class="img-circle userImg">
+
+			<b class="userName">{{loginStatus}}</b>
+		</div>
+
+
+		<div>
+			<div class="list">
+				<a class="item" href="#/app/myActivity">
+					<h2>내 활동내역</h2>
+		      		<p>참여한 대회 목록, 활동중인 동호회를 확인하세요.</p>
+				</a>
+				<a class="item" href="#/app/myAccount">
+					<h2>내 정보</h2>
+		      		<p>개인 정보, 비밀정보 설정.</p>
+				</a>
+			</div>
+
+
+		</div>
+
+
+	</div>
+
+
+		
+
+
+
+  </ion-content>
+</ion-view>
