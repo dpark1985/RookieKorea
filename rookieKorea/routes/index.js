@@ -16,16 +16,15 @@ router.get('/userlist', function(req, res, next) {
 
 
 
-router.post('/testing', function(req, res, next) {
 
+
+router.post('/testing', function(req, res, next) {
 	if(req.body.status === "login"){
 		req.db.users.findOne({
 			login: req.body.login,
 			password: req.body.password
 		}, function (err, data){
 			res.json(data);
-		}, function (err, data){
-			res.json(err);
 		});
 	} else if(req.body.status === "register"){
 		req.db.users.insert({

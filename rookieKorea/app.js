@@ -29,8 +29,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+/*
 app.use(function (req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', *);
+    res.setHeader('Access-Control-Allow-Origin', '*');
 
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
 
@@ -39,7 +41,8 @@ app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Credentials', true);
 
     next();
-})
+});
+*/
 
 // Make our db accessible to our router
 app.use(function(req, res, next){

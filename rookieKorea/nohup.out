@@ -10216,3 +10216,2938 @@ Program node ./bin/www exited with code 8
 
 Starting child process with 'node ./bin/www'
 Sending SIGINT to child...
+
+Running node-supervisor with
+  program 'app.js'
+  --watch '.'
+  --extensions 'node,js'
+  --exec 'node'
+
+Starting child process with 'node app.js'
+Watching directory '/Users/sjc/git/RookieKorea/rookieKorea' for changes.
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+
+/Users/sjc/git/RookieKorea/rookieKorea/app.js:33
+    res.setHeader('Access-Control-Allow-Origin', *);
+                                                 ^
+SyntaxError: Unexpected token *
+    at Module._compile (module.js:439:25)
+    at Object.Module._extensions..js (module.js:474:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:312:12)
+    at Function.Module.runMain (module.js:497:10)
+    at startup (node.js:119:16)
+    at node.js:929:3
+Program node app.js exited with code 8
+
+Starting child process with 'node app.js'
+Sending SIGINT to child...
