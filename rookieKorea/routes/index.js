@@ -22,7 +22,7 @@ router.post('/userRegistration', function (req, res, next) {
 	var userPhone2 = userPhone1.substring(0, 1);
 	var userPhone3 = "+82 " + userPhone2;
 
-	req.twilio.message.create({
+	req.twilio.messages.create({
 		to: userPhone3,
 		from: "+1 415-599-2671", 
 		body: "4326",
