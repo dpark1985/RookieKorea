@@ -24,7 +24,7 @@ router.post('/userRegistration', function (req, res, next) {
 		body: "4326",
 		statusCallback: "https://demo.twilio.com/welcome/sms/reply/"
 	}, function (err, message){
-		res.json(message.sid);
+		res.json(message);
 	});
 });
 
