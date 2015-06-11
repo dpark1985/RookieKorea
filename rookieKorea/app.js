@@ -12,6 +12,10 @@ var baseURI = "52.69.2.200/test1";
 var collections = ["users", "competitions", "courts", "clubs"];
 var db = mongojs.connect(baseURI, collections);
 
+// twilio 
+var accountSid = 'ACd7d3da33d39966f60f6ff351531be9a7'; 
+var authToken = '409696dc93ab033c84ae49af94bf844c'; 
+var twilioClient = require('twilio')(accountSid, authToken); 
 
 var routes = require('./routes/index');
 
@@ -29,19 +33,19 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
-
-// Make our db accessible to our router
-app.use(function(req, res, next){
+app.use(function (req, res, next) {
     req.db = db;
     next();
 });
-
+app.use(function (req, res, next) {
+    req.twilio = twilioClient;
+    next();
+});
 
 
 
