@@ -17,11 +17,13 @@ router.get('/userlist', function (req, res, next) {
 
 router.post('/userRegistration', function (req, res, next) {
 
+	var varificationCode = Math.floor(1000 + Math.random() * 9000);
+
 
 	req.twilio.messages.create({
 		to: req.body.userPhone,
 		from: "+1 415-599-2671", 
-		body: "4326",
+		body: varificationCode,
 		statusCallback: "https://demo.twilio.com/welcome/sms/reply/"
 	}, function (err, message){
 		res.json(message);
