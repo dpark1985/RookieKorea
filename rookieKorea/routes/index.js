@@ -19,7 +19,7 @@ router.post('/userRegistration', function (req, res, next) {
 	
 
 	var userPhone1 = req.body.userPhone;
-	var userPhone2 = userPhone1.substring(0, 1)
+	var userPhone2 = userPhone1.substring(0, 1);
 	var userPhone3 = "+82 " + userPhone2;
 
 	req.twilio.message.create({
