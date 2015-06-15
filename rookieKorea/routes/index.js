@@ -48,6 +48,15 @@ router.post('/testingUserPhone', function (req, res, next) {
 	});
 });
 
+router.post('/testingUserEmail', function (req, res, next) {
+
+	req.db.users.findOne({
+		email: req.body.email
+	}, function (err, data){
+		res.json(data);
+	});
+});
+
 
 
 router.post('/testing', function (req, res, next) {
