@@ -15,19 +15,33 @@ router.get('/userlist', function (req, res, next) {
 });
 
 
+router.post('/testingUserEdit', function (req, res, next) {
+	
+	req.db.users.update({login: req.body.login}, 
+	{
+		emailDM : req.body.emailDM,
+		email: req.body.newEmail,
+		nickName: req.body.nickName
+	}, function (err, data){
+		res.json(data);
+	});
+
+
+});
+
 router.post('/testingUserRegistration', function (req, res, next) {
 
-		var varificationCode = Math.floor(1000 + Math.random() * 9000);
+	var varificationCode = Math.floor(1000 + Math.random() * 9000);
 
 
-		req.twilio.messages.create({
-			to: req.body.userPhone,
-			from: "+1 415-599-2671", 
-			body: varificationCode,
-			statusCallback: "https://demo.twilio.com/welcome/sms/reply/"
-		}, function (err, message){
-			res.json(message);
-		});
+	req.twilio.messages.create({
+		to: req.body.userPhone,
+		from: "+1 415-599-2671", 
+		body: varificationCode,
+		statusCallback: "https://demo.twilio.com/welcome/sms/reply/"
+	}, function (err, message){
+		res.json(message);
+	});
 });
 
 router.post('/testingUserID', function (req, res, next) {
