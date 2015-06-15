@@ -42,7 +42,7 @@ router.post('/testingUserID', function (req, res, next) {
 router.post('/testingUserPhone', function (req, res, next) {
 
 	req.db.users.findOne({
-		login: req.body.phone
+		phone: req.body.phone
 	}, function (err, data){
 		res.json(data);
 	});
