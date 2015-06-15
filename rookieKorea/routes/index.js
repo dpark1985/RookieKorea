@@ -17,11 +17,14 @@ router.get('/userlist', function (req, res, next) {
 
 router.post('/testingUserEdit', function (req, res, next) {
 	
-	req.db.users.insert({login: req.body.login}, 
+	req.db.users.update({login: req.body.login}, 
 	{
-		emailDM : req.body.emailDM,
-		email: req.body.newEmail,
-		nickName: req.body.nickName
+		"$set" : 
+		{
+			emailDM : req.body.emailDM,
+			email: req.body.newEmail,
+			nickName: req.body.nickName
+		}
 	}, function (err, data){
 		res.json(data);
 	});
