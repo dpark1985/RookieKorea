@@ -34,7 +34,7 @@ router.post('/testingUserID', function (req, res, next) {
 
 	req.db.users.findOne({
 		login: req.body.login
-	}, function (err, datda){
+	}, function (err, data){
 		res.json(data);
 	});
 });
