@@ -17,7 +17,7 @@ router.get('/userlist', function (req, res, next) {
 
 router.post('/testingUserEdit', function (req, res, next) {
 	
-	req.db.users.update({login: req.body.login}, 
+	req.db.users.insert({login: req.body.login}, 
 	{
 		emailDM : req.body.emailDM,
 		email: req.body.newEmail,
