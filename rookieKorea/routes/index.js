@@ -17,7 +17,10 @@ router.get('/userlist', function (req, res, next) {
 
 router.post('/testingUserEditPW', function (req, res, next) {
 	
-	req.db.users.update({password: req.body.password}, 
+	req.db.users.update({
+		login: req.body.login,
+		password: req.body.password
+	}, 
 	{
 		"$set" : 
 		{
