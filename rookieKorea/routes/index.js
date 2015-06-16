@@ -15,6 +15,19 @@ router.get('/userlist', function (req, res, next) {
 });
 
 
+router.post('/testingUserEditPW', function (req, res, next) {
+	
+	req.db.users.update({password: req.body.password}, 
+	{
+		"$set" : 
+		{
+			password : req.body.newPW
+		}
+	}, function (err, data){
+		res.json(data);
+	});
+});
+
 router.post('/testingUserEdit', function (req, res, next) {
 	
 	req.db.users.update({login: req.body.login}, 
@@ -28,15 +41,11 @@ router.post('/testingUserEdit', function (req, res, next) {
 	}, function (err, data){
 		res.json(data);
 	});
-
-
 });
 
 router.post('/testingUserRegistration', function (req, res, next) {
 
 	var varificationCode = Math.floor(1000 + Math.random() * 9000);
-
-
 	req.twilio.messages.create({
 		to: req.body.userPhone,
 		from: "+1 415-599-2671", 
