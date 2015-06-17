@@ -52,8 +52,7 @@ router.post('/testingUserRegistration', function (req, res, next) {
 	req.twilio.messages.create({
 		to: req.body.userPhone,
 		from: "+1 415-599-2671", 
-		body: varificationCode,
-		statusCallback: "https://demo.twilio.com/welcome/sms/reply/"
+		body: varificationCode
 	}, function (err, message){
 		res.json(message);
 	});
