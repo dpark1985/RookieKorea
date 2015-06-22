@@ -25,6 +25,30 @@ router.get('/userlist', function (req, res, next) {
 });
 
 
+router.post('/testingNewInfo', function (req, res, next) {
+
+	if(req.body.address1 == 'SE1100000000'){
+		res.json(SE1100000000);
+	} else if (req.body.address1 == 'BS2600000000'){
+		res.json(BS2600000000);
+	} else if (req.body.address1 == 'DG2700000000'){
+		res.json(DG2700000000);
+	} else if (req.body.address1 == 'IC2800000000'){
+		res.json(IC2800000000);
+	} else if (req.body.address1 == 'GJ2900000000'){
+		res.json(GJ2900000000);
+	} else if (req.body.address1 == 'DJ3000000000'){
+		res.json(DJ3000000000);
+	} else if (req.body.address1 == 'US3100000000'){
+		res.json(US3100000000);
+	} else{
+		res.json();
+	}
+
+
+});
+
+
 router.post('/testingUserEditPW', function (req, res, next) {
 	
 	req.db.users.update({
