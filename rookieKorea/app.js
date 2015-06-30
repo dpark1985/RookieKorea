@@ -17,9 +17,12 @@ var accountSid = 'ACd7d3da33d39966f60f6ff351531be9a7';
 var authToken = '409696dc93ab033c84ae49af94bf844c'; 
 var twilioClient = require('twilio')(accountSid, authToken); 
 
+
+// import Routes
 var routes = require('./routes/index');
+var hybridApp = require('./routes/happ');
 
-
+// create Server
 var app = express();
 
 // view engine setup
@@ -28,6 +31,7 @@ app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
+app.set('port', process.env.PORT || 3000);
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -50,6 +54,7 @@ app.use(function (req, res, next) {
 
 
 app.use('/', routes);
+app.use('/happ', hybridApp);
 
 
 // catch 404 and forward to error handler
@@ -84,8 +89,8 @@ app.use(function(err, req, res, next) {
 });
 
 
-app.set('port', process.env.PORT || 3000);
 
+// execute Server
 var server = app.listen(app.get('port'), function() {
   debug('Express server listening on port ' + server.address().port);
 });
