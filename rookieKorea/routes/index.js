@@ -8,6 +8,22 @@ router.get('/', function (req, res, next) {
 });
 
 
+/* GET compeitition page. */
+router.get('/compeititions', function (req, res, next) {
+  res.render('competitions', { title: 'Express' });
+});
+
+/* GET courts page. */
+router.get('/courts', function (req, res, next) {
+  res.render('courts', { title: 'Express' });
+});
+
+/* GET clubs page. */
+router.get('/clubs', function (req, res, next) {
+  res.render('clubs', { title: 'Express' });
+});
+
+
 
 
 module.exports = router;

@@ -1,3 +1,7 @@
+html, body{
+	background-color: #F7F6F4;
+}
+
 #mainAdds {
 	width: 100%;
 	height: 420px;
@@ -52,13 +56,13 @@
 }
 
 .appAddsL {
-	height: 600px;
+	height: 400px;
 	background-color: blue;
 }
 
 .appAddsR {
-	height: 600px;
-	background-color: orange;
+	height: 400px;
+	background-color: #F7F6F4;
 }
 
 .footerRow1 {
@@ -81,4 +85,49 @@
 	float: left;
 	height: 50px;
 	line-height: 50px;
+}
+
+#appDown {
+	display:block;
+	margin: 20px auto;
+	margin-top: 100px;
+	padding-left: 40px;
+}
+
+#appleBtn {
+	display: block;
+	margin: 20px auto;
+	width: 260px;
+	height: 46px;
+	background: url("../img/btn/btn_apple.png") no-repeat 0 0;
+}
+
+#appleBtn:hover {
+	background-position: 0 -46px;
+}
+
+#appleBtn span{
+	position: absolute;
+	top: -999em;
+}
+
+#googleBtn {
+	display: block;
+	margin: 20px auto;
+	width: 260px;
+	height: 46px;
+	background: url("../img/btn/btn_google.png") no-repeat 0 0;
+}
+
+#googleBtn:hover {
+	background-position: 0 -46px;
+}
+
+#googleBtn span{
+	position: absolute;
+	top: -999em;
+}
+
+#mainSection {
+	margin-top: 30px;
 }
