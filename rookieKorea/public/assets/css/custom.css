@@ -2,10 +2,15 @@ html, body{
 	background-color: #F7F6F4;
 }
 
+#headerDivider {
+	height: 5px;
+	background-color: black;
+}
+
 #mainAdds {
 	width: 100%;
 	height: 420px;
-	background-color: red;
+	background-color: yellow;
 }
 
 .margin0 {

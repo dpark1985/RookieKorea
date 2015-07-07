@@ -15,8 +15,6 @@
     "serve-favicon": "~2.2.0",
     "mongojs": "~0.18.2",
     "multer": "~0.1.8",
-    "twilio": "~2.2.1",
-    "nconf": "~0.7.1",
-    "everyauth": "~0.4.9"
+    "twilio": "~2.2.1"
   }
 }

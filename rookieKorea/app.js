@@ -1,3 +1,4 @@
+var debug = require('debug')('rookieKorea:server');
 var express = require('express');
 var http = require('http');
 var path = require('path');
@@ -6,14 +7,11 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongojs = require('mongojs');
-var debug = require('debug')('rookieKorea:server');
-var router = express.Router();
-var everyauth = require('everyauth');
-var nconf = require('nconf');
+var multer  = require('multer');
 
-// import Modules
-var customGlobal = require('./routes/global');
-var customAuth = require('./routes/auth');
+//var customAuth = require('./routes/auth');
+//var customGlobal = require('./routes/global');
+//var customMain = require('./routes/index');
 
 // DataBase connection
 var baseURI = "52.69.2.200/test1";
@@ -25,20 +23,13 @@ var accountSid = 'ACd7d3da33d39966f60f6ff351531be9a7';
 var authToken = '409696dc93ab033c84ae49af94bf844c'; 
 var twilioClient = require('twilio')(accountSid, authToken); 
 
-// nconf file
-nconf.file('config.json');
-
 // import Routes
-var routes = require('./routes/index');
+var webApp = require('./routes/index');
 var hybridApp = require('./routes/happ');
 
 // create Server
 var app = express();
 var server = http.createServer(app);
-
-// Execute Basic Module
-customGlobal.active(nconf);
-customAuth.active(everyauth, db);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -57,8 +48,6 @@ app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
-app.use(everyauth.middleware());
-app.use(router);
 app.use(function (req, res, next) {
     req.db = db;
     next();
@@ -67,10 +56,25 @@ app.use(function (req, res, next) {
     req.twilio = twilioClient;
     next();
 });
+app.use(
+    multer({ 
+        dest: './public/uploads/',
+        rename: function (fieldname, filename) {
+            return Date.now()+'_'+filename;
+        },
+        onFileUploadStart: function (file) {
+            console.log(file.originalname + ' is starting ...')
+        },
+        onFileUploadComplete: function (file) {
+            console.log(file.fieldname + ' uploaded to  ' + file.path)
+            done=true;
+        }
+    })
+);
 
 
-
-app.use('/', routes);
+app.use('/', webApp);
+//customMain.active(app, db);
 app.use('/happ', hybridApp);
 
 

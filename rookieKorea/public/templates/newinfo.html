@@ -1,0 +1,179 @@
+<div id="" class="container">
+    <div class="row-fluid">
+        <div class="">
+
+            <div ng-if="state1">
+
+                <div class="page-header">
+                    <h1>스포츠 종목을 선택해 주세요.</h1>
+                </div>
+                <a href="" ng-click="baseball()"><img src="assets/img/sports/baseball.png" alt="baseball" class="img-circle sportsList"></a>
+
+                <a href="" ng-click="basketball()"><img src="assets/img/sports/basketball.png" alt="basketball" class="img-circle sportsList"></a>
+
+                <a href="" ng-click="bedminton()"><img src="assets/img/sports/bedminton.png" alt="bedminton" class="img-circle sportsList"></a>
+
+                <a href="" ng-click="bowling()"><img src="assets/img/sports/bowling.png" alt="bowling" class="img-circle sportsList"></a>
+
+                <a href="" ng-click="soccer()"><img src="assets/img/sports/soccer.png" alt="soccer" class="img-circle sportsList"></a>
+
+                <a href="" ng-click="tennis()"><img src="assets/img/sports/tennis.png" alt="tennis" class="img-circle sportsList"></a>
+            </div>
+
+
+            <div ng-if="state2">
+                <div class="page-header">
+                    <h1>카테고리를 선택해 주세요.</h1>
+                </div>
+                <div class="container-fluid">
+                    <div class="categoryList col-lg-4" ng-click="competition()">
+                        대회
+                    </div>
+                    <div class="categoryList col-lg-4" ng-click="court()">
+                        코트장
+                    </div>
+                    <div class="categoryList col-lg-4" ng-click="club()">
+                        동호회
+                    </div>
+                </div>
+            </div>
+
+
+            <div ng-if="competitionInfo">
+                <div class="page-header">
+                    <h1>정보를 입력해 주세요.</h1>
+                </div>
+
+                <form class="container marginB100" ng-submit="compSubmit()">
+                    <div class="row">
+                        <div class='col-sm-10'>
+                            <div class="form-group">
+                                <label for="compName">대회 이름</label>
+                                <input type="text" class="form-control" id="compName" placeholder="대회이름" ng-modal="newCompData.compName">
+                            </div>
+
+
+                            <div class="form-inline marginB15 width100">
+                                <div class='input-group date width100'>
+                                    <label for="compDate1">대회 일시</label><br/>
+                                    <div class="input-group col-sm-5">
+                                        <input type="text" class="form-control" id="compDate1" placeholder="대회 일시" ng-modal="newCompData.compDate1">
+                                        <div class="input-group-addon">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                        </div>
+                                    </div>
+                                    <div class="input-group col-sm-2 textCenter">
+                                        <span class="glyphicon glyphicon-minus"></span>
+                                    </div>
+                                    <div class="input-group col-sm-5">
+                                        <input type="text" class="form-control" id="compDate2" placeholder="대회 일시" ng-modal="newCompData.compDate2">
+                                        <div class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span></div>
+                                    </div>
+                                </div>
+                                <script type="text/javascript">
+                                    $(function() {
+                                        $('#compDate1').datetimepicker();
+                                    });
+                                    $(function() {
+                                        $('#compDate2').datetimepicker();
+                                    });
+                                </script>
+                            </div>
+
+
+
+
+
+                            <div class="form-group">
+                                <label for="compLocation">장소</label>
+                                <input type="text" class="form-control" id="compLocation" placeholder="대회장소" ng-modal="newCompData.compLocation">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="compHost">주최</label>
+                                <input type="text" class="form-control" id="compHost" placeholder="주최" ng-modal="newCompData.compHost">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="compSupervision">주관</label>
+                                <input type="text" class="form-control" id="compSupervision" placeholder="주관" ng-modal="newCompData.compSupervision">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="compSponser">후원</label>
+                                <input type="text" class="form-control" id="compSponser" placeholder="후원" ng-modal="newCompData.compSponser">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="compSponsorship">협찬</label>
+                                <input type="text" class="form-control" id="compSponsorship" placeholder="협찬" ng-modal="newCompData.compSponsorship">
+                            </div>
+
+                            <div class="form-inline marginB15 width100">
+                                <div class='input-group date width100'>
+                                    <label for="registDate">신청마감</label><br/>
+                                    <div class="input-group col-sm-5">
+                                        <input type="text" class="form-control" id="registDate" placeholder="신청마감" ng-modal="newCompData.compRegistDate">
+                                        <div class="input-group-addon">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <script type="text/javascript">
+                                    $(function() {
+                                        $('#registDate').datetimepicker();
+                                    });
+                                </script>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="compSponsorship">추가정보</label>
+
+	
+					            <textarea name="editor1" id="editor1" rows="10" cols="80" ng-modal="newCompData.compInfo">
+					                This is my textarea to be replaced with CKEditor.
+					            </textarea>
+					            <script>
+					                // Replace the <textarea id="editor1"> with a CKEditor
+					                // instance, using default configuration.
+					                CKEDITOR.replace( 'editor1' );
+					            </script>
+
+                            </div>
+
+                            <div class="form-group">
+                                <label for="compURL">대회 URL</label>
+                                <input type="text" class="form-control" id="compURL" placeholder="대회 URL" ng-modal="newCompData.compURL">
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="exampleInputFile">사진 업로드</label>
+                                <input type="file" id="exampleInputFile" ng-modal="newCompData.compFile">
+                                <p class="help-block">대회포스터, 사진 업로드해주세요.</p>
+                            </div>
+
+                            <button type="submit" class="btn btn-default">Submit</button>
+
+                        </div>
+                    </div>
+                </form>
+
+
+
+
+            </div>
+
+            <div ng-if="courtInfo">
+
+            </div>
+
+            <div ng-if="clubInfo">
+
+            </div>
+
+
+        </div>
+
+    </div>
+</div>
