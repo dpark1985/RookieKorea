@@ -58,11 +58,18 @@ router.get('/newdata', function (req, res, next) {
 	res.render('newdata');
 });
 
+router.get('/newdataList', function (req, res, next) {
+  req.db.competitions.find(function(e, docs){
+  	res.json(docs);
+  });
+});
+
+
+
 router.post('/newdata', function (req, res, next) {
 	if(req.body.category === "competition"){
-		console.log("req.body =====" + req.body);
-		console.log("req.files ======" + req.files);
-/*
+
+
 		req.db.competitions.insert({
 			sport: req.body.sport,
 			title: req.body.title,
@@ -80,15 +87,15 @@ router.post('/newdata', function (req, res, next) {
 			url: req.body.compURL,
 			img: req.body.compImg
 
-		}, function (err, post){
+		}, function (err, data){
 			if(err){
 				console.log(err);
 			} else{
-				console.log(post);
+				console.log(data);
 				res.redirect('/');
 			}
 		});
-*/
+
 
 
 	} 
