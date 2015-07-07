@@ -305,7 +305,7 @@ angular.module('rookieKorea', [
             emailDM: false
         })
         .success(function(data, status, headers, config) {
-
+        	//console.log(data);
             $window.location.href = '/';
         })
         .error(function(data, status, headers, config) {
@@ -436,7 +436,7 @@ angular.module('rookieKorea', [
 
         })
         .success(function(data, status, headers, config) {
-
+        	consle.log('success' + data);
             
         })
         .error(function(data, status, headers, config) {

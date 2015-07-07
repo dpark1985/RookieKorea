@@ -90,9 +90,10 @@ router.post('/newdata', function (req, res, next) {
 		}, function (err, data){
 			if(err){
 				console.log(err);
+				res.json(err);
 			} else{
 				console.log(data);
-				res.redirect('/');
+				res.json(data);
 			}
 		});
 
