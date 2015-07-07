@@ -427,7 +427,7 @@ angular.module('rookieKorea', [
             $window.location.href = '/';
         })
         .error(function(data, status, headers, config) {
-            console.log('Oops and error : doRegister() \n', data);
+            console.log('Oops and error : compSubmit() \n', data);
         });
 
 

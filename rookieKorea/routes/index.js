@@ -75,12 +75,13 @@ router.post('/newdata', function (req, res, next) {
 			registDate: req.body.compRegistDate,
 			compInfo: req.body.compInfo,
 			url: req.body.compURL,
-			img: req.files.compImg.name,
+			img: req.body.compImg
 
 		}, function (err, post){
 			if(err){
 				console.log(err);
 			} else{
+				console.log(post);
 				res.redirect('/');
 			}
 		});
