@@ -68,7 +68,8 @@ router.get('/newdataList', function (req, res, next) {
 
 router.post('/newdata', function (req, res, next) {
 	if(req.body.category === "competition"){
-
+		console.log(req.files);
+		console.log(req.body);
 
 		req.db.competitions.insert({
 			sport: req.body.sport,
