@@ -316,7 +316,8 @@ angular.module('rookieKorea', [
 
     };
 
-}]).controller('NewInfoCtrl', ['$scope', '$location', '$rootScope', '$http', function($scope, $location, $rootScope, $http) {
+}])
+.controller('NewInfoCtrl', ['$scope', '$location', '$rootScope', '$http', function($scope, $location, $rootScope, $http) {
 
 
     if ($location.url() == '/newinfo') {
@@ -334,6 +335,7 @@ angular.module('rookieKorea', [
     $scope.courtInfo = false;
     $scope.clubInfo = false;
     $scope.newCompData = {};
+
 
 
     $scope.baseball = function() {
@@ -405,6 +407,17 @@ angular.module('rookieKorea', [
 
 
     $scope.compSubmit = function() {
+    	
+
+    	
+    	
+    	$scope.newCompData.compDate1 = $('#compDate1').val();
+    	$scope.newCompData.compDate2 = $('#compDate2').val();
+    	$scope.newCompData.compRegistDate = $('#registDate').val();
+    	$scope.newCompData.compInfo = $('#editor1').val();
+
+    	console.log($scope.newCompData);
+
         $http.post('http://52.69.2.200/newdata', {
         	sport: $scope.sportsSelected,
             category: $scope.categorySelected,
@@ -424,7 +437,7 @@ angular.module('rookieKorea', [
         })
         .success(function(data, status, headers, config) {
 
-            $window.location.href = '/';
+            
         })
         .error(function(data, status, headers, config) {
             console.log('Oops and error : compSubmit() \n', data);
