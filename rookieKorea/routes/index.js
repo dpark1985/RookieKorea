@@ -60,6 +60,9 @@ router.get('/newdata', function (req, res, next) {
 
 router.post('/newdata', function (req, res, next) {
 	if(req.body.category === "competition"){
+		console.log("req.body =====" + req.body);
+		console.log("req.files ======" + req.files);
+/*
 		req.db.competitions.insert({
 			sport: req.body.sport,
 			title: req.body.title,
@@ -85,6 +88,9 @@ router.post('/newdata', function (req, res, next) {
 				res.redirect('/');
 			}
 		});
+*/
+
+
 	} 
 });
 
