@@ -436,7 +436,7 @@ angular.module('rookieKorea', [
 
         })
         .success(function(data, status, headers, config) {
-        	consle.log('success' + data);
+        	console.log('success' + data);
             
         })
         .error(function(data, status, headers, config) {

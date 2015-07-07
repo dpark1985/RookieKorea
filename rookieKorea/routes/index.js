@@ -81,7 +81,7 @@ router.post('/newdata', function (req, res, next) {
 			host: req.body.compHost,
 			supervision: req.body.compSupervision,
 			sponser: req.body.compSponser,
-			sponsorship: req.body.compSponsership,
+			sponsorship: req.body.compSponsorship,
 			registDate: req.body.compRegistDate,
 			compInfo: req.body.compInfo,
 			url: req.body.compURL,
