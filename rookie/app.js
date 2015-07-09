@@ -29,8 +29,8 @@ var customChallengeDetails = require('./routes/challengeDetails');
 var hybridApp = require('./routes/happ');
 
 // DataBase connection
-//var baseURI = "52.69.2.200/test1";
-var baseURI = 'test2';
+var baseURI = "52.69.2.200/test1";
+//var baseURI = 'test2';
 var collections = ["users", "competitions", "courts", "clubs"];
 var db = mongojs.connect(baseURI, collections);
 
