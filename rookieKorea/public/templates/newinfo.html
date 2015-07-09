@@ -137,6 +137,7 @@
 					                // Replace the <textarea id="editor1"> with a CKEditor
 					                // instance, using default configuration.
 					                CKEDITOR.replace( 'editor1' );
+                    
 					            </script>
 
                             </div>
@@ -148,8 +149,8 @@
 
 
                             <div class="form-group">
-                                <label for="exampleInputFile">사진 업로드</label>
-                                <input type="file" id="exampleInputFile" ng-model="newCompData.compFile">
+                                <label for="compImg">사진 업로드</label>
+                                <input type="file" id="compImg" name="compImg" ng-model="newCompData.compFile">
                                 <p class="help-block">대회포스터, 사진 업로드해주세요.</p>
                             </div>
 

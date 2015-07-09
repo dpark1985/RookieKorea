@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko" ng-app="rookieKorea">
+<html lang="ko">
 
 <head>
     <meta charset="utf-8">
@@ -116,35 +116,20 @@
 
 <body class="animated fadeIn">
 
-    <div class="container" ng-controller="RegisterCtrl as register">
+    <div class="container">
 
 
 
-        <form class="form-signin">
+        <form class="form-signin" method="post">
 
             <a href="/"><img src="assets/img/logo-cs.png"></a>
             <h2 class="form-signin-heading">Register it's Free<span >Already a user? <a href="/login">Login</a></span></h2>
 
-            <input type="text" class="input-block-level" ng-style="inputValidName" placeholder="이름" name="name" ng-model="registerData.userName" ng-style="inputValidName">
-
-            <input type="text" class="input-block-level {{inputValidLogin}}" placeholder="로그인 ID" name="login" ng-model="registerData.userLogin" ng-style="inputValidLogin">  
-
-            <input type="password" class="input-block-level" placeholder="비밀번호" name="password" ng-model="registerData.password" ng-style="inputValidPW">
-
-            <input type="password" class="input-block-level" placeholder="비밀번호 확인" name="confirm-password" ng-model="registerData.confirmpassword" ng-style="inputValidCPW">
-
-            <input type="text" class="input-block-level" placeholder="이메일 주소" name="email" ng-model="registerData.email" ng-style="inputValidEmail">
+            <input type="text" class="input-block-level" placeholder="이메일주소" name="email">
+            <input type="password" class="input-block-level" placeholder="비밀번호" name="password">
 
 
-            <input type="text" class="input-block-level" style="width: 400px;" placeholder="전화번호 (숫자만 입력하세요.)" name="phone" ng-model="registerData.phone" ng-style="inputValidPhone">
-            <div class="btn btn-defualt" style="padding: 7px; margin-bottom: 15px; width: 80px;" ng-click="phoneV1()">확인</div>
-
-            <input type="text" class="input-block-level" style="width: 400px;" placeholder="휴대폰 메시지의 인증번호를 입력하세요." ng-if="varification1Status" ng-model="registerData.varificationText" ng-style="classValid">
-            <div class="btn btn-defualt" style="padding: 7px; margin-bottom: 15px; width: 80px;" ng-click="phoneV2()" ng-if="varification1Status">휴대폰 인증</div>
-        
-
-
-            <button class="btn btn-large btn-block " type="submit" ng-if="registComplite" ng-click="doRegister()">회원가입</button>
+            <button class="btn btn-large btn-block " type="submit">회원가입</button>
         </form>
 
     </div>

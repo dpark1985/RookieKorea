@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="ko" ng-app="rookieKorea">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Rookie Korea</title>
+
+
+    <!-- Include CSS Assets -->
+
+    <link rel="stylesheet" href="libs/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="libs/font-awesome/font-awesome.css" />
+
+    <link rel="stylesheet" href="stylesheets/non-responsive.css" />
+    <link rel="stylesheet" href="stylesheets/main.css" />
+    <link rel="stylesheet" href="stylesheets/common.css" />
+
+
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="images/favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="images/favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="images/favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="images/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="images/favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="images/favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="images/favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="images/favicons/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="images/favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="images/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="images/favicons/manifest.json">
+    <meta name="apple-mobile-web-app-title" content="RookieKorea">
+    <meta name="application-name" content="RookieKorea">
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="msapplication-TileImage" content="images/favicons/mstile-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+</head>
+
+<body ng-controller="CourtCtrl" class="padding0">
+
+    <!-- Start Header -->
+
+
+
+    <nav class="navbar navbar-default margin0">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/"><img src="images/logo.png"></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+                <ul class="nav navbar-nav">
+                    <li class=""><a href="/competitions" id="competition">대회</a></li>
+                    <li class=""><a href="/courts">코트장</a></li>
+                    <li class=""><a href="/clubs">동호회</a></li>
+                    <li class=""><a href="/newinfo">정보 등록</a></li>
+                </ul>
+
+
+                <ul id="noLogin" class="nav navbar-nav navbar-right">
+
+
+                    <li><a href="/login" class="navbar-link"><span class="glyphicon glyphicon-log-in"></span> 로그인</a></li>
+                    <li><a href="/register" class="navbar-link"><span class="glyphicon glyphicon-plus"></span> 회원가입</a></li>
+                </ul>
+
+
+                <ul id="yesLogin" class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> <%= user %> <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/userAccount" class="navbar-link">회원정보</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="/logout">로그아웃</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+
+
+    <div id="headerDivider"></div>
+
+
+    <div>
+        <div id="mainAdds">
+
+        </div>
+
+    </div>
+
+
+    <div id="mainSection" class="container">
+        <div class="row-fluid">
+            <div class="col-sm-9 col-md-9 col-lg-9">
+
+
+                <!-- Options bar (Left Section) -->
+
+
+                <nav class="navbar navbar-default marginH15" role="navigation">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <a class="navbar-brand">대회명 검색</a>
+                        </div>
+
+                        <form class="navbar-form navbar-left" role="search">
+
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search" name="q">
+
+                                <div class="input-group-btn">
+                                    <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                                </div>
+                            </div>
+                        </form>
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a><strong>12,487</strong> Titles Found</a></li>
+
+                        </ul>
+
+                    </div>
+                </nav>
+
+                <!-- End Options Bar -->
+
+
+                <!-- Start Left Section -->
+
+                <div class="row-fluid">
+                    <ul class="padding0" type="none">
+
+
+
+                        <li class="col-md-4 col-lg-4">
+                            <div class="thumbnail">
+                                <img data-src="holder.js/300x200" alt="300x200" src="http://placehold.it/300x200">
+                                <div class="caption">
+                                    <h6><a href="">Thumbnail label</a></h6>
+                                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+                                </div>
+                            </div>
+                        </li>
+
+
+                        <li class="col-md-4 col-lg-4">
+                            <div class="thumbnail">
+                                <img data-src="holder.js/300x200" alt="300x200" src="http://placehold.it/300x200">
+                                <div class="caption">
+                                    <h6><a href="">Thumbnail label</a></h6>
+                                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="col-md-4 col-lg-4">
+                            <div class="thumbnail">
+                                <img data-src="holder.js/300x200" alt="300x200" src="http://placehold.it/300x200">
+                                <div class="caption">
+                                    <h6><a href="">Thumbnail label</a></h6>
+                                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="col-md-4 col-lg-4">
+                            <div class="thumbnail">
+                                <img data-src="holder.js/300x200" alt="300x200" src="http://placehold.it/300x200">
+                                <div class="caption">
+                                    <h6><a href="">Thumbnail label</a></h6>
+                                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="col-md-4 col-lg-4">
+                            <div class="thumbnail">
+                                <img data-src="holder.js/300x200" alt="300x200" src="http://placehold.it/300x200">
+                                <div class="caption">
+                                    <h6><a href="">Thumbnail label</a></h6>
+                                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="col-md-4 col-lg-4">
+                            <div class="thumbnail">
+                                <img data-src="holder.js/300x200" alt="300x200" src="http://placehold.it/300x200">
+
+                                <div class="caption">
+                                    <h6><a href="">Thumbnail label</a></h6>
+                                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+                                </div>
+                            </div>
+                        </li>
+
+
+
+                        <li class="col-md-4 col-lg-4">
+                            <div class="thumbnail">
+                                <img data-src="holder.js/300x200" alt="300x200" F src="http://placehold.it/300x200">
+
+                                <div class="caption">
+                                    <h6><a href="">Thumbnail label</a></h6>
+                                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+                                </div>
+                            </div>
+                        </li>
+
+
+                        <li class="col-md-4 col-lg-4">
+                            <div class="thumbnail">
+                                <img data-src="holder.js/300x200" alt="300x200" src="http://placehold.it/300x200">
+
+                                <div class="caption">
+                                    <h6><a href="">Thumbnail label</a></h6>
+                                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+                                </div>
+                            </div>
+                        </li>
+
+
+
+
+                        <li class="col-md-4 col-lg-4">
+                            <div class="thumbnail">
+                                <img data-src="holder.js/300x200" alt="300x200" src="http://placehold.it/300x200">
+
+                                <div class="caption">
+                                    <h6><a href="">Thumbnail label</a></h6>
+                                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+                                </div>
+                            </div>
+                        </li>
+
+
+
+
+                        <li class="col-md-4 col-lg-4">
+                            <div class="thumbnail">
+                                <img data-src="holder.js/300x200" alt="300x200" src="http://placehold.it/300x200">
+
+                                <div class="caption">
+                                    <h6><a href="">Thumbnail label</a></h6>
+                                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+                                </div>
+                            </div>
+                        </li>
+
+
+
+                        <li class="col-md-4 col-lg-4">
+                            <div class="thumbnail">
+                                <img data-src="holder.js/300x200" alt="300x200" src="http://placehold.it/300x200">
+
+                                <div class="caption">
+                                    <h6><a href="">Thumbnail label</a></h6>
+                                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+                                </div>
+                            </div>
+                        </li>
+
+
+                        <li class="col-md-4 col-lg-4">
+                            <div class="thumbnail">
+                                <img data-src="holder.js/300x200" alt="300x200" src="http://placehold.it/300x200">
+
+                                <div class="caption">
+                                    <h6><a href="">Thumbnail label</a></h6>
+                                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+                                </div>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+
+
+                <div>
+                    <ul class="pagination  pull-right marginR15">
+                        <li>
+                            <a href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li>
+                            <a href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- End Left Section -->
+
+            <!-- Start Right Section -->
+
+            <div id="side-section" class="col-sm-3 col-md-3 col-lg-3">
+                <div class="module-top"><span class="glyphicon glyphicon-th-large"></span>스포츠별 검색</div>
+
+
+                <ul class="list-group">
+                    <a href="">
+                        <li class="list-group-item">
+                            <span class="badge">14</span>축구
+                        </li>
+                    </a>
+                    <a href="">
+                        <li class="list-group-item">
+                            <span class="badge">14</span>농구
+                        </li>
+                    </a>
+                    <a href="">
+                        <li class="list-group-item">
+                            <span class="badge">14</span>야구
+                        </li>
+                    </a>
+                    <a href="">
+                        <li class="list-group-item">
+                            <span class="badge">14</span>볼링
+                        </li>
+                    </a>
+                    <a href="">
+                        <li class="list-group-item">
+                            <span class="badge">14</span>배드민턴
+                        </li>
+                    </a>
+                    <a href="">
+                        <li class="list-group-item">
+                            <span class="badge">14</span>테니스
+                        </li>
+                    </a>
+
+                </ul>
+
+
+
+
+
+                <div class="module-top">
+                    <span class="glyphicon glyphicon-th-large"></span> 업데이트
+                </div>
+
+                <div class="list-group">
+                    <div class="list-group-item media">
+                        <div class="media-left">
+                            <a href="#">
+                                <img class="media-object" src="..." alt="...">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">Media heading</h4> 박준현박준현박준현박준현박준현박준현박준현박준현박준현박준현박준현박준현박준현박준현
+                        </div>
+                    </div>
+
+                    <div class="list-group-item media">
+                        <div class="media-left">
+                            <a href="#">
+                                <img class="media-object" src="..." alt="...">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">Media heading</h4> 박준현박준현박준현박준현박준현박준현박준현박준현박준현박준현박준현박준현박준현박준현
+                        </div>
+                    </div>
+                    <div class="list-group-item media">
+                        <div class="media-left">
+                            <a href="#">
+                                <img class="media-object" src="..." alt="...">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">Media heading</h4> 박준현박준현박준현박준현박준현박준현박준현박준현박준현박준현박준현박준현박준현박준현
+                        </div>
+                    </div>
+                    <div class="list-group-item media">
+                        <div class="media-left">
+                            <a href="#">
+                                <img class="media-object" src="..." alt="...">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">Media heading</h4> 박준현박준현박준현박준현박준현박준현박준현박준현박준현박준현박준현박준현박준현박준현
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+
+
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+    <footer class="footer" style="margin: 0;">
+        <div class="container">
+            <div class="row-fluid">
+                <div class="span12">
+
+                    <div class="footerRow1">
+                        <a href="">[회사소개]</a>
+                        <a href="">[약관 및 개인정보 취급방침]</a>
+                    </div>
+
+                    <div class="footerRow2">
+                        <div class="footerRow21">
+                            <img class="foot-logo" src="images/logo-ts.png" alt="Brand Logo" />
+                        </div>
+                        <div class="footerRow22">
+                            <span>서비스 이용문의 T.070-7524-7713 E-mail: cs@aitch3.com | 서비스 제휴 문의 : partnership@aitch3.com</span>
+                            <br>
+                            <span>에이치3 강원도 원주시 흥업면 한라대길28 (한라대학교, 창업보육준비실 N1213)</span>
+                            <br>
+                            <span>사업자등록번호: 551-18-00099</span>
+                            <br>
+                        </div>
+
+                    </div>
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <div id="isLogin">
+            <%= user %>
+        </div>
+
+
+        <!-- Include Javascript/JQuery Assets
+    ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+
+        <script type="text/javascript" src="libs/jquery/jquery-1.11.3.min.js"></script>
+        <script type="text/javascript" src="libs/moment/min/moment.min.js"></script>
+        <script type="text/javascript" src="libs/moment/locale/ko.js"></script>
+        <script type="text/javascript" src="libs/bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="libs/bootstrap/js/bootstrap-select.js"></script>
+        <script type="text/javascript" src="libs/ckeditor/ckeditor.js"></script>
+        <script type="text/javascript" src="libs/ckeditor/config.js"></script>
+
+        <script type="text/javascript" src="libs/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+
+
+
+        <script src="libs/angular/angular.min.js"></script>
+        <script src="libs/angular/angular-route.min.js"></script>
+
+
+
+
+        <script src="javascripts/loginCheck.js"></script>
+        <script src="javascripts/controller.js"></script>
+
+
+
+
+</body>
+
+</html>

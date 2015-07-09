@@ -19,44 +19,11 @@ var userData = null;
 
 
 router.get('/', function (req, res, next) {
-	if (userData == null){
-		res.render('index', { user: '1111' });
-	} else {
-		res.render('index', { user: userData.name });
-	}
+
+	res.render('index');
 });
 
 
-router.get('/login', function (req, res, next) {
-	res.render('login');
-});
-
-
-router.post('/login', function (req, res, next) {
-	req.db.users.findOne({
-		login: req.body.login,
-		password: req.body.password
-	}, function (err, data){
-		userData = data;
-		console.log(userData);
-		res.redirect('/');
-	});
-});
-
-
-router.get('/logout', function (req, res, next) {
-	userData = null;
-	res.redirect('/');
-});
-
-
-router.get('/register', function (req, res, next) {
-	res.render('register');
-});
-
-router.get('/newdata', function (req, res, next) {
-	res.render('newdata');
-});
 
 router.get('/newdataList', function (req, res, next) {
   req.db.competitions.find(function(e, docs){

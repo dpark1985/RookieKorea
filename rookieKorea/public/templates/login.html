@@ -1,0 +1,21 @@
+
+
+<div class="container">
+
+    <div class="form-signin" >
+        <a href="/"><img src="assets/img/logo-cs.png"></a>
+        <h2 class="form-signin-heading">Login <span >아직 회원이 아니신가요? <a href="/register">회원가입</a></span></h2>
+
+        <form ng-submit="doLogin()">
+            <fieldset>
+                <input id="miniusername" type="text" class="input-block-level" placeholder="Id" name="login" ng-model="loginData.username">
+                <input type="password" class="input-block-level" placeholder="Password" name="password" id="minipassword" ng-model="loginData.password">
+                <label class="checkbox">
+                    <input type="checkbox" value="remember-me"> Remember me
+                </label>
+                <button name="send" value="Submit" class="btn btn-medium btn-primary" type="submit"><i class="icon-spinner ast-alt icon-spin"></i> Login</button>
+            </fieldset>
+        </form>
+      </div>
+  </div>
+

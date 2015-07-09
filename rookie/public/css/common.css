@@ -1,0 +1,43 @@
+.margin0 {
+	margin: 0;
+}
+
+.padding0 {
+	padding: 0;
+}
+
+.marginH15 {
+	margin: 0 15px;
+}
+
+.marginR15 {
+	margin-right: 15px;
+}
+
+.marginB15 {
+	margin-bottom: 15px;
+}
+
+.paddingL0 {
+	padding-left: 0;
+}
+
+.paddingR0 {
+	padding-right: 0;
+}
+
+.marginH10 {
+	margin:0 10px;
+}
+
+.width100 {
+	width: 100%;
+}
+
+.textCenter {
+	text-align: center;
+}
+
+.marginB100 {
+	margin-bottom: 100px;
+}

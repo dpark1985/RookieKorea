@@ -1,6 +1,6 @@
 exports.active = function(everyauth, db){
 	//everyauth 모듈 기본 설정
-	var auth = everyauth.password.loginWith('login');
+	var auth = everyauth.password.loginWith('email');
 	everyauth.everymodule.userPkey('_id');
 	everyauth.everymodule.findUserById(function(id, callback){
 		db.users.findOne({
@@ -20,28 +20,15 @@ exports.active = function(everyauth, db){
 	auth.registerView('register');
 	auth.getRegisterPath('/register');
 	auth.postRegisterPath('/register');
-	auth.extractExtraRegistrationParams(function(request){ 
-		return {
-			confirmPassword: request.param('confirm-password'),
-			phone: request.param('phone'),
-			email: request.param('email'),
-			addr: request.param('addr'),
-			name: request.param('name')
-		}
-	});
 	auth.validateRegistration(function(userAttribute, errors){ 
 		var promise = this.Promise();
 
-		if(userAttribute.password.length < 8){
-			errors.push(getCode('auth:3'));
-		}
-
-		if(userAttribute.confirmPassword != userAttribute.password){
-			errors.push(getCode('auth:4'));
-		}
-
-		db.users.findOne({login: userAttribute.login}, function(error, result){
-			if(result){errors.push(getCode('auth:5'));}
+		db.users.findOne({
+			email: userAttribute.email,
+		}, function(error, result){
+			if(result){
+				errors.push(getCode('auth:5'));
+			}
 			if(errors.length){
 				promise.fulfill(errors);
 			} else{
@@ -55,15 +42,8 @@ exports.active = function(everyauth, db){
 		var promise = this.Promise();
 
 		db.users.insert({
-			login: userAttribute.login,
-			password: userAttribute.password,
-			name: userAttribute.name,
-			phone: userAttribute.phone,
 			email: userAttribute.email,
-			addr: userAttribute.addr,
-			acceptFriends: [],
-			requestFriends: [],
-			pendingFriends: []
+			password: userAttribute.password
 		}, function(error, result){
 			if(result){
 				promise.fulfill(result);
@@ -81,11 +61,11 @@ exports.active = function(everyauth, db){
 	auth.loginView('login');
 	auth.getLoginPath('/login');
 	auth.postLoginPath('/login');
-	auth.authenticate(function(login, password){ 
+	auth.authenticate(function(email, password){ 
 		var promise = this.Promise();
 
 		db.users.findOne({
-			login: login,
+			email: email,
 			password: password
 		}, function(error, user){
 			if(error){
