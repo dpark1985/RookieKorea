@@ -27,7 +27,7 @@ var JJ5000000000 = [{city: '제주시', id: '5011000000' },{city: '서귀포시'
 
 
 router.get('/userlist', function (req, res, next) {
-  req.db.users.find(function(e, docs){
+  req.db.users.find(function (e, docs){
   	res.json(docs);
   });
 });

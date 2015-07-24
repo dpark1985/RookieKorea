@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<html lang="ko" ng-app="main">
+<html lang="ko" ng-app="common">
 
 <head>
-    
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
@@ -16,11 +15,8 @@
     <link rel="stylesheet" href="libs/bootstrap/css/bootstrap.css" />
     <link rel="stylesheet" href="libs/font-awesome/font-awesome.css" />
 
-
     <link rel="stylesheet" href="stylesheets/main.css" />
     <link rel="stylesheet" href="stylesheets/common.css" />
-
-
 
 
 
@@ -52,68 +48,60 @@
 
 </head>
 
-<body>
-    <div ng-controller="notifyCtrl">
-        <nav ng-if="!login" class="navbar navbar-default navbar-white navbar-fixed-top" ng-controller="NavCtrl" ng-include="template.navBar">
-        </nav>
+<body class="padding0">
 
-    
-        <div ng-if="login" class="alert alert-success alert-dismissible fade in" role="alert">
-            <h4>안녕하세요.</h4>
-            <p>루키코리아는 스포츠 통합 정보제공 서비스 입니다.<p>
-            <p>회원가입을 하시면 새로운 정보를 직접 등록하실수 있습니다. 제공되는 정보는 사용자의 노력으로 이루어집니다. </p>
-            <p>
-                <a href="/register" type="button" class="btn btn-danger">회원가입</a>
-                <a href="/login" type="button" class="btn btn-default">로그인</a>
-            </p>
-        </div>
-    </div>
+    <!-- Start Header -->
 
-    <div class="container">
-        <div class="row">
-            <img id="logo" class="mainIMG" src="images/logos/logo-main.png">
-        </div>
-        <div class="row">
-            <form class="form-inline col-md-6 col-md-offset-3" ng-controller="MainCtrl">
-                <div class="form-group">
-                    <label for="searchKeyword" class="sr-only">Keyword</label>
-                    <input ng-model="keyword" type="text" class="form-control" id="searchKeyword" placeholder="키워드">
+
+
+    <nav class="navbar navbar-default navbar-fixed-top margin0" ng-controller="NavCtrl" ng-include="template.navBar">
+
+    </nav>
+
+   
+
+
+
+    <div class="container marginT74">
+        <div class="row-fluid">
+            <div>
+
+                <div class="page-header">
+                    <h1>스포츠 종목을 선택해 주세요.</h1>
                 </div>
-                <button ng-click="search()" type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span> 검색</button>
-            </form>
-        </div>
+                <a href="/newinfo/baseball"><img src="images/sports/baseball.png" alt="baseball" class="img-circle sportsList"></a>
 
-        <div class="row marginT30">
-            <div class="table-responsive col-md-6 col-md-offset-3">
-                <table class="table table-bordered">
-                    <tbody>
-                        <tr>
-                            <td class="btn-default col-xs-4"><a href="/soccer">축구</a></td>
-                            <td class="btn-default col-xs-4"><a href="/basketball">농구</a></td>
-                            <td class="btn-default col-xs-4"><a href="/baseball">야구</a></td>
-                        </tr>
-                        <tr>
-                            <td class="btn-default col-xs-4"><a href="/bedminton">배드민턴</a></td>
-                            <td class="btn-default col-xs-4"><a href="/bowling">볼링</a></td>
-                            <td class="btn-default col-xs-4"><a href="/tennis">테니스</a></td>
-                        </tr>
+                <a href="/newinfo/basketball"><img src="images/sports/basketball.png" alt="basketball" class="img-circle sportsList"></a>
 
-                    </tbody>
-                </table>
-            </div>  
+                <a href="/newinfo/bedminton"><img src="images/sports/bedminton.png" alt="bedminton" class="img-circle sportsList"></a>
+
+                <a href="/newinfo/bowling"><img src="images/sports/bowling.png" alt="bowling" class="img-circle sportsList"></a>
+
+                <a href="/newinfo/soccer"><img src="images/sports/soccer.png" alt="soccer" class="img-circle sportsList"></a>
+
+                <a href="/newinfo/tennis"><img src="images/sports/tennis.png" alt="tennis" class="img-circle sportsList"></a>
+            </div>
 
         </div>
+
+
     </div>
-    
+
+
+
+
+
+
+
+
+
     <nav id="footer" class="navbar navbar-default navbar-fixed-bottom" ng-controller="FooterCtrl" ng-include="template.footerBar">
 
     </nav>
 
-
     <div id="isLogin">
         <%= user %>
     </div>
-
 
     <script type="text/javascript" src="libs/jquery/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="libs/bootstrap/js/bootstrap.min.js"></script>
@@ -121,10 +109,7 @@
 
     <script src="libs/angular/angular.min.js"></script>
     <script src="libs/angular/angular-route.min.js"></script>
-    <script src="javascripts/controllers/indexCTRL.js"></script>
-
-
-
+    <script src="javascripts/controllers/commonCTRL.js"></script>
 
 
 

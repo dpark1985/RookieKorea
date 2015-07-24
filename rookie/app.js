@@ -1,6 +1,6 @@
 
 //모듈 추출
-var debug = require('debug')('RookeiKorea');
+var debug = require('debug')('RookeiKorea:server');
 var http = require('http');
 var nconf = require('nconf');
 var mongojs = require('mongojs');
@@ -19,19 +19,25 @@ var redis = require('redis');
 var fs = require('fs');
 var multer  = require('multer');
 
-var customGlobal = require('./routes/global');
-var customAuth = require('./routes/auth');
+
+// import Custom utilities
+var customGlobal = require('./routes/utilities/global');
+var customAuth = require('./routes/utilities/auth');
+
+// import Custom Routes
 var customMain = require('./routes/main');
-var customSocket = require('./routes/socket');
-var customChallenge = require('./routes/challenge');
-var customChallengeDetails = require('./routes/challengeDetails');
+var customUtilities = require('./routes/utilities/utilities');
+var customNewInfo = require('./routes/newInfo/newinfo');
+
+
+
 
 var hybridApp = require('./routes/happ');
 
 // DataBase connection
-var baseURI = "52.69.2.200/test1";
-//var baseURI = 'test2';
-var collections = ["users", "competitions", "courts", "clubs"];
+//var baseURI = "52.69.2.200/test1";
+var baseURI = 'test2';
+var collections = ["query", "users", "competitions", "courts", "clubs"];
 var db = mongojs.connect(baseURI, collections);
 
 
@@ -46,6 +52,7 @@ var options = {
 
 //세션 저장소를 생성
 var sessionStore = new RedisStore(options);
+
 
 //nconf 파일 설정
 nconf.file('config.json');
@@ -67,12 +74,13 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(__dirname + '/public/favicon.ico'));
+app.use(favicon(__dirname + '/public/images/favicons/favicon.ico'));
 app.set('port', process.env.PORT || 3000);
 app.use(logger('dev'));
 app.use(bodyParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
 app.use(cookieParser('your secret here'));
 
 app.use(session({
@@ -103,14 +111,21 @@ app.use(
     })
 );
 
+//소켓 서버 생성
+var io = socket_io.listen(server);
+io.set('log level', 2);
 
 
-//라우터
-customMain.active(app, db);
-//customSocket.active(io, client, sessionStore);
-//customChallenge.active(app, db, fs);
-//customChallengeDetails.active(app, db);
+
 app.use('/happ', hybridApp);
+//라우터
+customUtilities.active(app, db);
+
+customNewInfo.active(app, db);
+customMain.active(app, db);
+
+
+
 
 
 // catch 404 and forward to error handler

@@ -23,3 +23,24 @@
 
 }
 
+#compImg{
+    overflow: hidden;
+    opacity: 0;
+    width: 74px;
+    height: 32px;
+}
+
+#courtImg{
+    overflow: hidden;
+    opacity: 0;
+    width: 74px;
+    height: 32px;
+}
+
+#clubImg{
+    overflow: hidden;
+    opacity: 0;
+    width: 74px;
+    height: 32px;
+}
+

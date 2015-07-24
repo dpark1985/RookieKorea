@@ -1,0 +1,99 @@
+<div>
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#updates" aria-controls="updates" role="tab" data-toggle="tab">업데이트</a></li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="updates">
+            <div class="list-group">
+                <a href="" data-toggle="modal" data-target="#{{item._id}}" class="list-group-item" ng-repeat="item in itemsListside">
+                    <div class="media-left">
+                        <img class="media-object" ng-src="/uploads/{{item.eventImg}}" style="height: 43px; width: 64.5px;">
+                    </div>
+                    <div class="media-body">
+                        <h5 class="media-heading">{{item.eventTitle}} <br>
+                            <small>{{item.eventSport}}</small></h5>
+
+                    </div>
+                </a>
+            </div>
+
+
+        </div>
+    </div>
+
+</div>
+
+
+<!-- Modal -->
+<div ng-repeat="item in itemsListside">
+    <div class="modal fade" id="{{item._id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel{{item._id}}">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: darkturquoise;">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel{{item._id}}">
+                        대회보기
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+
+                            <div class="page-header col-md-9 margin0 paddingT10">
+                                <h1>{{item.eventTitle}}</br/><small>{{item.eventSport}}</small></h1>
+                            </div>
+                            <div class="col-md-3">
+                         
+                                <img ng-src="/uploads/{{item.eventImg}}" class="modalImg">
+
+                            </div>
+                        </div>
+                        <div class="row marginT30">
+                            <table class="table table-condensed">
+                                <tbody class="borderT2SG">
+                                    <tr>
+                                        <th>대회장소</th>
+                                        <td>{{item.eventLocation}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>경기일시</th>
+                                        <td>{{item.eventDate.start}} ~ {{item.eventDate.end}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>신청기간</th>
+                                        <td>{{item.eventRegist.start}} ~ {{item.eventRegist.end}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>홈페이지</th>
+                                        <td><a href="{{item.eventURL}}" target="_blank">{{item.eventURL}}</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="row marginT30">
+                            <div ng-bind-html="item.eventInfo"></div>
+                        </div>
+
+                    </div>
+                    
+
+
+
+                </div>
+
+                <div class="modal-footer">
+                    <img src="../images/logo.png">
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+

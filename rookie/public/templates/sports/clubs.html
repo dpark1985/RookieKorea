@@ -1,0 +1,95 @@
+<ol class="breadcrumb border1SC">
+    <li>총 {{itemsNum}}개 검색</li>
+</ol>
+
+<ul class="list-group">
+    <li class="list-group-item" ng-repeat="item in items">
+        <a href="" data-toggle="modal" data-target="#club{{item._id}}"> 
+            <div class="media-left">
+                <img class="media-object" style="width: 64px; height: 64px; "ng-src="/uploads/{{item.clubImg}}" alt="...">
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">{{item.clubTitle}}</h4>
+            </div>
+        </a>
+    </li>
+
+</ul>
+
+
+<div class="btn-group col-md-12 col-lg-12" role="group" aria-label="pagination">
+    <button type="button" class="btn btn-default col-md-5 col-lg-5 {{Ldisable}}" ng-click="moveBackward()">이전페이지</button>
+    <button type="button" class="btn btn-default disabled col-md-2 col-lg-2">{{count + 1}} / {{pageNum}}</button>
+    <button type="button" class="btn btn-default col-md-5 col-lg-5 {{Rdisable}}" ng-click="moveForward()">다음페이지</button>
+    
+</div>
+
+
+<!-- Modal -->
+<div ng-repeat="item in items">
+    <div class="modal fade" id="club{{item._id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel{{item._id}}">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: darkturquoise;">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel{{item._id}}">
+                        대회보기
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+
+                            <div class="page-header col-md-9 margin0 paddingT10">
+                                <h1>{{item.clubTitle}}</br/><small>{{item.clubSport}}</small></h1>
+                            </div>
+                            <div class="col-md-3">
+                         
+                                <img ng-src="/uploads/{{item.clubImg}}" class="modalImg">
+
+                            </div>
+                        </div>
+                        <div class="row marginT30">
+                            <table class="table table-condensed">
+                                <tbody class="borderT2SG">
+                                    <tr>
+                                        <th>주요 활동 위치</th>
+                                        <td>{{item.clubLocation}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>대표 전화번호</th>
+                                        <td>{{item.clubPhone}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>대표 이메일주소</th>
+                                        <td>{{item.clubEmail}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>홈페이지</th>
+                                        <td>{{item.clubURL}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="row marginT30">
+                            <div ng-bind-html="item.clubInfo"></div>
+                        </div>
+
+                    </div>
+                    
+
+
+
+                </div>
+
+                <div class="modal-footer">
+                    <img src="../images/logo.png">
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
