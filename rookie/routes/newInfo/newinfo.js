@@ -39,11 +39,15 @@ exports.active = function(app, db){
 					eventAuthor: user.login,
 					eventTitle: req.body.compName,
 					eventDate: {
+						startC: req.body.compDate1,
+						endC: req.body.compDate2,
 						start: req.body.compDate11,
 						end: req.body.compDate22
 					},
 					eventLocation: req.body.compLocation,
 					eventRegist: {
+						startC: req.body.registDate1,
+						endC: req.body.registDate2,
 						start: req.body.registDate11,
 						end: req.body.registDate22
 					},
