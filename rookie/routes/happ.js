@@ -31,17 +31,17 @@ router.get('/testingDetails/:category/:id', function (req, res, next){
 	var itemId = req.params.id;
 
 	if(collection == 'competitions'){
-		db.competitions.findOne({_id: itemId})
+		req.db.competitions.findOne({_id: itemId})
 		.sort({ "_id" : -1 }, function (err, data){
 			res.json(data);
 		});
 	} else if (collection == 'courts'){
-		db.courts.findOne({_id: itemId})
+		req.db.courts.findOne({_id: itemId})
 		.sort({ "_id" : -1 }, function (err, data){
 			res.json(data);
 		});
 	} else if (collection == 'clubs'){
-		db.clubs.findOne({_id: itemId})
+		req.db.clubs.findOne({_id: itemId})
 		.sort({ "_id" : -1 }, function (err, data){
 			res.json(data);
 		});
