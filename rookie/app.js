@@ -18,6 +18,7 @@ var RedisStore = require('connect-redis')(session);
 var redis = require('redis');
 var fs = require('fs');
 var multer  = require('multer');
+var cors = require('cors');
 
 
 // import Custom utilities
@@ -87,12 +88,7 @@ app.use(session({
 }));
 app.use(everyauth.middleware());
 app.use(router);
-app.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,HEAD,DELETE,OPTIONS');
-    res.header('Access-Control-Allow-Headers', 'content-Type,x-requested-with');
-    next();
-});
+app.use(cors());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(function (req, res, next) {
     req.db = db;
