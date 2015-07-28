@@ -11,7 +11,7 @@ exports.active = function(app, db){
 		isLogin(req, res, function(user){
 			res.render('newInfo/categorySelect', { 
 				user: user.login,
-				selectedSport: req.param('sports') 
+				selectedSport: req.params.sports 
 			});
 		}, function(){
 			res.redirect('/login');
@@ -34,7 +34,7 @@ exports.active = function(app, db){
 					{ "$**" : "text" }
 				);
 				db.competitions.insert({
-					eventSport: req.param('sports'),
+					eventSport: req.params.sports,
 					eventProved: false,
 					eventAuthor: user.login,
 					eventTitle: req.body.compName,
@@ -84,7 +84,7 @@ exports.active = function(app, db){
 					{ "$**" : "text" }
 				);
 				db.courts.insert({
-					courtSport: req.param('sports'),
+					courtSport: req.params.sports,
 					courtProved: false,
 					courtAuthor: user.login,
 					courtTitle: req.body.courtName,
@@ -124,7 +124,7 @@ exports.active = function(app, db){
 					{ "$**" : "text" }
 				);
 				db.clubs.insert({
-					clubSport: req.param('sports'),
+					clubSport: req.params.sports,
 					clubProved: false,
 					clubAuthor: user.login,
 					clubTitle: req.body.clubName,

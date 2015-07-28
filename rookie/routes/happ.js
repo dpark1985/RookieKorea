@@ -26,6 +26,29 @@ router.post('/testingUserEditPW', function (req, res, next) {
 	});
 });
 
+router.get('/testingDetails/:category/:id', function (req, res, next){
+	var collection = req.params.category;
+	var itemId = req.params.id;
+
+	if(collection == 'competitions'){
+		db.competitions.findOne({_id: itemId})
+		.sort({ "_id" : -1 }, function (err, data){
+			res.json(data);
+		});
+	} else if (collection == 'courts'){
+		db.courts.findOne({_id: itemId})
+		.sort({ "_id" : -1 }, function (err, data){
+			res.json(data);
+		});
+	} else if (collection == 'clubs'){
+		db.clubs.findOne({_id: itemId})
+		.sort({ "_id" : -1 }, function (err, data){
+			res.json(data);
+		});
+	}
+
+});
+
 router.post('/testingUserEdit', function (req, res, next) {
 	
 	req.db.users.update({login: req.body.login}, 
