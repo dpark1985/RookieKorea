@@ -31,7 +31,7 @@ router.get('/testingDetails/:category/:id', function (req, res, next){
 	var itemId = req.params.id;
 
 	if(collection == 'competitions'){
-		req.db.competitions.find({_id: itemId.})
+		req.db.competitions.find({_id: itemId})
 		.sort({ "_id" : -1 }, function (err, data){
 			res.json(data);
 		});
