@@ -107,27 +107,72 @@
 
         </div>
     </div>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#changePW">
+                                    비밀번호 변경
+                                </button>
     
     <nav id="footer" class="navbar navbar-default navbar-fixed-bottom" ng-controller="FooterCtrl" ng-include="template.footerBar">
 
     </nav>
 
-
     <div id="isLogin">
         <%= user %>
     </div>
 
+    <!-- Modal -->
+    <div class="modal fade" id="changePW" tabindex="-1" role="dialog" aria-labelledby="changePWLabel">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="changePWLabel">비밀번호 변경</h4>
+                </div>
+                <form id="changeForm" action="/useraccount" method="post">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="login">현재 비밀번호</label>
+                            <input type="text" class="form-control" id="login" name="login" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">새로운 비밀번호</label>
+                            <input type="text" class="form-control" id="password" name="password" placeholder="">
+                        </div>
+
+
+                        <div class="form-group marginB40">
+                            <button id="setChange" data-dismiss="modal" type="submit" class="btn btn-success col-md-9">설정</button>
+                            <button type="button" data-dismiss="modal" class="btn btn-danger floatR">취소</button>
+                        </div>
+                    </div>
+                </form>
+                <div class="modal-footer">
+                    <img src="/images/logo.png">
+                </div>
+            </div>
+        </div>
+    </div>   
 
     <script type="text/javascript" src="libs/jquery/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="libs/bootstrap/js/bootstrap.min.js"></script>
-
-
     <script src="libs/angular/angular.min.js"></script>
     <script src="libs/angular/angular-route.min.js"></script>
     <script src="javascripts/controllers/indexCTRL.js"></script>
 
 
+    <script>
+    
+$('#setChange').click(function(e){
+      e.preventDefault();
+      $.post('http://52.69.2.200/login', 
+         $('#changeForm').serialize(), 
+         function(data, status, xhr){
+            console.log(data);
 
+         });
+      
+});
+
+    </script>
 
 
 
