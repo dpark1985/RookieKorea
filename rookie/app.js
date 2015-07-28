@@ -121,7 +121,7 @@ app.use('/happ', hybridApp);
 customUtilities.active(app, db);
 
 customNewInfo.active(app, db);
-customMain.active(app, db);
+customMain.active(app, db, fs);
 
 
 

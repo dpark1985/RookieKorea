@@ -1,4 +1,4 @@
-exports.active = function(app, db){
+exports.active = function(app, db, fs){
 
 	// Render index page
 	// 메인 페이지 출력
@@ -46,6 +46,14 @@ exports.active = function(app, db){
 				res.json(data);
 			});
 		}
+	});
+
+
+	app.get('/uploads/:imgId', function (req, res, next) {
+		fs.readFile(req.params.imageId, function (err, data){
+			res.writeHead(200, {'Content-Type': 'image/jpeg'});
+			res.end(data);
+		});
 	});
 
 
