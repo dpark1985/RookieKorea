@@ -51,6 +51,7 @@ exports.active = function(everyauth, db){
 		var promise = this.Promise();
 
 		db.users.insert({
+			name: userAttribute.name,
 			login: userAttribute.login,
 			password: userAttribute.password
 		}, function(error, result){

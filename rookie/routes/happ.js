@@ -86,6 +86,7 @@ router.post('/testing', function (req, res, next) {
 		});
 	} else if(req.body.status === "register"){
 		req.db.users.insert({
+			name: req.body.name,
 			login: req.body.login,
 			password: req.body.password,
 			since: Date(),
