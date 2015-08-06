@@ -64,6 +64,26 @@ router.post('/testingUserEdit', function (req, res, next) {
 	});
 });
 
+router.post('/testingUserSetting/:userID/img', function (req, res, next) {
+	console.log('=====================');
+	console.log('userID: ' + req.params.userID);
+	console.log('=====================');
+	console.log(req.files);
+
+/*
+	req.db.users.update({login: req.params.userID}, 
+	{
+		"$set" : 
+		{
+			img : req.files.name
+		}
+	}, function (err, data){
+		res.json(data);
+	});
+*/
+
+});
+
 
 
 router.post('/testingUserID', function (req, res, next) {
