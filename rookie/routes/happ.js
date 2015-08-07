@@ -51,7 +51,7 @@ router.get('/testingDetails/:category/:id', function (req, res, next){
 
 router.post('/testingUserEdit', function (req, res, next) {
 	
-	req.db.users.update({login: req.body.login}, 
+	req.db.users.update({login: req.body.login, password: req.body.curPW}, 
 	{
 		"$set" : 
 		{
