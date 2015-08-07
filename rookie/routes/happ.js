@@ -117,6 +117,12 @@ router.post('/testing', function (req, res, next) {
 		}, function (err, data){
 			res.json(data);
 		});
+	} else if(req.body.status === "withdraw"){
+		req.db.users.remove({
+			login : req.body.login
+		}, function (err, data){
+			res.json(data);
+		})
 	}
 });
 
