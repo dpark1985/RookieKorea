@@ -55,9 +55,7 @@ router.post('/testingUserEdit', function (req, res, next) {
 	{
 		"$set" : 
 		{
-			emailDM : req.body.emailDM,
-			email: req.body.newEmail,
-			nickName: req.body.nickName
+			password: req.body.newPW
 		}
 	}, function (err, data){
 		res.json(data);
