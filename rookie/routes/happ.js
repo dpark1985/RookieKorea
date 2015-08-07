@@ -76,7 +76,14 @@ router.post('/testingUserSetting/:userID/img', function (req, res, next) {
 			img : req.files.file.name
 		}
 	}, function (err, data){
-		res.json(data);
+		if(err){
+			res.json(err);
+		} else{
+			res.json(data);
+		}
+
+		
+
 	});
 
 
