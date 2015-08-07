@@ -111,10 +111,6 @@ router.post('/testing', function (req, res, next) {
 		});
 
 
-
-		req.db.users.aggregate({login: req.body.login},
-			[{ $project: {visit: { $add: [ "$visit", "1"]}}}]
-		);
 	} else if(req.body.status === "register"){
 		req.db.users.insert({
 			name: req.body.name,
