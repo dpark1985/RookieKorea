@@ -1,10 +1,14 @@
 
 angular.module('common', [], function (){})
 
-
+/*
+/*	Author 			= 	Daniel Park
+/*	Date 			= 	08/10/2015
+/*	Description_en	=	General Navigation Controller, Check login status, keyword search
+/*	Description_ko	=	네비게이션 컨트롤러, 로그인체크, 검색키워드
+/*	Reference		=	search.ejs
+*/
 .controller('NavCtrl', function ($scope, $rootScope, $location, $window){
-
-
 
 	var strArr = $location.absUrl().split('/');
 	if(strArr.length == 5){ $rootScope.addURL = '../'; } 
@@ -35,6 +39,16 @@ angular.module('common', [], function (){})
 		}
 	}
 })
+
+
+/*
+/*	Author 			= 	Daniel Park
+/*	Date 			= 	08/10/2015
+/*	Description_en	=	Footer Controller: includes footerBar.html
+/*	Description_ko	=	풋터 컨트롤러: 풋터 템플릿 출력
+/*	Reference		=	advertize.ejs, login.ejs, query.ejs, register.ejs, useraccount.ejs
+/*	Reference		=	templates/common/footerBar.html
+*/
 .controller('FooterCtrl', function ($scope, $rootScope, $location) {
 	var strArr = $location.absUrl().split('/');
 	if(strArr.length == 5){ $rootScope.addURL = '../'; } 

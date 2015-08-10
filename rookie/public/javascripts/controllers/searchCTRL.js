@@ -21,6 +21,9 @@ angular.module('search', ['ngRoute'], function ($routeProvider){})
 /*	Date 			= 	08/10/2015
 /*	Description_en	=	Main Controller, Output searched contents & all competitions list
 /*	Description_ko	=	메인 컨트롤러, 검색 결과 출력, 모든 대회 목록 출력
+/*	Reference		=	search.ejs
+/*	Reference		= 	templates/search/mainView.html
+/*	Reference		=	templates/search/competitions.html
 */
 .controller('MainCtrl', function ($scope, $rootScope, $http, $location, $sce, $window, $filter){
 	$scope.templates = {
@@ -40,7 +43,6 @@ angular.module('search', ['ngRoute'], function ($routeProvider){})
 		$window.history.back();
 	}
 
-	//var searchQuery = $location.url();
 
 	if ($location.url() == '/compList'){
 		$scope.searchActive = '';
@@ -127,10 +129,6 @@ angular.module('search', ['ngRoute'], function ($routeProvider){})
 		} else{ $rootScope.count ++; }
 		$('html,body').scrollTop(0);
 	}
-
-
-
-
 })
 
 
@@ -141,6 +139,7 @@ angular.module('search', ['ngRoute'], function ($routeProvider){})
 /*	Description_en	=	Side Content Controller, output 10 competitions on side
 /*	Description_ko	=	사이트 컨트롤러, 10개 최신 대회 목록 출력
 /*	Reference		=	search.ejs
+/*	Reference		=	templates/common/side.html
 */
 .controller('SideCtrl', function ($scope, $rootScope, $http, $sce) {
 	$scope.template = {
@@ -165,6 +164,7 @@ angular.module('search', ['ngRoute'], function ($routeProvider){})
 /*	Description_en	=	Navigation Controller, Check login status, keyword search
 /*	Description_ko	=	네비게이션 컨트롤러, 로그인체크, 검색키워드
 /*	Reference		=	search.ejs
+/*	Reference		=	templates/common/navBar.html
 */
 .controller('NavCtrl', function ($scope, $rootScope, $window){
 

@@ -2,8 +2,6 @@
 angular.module('sports', ['ngRoute'])
 
 .config(['$routeProvider', function ($routeProvider) {
-
-
 	$routeProvider.when('/', {
 		templateUrl: '/templates/sports/mainView.html',
 		controller: 'MainCtrl',
@@ -13,6 +11,18 @@ angular.module('sports', ['ngRoute'])
 		controller: 'MainCtrl'
 	});
 }])
+
+/*
+/*	Author 			= 	Daniel Park
+/*	Date 			= 	08/10/2015
+/*	Description_en	=	Main Controller: Output competitions, courts, clubs list
+/*	Description_ko	=	메인 컨트롤러: 대회, 코트장, 동호회 정보 출력
+/* 	Reference		= 	sports.ejs
+/* 	Reference		= 	templates/sports/mainView.html
+/* 	Reference		= 	templates/sports/competitions.html
+/* 	Reference		= 	templates/sports/courts.html
+/* 	Reference		= 	templates/sports/clubs.html
+*/
 .controller('MainCtrl', function ($scope, $rootScope, $http, $location, $sce, $filter){
 	$scope.templates = {
 		"competitions" : "/templates/sports/competitions.html",
@@ -87,6 +97,17 @@ angular.module('sports', ['ngRoute'])
 		console.log('error');
 	});
 
+
+
+	/*
+	/*	Author 			= 	Daniel Park
+	/*	Date 			= 	08/10/2015
+	/*	Description_en	=	Move Forward Button
+	/*	Description_ko	=	앞으로 가기 버튼
+	/*	Reference		= 	templates/sports/competitions.html
+	/*	Reference		= 	templates/sports/courts.html
+	/*	Reference		= 	templates/sports/clubs.html
+	*/
 	$scope.moveForward = function(){
 		$rootScope.count ++;
 		if(($rootScope.count+1) == $rootScope.pageNum){ $rootScope.Rdisable = "disabled"; } 
@@ -99,6 +120,16 @@ angular.module('sports', ['ngRoute'])
 		$('html,body').scrollTop(0);
 	}
 
+
+	/*
+	/*	Author 			= 	Daniel Park
+	/*	Date 			= 	08/10/2015
+	/*	Description_en	=	Move Backword Button
+	/*	Description_ko	=	뒤로 가기 버튼
+	/*	Reference		= 	templates/sports/competitions.html
+	/*	Reference		= 	templates/sports/courts.html
+	/*	Reference		= 	templates/sports/clubs.html
+	*/
 	$scope.moveBackward = function(){
 		$rootScope.count --;
 		if($rootScope.count == 0){ $rootScope.Ldisable = "disabled"; } 
@@ -112,6 +143,15 @@ angular.module('sports', ['ngRoute'])
 	}
 })
 
+
+
+/*
+/*	Author 			= 	Daniel Park
+/*	Date 			= 	08/10/2015
+/*	Description_en	=	Side Content Controller, output 10 competitions on side
+/*	Description_ko	=	사이트 컨트롤러, 10개 최신 대회 목록 출력
+/*	Reference		=	sports.ejs
+*/
 .controller('SideCtrl', function ($scope, $rootScope, $http, $sce) {
 	$scope.template = {
 		"side" : "/templates/common/side.html"
@@ -128,30 +168,33 @@ angular.module('sports', ['ngRoute'])
 		}	
 	});
 })
-.controller('SearchCtrl', function ($scope, $window){
-	console.log('testing');
 
-})
+
+
+/*
+/*	Author 			= 	Daniel Park
+/*	Date 			= 	08/10/2015
+/*	Description_en	=	Navigation Controller, Check login status, keyword search
+/*	Description_ko	=	네비게이션 컨트롤러, 로그인체크, 검색키워드
+/*	Reference		=	sports.ejs
+/*	Reference		=	templates/common/navBar.html
+*/
 .controller('NavCtrl', function ($scope, $rootScope, $window){
+
 	$rootScope.addURL = '';
 
 	var isLogin = $("#isLogin").html();
-
-
-
 	$scope.userName = isLogin.trim();
 	if(isLogin.trim() != ""){
 		$scope.noLogin = false;
 		$scope.yesLogin = true;
 		$scope.noMain = true;
-
 		$('#isLogin').hide();
 
 	} else{
 		$scope.noLogin = true;
 		$scope.yesLogin = false;
 		$scope.noMain = true;
-
 		$('#isLogin').hide();
 	}
 
@@ -159,6 +202,15 @@ angular.module('sports', ['ngRoute'])
 		"navBar" : "/templates/common/navBar.html"
 	}	
 
+
+	/*
+	/*	Author 			= 	Daniel Park
+	/*	Date 			= 	08/10/2015
+	/*	Description_en	=	Redirect to Search Page
+	/*	Description_ko	=	검색 키워드가 있을 시, /search/키워드 로 이동
+	/*	url				=	/search#/KEYWORD
+	/* 	Reference		=	search.ejs
+	*/
 	$scope.search = function() {		
 		if($('#searchInput').val() != ''){
 			$window.location = '/search#/' + $('#searchInput').val();
@@ -166,6 +218,15 @@ angular.module('sports', ['ngRoute'])
 	}
 
 })
+
+
+/*
+/*	Author 			= 	Daniel Park
+/*	Date 			= 	08/10/2015
+/*	Description_en	=	Bread Controller: output current location
+/*	Description_ko	=	브레드 컨트롤러: 현위치 출력
+/*	Reference		=	sports.ejs
+*/
 .controller('breadCtrl', function ($timeout, $rootScope, $location){
 	var strArr = $location.absUrl().split('/');
 	if(strArr[3].substring(strArr[3].length-1, strArr[3].length) == '#'){
