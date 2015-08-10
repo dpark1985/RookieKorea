@@ -103,6 +103,9 @@ router.post('/testingUserID', function (req, res, next) {
 
 router.post('/testing', function (req, res, next) {
 	if(req.body.status === "login"){
+		req.db.users.update({login: req.body.login}, 
+			{"$inc" : {"visits" : 1}});
+		
 		req.db.users.findOne({
 			login: req.body.login,
 			password: req.body.password
@@ -110,8 +113,7 @@ router.post('/testing', function (req, res, next) {
 			res.json(data);
 		});
 
-		req.db.users.update({login: req.body.login}, 
-			{"$inc" : {"visits" : 1}});
+		
 
 
 	} else if(req.body.status === "register"){
@@ -120,6 +122,7 @@ router.post('/testing', function (req, res, next) {
 			login: req.body.login,
 			password: req.body.password,
 			since: Date(),
+			visits: 0,
 			competitions: [],
 			courts: [],
 			clubs: [],
