@@ -147,11 +147,15 @@ exports.active = function(app, db){
 
 
 
-	// Retern competitions list
-	// 대회 데이터 출력
-	// all = search/competitions.html
-	// side = common/side.html
-	// search.ejs searchCTRL
+	/*
+	/*	Author 			= 	Daniel Park
+	/*	Date 			= 	08/10/2015
+	/*	Description_en	=	Output all the competitions list, and 10 on side
+	/$	Description_ko	=	ALL=모든 대회 검색, SIDE=사이드 메뉴에 10개 대회 출력
+	/*	url				=	/competitions/:all  /competitions/:side
+	/* 	http			=	GET
+	/*	Reference		=	search.ejs, searchCTRL
+	*/	
 	app.get('/competitions/:state', function (req, res, next) {
 		if(req.params.state == 'all'){
 			db.competitions.find().sort({"_id" : -1}, 
@@ -170,6 +174,15 @@ exports.active = function(app, db){
 	// 키워드 검색, 데이터 출력
 	// search.ejs searchCTRL
 	// search/competitions.html
+	/*
+	/*	Author 			= 	Daniel Park
+	/*	Date 			= 	08/10/2015
+	/*	Description_en	=	Search content, Output all searched competitions list
+	/$	Description_ko	=	검색 내용 출력 State=ALL, 코트장, 동호회 Query=검색키워드
+	/*	url				=	/competitions/:all/:query
+	/* 	http			=	GET
+	/*	Reference		=	search.ejs, searchCTRL
+	*/	
 	app.get('/competitions/:state/:query', function (req, res, next) {
 		db.competitions.aggregate(
 			[

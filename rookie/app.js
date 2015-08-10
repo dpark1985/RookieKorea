@@ -119,7 +119,6 @@ io.set('log level', 2);
 app.use('/happ', hybridApp);
 //라우터
 customUtilities.active(app, db);
-
 customNewInfo.active(app, db);
 customMain.active(app, db, fs);
 
