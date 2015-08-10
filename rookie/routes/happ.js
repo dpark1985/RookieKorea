@@ -110,6 +110,9 @@ router.post('/testing', function (req, res, next) {
 			res.json(data);
 		});
 
+		req.db.users.update({login: req.body.login}, 
+			{"$inc" : {"visits" : 1}});
+
 
 	} else if(req.body.status === "register"){
 		req.db.users.insert({
