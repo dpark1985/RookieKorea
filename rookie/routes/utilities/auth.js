@@ -22,6 +22,7 @@ exports.active = function(everyauth, db){
 	auth.postRegisterPath('/register');
 	auth.extractExtraRegistrationParams(function (req) {
 		return {
+			name: req.param('name'),
 			confirmPassword: req.param('confirm-password')
 		}
 	});
@@ -53,7 +54,14 @@ exports.active = function(everyauth, db){
 		db.users.insert({
 			name: userAttribute.name,
 			login: userAttribute.login,
-			password: userAttribute.password
+			password: userAttribute.password,
+			since: Date(),
+			visits: 0,
+			competitions: [],
+			courts: [],
+			clubs: [],
+			likes: [],
+			img: null
 		}, function(error, result){
 			if(result){
 				promise.fulfill(result);

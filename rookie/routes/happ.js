@@ -105,7 +105,7 @@ router.post('/testing', function (req, res, next) {
 	if(req.body.status === "login"){
 		req.db.users.update({login: req.body.login}, 
 			{"$inc" : {"visits" : 1}});
-		
+
 		req.db.users.findOne({
 			login: req.body.login,
 			password: req.body.password
@@ -126,7 +126,8 @@ router.post('/testing', function (req, res, next) {
 			competitions: [],
 			courts: [],
 			clubs: [],
-			likes: []
+			likes: [],
+			img: null
 		}, function (err, data){
 			res.json(data);
 		});
