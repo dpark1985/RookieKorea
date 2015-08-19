@@ -1,12 +1,6 @@
 var express = require('express');
 var router = express.Router();
-
-
-router.get('/userlist', function (req, res, next) {
-  req.db.users.find(function (e, docs){
-  	res.json(docs);
-  });
-});
+var cors = require('cors');
 
 
 
@@ -50,54 +44,20 @@ router.get('/testingDetails/:category/:id', function (req, res, next){
 /*	Reference		=	DetailCtrl
 /*	Reference		=	$scope.report()
 */
-router.post('/testingDetails/:category/:id', function (req, res, next){
+router.post('/testingDetails/:category/:id', cors(), function (req, res, next){
 	var collection = req.params.category;
 	var itemId = req.params.id;
 
 	if(collection == 'competitions'){
 		req.db.competitions.update({_id: req.db.ObjectId(itemId)},
-		{
-			"$set" : {
-				reports: req.body.reports
-			}
-		});
+			{"$set" : { reports: req.body.reports }});
 	} else if (collection == 'courts'){
 		req.db.courts.update({_id: req.db.ObjectId(itemId)},
-		{
-			"$set" : {
-				reports: req.body.reports
-			}
-		});
+			{"$set" : { reports: req.body.reports }});
 	} else if (collection == 'clubs'){
 		req.db.clubs.update({_id: req.db.ObjectId(itemId)},
-		{
-			"$set" : {
-				reports: req.body.reports
-			}
-		});
+			{"$set" : { reports: req.body.reports }});
 	}
-});
-
-
-
-/*
-/*	Author 			= 	Daniel Park
-/*	Date 			= 	08/11/2015
-/*	Description_en	=	Edit user password, validation done on mobile device
-/*	Description_ko	=	사용자 비밀번호 변경, 벨리데이션은 스마트폰에서 수행
-/*	Reference		=	templates/userSetting/userinfo.html
-/*	Reference		=	settingCtrl
-/*	Reference		=	$scope.openPwChangeModal()
-*/
-router.post('/testingUserEdit', function (req, res, next) {
-	req.db.users.update({login: req.body.login, password: req.body.curPW}, 
-	{
-		"$set" : {
-			password: req.body.newPW
-		}
-	}, function (err, data){
-		res.json(data);
-	});
 });
 
 
@@ -110,20 +70,28 @@ router.post('/testingUserEdit', function (req, res, next) {
 /*	Reference		=	settingCtrl
 /*	Reference		=	$scope.imgSetting()
 */
-router.post('/testingUserSetting/:userID/img', function (req, res, next) {
-	req.db.users.update({login: req.params.userID}, 
-	{
-		"$set" : 
-		{
-			img : req.files.file.name
-		}
-	}, function (err, data){
-		if(err){
-			res.json(err);
-		} else{
-			res.json(data);
-		}
-	});
+router.post('/testingUserSetting/:userID/:category', cors(), function (req, res, next) {
+	
+	if(req.params.category == 'img'){
+		req.db.users.update({login: req.params.userID}, 
+		{ "$set" : { img : req.files.file.name }}, 
+			function (err, data){
+				if(err){
+					res.json(err);
+				} else{
+					res.json(data);
+				}
+		});
+	} else if (req.params.category == 'pwchange'){
+		req.db.users.update({login: req.body.login, password: req.body.curPW}, 
+		{ "$set" : { password: req.body.newPW }}, 
+			function (err, data){
+				res.json(data);
+		});
+	}
+
+
+
 });
 
 
@@ -136,11 +104,10 @@ router.post('/testingUserSetting/:userID/img', function (req, res, next) {
 /*	Reference		= 	loginCtrl
 /*	Reference		=	$scope.doRegister()
 */
-router.post('/testingUserID', function (req, res, next) {
-	req.db.users.findOne({
-		login: req.body.login
-	}, function (err, data){
-		res.json(data);
+router.post('/testingUserID', cors(), function (req, res, next) {
+	req.db.users.findOne({ login: req.body.login }, 
+		function (err, data){
+			res.json(data);
 	});
 });
 
@@ -160,7 +127,7 @@ router.post('/testingUserID', function (req, res, next) {
 /*		Reference		=	settingCtrl
 /*		Reference		=	$scope.showWithdrawConfirm()
 */
-router.post('/testing', function (req, res, next) {
+router.post('/testing', cors(), function (req, res, next) {
 	if(req.body.status === "login"){
 		req.db.users.update({login: req.body.login}, 
 			{"$inc" : {"visits" : 1}});
@@ -187,11 +154,10 @@ router.post('/testing', function (req, res, next) {
 			res.json(data);
 		});
 	} else if(req.body.status === "withdraw"){
-		req.db.users.remove({
-			login : req.body.login
-		}, function (err, data){
-			res.json(data);
-		})
+		req.db.users.remove({ login : req.body.login }, 
+			function (err, data){
+				res.json(data);
+		});
 	}
 });
 

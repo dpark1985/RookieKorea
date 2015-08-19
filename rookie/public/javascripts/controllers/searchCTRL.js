@@ -47,15 +47,15 @@ angular.module('search', ['ngRoute'], function ($routeProvider){})
 	if ($location.url() == '/compList'){
 		$scope.searchActive = '';
 		$scope.compListActive = 'active';
-		$scope.url = 'competitions/all';
+		$scope.url = 'search/competitions/all';
 
 	} else {
 		$scope.searchActive = 'active';
 		$scope.compListActive = '';
-		$scope.url = 'competitions/all' + $location.url();
+		$scope.url = 'search/competitions/all' + $location.url();
 	} 
 
-	$http.get('competitions/all')
+	$http.get('search/competitions/all')
 	.success(function (data, status){
 		$rootScope.totalNum = data.length;
 	});

@@ -13,17 +13,13 @@
 				<div ng-bind-html="item.eventSummary"></div>
 			</div>
 		</a>
+        <div style="margin-top: 20px;">
+            <button type="button" ng-click="success(item._id, 'competitions')" class="btn btn-success">Success</button>
+            <button type="button" ng-click="fail(item._id, 'competitions')" class="btn btn-danger">Danger</button>
+        </div>
 	</li>
 
 </ul>
-
-
-<div class="btn-group col-md-12 col-lg-12" role="group" aria-label="pagination">
-    <button type="button" class="btn btn-default col-md-5 col-lg-5 {{Ldisable}}" ng-click="moveBackward()">이전페이지</button>
-    <button type="button" class="btn btn-default disabled col-md-2 col-lg-2">{{count + 1}} / {{pageNum}}</button>
-    <button type="button" class="btn btn-default col-md-5 col-lg-5 {{Rdisable}}" ng-click="moveForward()">다음페이지</button>
-    
-</div>
 
 
 <!-- Modal -->
@@ -61,11 +57,11 @@
                                     </tr>
                                     <tr>
                                         <th>경기일시</th>
-                                        <td>{{item.eventDate.startC}} ~ {{item.eventDate.endC}}</td>
+                                        <td>{{item.eventDate.start}} ~ {{item.eventDate.end}}</td>
                                     </tr>
                                     <tr>
                                         <th>신청기간</th>
-                                        <td>{{item.eventRegist.startC}} ~ {{item.eventRegist.endC}}</td>
+                                        <td>{{item.eventRegist.start}} ~ {{item.eventRegist.end}}</td>
                                     </tr>
                                     <tr>
                                         <th>홈페이지</th>

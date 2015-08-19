@@ -1,0 +1,36 @@
+<div>
+    <form class="form-inline">
+        <div class="form-group">
+            <label for="nameSearch">이름 또는 이메일</label>
+            <input type="text" class="form-control" id="nameSearch" placeholder="" ng-model="nameSearch">
+        </div>
+    </form>
+    <table class="table table-hover" style="margin-top: 20px;">
+        <tbody>
+            <tr>
+                <th>#</th>
+                <th>이름</th>
+                <th>ID</th>
+                <th>PW</th>
+                <th>가입날짜</th>
+                <th>방문수</th>
+                <th>대회</th>
+                <th>코트장</th>
+                <th>동호회</th>
+                <th>좋아요</th>
+            </tr>
+            <tr ng-repeat="item in items | filter:nameSearch">
+                <td>{{item.count}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.login}}</td>
+                <td>{{item.password}}</td>
+                <td>{{item.since}}</td>
+                <td>{{item.visits}}</td>
+                <td>{{item.competitions.length}}</td>
+                <td>{{item.courts.length}}</td>
+                <td>{{item.clubs.length}}</td>
+                <td>{{item.likes.length}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

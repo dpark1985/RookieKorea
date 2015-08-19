@@ -1,0 +1,70 @@
+<div>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#notiModal">Primary</button>
+    <table class="table table-hover" style="margin-top: 20px;">
+        <tbody>
+            <tr>
+                <th>#</th>
+                <th>날짜</th>
+                <th>타입</th>
+                <th>제목</th>
+                <th>내용</th>
+            </tr>
+            <tr ng-repeat="item in items">
+                <td>{{item.count}}</td>
+                <td>{{item.notiDate}}</td>
+                <td>{{item.notiType}}</td>
+                <td>{{item.notiSubject}}</td>
+                <td>{{item.notiContext}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="notiModal" tabindex="-1" role="dialog" aria-labelledby="notiModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">공지사항 & 이벤트</h4>
+      </div>
+      <div class="modal-body">
+<form id="notiForm" ng-submit="notiSubmit()">
+
+  <div class="form-group">
+    <label for="type">종류</label>
+    <select class="selectpicker">
+      <option>공지</option>
+      <option>이벤트</option>
+    </select>
+  </div>
+
+
+  <div class="form-group">
+    <label for="subjectInput">제목</label>
+    <input type="text" class="form-control" id="subjectInput" placeholder="제목" ng-model="notiInput.subject">
+  </div>
+  <div class="form-group">
+    <label for="contextInput">내용</label>
+    <textarea class="form-control" rows="3" id="contextInput" placeholder="내용" ng-model="notiInput.context"></textarea>
+  </div>
+
+
+  <button type="submit" class="btn btn-success">저장</button>
+  <button type="submit" class="btn btn-warning" data-dismiss="modal" ng-click="modalClose()">닫기</button>
+</form>
+      </div>
+      <div class="modal-footer">
+        <img src="../images/logo.png">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+
+    $('.selectpicker').selectpicker();
+
+</script>

@@ -26,22 +26,22 @@ exports.active = function(app, db, fs){
 	// 해당 스포츠 카테고리에 대한 데이터 출력
 	// sports.ejs
 	// sports.CTRL MainCtrl
-	app.get('/:sports/:state', function (req, res, next) {
-		var collection = req.params.state;
+	app.get('/:sports/:category', function (req, res, next) {
+		var collection = req.params.category;
 		var sport = req.params.sports;
 
 		if(collection == 'competitions'){
-			db.competitions.find({eventSport: sport})
+			db.competitions.find({eventSport: sport, eventApproved: true})
 			.sort({ "_id" : -1 }, function (err, data){
 				res.json(data);
 			});
 		} else if (collection == 'courts'){
-			db.courts.find({courtSport: sport})
+			db.courts.find({courtSport: sport, courtApproved: true})
 			.sort({ "_id" : -1 }, function (err, data){
 				res.json(data);
 			});
 		} else if (collection == 'clubs'){
-			db.clubs.find({clubSport: sport})
+			db.clubs.find({clubSport: sport, clubApproved: true})
 			.sort({ "_id" : -1 }, function (err, data){
 				res.json(data);
 			});

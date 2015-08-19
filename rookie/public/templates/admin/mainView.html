@@ -1,0 +1,44 @@
+<div>
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="{{competitionsActive}}">
+            <a href="#/info/competitions" data-target="#competitions" aria-controls="competitions" role="tab" data-toggle="tab">
+                대회<span class="badge" style="margin-left:10px;">{{compNum}}</span>
+            </a>
+        </li>
+        <li role="presentation" class="{{courtsActive}}">
+            <a href="#/info/courts" data-target="#courts" aria-controls="courts" role="tab" data-toggle="tab">
+                코트장<span class="badge" style="margin-left:10px;">{{courtsNum}}</span>
+            </a>
+        </li>
+        <li role="presentation" class="{{clubsActive}}">
+            <a href="#/info/clubs" data-target="#clubs" aria-controls="clubs" role="tab" data-toggle="tab">
+                동호회<span class="badge" style="margin-left:10px;">{{clubsNum}}</span>
+            </a>
+        </li>
+        <li role="presentation" class="{{rejectsActive}}">
+            <a href="#/info/reject" data-target="#rejects" aria-controls="rejects" role="tab" data-toggle="tab">
+                반려
+            </a>
+        </li>
+
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane {{competitionsActive}}" id="competitions" ng-include="templates.competitions">
+        
+        </div>
+        <div role="tabpanel" class="tab-pane {{courtsActive}}" id="courts" ng-include="templates.courts">
+          
+        </div>
+        <div role="tabpanel" class="tab-pane {{clubsActive}}" id="clubs" ng-include="templates.clubs">
+    
+        </div>
+        <div role="tabpanel" class="tab-pane {{rejectsActive}}" id="rejects" ng-include="templates.rejects">
+    
+        </div>
+
+    </div>
+
+</div>

@@ -157,7 +157,7 @@ angular.module('sports', ['ngRoute'])
 		"side" : "/templates/common/side.html"
 	}
 
-	var url = 'competitions/side';
+	var url = 'search/competitions/side';
 	$http.get(url)
 	.success(function(data, status){
 		$rootScope.itemsListside = data;

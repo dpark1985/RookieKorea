@@ -1,0 +1,21 @@
+<ol class="breadcrumb border1SC">
+    <li>총 {{itemsNum}}개 검색</li>
+</ol>
+
+
+
+
+<table class="table table-hover">
+    <tbody>
+        <tr>
+            <th>스포츠</th>
+            <th>카테고리</th>
+            <th>제목</th>
+        </tr>
+        <tr ng-repeat="item in items">
+            <td>{{item.eventSport}}{{item.courtSport}}{{item.clubSport}}</td>
+            <td>{{item.category}}</td>
+            <td>{{item.eventTitle}}{{item.courtTitle}}{{item.clubTitle}}</td>
+        </tr>
+    </tbody>
+</table>

@@ -89,11 +89,13 @@ exports.active = function(everyauth, db){
 			if(error){
 				promise.fulfill([getCode('auth:1')]);
 			} else if(user){
+				db.users.update({login: login}, {"$inc" : {"visits" : 1}});
 				promise.fulfill(user);
 			} else{
 				promise.fulfill([getCode('auth:2')]);
 			}
 		});
+		
 		return promise;
 	});
 	auth.loginSuccessRedirect('/');

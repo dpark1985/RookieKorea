@@ -1,0 +1,28 @@
+<div>
+    <form class="form-inline">
+        <div class="form-group">
+            <label for="search">검색</label>
+            <input type="text" class="form-control" id="search" placeholder="" ng-model="search">
+        </div>
+    </form>
+    <table class="table table-hover" style="margin-top: 20px;">
+        <tbody>
+            <tr>
+                <th>#</th>
+                <th>날짜</th>
+                <th>ID</th>
+                <th>제목</th>
+                <th>내용</th>
+                <th>확인 클릭</th>
+            </tr>
+            <tr ng-repeat="item in items | filter:search">
+                <td>{{item.count}}</td>
+                <td>{{item.queryDate}}</td>
+                <td>{{item.queryAuthor}}</td>
+                <td>{{item.querySubject}}</td>
+                <td>{{item.queryContext}}</td>
+                <td><button type="button" ng-click="check(item._id)" ng-class="{'btn btn-success': item.checked, 'btn btn-danger': !item.checked}">확인</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

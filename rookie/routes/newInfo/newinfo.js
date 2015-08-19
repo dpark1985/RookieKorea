@@ -35,7 +35,8 @@ exports.active = function(app, db){
 				);
 				db.competitions.insert({
 					eventSport: req.params.sports,
-					eventProved: false,
+					eventApproved: false,
+					eventRejected: false,
 					eventAuthor: user.login,
 					eventTitle: req.body.compName,
 					eventDate: {
@@ -85,7 +86,8 @@ exports.active = function(app, db){
 				);
 				db.courts.insert({
 					courtSport: req.params.sports,
-					courtProved: false,
+					courtApproved: false,
+					courtRejected: false,
 					courtAuthor: user.login,
 					courtTitle: req.body.courtName,
 					courtPhone: req.body.courtPhone,
@@ -125,7 +127,8 @@ exports.active = function(app, db){
 				);
 				db.clubs.insert({
 					clubSport: req.params.sports,
-					clubProved: false,
+					clubApproved: false,
+					clubRejected: false,
 					clubAuthor: user.login,
 					clubTitle: req.body.clubName,
 					clubPhone: req.body.clubPhone,
