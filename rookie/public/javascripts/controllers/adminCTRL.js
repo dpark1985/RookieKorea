@@ -49,7 +49,7 @@ angular.module('admin', ['ngRoute'])
 	$scope.adminLogin = function(){
 
 
-		$http.post("http://127.0.0.1:3000/admin", {login: $scope.admin.id, pw: $scope.admin.pw})
+		$http.post("/admin", {login: $scope.admin.id, pw: $scope.admin.pw})
 		.success(function (data, status){
 			//console.log(data);
 			if(data.access == true){
