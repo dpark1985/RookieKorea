@@ -145,6 +145,32 @@ exports.active = function(app, db){
 
 	/*
 	/*	Author 			= 	Daniel Park
+	/*	Date 			= 	08/18/2015
+	/*	Description_en	=	Administrator Management Page: get total num of all info
+	/*  Description_ko	= 	관리자 관리 페이지: 모든 정보의 숫자
+	/*	url				=	/admin
+	/* 	http			=	GET
+	/* 	Reference		=	views/utilities/admin.ejs
+	/* 	Reference		=	public/templates/admin/mainView.html
+	/* 	Reference		=	public/templates/admin/side.html
+	*/
+	app.get('/admin/deleteInfo/:menu/:id', function (req, res, next) {
+		if(req.params.menu == 'ads'){
+			db.query.remove({_id: db.ObjectId(req.params.id)});
+		} else if(req.params.menu == 'query'){
+			db.query.remove({_id: db.ObjectId(req.params.id)});
+		} else if(req.params.menu == 'noti'){
+			db.noti.remove({_id: db.ObjectId(req.params.id)});
+		} else if(req.params.menu == 'userlist'){
+
+		}
+	});
+
+
+
+
+	/*
+	/*	Author 			= 	Daniel Park
 	/*	Date 			= 	08/17/2015
 	/*	Description_en	=	Administrator Management Page: approve or disapprove competitions,courts,clubs
 	/*  Description_ko	= 	관리자 관리 페이지: 대회, 코트장, 동호회 승인 또는 반려

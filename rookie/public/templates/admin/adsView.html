@@ -15,6 +15,7 @@
                 <th>내용</th>
                 <th>전화번호</th>
                 <th>확인 클릭</th>
+                <th>삭제</th>
             </tr>
             <tr ng-repeat="item in items | filter:search">
                 <td>{{item.count}}</td>
@@ -23,7 +24,8 @@
                 <td>{{item.querySubject}}</td>
                 <td>{{item.queryContext}}</td>
                 <td>{{item.queryPhone}}</td>
-                <td><button type="button" ng-click="check(item._id, item.checked)" ng-class="{'btn btn-default': item.checked, 'btn btn-success': !item.checked}">확인</button></td>
+                <td><button type="button" ng-click="check(item._id, item.checked)" ng-class="{'btn btn-default disabled': item.checked, 'btn btn-success': !item.checked}">확인</button></td>
+                <td><button type="button" ng-click="delete(item._id, item.notiActive)" class="btn btn-danger">삭제</button></td>
             </tr>
         </tbody>
     </table>

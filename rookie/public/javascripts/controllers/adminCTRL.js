@@ -247,6 +247,31 @@ angular.module('admin', ['ngRoute'])
 		}
 
 	};
+	$scope.delete = function(id, checked){
+		if(!checked){
+			$http.get("/admin/deleteInfo/ads/"+id)
+			.success(function (data, status){
+				$route.reload();
+			})
+			.error(function(data, status, headers, config) {
+				console.log('error');
+			});
+
+			$route.reload();
+			$rootScope.adsNum --;
+		} else {
+			$http.get("/admin/deleteInfo/ads/"+id)
+			.success(function (data, status){
+				$route.reload();
+			})
+			.error(function(data, status, headers, config) {
+				console.log('error');
+			});
+
+			$route.reload();
+		}
+
+	};
 
 
 
@@ -280,9 +305,9 @@ angular.module('admin', ['ngRoute'])
 		});
 	}
 
-	$scope.check = function(id){
+	$scope.check = function(id, checked){
 		if(!checked){
-			$http.get("/admin/checkedInfo/ads/"+id)
+			$http.get("/admin/checkedInfo/query/"+id)
 			.success(function (data, status){
 				$route.reload();
 			})
@@ -293,7 +318,32 @@ angular.module('admin', ['ngRoute'])
 			$route.reload();
 			$rootScope.queryNum --;
 		}
-	};	
+	};
+	$scope.delete = function(id, checked){
+		if(!checked){
+			$http.get("/admin/deleteInfo/query/"+id)
+			.success(function (data, status){
+				$route.reload();
+			})
+			.error(function(data, status, headers, config) {
+				console.log('error');
+			});
+
+			$route.reload();
+			$rootScope.queryNum --;
+		} else {
+			$http.get("/admin/deleteInfo/query/"+id)
+			.success(function (data, status){
+				$route.reload();
+			})
+			.error(function(data, status, headers, config) {
+				console.log('error');
+			});
+
+			$route.reload();
+		}
+
+	};		
 })
 
 /*
@@ -357,6 +407,32 @@ angular.module('admin', ['ngRoute'])
 
 			$route.reload();
 			$rootScope.notiNum --;
+		}
+
+	};
+
+	$scope.delete = function(id, notiActive){
+		if(notiActive){
+			$http.get("/admin/deleteInfo/noti/"+id)
+			.success(function (data, status){
+				$route.reload();
+			})
+			.error(function(data, status, headers, config) {
+				console.log('error');
+			});
+
+			$route.reload();
+			$rootScope.notiNum --;
+		} else {
+			$http.get("/admin/deleteInfo/noti/"+id)
+			.success(function (data, status){
+				$route.reload();
+			})
+			.error(function(data, status, headers, config) {
+				console.log('error');
+			});
+
+			$route.reload();
 		}
 
 	};		

@@ -9,6 +9,7 @@
                 <th>제목</th>
                 <th>내용</th>
                 <th>상태</th>
+                <th>삭제</th>
             </tr>
             <tr ng-repeat="item in items">
                 <td>{{item.count}}</td>
@@ -16,7 +17,8 @@
                 <td>{{item.notiType}}</td>
                 <td>{{item.notiSubject}}</td>
                 <td>{{item.notiContext}}</td>
-                <td><button type="button" ng-click="check(item._id, item.notiActive)" ng-class="{'btn btn-danger': item.notiActive, 'btn btn-default': !item.notiActive}">비활성화</button></td>
+                <td><button type="button" ng-click="check(item._id, item.notiActive)" ng-class="{'btn btn-success': item.notiActive, 'btn btn-default disabled': !item.notiActive}">비활성화</button></td>
+                <td><button type="button" ng-click="delete(item._id, item.notiActive)" class="btn btn-danger">삭제</button></td>
             </tr>
         </tbody>
     </table>
