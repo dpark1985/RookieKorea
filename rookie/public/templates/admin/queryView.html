@@ -21,7 +21,7 @@
                 <td>{{item.queryAuthor}}</td>
                 <td>{{item.querySubject}}</td>
                 <td>{{item.queryContext}}</td>
-                <td><button type="button" ng-click="check(item._id)" ng-class="{'btn btn-success': item.checked, 'btn btn-danger': !item.checked}">확인</button></td>
+                <td><button type="button" ng-click="check(item._id, item.checked)" ng-class="{'btn btn-default': item.checked, 'btn btn-success': !item.checked}">확인</button></td>
             </tr>
         </tbody>
     </table>

@@ -36,8 +36,8 @@ var customNewInfo = require('./routes/newInfo/newinfo');
 var hybridApp = require('./routes/happ');
 
 // DataBase connection
-var baseURI = "52.69.2.200/rookiekorea";
-//var baseURI = 'test2';
+//var baseURI = "52.69.2.200/rookiekorea";
+var baseURI = 'test2';
 var collections = ["rejects", "noti", "query", "users", "competitions", "courts", "clubs"];
 var db = mongojs.connect(baseURI, collections);
 

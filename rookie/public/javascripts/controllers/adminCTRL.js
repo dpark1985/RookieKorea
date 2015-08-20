@@ -232,18 +232,20 @@ angular.module('admin', ['ngRoute'])
 		});
 	}
 
-	$scope.check = function(id){
-		//console.log(id);
-		$http.get("/admin/checkedInfo/ads/"+id)
-		.success(function (data, status){
-			$route.reload();
-		})
-		.error(function(data, status, headers, config) {
-			console.log('error');
-		});
+	$scope.check = function(id, checked){
+		if(!checked){
+			$http.get("/admin/checkedInfo/ads/"+id)
+			.success(function (data, status){
+				$route.reload();
+			})
+			.error(function(data, status, headers, config) {
+				console.log('error');
+			});
 
-		$route.reload();
-		$rootScope.adsNum --;
+			$route.reload();
+			$rootScope.adsNum --;
+		}
+
 	};
 
 
@@ -279,17 +281,18 @@ angular.module('admin', ['ngRoute'])
 	}
 
 	$scope.check = function(id){
-		//console.log(id);
-		$http.get("/admin/checkedInfo/ads/"+id)
-		.success(function (data, status){
-			$route.reload();
-		})
-		.error(function(data, status, headers, config) {
-			console.log('error');
-		});
+		if(!checked){
+			$http.get("/admin/checkedInfo/ads/"+id)
+			.success(function (data, status){
+				$route.reload();
+			})
+			.error(function(data, status, headers, config) {
+				console.log('error');
+			});
 
-		$route.reload();
-		$rootScope.queryNum --;
+			$route.reload();
+			$rootScope.queryNum --;
+		}
 	};	
 })
 
@@ -330,7 +333,7 @@ angular.module('admin', ['ngRoute'])
 				notiContext: $scope.notiInput.context
 			})
 			.success(function (data, status){
-
+				$route.reload();
 			})
 			.error(function(data, status, headers, config) {
 				console.log('error');
@@ -341,6 +344,24 @@ angular.module('admin', ['ngRoute'])
 		};
 
 	}
+
+	$scope.check = function(id, notiActive){
+		if(notiActive){
+			$http.get("/admin/checkedInfo/noti/"+id)
+			.success(function (data, status){
+				$route.reload();
+			})
+			.error(function(data, status, headers, config) {
+				console.log('error');
+			});
+
+			$route.reload();
+			$rootScope.notiNum --;
+		}
+
+	};		
+
+
 })
 
 /*

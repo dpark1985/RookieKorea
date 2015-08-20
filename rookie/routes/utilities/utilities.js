@@ -67,7 +67,7 @@ exports.active = function(app, db){
 			});
 		} else if(req.params.menu == 'noti'){
 			var notiTotalNum = null;
-			db.noti.find({}, function (err, data){
+			db.noti.find({notiActive: true}, function (err, data){
 				notiTotalNum = data.length;
 				res.json({total: notiTotalNum});
 			});
@@ -105,7 +105,6 @@ exports.active = function(app, db){
 				res.json(data);
 			});
 		} else if(req.params.menu == 'userlist'){
-			console.log('----------------');
 			db.users.find({}).sort({"_id" : -1}).sort({"_id" : -1}, function (err, data){
 				res.json(data);
 			});
@@ -134,7 +133,8 @@ exports.active = function(app, db){
 			db.query.update({_id: db.ObjectId(req.params.id)}, 
 				{ "$set" : { checked: true } });
 		} else if(req.params.menu == 'noti'){
-
+			db.noti.update({_id: db.ObjectId(req.params.id)}, 
+				{ "$set" : { notiActive: false } });
 		} else if(req.params.menu == 'userlist'){
 
 		}
@@ -208,7 +208,6 @@ exports.active = function(app, db){
 			checked: false
 		}, function (err, data){
 			if(data){
-				console.log("INPUT DATA ==== " + data);
 				res.redirect('/');
 			} else{
 				console.log("INPUT ERROR === " + err);
@@ -229,12 +228,11 @@ exports.active = function(app, db){
 		db.noti.insert({
 			notiType: req.body.notiType,
 			notiDate: Date(),
+			notiActive: true,
 			notiSubject: req.body.notiSubject,
 			notiContext: req.body.notiContext
 		}, function (err, data){
-			if(data){
-				console.log("INPUT DATA ==== " + data);
-			} else{
+			if(err){
 				console.log("INPUT ERROR === " + err);
 			}
 		});
@@ -279,7 +277,6 @@ exports.active = function(app, db){
 			checked: false
 		}, function (err, data){
 			if(data){
-				console.log("INPUT DATA ==== " + data);
 				res.redirect('/');
 			} else{
 				console.log("INPUT ERROR === " + err);
