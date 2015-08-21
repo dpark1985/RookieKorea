@@ -291,6 +291,14 @@ exports.active = function(app, db, cors){
 					res.json(data);
 				}
 			});
+		} else {
+			db.noti.find({_id: db.ObjectId(req.params.state)}, function (err, data){
+				if(err){
+					console.log("INPUT ERROR === " + err);
+				} else {
+					res.json(data);
+				}
+			})
 		}
 	});
 
