@@ -266,6 +266,37 @@ exports.active = function(app, db, cors){
 
 
 
+	/*
+	/*	Author 			= 	Daniel Park
+	/*	Date 			= 	08/17/2015
+	/*	Description_en	=	Post notification & events
+	/*  Description_ko	= 	공지사항 및 이벤트 내용 작성
+	/*	url				=	/noti
+	/* 	http			=	POST
+	*/
+	app.get('/noti/:state', function (req, res, next) {
+		if(req.params.state == 'active')
+			db.noti.find({ notiActive: true }, function (err, data){
+				if(err){
+					console.log("INPUT ERROR === " + err);
+				} else {
+					res.json(data);
+				}
+			});
+		} else if (req.params.state == 'all'){
+			db.noti.find({}, function (err, data){
+				if(err){
+					console.log("INPUT ERROR === " + err);
+				} else {
+					res.json(data);
+				}
+			});
+		}
+
+	});
+
+
+
 
 	/*
 	/*	Author 			= 	Daniel Park
