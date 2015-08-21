@@ -18,7 +18,7 @@ var RedisStore = require('connect-redis')(session);
 var redis = require('redis');
 var fs = require('fs');
 var multer  = require('multer');
-//var cors = require('cors');
+var cors = require('cors');
 
 
 // import Custom utilities
@@ -120,7 +120,7 @@ app.use('/happ', hybridApp);
 //라우터
 customUtilities.active(app, db);
 customNewInfo.active(app, db);
-customMain.active(app, db, fs);
+customMain.active(app, db, fs, cors);
 
 
 
