@@ -49,7 +49,7 @@ exports.active = function(app, db, fs, cors){
 	});
 
 
-	app.get('/uploads/:imgId', function (req, res, next) {
+	app.get('/uploads/:imgId', cors(), function (req, res, next) {
 		fs.readFile(req.params.imageId, function (err, data){
 			res.writeHead(200, {'Content-Type': 'image/jpeg'});
 			res.end(data);
