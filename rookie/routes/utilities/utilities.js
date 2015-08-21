@@ -292,7 +292,6 @@ exports.active = function(app, db, cors){
 				}
 			});
 		}
-
 	});
 
 
