@@ -275,7 +275,7 @@ exports.active = function(app, db, cors){
 	/* 	http			=	POST
 	*/
 	app.get('/noti/:state', function (req, res, next) {
-		if(req.params.state == 'active')
+		if(req.params.state == 'active'){
 			db.noti.find({ notiActive: true }, function (err, data){
 				if(err){
 					console.log("INPUT ERROR === " + err);
