@@ -1,4 +1,4 @@
-exports.active = function(app, db, fs, cors){
+exports.active = function(app, db, fs){
 
 	// Render index page
 	// 메인 페이지 출력
@@ -14,7 +14,7 @@ exports.active = function(app, db, fs, cors){
 
 	// Render sports pages고
 	// 스포츠 페이지 출력
-	app.get('/:sports', cors(), function (req, res, next) {
+	app.get('/:sports', function (req, res, next) {
 		isLogin(req, res, function(user){
 			res.render('sports/sports', { user: user.login });
 		}, function(){
@@ -26,7 +26,7 @@ exports.active = function(app, db, fs, cors){
 	// 해당 스포츠 카테고리에 대한 데이터 출력
 	// sports.ejs
 	// sports.CTRL MainCtrl
-	app.get('/:sports/:category', cors(), function (req, res, next) {
+	app.get('/:sports/:category', function (req, res, next) {
 		var collection = req.params.category;
 		var sport = req.params.sports;
 
@@ -49,7 +49,7 @@ exports.active = function(app, db, fs, cors){
 	});
 
 
-	app.get('/uploads/:imgId', cors(), function (req, res, next) {
+	app.get('/uploads/:imgId', function (req, res, next) {
 		fs.readFile(req.params.imageId, function (err, data){
 			res.writeHead(200, {'Content-Type': 'image/jpeg'});
 			res.end(data);

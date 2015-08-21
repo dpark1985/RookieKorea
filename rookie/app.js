@@ -88,7 +88,7 @@ app.use(session({
 }));
 app.use(everyauth.middleware());
 app.use(router);
-//app.use(cors());
+app.use(cors());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(function (req, res, next) {
     req.db = db;
@@ -118,9 +118,9 @@ io.set('log level', 2);
 
 app.use('/happ', hybridApp);
 //라우터
-customUtilities.active(app, db, cors);
+customUtilities.active(app, db);
 customNewInfo.active(app, db);
-customMain.active(app, db, fs, cors);
+customMain.active(app, db, fs);
 
 
 

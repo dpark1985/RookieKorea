@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var cors = require('cors');
+
 
 
 
@@ -44,7 +44,7 @@ router.get('/testingDetails/:category/:id', function (req, res, next){
 /*	Reference		=	DetailCtrl
 /*	Reference		=	$scope.report()
 */
-router.post('/testingDetails/:category/:id', cors(), function (req, res, next){
+router.post('/testingDetails/:category/:id', function (req, res, next){
 	var collection = req.params.category;
 	var itemId = req.params.id;
 
@@ -70,7 +70,7 @@ router.post('/testingDetails/:category/:id', cors(), function (req, res, next){
 /*	Reference		=	settingCtrl
 /*	Reference		=	$scope.imgSetting()
 */
-router.post('/testingUserSetting/:userID/:category', cors(), function (req, res, next) {
+router.post('/testingUserSetting/:userID/:category', function (req, res, next) {
 	
 	if(req.params.category == 'img'){
 		req.db.users.update({login: req.params.userID}, 
@@ -104,7 +104,7 @@ router.post('/testingUserSetting/:userID/:category', cors(), function (req, res,
 /*	Reference		= 	loginCtrl
 /*	Reference		=	$scope.doRegister()
 */
-router.post('/testingUserID', cors(), function (req, res, next) {
+router.post('/testingUserID', function (req, res, next) {
 	req.db.users.findOne({ login: req.body.login }, 
 		function (err, data){
 			res.json(data);
@@ -127,7 +127,7 @@ router.post('/testingUserID', cors(), function (req, res, next) {
 /*		Reference		=	settingCtrl
 /*		Reference		=	$scope.showWithdrawConfirm()
 */
-router.post('/testing', cors(), function (req, res, next) {
+router.post('/testing', function (req, res, next) {
 	if(req.body.status === "login"){
 		req.db.users.update({login: req.body.login}, 
 			{"$inc" : {"visits" : 1}});

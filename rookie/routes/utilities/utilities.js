@@ -221,10 +221,10 @@ exports.active = function(app, db, cors){
 	/*	url				=	/query
 	/* 	http			=	GET & POST
 	*/
-	app.get('/query', cors(), function (req, res, next) {
+	app.get('/query', function (req, res, next) {
 		res.render('utilities/query');
 	});
-	app.post('/query', cors(), function (req, res, next) {
+	app.post('/query', function (req, res, next) {
 		db.query.insert({
 			queryType: 'query',
 			queryDate: Date(),
@@ -289,10 +289,10 @@ exports.active = function(app, db, cors){
 	/*	url				=	/advertize
 	/* 	http			=	GET & POST
 	*/
-	app.get('/advertize', cors(), function (req, res, next) {
+	app.get('/advertize', function (req, res, next) {
 		res.render('utilities/advertize');
 	});
-	app.post('/advertize', cors(), function (req, res, next) {
+	app.post('/advertize', function (req, res, next) {
 		db.query.insert({
 			queryType: 'advertize',
 			queryDate: Date(),
