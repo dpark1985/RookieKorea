@@ -154,12 +154,17 @@ router.post('/testing', function (req, res, next) {
 			res.json(data);
 		});
 	} else if(req.body.status === "withdraw"){
-		req.db.users.remove({ login : req.body.login }, 
-			function (err, data){
+
+		req.db.users.find({ login : req.body.login }, function (err, data){
+			var path = './public/uploads/'+data.img;
+			req.fs.unlinkSync(filePath);
+		}, function (err, data){
+			req.db.users.remove({ login : req.body.login }, function (err, data){
 				res.json(data);
+			});	
 		});
+
 	} else if(req.body.status === "pwreset"){
-		console.log('-----------------');
 		var transporter = req.nodemailer.createTransport({
 		    service: 'Gmail',
 		    auth: {
@@ -168,10 +173,10 @@ router.post('/testing', function (req, res, next) {
 		    }
 		});
 		var mailOptions = {
-		    from: '루키코리아 ✔ <daniel@aitch3.com>', // sender address
+		    from: '루키코리아 <daniel@aitch3.com>', // sender address
 		    to: req.body.login, // list of receivers
-		    subject: '루키코리아 회원 비밀번호 찾기 ✔', // Subject line
-		    html: '<b>안녕하세요, 루키코리아 입니다. ✔</b><hr/><p>새로운 비밀번호는 <b>123456789!!</b>입니다.</p>' // html body
+		    subject: '루키코리아 회원 비밀번호 찾기', // Subject line
+		    html: '<b>안녕하세요, 루키코리아 입니다.</b><hr/><p>새로운 비밀번호는 <b>123456789!!</b>입니다.</p>' // html body
 		};
 
 		transporter.sendMail(mailOptions, function(error, info){

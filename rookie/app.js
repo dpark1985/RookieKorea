@@ -99,6 +99,10 @@ app.use(function (req, res, next) {
     req.nodemailer = nodemailer;
     next();
 });
+app.use(function (req, res, next) {
+    req.fs = fs;
+    next();
+});
 app.use(
     multer({ 
         dest: './public/uploads/',
