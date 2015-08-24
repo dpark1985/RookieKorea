@@ -19,6 +19,7 @@ var redis = require('redis');
 var fs = require('fs');
 var multer  = require('multer');
 var cors = require('cors');
+var nodemailer = require('nodemailer');
 
 
 // import Custom utilities
@@ -36,8 +37,8 @@ var customNewInfo = require('./routes/newInfo/newinfo');
 var hybridApp = require('./routes/happ');
 
 // DataBase connection
-var baseURI = "52.69.2.200/rookiekorea";
-//var baseURI = 'test2';
+//var baseURI = "52.69.2.200/rookiekorea";
+var baseURI = 'test2';
 var collections = ["rejects", "noti", "query", "users", "competitions", "courts", "clubs"];
 var db = mongojs.connect(baseURI, collections);
 
@@ -92,6 +93,10 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(function (req, res, next) {
     req.db = db;
+    next();
+});
+app.use(function (req, res, next) {
+    req.nodemailer = nodemailer;
     next();
 });
 app.use(

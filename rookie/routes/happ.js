@@ -158,6 +158,33 @@ router.post('/testing', function (req, res, next) {
 			function (err, data){
 				res.json(data);
 		});
+	} else if(req.body.status === "pwreset"){
+		console.log('-----------------');
+		var transporter = req.nodemailer.createTransport({
+		    service: 'Gmail',
+		    auth: {
+		        user: 'daniel@aitch3.com',
+		        pass: 'dp980605'
+		    }
+		});
+		var mailOptions = {
+		    from: '루키코리아 ✔ <daniel@aitch3.com>', // sender address
+		    to: req.body.login, // list of receivers
+		    subject: '루키코리아 회원 비밀번호 찾기 ✔', // Subject line
+		    html: '<b>안녕하세요, 루키코리아 입니다. ✔</b><hr/><p>새로운 비밀번호는 <b>123456789!!</b>입니다.</p>' // html body
+		};
+
+		transporter.sendMail(mailOptions, function(error, info){
+		    if(error){
+		        console.log(error);
+		    }else{
+		        console.log('Message sent: ' + info.response);
+		    }
+		});
+
+		req.db.users.update({login: req.body.login}, 
+			{ "$set" : { password: '123456789!!' }});
+
 	}
 });
 
