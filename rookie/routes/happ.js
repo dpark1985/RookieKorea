@@ -165,6 +165,8 @@ router.post('/testing', function (req, res, next) {
 		});
 
 	} else if(req.body.status === "pwreset"){
+		var varificationCode = Math.floor(10000000 + Math.random() * 90000000 );
+
 		var transporter = req.nodemailer.createTransport({
 		    service: 'Gmail',
 		    auth: {
@@ -176,7 +178,7 @@ router.post('/testing', function (req, res, next) {
 		    from: '루키코리아 <daniel@aitch3.com>', // sender address
 		    to: req.body.login, // list of receivers
 		    subject: '루키코리아 회원 비밀번호 찾기', // Subject line
-		    html: '<b>안녕하세요, 루키코리아 입니다.</b><hr/><p>새로운 비밀번호는 <b>123456789!!</b>입니다.</p>' // html body
+		    html: '<b>안녕하세요, 루키코리아 입니다.</b><hr/><p>새로운 비밀번호는 <b>'+varificationCode+'!!</b>입니다.</p>' // html body
 		};
 
 		transporter.sendMail(mailOptions, function(error, info){
@@ -188,7 +190,7 @@ router.post('/testing', function (req, res, next) {
 		});
 
 		req.db.users.update({login: req.body.login}, 
-			{ "$set" : { password: '123456789!!' }});
+			{ "$set" : { password: varificationCode+'!!' }});
 
 	}
 });
