@@ -35,8 +35,8 @@ var customModel = require('./routes/customModel');
 
 
 // DataBase connection
-//var baseURI = "52.69.2.200/rookiekorea";
-var baseURI = 'test3';
+var baseURI = "52.69.2.200/rookiekorea";
+//var baseURI = 'test3';
 var collections = ["rejects", "noti", "query", "users", "competitions", "courts", "clubs"];
 var db = mongojs.connect(baseURI, collections);
 var client = redis.createClient();
