@@ -298,6 +298,13 @@ exports.active = function(app, db, fs){
 	});
 */
 
+	app.get('/model/search/:query', function (req, res, next){
+		var query = req.params.query;
+
+		db.competitions.find()
+
+	});
+
 
 	app.get('/model/:sports/:category', function (req, res, next) {
 		var sports = req.params.sports;
@@ -306,15 +313,15 @@ exports.active = function(app, db, fs){
 
 
 		if(category === 'competitions'){
-			db.competitions.find({eventSport: sports}, function (err, data){
+			db.competitions.find({eventSport: sports}).sort({"_id" : -1}, function (err, data){
 				res.json(data);
 			});
 		} else if (category === 'courts'){
-			db.courts.find({courtSport: sports}, function (err, data){
+			db.courts.find({courtSport: sports}).sort({"_id" : -1}, function (err, data){
 				res.json(data);
 			});
 		} else if (category === 'clubs'){
-			db.clubs.find({clubSport: sports}, function (err, data){
+			db.clubs.find({clubSport: sports}).sort({"_id" : -1}, function (err, data){
 				res.json(data);
 			});
 		}
