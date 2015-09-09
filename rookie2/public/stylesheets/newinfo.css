@@ -1,0 +1,281 @@
+div.wrapper {
+	background-color: #F4F4F4;
+	min-width: 970px;
+	border-top: 1px solid #888888;
+	padding-bottom: 60px;
+}
+
+div.wrapper > div.phase1.deactive,
+div.wrapper > div.phase2.deactive,
+div.wrapper > div.phase3.deactive {
+	display: none;
+}
+
+div.wrapper > div.phase1 > div.container,
+div.wrapper > div.phase2 > div.container,
+div.wrapper > div.phase3 > div.container {
+	padding: 0;
+}
+
+div.wrapper > div.phase1 > div.container.title,
+div.wrapper > div.phase2 > div.container.title,
+div.wrapper > div.phase3 > div.container.title {
+	background-color: white;
+	border: 1px solid #888888;
+	border-top: 0px;
+	border-bottom: 0px;
+	height: 39px;	
+}
+
+div.wrapper > div.phase1 > div.container.title > ul,
+div.wrapper > div.phase2 > div.container.title > ul,
+div.wrapper > div.phase3 > div.container.title > ul {
+	margin: 0px;
+	margin-top: 4.5px;
+}
+
+div.wrapper > div.phase1 > div.container.title > ul > li,
+div.wrapper > div.phase2 > div.container.title > ul > li,
+div.wrapper > div.phase3 > div.container.title > ul > li {
+	list-style-type: none; 
+	float: left;
+	margin-right: 20px;
+	opacity: 0.8;
+}
+
+div.wrapper > div.phase1 > div.container.title > ul > li.active,
+div.wrapper > div.phase2 > div.container.title > ul > li.active,
+div.wrapper > div.phase3 > div.container.title > ul > li.active {
+	opacity: 1;
+	font-weight: bold;
+}
+
+div.wrapper > div.phase1 > div.container.title > ul > li:hover,
+div.wrapper > div.phase2 > div.container.title > ul > li:hover,
+div.wrapper > div.phase3 > div.container.title > ul > li:hover {
+	opacity: 1;
+	font-weight: bold;
+}
+
+div.wrapper > div.phase1 > div.container.title > ul > li > a,
+div.wrapper > div.phase2 > div.container.title > ul > li > a,
+div.wrapper > div.phase3 > div.container.title > ul > li > a {
+	text-decoration: none;
+	color: #333333;
+}
+
+div.wrapper > div.phase1 > div.container.wrapper > div.row > div.col-md-9 > h3,
+div.wrapper > div.phase2 > div.container.wrapper > div.row > div.col-md-9 > h3,
+div.wrapper > div.phase3 > div.container.wrapper > div.row > div.col-md-9 > h3 {
+	margin-bottom: 20px;
+}
+
+div.wrapper > div.phase1 > div.container.wrapper > div.row > div.col-md-9 > div.nextBtn,
+div.wrapper > div.phase2 > div.container.wrapper > div.row > div.col-md-9 > div > div > div.nextBtn,
+div.wrapper > div.phase3 > div.container.wrapper > div.row > div.col-md-9 > div > div > div.nextBtn {
+	color: white;
+	text-align: center;
+	background-color: #E3434B;
+	width: 90px;
+	height: 30px;
+	padding: 5px 10px;
+	border-radius: 5px;
+	margin: 40px auto;
+	cursor: pointer;
+}
+
+div.wrapper > div.phase2 > div.container.wrapper > div.row > div.col-md-9 > div > div,
+div.wrapper > div.phase3 > div.container.wrapper > div.row > div.col-md-9 > div > div {
+	margin-top: 40px;
+	margin-bottom: 40px;
+}
+
+div.wrapper > div.phase2 > div.container.wrapper > div.row > div.col-md-9 > div > div > div.nextBtn.phase2,
+div.wrapper > div.phase3 > div.container.wrapper > div.row > div.col-md-9 > div > div > div.nextBtn.phase3 {
+	margin: 0 auto;
+	float: left;
+}
+
+div.wrapper > div.phase2 > div.container.wrapper > div.row > div.col-md-9 > div > div > div.nextBtn.phase2:first-child,
+div.wrapper > div.phase3 > div.container.wrapper > div.row > div.col-md-9 > div > div > div.nextBtn.phase3:first-child {
+	margin-right: 20px;
+	margin-left: 260px;
+}
+
+div.wrapper > div.phase1 > div.container.wrapper > div.row > div.col-md-9 > div.nextBtn.active,
+div.wrapper > div.phase2 > div.container.wrapper > div.row > div.col-md-9 > div.nextBtn.active,
+div.wrapper > div.phase3 > div.container.wrapper > div.row > div.col-md-9 > div.nextBtn.active {
+	opacity: 1;
+}
+
+div.wrapper > div.phase1 > div.container.wrapper > div.row > div.col-md-9 > div.container,
+div.wrapper > div.phase2 > div.container.wrapper > div.row > div.col-md-9 > div.container,
+div.wrapper > div.phase3 > div.container.wrapper > div.row > div.col-md-9 > div.container {
+	width: 100%;
+}
+
+div.wrapper > div.phase1 > div.container.wrapper > div.row > div.col-md-9 > div.container.section,
+div.wrapper > div.phase2 > div.container.wrapper > div.row > div.col-md-9 > div.container.section,
+div.wrapper > div.phase3 > div.container.wrapper > div.row > div.col-md-9 > div.container.section {
+	border: 1px solid #888888;
+	border-bottom: 0;
+	background-color: white;
+	padding-left: 10px;
+	padding-top: 20px;
+	padding-bottom: 40px;
+}
+
+div.wrapper > div.phase2 > div.container.wrapper > div.row > div.col-md-9 > div.container.section,
+div.wrapper > div.phase3 > div.container.wrapper > div.row > div.col-md-9 > div.container.section {
+	border-bottom: 1px solid #888888;
+}
+
+div.wrapper > div.phase1 > div.container.wrapper > div.row > div.col-md-9 > div.container.section:last-child {
+	border-bottom: 1px solid #888888;
+}
+
+div.wrapper > div.phase1 > div.container.wrapper > div.row > div.col-md-9 > div.container.section > div.row > div.col-md-3 > span,
+div.wrapper > div.phase2 > div.container.wrapper > div.row > div.col-md-9 > div.container.section > div.row > div.col-md-3 > span,
+div.wrapper > div.phase3 > div.container.wrapper > div.row > div.col-md-9 > div.container.section > div.row > div.col-md-3 > span  {
+	border: 2px solid #E3434B;
+	border-radius: 5px;
+	padding: 2px 4px;
+	color: #E3434B;
+	font-size: 0.8em;
+}
+
+div.wrapper > div.phase1 > div.container.wrapper > div.row > div.col-md-9 > div.container.section > div.row > div.col-md-3 > span.option {
+	color: #cccccc;
+	border-color: #cccccc;
+}
+
+div.wrapper > div.phase1 > div.container.wrapper > div.row > div.col-md-9 > div.container.section > div.row > div.col-md-9,
+div.wrapper > div.phase2 > div.container.wrapper > div.row > div.col-md-9 > div.container.section > div.row > div.col-md-9,
+div.wrapper > div.phase3 > div.container.wrapper > div.row > div.col-md-9 > div.container.section > div.row > div.col-md-9 {
+	padding-top: 10px;
+}
+
+div.wrapper > div.phase1 > div.container.wrapper > div.row > div.col-md-9 > div.container.section > div.row > div.col-md-9 > div.row:first-child,
+div.wrapper > div.phase2 > div.container.wrapper > div.row > div.col-md-9 > div.container.section > div.row > div.col-md-9 > div.row:first-child,
+div.wrapper > div.phase3 > div.container.wrapper > div.row > div.col-md-9 > div.container.section > div.row > div.col-md-9 > div.row:first-child {
+	padding: 0px;
+	padding-bottom: 15px;
+}
+
+div.wrapper > div.phase1 > div.container.wrapper > div.row > div.col-md-9 > div.container.section > div.row > div.col-md-9 > div.row,
+div.wrapper > div.phase2 > div.container.wrapper > div.row > div.col-md-9 > div.container.section > div.row > div.col-md-9 > div.row,
+div.wrapper > div.phase3 > div.container.wrapper > div.row > div.col-md-9 > div.container.section > div.row > div.col-md-9 > div.row {
+	padding-top: 10px;
+	width: 100%;
+}
+
+div.wrapper > div.phase1 > div.container.wrapper > div.row > div.col-md-9 > div.container.section > div.row > div.col-md-9 > div.row > div.col-md-4,
+div.wrapper > div.phase1 > div.container.wrapper > div.row > div.col-md-9 > div.container.section > div.row > div.col-md-9 > div.row > div.col-md-6,
+div.wrapper > div.phase1 > div.container.wrapper > div.row > div.col-md-9 > div.container.section > div.row > div.col-md-9 > div.row > div.col-md-12,
+div.wrapper > div.phase2 > div.container.wrapper > div.row > div.col-md-9 > div.container.section > div.row > div.col-md-9 > div.row > div.col-md-4,
+div.wrapper > div.phase2 > div.container.wrapper > div.row > div.col-md-9 > div.container.section > div.row > div.col-md-9 > div.row > div.col-md-6,
+div.wrapper > div.phase2 > div.container.wrapper > div.row > div.col-md-9 > div.container.section > div.row > div.col-md-9 > div.row > div.col-md-12,
+div.wrapper > div.phase3 > div.container.wrapper > div.row > div.col-md-9 > div.container.section > div.row > div.col-md-9 > div.row > div.col-md-4,
+div.wrapper > div.phase3 > div.container.wrapper > div.row > div.col-md-9 > div.container.section > div.row > div.col-md-9 > div.row > div.col-md-6,
+div.wrapper > div.phase3 > div.container.wrapper > div.row > div.col-md-9 > div.container.section > div.row > div.col-md-9 > div.row > div.col-md-12 {
+	padding: 0px;
+}
+
+div.wrapper > div.phase1 > div.container.wrapper > div.row > div.col-md-9 > div.container.section > div.row.title > div.col-md-9 > div.row > div.col-md-12 > span.helper,
+div.wrapper > div.phase1 > div.container.wrapper > div.row > div.col-md-9 > div.container.section > div.row.title > div.col-md-9 > div.row > div.col-md-12 > span.titleResult,
+div.wrapper > div.phase2 > div.container.wrapper > div.row > div.col-md-9 > div.container.section > div.row.title > div.col-md-9 > div.row > div.col-md-12 > span.helper {
+	color: #cccccc;
+}
+
+div.wrapper > div.phase1 > div.container.wrapper > div.row > div.col-md-9 > div.container.section > div.row.title > div.col-md-9 > div.row > div.col-md-12 > span,
+div.wrapper > div.phase1 > div.container.wrapper > div.row > div.col-md-9 > div.container.section > div.row.category > div.col-md-9 > div.row > div.col-md-6 > span,
+div.wrapper > div.phase1 > div.container.wrapper > div.row > div.col-md-9 > div.container.section > div.row.location > div.col-md-9 > div.row > div.col-md-6 > span, 
+div.wrapper > div.phase1 > div.container.wrapper > div.row > div.col-md-9 > div.container.section > div.row.location > div.col-md-9 > div.row > div.col-md-12 > span,
+div.wrapper > div.phase1 > div.container.wrapper > div.row > div.col-md-9 > div.container.section > div.row.date > div.col-md-9 > div.row > span,
+div.wrapper > div.phase1 > div.container.wrapper > div.row > div.col-md-9 > div.container.section > div.row.phone > div.col-md-9 > div.row > div.col-md-12 > span,
+div.wrapper > div.phase1 > div.container.wrapper > div.row > div.col-md-9 > div.container.section > div.row.email > div.col-md-9 > div.row > div.col-md-12 > span,
+div.wrapper > div.phase1 > div.container.wrapper > div.row > div.col-md-9 > div.container.section > div.row.homepage > div.col-md-9 > div.row > div.col-md-12 > span,
+
+div.wrapper > div.phase2 > div.container.wrapper > div.row > div.col-md-9 > div.container.section > div.row.title > div.col-md-9 > div.row > div.col-md-12 > span,
+div.wrapper > div.phase2 > div.container.wrapper > div.row > div.col-md-9 > div.container.section > div.row.category > div.col-md-9 > div.row > div.col-md-6 > span,
+div.wrapper > div.phase2 > div.container.wrapper > div.row > div.col-md-9 > div.container.section > div.row.location > div.col-md-9 > div.row > div.col-md-4 > span, 
+div.wrapper > div.phase2 > div.container.wrapper > div.row > div.col-md-9 > div.container.section > div.row.location > div.col-md-9 > div.row > div.col-md-12 > span,
+div.wrapper > div.phase2 > div.container.wrapper > div.row > div.col-md-9 > div.container.section > div.row.date > div.col-md-9 > div.row > span,
+div.wrapper > div.phase2 > div.container.wrapper > div.row > div.col-md-9 > div.container.section > div.row.phone > div.col-md-9 > div.row > div.col-md-12 > span,
+div.wrapper > div.phase2 > div.container.wrapper > div.row > div.col-md-9 > div.container.section > div.row.email > div.col-md-9 > div.row > div.col-md-12 > span,
+div.wrapper > div.phase2 > div.container.wrapper > div.row > div.col-md-9 > div.container.section > div.row.homepage > div.col-md-9 > div.row > div.col-md-12 > span,
+
+div.wrapper > div.phase3 > div.container.wrapper > div.row > div.col-md-9 > div.container.section > div.row.title > div.col-md-9 > div.row > div.col-md-12 > span {
+	color: #E3434B;
+}
+
+div.wrapper > div.phase1 > div.container.wrapper > div.row > div.col-md-9 > div.container.section > div.row.location > div.col-md-9 > div.row > div.col-md-12 > div#map {
+	border: 1px solid #cccccc;
+}
+
+div.wrapper > div.phase1 > div.container.wrapper > div.row > div.col-md-9 > div.container.section > div.row.category > div.col-md-9 > div.row > div.col-md-6,
+div.wrapper > div.phase1 > div.container.wrapper > div.row > div.col-md-9 > div.container.section > div.row.location > div.col-md-9 > div.row > div.col-md-6,
+div.wrapper > div.phase1 > div.container.wrapper > div.row > div.col-md-9 > div.container.section > div.row.date > div.col-md-9 > div.row > div.col-md-6 {
+	padding-right: 10px;
+}
+
+div.wrapper > div.phase1 > div.container.wrapper > div.row > div.col-md-9 > div.container.section > div.row.category > div.col-md-9 > div.row > div.col-md-6:last-child,
+div.wrapper > div.phase1 > div.container.wrapper > div.row > div.col-md-9 > div.container.section > div.row.location > div.col-md-9 > div.row > div.col-md-6:last-child {
+	padding-right: 0px;
+}
+
+div.wrapper > div.phase3 > div.container.wrapper > div.row > div.col-md-9 > div.container.section > div.row.title > div.col-md-9 > div.row > div.col-md-12 > div.imgupload {
+	border: 1px solid #cccccc;
+	opacity: 0.8;
+}
+
+div.wrapper > div.phase3 > div.container.wrapper > div.row > div.col-md-9 > div.container.section > div.row.title > div.col-md-9 > div.row > div.col-md-12 > div.imgupload:hover {
+	opacity: 1;
+}
+div.wrapper > div.phase3 > div.container.wrapper > div.row > div.col-md-9 > div.container.section > div.row.title > div.col-md-9 > div.row > div.col-md-12 > div.imgupload > input {
+	overflow: hidden;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+}
+
+div.wrapper > div.phase3 > div.container.wrapper > div.row > div.col-md-9 > div.container.section > div.row.title > div.col-md-9 > div.row > span {
+	color: #E3434B;
+	float: left;
+}
+
+
+#alertModal > div > div > div.modal-body,
+#alertSuccess > div > div > div.modal-body,
+#alertComplete > div > div > div.modal-body {
+	text-align: center;
+}
+
+#alertModal > div > div > div.modal-body > i {
+	color: red;
+	font-size: 60px;
+	padding: 20px;
+	border: 10px solid red;
+	border-radius: 20px;
+	margin-bottom: 20px;
+}
+
+#alertSuccess > div > div > div.modal-body > i,
+#alertComplete > div > div > div.modal-body > i {
+	color: green;
+	font-size: 60px;
+	padding: 20px;
+	border: 10px solid green;
+	border-radius: 20px;
+	margin-bottom: 20px;
+}
+
+#loadingModal > div > div {
+	text-align: center;
+
+}
+#loadingModal > div > div > i {
+	font-size: 4em;
+	padding: 20px;
+}
+

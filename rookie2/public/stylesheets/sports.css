@@ -1,0 +1,213 @@
+div.container-fluid.mainImg {
+	min-width: 970px;
+	height: 220px;
+	padding: 0px;
+}
+
+div.container-fluid.mainImg > img {
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	background-size: cover;
+	background-position: center center;
+}
+
+div.container-fluid.mainImg > div.container {
+	margin-top: -150px;
+}
+
+div.container-fluid.mainImg > div.container > h1 {	
+	color: white;
+}
+
+div.content {
+	background-color: #F4F4F4;
+	padding-bottom: 40px;
+	padding-top: 40px;
+	min-width: 970px;
+}
+
+div.content > div.container > div.row > div.left > div.wrapper {
+	border: 1px solid #e5e5e5;
+	border-bottom: 0px;
+	box-shadow: 0px 1px 2px #ccc;
+	padding: 0px;
+	background-color: white;
+}
+
+div.content > div.container > div.row > div.left > div.wrapper > div.header {
+	width: 100%;
+	border-bottom: 1px solid #e5e5e5;
+}
+
+div.content > div.container > div.row > div.left > div.wrapper > div.header > h4 {
+	margin: 0;
+	padding: 10px;
+}
+
+div.content > div.container > div.row > div.left > div.wrapper > div.subcategory {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	border-bottom: 1px solid #e5e5e5;
+}
+
+div.content > div.container > div.row > div.left > div.wrapper > div.subcategory > div.list {
+	width: 100%;
+	height: 20px;
+	margin-top: -5px;
+	margin-bottom: 10px;
+	clear: both;
+}
+
+div.content > div.container > div.row > div.left > div.wrapper > div.subcategory > div.list:first-child {
+	margin-top: 10px;
+}
+
+div.content > div.container > div.row > div.left > div.wrapper > div.subcategory > div.list > a {
+	color: #333333;
+	float: left;
+	text-decoration: none;
+}
+
+div.content > div.container > div.row > div.left > div.wrapper > div.subcategory > div.list > a:hover {
+	color: #E3434B;
+}
+
+div.content > div.container > div.row > div.left > div.wrapper > div.subcategory > div.list > a.active {
+	color: #E3434B;
+	font-weight: bold;
+}
+
+div.content > div.container > div.row > div.left > div.wrapper > div.subcategory > div.list > span {
+	float: right;
+	padding-right: 10px;
+}
+
+div.content > div.container > div.row > div.left > div.wrapper > div.location {
+	padding-left: 10px;
+}
+
+div.content > div.container > div.row > div.left > div.wrapper > div.location > h5 {
+	margin-bottom: 0px;
+	font-weight: bold;
+}
+
+div.content > div.container > div.row > div.left > div.wrapper > div.location > div.row {
+	width: 100%;
+}
+
+div.content > div.container > div.row > div.left > div.wrapper > div.location > div.row > div {
+	padding-right: 0px;
+}
+
+div.content > div.container > div.row > div.right > ul.order {
+	width: 100%;
+	border: 1px solid #e5e5e5;
+	border-bottom: 0px;
+	box-shadow: 0px 1px 2px #ccc;
+	padding: 0px;
+	background-color: white;
+}
+
+div.content > div.container > div.row > div.right > ul.order > li {
+	padding-left: 20px;
+}
+
+div.content > div.container > div.row > div.right > ul.order > li > a {
+	text-decoration: none;
+	color: #888888;
+	border: 0px;
+}
+
+div.content > div.container > div.row > div.right > ul.order > li:hover > a {
+	background-color: white;
+	border: 0px;
+	border-bottom: 3px solid #E3434B;
+}
+
+div.content > div.container > div.row > div.right > ul.order > li.active > a {
+	border: 0px;
+	border-bottom: 3px solid #E3434B;
+	color: #333333;
+}
+
+div.content > div.container > div.row > div.right > ul.order > li > a > h4 {
+	margin: 0px;
+}
+
+
+div.content > div.container > div.row > div.right > div.section {
+	padding-top: 10px;
+}
+
+div.content > div.container > div.row > div.right > div.section > div.container {
+	width: 100%;
+}
+
+div.content > div.container > div.row > div.right > div.section > div.container > div.row > a.item {
+	padding-top: 20px;
+	padding-right: 0px;
+	text-decoration: none;
+}
+
+div.content > div.container > div.row > div.right > div.section > div.container > div.row > a.item:nth-child(3n+1) {
+	padding-left: 0px;
+}
+
+div.content > div.container > div.row > div.right > div.section > div.container > div.row > a.item:nth-child(3n+2) {
+	padding-left: 7.5px;
+	padding-right: 7.5px;
+}
+
+div.content > div.container > div.row > div.right > div.section > div.container > div.row > a.item:nth-child(3) {
+	padding-right: 0px;
+}
+
+div.content > div.container > div.row > div.right > div.section > div.container > div.row > a.item > div.wrapper {
+	background-color: white;
+	border: 1px solid #E5E5E5;
+	border-bottom: 0px;
+	box-shadow: 0px 1px 2px #ccc;
+	width: 217.5px;
+}
+
+div.content > div.container > div.row > div.right > div.section > div.container > div.row > a.item > div.wrapper > img {
+	height: 180px;
+	width: 215.5px;
+}
+
+div.content > div.container > div.row > div.right > div.section > div.container > div.row > a.item > div.wrapper > div.info {
+	height: 90px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-top: 2px solid #E5E5E5;
+}
+
+div.content > div.container > div.row > div.right > div.section > div.container > div.row > a.item > div.wrapper > div.info > h5 {
+	margin: 0px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+div.content > div.container > div.row > div.right > div.section > div.container > div.row > a.item > div.wrapper > div.info > div.rating > ul {
+	float: right;
+	padding-top: 20px;
+	padding-bottom: 10px;
+}
+
+div.content > div.container > div.row > div.right > div.section > div.container > div.row > a.item > div.wrapper > div.info > div.rating > ul > li {
+	list-style-type: none; 
+	float: left;
+	color: #E3434B;
+}
+
+#loadingModal > div > div {
+	text-align: center;
+
+}
+#loadingModal > div > div > i {
+	font-size: 4em;
+	padding: 20px;
+}
+

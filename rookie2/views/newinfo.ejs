@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="ko" ng-app="newinfo">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>루키코리</title>
+
+    <!-- Bootstrap -->
+    <link href="libs/bootstrap-3.3.5-dist/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="libs/font-awesome-4.4.0/css/font-awesome.min.css">
+
+    <!-- bootstrap-datetimepicker -->
+    <link rel="stylesheet" href="libs/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+
+    <!-- Custom -->
+    <link href="stylesheets/newinfo.css" rel="stylesheet">
+    <link href="stylesheets/header.css" rel="stylesheet">
+    <link href="stylesheets/footer.css" rel="stylesheet">
+    <link href="stylesheets/font.css" rel="stylesheet">
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="libs/jquery/jquery-1.11.3.min.js"></script>
+
+    <!-- Moment -->
+    <script src="libs/moment/min/moment.min.js"></script>
+    <script src="libs/moment/locale/ko.js"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="libs/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+
+    <!-- eonasdan-bootstrap-datetimepicker -->
+    <script src="libs/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+
+    <!-- Angular 1.4.4 -->
+    <script src="libs/angular-1.4.4-dist/angular.min.js"></script>
+    <script src="libs/angular-1.4.4-dist/angular-route.min.js"></script>
+
+    <!-- Index Controller -->
+    <script src="javascripts/controllers/newinfoCtrl.js"></script>
+
+    <!-- CKEditor -->
+    <script type="text/javascript" src="libs/ckeditor/ckeditor.js"></script>
+    <script type="text/javascript" src="libs/ckeditor/config.js"></script>
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="../../images/favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../../images/favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../../images/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../../images/favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../../images/favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../../images/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../../images/favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../../images/favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../images/favicons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="../../images/favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../images/favicons/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="../../images/favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="../../images/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="../../images/favicons/manifest.json">
+    <meta name="apple-mobile-web-app-title" content="RookieKorea">
+    <meta name="application-name" content="RookieKorea">
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="msapplication-TileImage" content="images/favicons/mstile-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+</head>
+
+<body ng-controller="newInfoCtrl">
+    <header-custom></header-custom>
+
+
+    <div class="wrapper">
+        <div id="phase1" class="phase1">
+            <div class="container title">
+                <ul>
+                    <li class="active"><img src="../../images/btn/text.png"> 1단계: 기본정보</li>
+                    <li><img src="../../images/btn/text.png"> 2단계: 상세정보</li>
+                    <li><img src="../../images/btn/text.png"> 3단계: 이미지 등록</li>
+                </ul>
+            </div>
+
+
+            <div class="container wrapper">
+                <div class="row">
+                    <div class="col-sm-9 col-md-9">
+                        <h3>정보등록</h3>
+
+                        <div class="container section">
+                            <div class="row title">
+                                <div class="col-sm-3 col-md-3">
+                                    <h4>등록정보 제목</h4>
+                                    <span>필수</span>
+                                </div>
+                                <div class="col-sm-9 col-md-9">
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12">
+
+                                            <span class="">등록하고자 하는 정보의 제목을 입력해주세요.</span>
+                                            <div class="form-group">
+                                                <input ng-model="newinfoInput.title" type="text" class="form-control" id="infoTitle" placeholder="예) 제 1회 루키코리아배 스포츠 대회">
+                                            </div>
+                                            <span class="helper">최소 글자는 10자, 최대글자는 48자입니다. (현재: {{newinfoInput.title.length}}자)</span>
+                                        </br>
+                                            <span class="titleResult" ng-bind="newinfoInput.title"></span>
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div> <!-- <div class="container section"> -->
+
+                        <div class="container section">
+                            <div class="row category">
+                                <div class="col-sm-3 col-md-3">
+                                    <h4>카테고리</h4>
+                                    <span>필수</span>
+                                </div>
+                                <div class="col-sm-9 col-md-9">
+                                    <div class="row">
+                                        <div class="col-sm-6 col-md-6">
+                                            <span>상위 카테고리</span></br>
+                                            <select ng-model="newinfoInput.sports" class="form-control">
+                                                <option>축구</option>
+                                                <option>볼링</option>
+                                                <option>테니스</option>
+                                                <option>야구</option>
+                                                <option>배드민턴</option>
+                                                <option>농구</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-6 col-md-6">
+                                            <span>세부 카테고리</span></br>
+                                            <select ng-change="subCategory()" ng-model="newinfoInput.subcategory" class="form-control">
+                                                <option>대회</option>
+                                                <option>코트</option>
+                                                <option>동호회</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div> <!-- <div class="container section"> -->
+
+                        <div class="container section">
+                            <div class="row location">
+                                <div class="col-sm-3 col-md-3">
+                                    <h4>위치</h4>
+                                    <span>필수</span>
+                                </div>
+                                <div class="col-sm-9 col-md-9">
+                                    <div class="row">
+                                        <div class="col-sm-6 col-md-6">
+                                            <span>시/도</span>
+                                            <select ng-change="stateChange()" ng-model="newinfoInput.state" class="form-control">
+                                                <option ng-repeat="state in states">{{state.providence}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-6 col-md-6">
+                                            <span>시/구/군</span>
+                                            <select ng-model="newinfoInput.city" class="form-control">
+                                                <option ng-repeat="si in sis">{{si.city}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div id="courtName" class="row">
+                                        <div class="col-sm-12 col-md-12">
+                                            <span class="">입력 정보의 코트장명</span>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" id="infoTitle" placeholder="예) 치악체육관" ng-model="newinfoInput.courtName">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="infoMap" class="row">
+                                        <div class="col-sm-12 col-md-12">
+                                            <span>코트장을 지도에서 찾아 클릭해주세요!</span>
+                                            <div id="map" style="width:100%;height:350px;"></div>
+                                            
+                                            <div id="clickLatlng"></div>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                        </div> <!-- <div class="container section"> -->
+
+                        <div id="date" class="container section">
+                            <div class="row date">
+                                <div class="col-sm-3 col-md-3">
+                                    <h4>날짜</h4>
+                                    <span>필수</span>
+                                </div>
+                                <div class="col-sm-9 col-md-9">
+                                    <div class="row">
+                                        <span>대회 날짜</span></br>
+                                        <div class="col-sm-6 col-md-6">
+                                            <input type="text" class="form-control" id="compDate1" name="compDate1" placeholder="대회 시작일시">
+                                            <input type="text" class="form-control" id="compDate11" name="compDate11" placeholder="대회 시작일시" style="display: none;">
+
+
+                                        </div>
+                                        <div class="col-sm-6 col-md-6">
+                                            <input type="text" class="form-control" id="compDate2" name="compDate2" placeholder="대회 종료일시">
+                                            <input type="text" class="form-control" id="compDate22" name="compDate22" placeholder="대회 종료일시" style="display: none;">
+
+
+                                        </div>
+                                        <script type="text/javascript">
+                                            $(function() {
+                                                $('#compDate1').datetimepicker();
+                                                $('#compDate2').datetimepicker();
+                                                $("#compDate1").on("dp.change", function (e) {
+                                                    $('#compDate11').val(e.date._d);
+                                                    $('#compDate22').val(e.date._d);
+                                                    $('#compDate2').data("DateTimePicker").minDate(e.date);
+                                                    e.date._d.setDate(e.date._d.getDate()-1);
+                                                    $('#registDate11').val(e.date._d);
+                                                    $('#registDate22').val(e.date._d);
+                                                    $('#registDate1').data("DateTimePicker").maxDate(e.date);
+                                                    $('#registDate2').data("DateTimePicker").maxDate(e.date);
+                                                });
+                                                $("#compDate2").on("dp.change", function (e) {
+                                                    $('#compDate22').val(e.date._d);
+                                                });
+                                            });
+                                        </script>
+                                    </div>
+                                    <div class="row">
+                                        <span>신청 날짜</span></br>
+                                        <div class="col-sm-6 col-md-6">
+                                            <input type="text" class="form-control" id="registDate1" name="registDate1" placeholder="대회신청 시작일">
+                                            <input type="text" class="form-control" id="registDate11" name="registDate11" placeholder="대회신청 시작일" style="display: none;">
+
+
+
+                                        </div>
+                                        <div class="col-sm-6 col-md-6">
+                                            <input type="text" class="form-control" id="registDate2" name="registDate2" placeholder="대회신청 마감일">
+                                            <input type="text" class="form-control" id="registDate22" name="registDate22" placeholder="대회신청 마감일" style="display: none;">
+
+
+
+                                        </div>
+                                        <script type="text/javascript">
+                                            $(function() {
+                                                $('#registDate1').datetimepicker();
+                                                $('#registDate2').datetimepicker();
+                                                $("#registDate1").on("dp.change", function (e) {
+                                                    $('#registDate11').val(e.date._d);
+                                                    $('#registDate22').val(e.date._d);
+                                                    $('#registDate2').data("DateTimePicker").minDate(e.date);
+                                                });
+                                                $("#registDate2").on("dp.change", function (e) {
+                                                    $('#registDate22').val(e.date._d);
+                                                });
+                                            });
+                                        </script>    
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- <div class="container section"> -->
+
+                        <div class="container section">
+                            <div class="row phone">
+                                <div class="col-sm-3 col-md-3">
+                                    <h4>연락 가능번호</h4>
+                                    <span id="phoneMust" class="">필수</span>
+                                </div>
+                                <div class="col-sm-9 col-md-9">
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12">
+                                            <span>등록 정보의 연락 가능번호</span>
+                                            <div class="form-group">
+                                                <input ng-model="newinfoInput.phone" type="text" class="form-control" id="phone" placeholder="예) 07075247713">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- <div class="container section"> -->
+
+                        <div class="container section">
+                            <div class="row email">
+                                <div class="col-sm-3 col-md-3">
+                                    <h4>이메일주소</h4>
+                                    <span class="option">선택</span>
+                                </div>
+                                <div class="col-sm-9 col-md-9">
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12">
+                                            <span>등록 정보의 이메일주소</span>
+                                            <div class="form-group">
+                                                <input ng-model="newinfoInput.email" type="email" class="form-control" id="email" placeholder="예) support@aitch3.com">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- <div class="container section"> -->
+
+                        <div class="container section">
+                            <div class="row homepage">
+                                <div class="col-sm-3 col-md-3">
+                                    <h4>홈페이지</h4>
+                                    <span class="option">선택</span>
+                                </div>
+                                <div class="col-sm-9 col-md-9">
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12">
+                                            <span>등록 정보의 홈페이지</span>
+                                            <div class="form-group">
+                                                <input ng-model="newinfoInput.url" type="text" class="form-control" id="hompage" placeholder="예) http://www.rookiekorea.net">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- <div class="container section"> -->
+
+
+
+
+
+
+
+
+                    </div>
+
+                    <div clas="col-sm-3 col-md-3">
+
+                    </div>
+
+
+                </div>
+                <div class="row">
+                    <div class="col-sm-9 col-md-9">
+                        <div class="nextBtn active" ng-click="phase1Next()">
+                            다음단계 <i class="fa fa-arrow-right"></i>
+                        </div>
+                    </div>
+
+                    <div clas="col-sm-3 col-md-3">
+
+                    </div>
+                </div>
+            </div>
+
+        </div> <!-- <div class="phase1"> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div id="phase2" class="phase2">
+            <div class="container title">
+                <ul>
+                    <li><img src="../../images/btn/text.png"> 1단계: 기본정보</li>
+                    <li class="active"><img src="../../images/btn/text.png"> 2단계: 상세정보</li>
+                    <li><img src="../../images/btn/text.png"> 3단계: 이미지 등록</li>
+                </ul>
+            </div>
+
+            <div class="container wrapper">
+                <div class="row">
+                    <div class="col-sm-9 col-md-9">
+                        <h3>상세정보</h3>
+
+                        <div class="container section">
+                            <div class="row title">
+                                <div class="col-sm-3 col-md-3">
+                                    <h4>등록정보 상세내용</h4>
+                                    <span>필수</span>
+                                </div>
+                                <div class="col-sm-9 col-md-9">
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12">
+
+                                            <span class="">등록하고자 하는 정보의 상세내용을 입력해주세요.</span>
+                                            <div class="form-group">
+                                                <textarea name="editor1" id="editor1" rows="10" cols="80">
+                                                    상세 설명을 작성해주세요.
+                                                </textarea>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- <div class="container section"> -->
+
+                    </div>
+
+                    <div clas="col-sm-3 col-md-3">
+
+                    </div>
+
+
+                </div>
+                <div class="row">
+                    <div class="col-sm-9 col-md-9">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12">
+
+                                <div class="nextBtn phase2" ng-click="phase2Back()">
+                                    <i class="fa fa-arrow-left"></i> 이전단계
+                                </div>
+                                <div class="nextBtn phase2" ng-click="phase2Next()">
+                                    다음단계 <i class="fa fa-arrow-right"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div clas="col-sm-3 col-md-3">
+
+                    </div>
+
+                </div>
+            </div>
+        </div> <!-- <div class="phase2"> -->
+
+
+        <div id="phase3" class="phase3 ">
+            <div class="container title">
+                <ul>
+                    <li><img class="phase3Nav" src="images/btn/text.png"> 1단계: 기본정보</li>
+                    <li><img class="phase3Nav" src="images/btn/text.png"> 2단계: 상세정보</li>
+                    <li class="active"><img class="phase3Nav" src="images/btn/text.png"> 3단계: 이미지 등록</li>
+                </ul>
+            </div>
+
+            <div class="container wrapper">
+                <div class="row">
+                    <div class="col-sm-9 col-md-9">
+                        <h3>이미지 등록</h3>
+
+                        <div class="container section">
+                            <div class="row title">
+                                <div class="col-sm-3 col-md-3">
+                                    <h4>등록정보 이미지</h4>
+                                    <span>필수</span>
+                                </div>
+                                <div class="col-sm-9 col-md-9">
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12">
+                                            <span>메인 이미지</span>
+                                            
+                                            <div class="imgupload" style="width: 512px; height: 427px; background: url('../../images/btn/imgUpload.png') no-repeat 0 0;">
+                                                <input type="file" id="infoImg" name="infoImg" accept="image/gif, image/jpeg, image/png" fileread="newinfoInput.infoImg">
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <span>추가 이미지(옵션)</span>
+                                        <div class="col-sm-4 col-md-4">
+
+                                        </div>
+                                        <div class="col-sm-4 col-md-4">
+
+                                        </div>
+                                        <div class="col-sm-4 col-md-4">
+
+                                        </div>
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- <div class="container section"> -->
+
+                    </div>
+
+                    <div clas="col-sm-3 col-md-3">
+
+                    </div>
+
+
+                </div>
+                <div class="row">
+                    <div class="col-sm-9 col-md-9">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12">
+
+                                <div class="nextBtn phase3" ng-click="phase3Back()">
+                                    <i class="fa fa-arrow-left"></i> 이전단계
+                                </div>
+                                <div class="nextBtn phase3" ng-click="infoComplete()">
+                                    완료 <i class="fa fa-check-square"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div clas="col-sm-3 col-md-3">
+
+                    </div>
+
+                </div>
+            </div>
+        </div> <!-- <div class="phase3"> -->
+
+
+    </div> <!-- <div class="wrapper"> -->
+
+       
+
+    <div id="alertModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="alertModal">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">정보입력</h4>
+                </div>
+                <div class="modal-body">
+                    <i class="fa fa-times"></i>
+                    <p>입력된 정보가 정확하지 않습니다.</p>
+                    <p>다시한번 확인해주시기 바랍니다.</p>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">확인</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="alertSuccess" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="alertModal">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">정보입력</h4>
+                </div>
+                <div class="modal-body">
+                    <i class="fa fa-check"></i>
+                    <p>다음단계로 진행합니다.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="alertComplete" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="alertModal">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">정보입력</h4>
+                </div>
+                <div class="modal-body">
+                    <i class="fa fa-check"></i>
+                    <p>모든 정보가 정상적으로 입력되었습니다.</p>
+                    <p>해당 정보의 승인은 1~2일 정도 소요됩니다.</p>
+                    <p>감사합니다.</p>
+                    <button type="button" ng-click="goToMain()" class="btn btn-default" data-dismiss="modal">닫기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="loadingModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="loadingModal">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <h4>로딩</h4>
+                <i class="fa fa-spinner fa-pulse"></i>
+            </div>
+        </div>
+    </div>
+
+
+    <footer-custom></footer-custom>
+    <div id="isLogin">
+        <%= user %>
+    </div>
+
+
+    <script>
+        CKEDITOR.replace( 'editor1' );
+    </script>
+
+
+    <script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=4c26f6883fff6a7d1308c9ff28c36698"></script>
+    <script>
+
+        function getLocation() {
+            $('#loadingModal').modal({
+                backdrop: 'static',
+                keyboard: false
+            });
+            $('#loadingModal').modal('show');
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                showDefaultPosition();
+            }
+        }
+        function showPosition(position) {
+            var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+                mapOption = { 
+                    center: new daum.maps.LatLng(position.coords.latitude, position.coords.longitude), // 지도의 중심좌표
+                    level: 4 // 지도의 확대 레벨
+                };
+
+            var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+            // 지도를 클릭한 위치에 표출할 마커입니다
+            var marker = new daum.maps.Marker({ 
+                // 지도 중심좌표에 마커를 생성합니다 
+                position: map.getCenter() 
+            }); 
+            // 지도에 마커를 표시합니다
+            marker.setMap(map);
+
+            // 지도에 클릭 이벤트를 등록합니다
+            // 지도를 클릭하면 마지막 파라미터로 넘어온 함수를 호출합니다
+            daum.maps.event.addListener(map, 'click', function(mouseEvent) {        
+                
+                // 클릭한 위도, 경도 정보를 가져옵니다 
+                var latlng = mouseEvent.latLng; 
+                
+                // 마커 위치를 클릭한 위치로 옮깁니다
+                marker.setPosition(latlng);
+                
+                var message = '위도: ' + latlng.getLat() + ' ';
+                message += '경도: ' + latlng.getLng();
+
+                
+                var resultDiv = document.getElementById('clickLatlng'); 
+                resultDiv.innerHTML = message;
+            });
+
+            $('#loadingModal').modal('hide');
+
+        }
+        function showDefaultPosition() {
+            var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+                mapOption = { 
+                    center: new daum.maps.LatLng(37.304470636190445, 127.90758156772726), // 지도의 중심좌표
+                    level: 4 // 지도의 확대 레벨
+                };
+
+            var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+            // 지도를 클릭한 위치에 표출할 마커입니다
+            var marker = new daum.maps.Marker({ 
+                // 지도 중심좌표에 마커를 생성합니다 
+                position: map.getCenter() 
+            }); 
+            // 지도에 마커를 표시합니다
+            marker.setMap(map);
+
+            // 지도에 클릭 이벤트를 등록합니다
+            // 지도를 클릭하면 마지막 파라미터로 넘어온 함수를 호출합니다
+            daum.maps.event.addListener(map, 'click', function(mouseEvent) {        
+                
+                // 클릭한 위도, 경도 정보를 가져옵니다 
+                var latlng = mouseEvent.latLng; 
+                
+                // 마커 위치를 클릭한 위치로 옮깁니다
+                marker.setPosition(latlng);
+                
+                var message = '위도: ' + latlng.getLat() + ' ';
+                message += '경도: ' + latlng.getLng();
+
+                
+                var resultDiv = document.getElementById('clickLatlng'); 
+                resultDiv.innerHTML = message;
+            });
+
+            $('#loadingModal').modal('hide');
+
+        }
+
+        getLocation();
+
+
+
+    </script>
+
+</body>
+
+</html>

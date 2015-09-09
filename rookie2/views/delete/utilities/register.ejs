@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Rookie Korea</title>
+
+
+    <!-- Include CSS Assets -->
+
+    <link rel="stylesheet" href="libs/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="stylesheets/common.css" />
+    <link rel="stylesheet" href="stylesheets/ll.css" />
+
+
+
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="images/favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="images/favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="images/favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="images/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="images/favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="images/favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="images/favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="images/favicons/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="images/favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="images/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="images/favicons/manifest.json">
+    <meta name="apple-mobile-web-app-title" content="RookieKorea">
+    <meta name="application-name" content="RookieKorea">
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="msapplication-TileImage" content="images/favicons/mstile-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    
+
+    <script type="text/javascript" src="libs/jquery/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="libs/bootstrap/js/bootstrap.min.js"></script>
+
+</head>
+
+<body >
+
+
+
+
+
+    <div class="container">
+        <div class="row row1">
+            <a class="headerIMG" href="/"><img src="images/logo-ll.png"></a>
+            <h3 class="textCenter marginT10">회원가입</h3>
+
+        </div>
+
+        <div class="row">
+
+            <div class="jumbotron ">
+                <h1 class="textCenter">Hello, world!</h1>
+                <p></p>
+
+                <form method="post">
+                    <% if(typeof errors != 'undefined'){ %>
+                    <ul type="none">
+                        <% errors.forEach(function (error) { %>
+                        <li><%= JSON.stringify(error) %></li>
+                        <% }); %>
+                    </ul>
+                    <% } %>
+
+
+                    <div class="form-group">
+                        <label for="name">이름</label>
+                        <input type="text" name="name" class="form-control" id="name" placeholder="이메일주소">
+                    </div>
+                    <div class="form-group">
+                        <label for="login">이메일주소</label>
+                        <input type="email" name="login" class="form-control" id="login" placeholder="이메일주소">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">비밀번호</label>
+                        <input type="password" name="password" class="form-control" id="password" placeholder="비밀번호: 최소 8글자로 설정해주세요.">
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-password">비밀번호 재확인</label>
+                        <input type="password" name="confirm-password" class="form-control" id="confirm-password" placeholder="비밀번호 재확인">
+                    </div>
+
+                    <div class="checkbox">
+                        <label>
+                            <input id="terms" type="checkbox"> 이용약관, 개인정보 취급방침 및 운영 원칙에 동의 <a href="/terms" target="_blank">[보기]</a>
+                        </label>
+                    </div>
+
+                    <script>
+                        $('#terms').change(function(){
+                            if($('#login').val() != '' && $('#password').val() != '' && $('#confirm-password').val() != '' && $('input:checkbox[id="terms"]').is(":checked") == true){
+                                $('#regist').removeAttr('disabled');
+                            } else {
+                                $('#regist').attr('disabled', 'disabled');
+                            }
+                            
+           
+                        })
+                    </script>
+
+                    <button id="regist" type="submit" disabled="disabled" class="btn btn-primary btn-lg btn-block">회원가입</button>
+                </form>
+                
+            </div>
+
+        </div>
+
+        <div class="row">
+            <a class="regiText" href="/login">로그인</a></span></h2>
+        </div>
+
+
+    </div>
+
+
+
+    <nav id="footer" class="navbar navbar-default navbar-fixed-bottom" ng-app="common" ng-controller="FooterCtrl" ng-include="template.footerBar">
+
+    </nav>
+
+
+
+    <script src="libs/angular/angular.min.js"></script>
+    <script src="libs/angular/angular-route.min.js"></script>
+    <script src="javascripts/controllers/commonCTRL.js"></script>
+
+
+
+</body>
+
+</html>

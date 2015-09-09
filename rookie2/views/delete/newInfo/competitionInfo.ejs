@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Rookie Korea</title>
+
+
+    <!-- Include CSS Assets -->
+    <link rel="stylesheet" href="../../libs/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="../../libs/font-awesome/font-awesome.css" />
+    <link rel="stylesheet" href="../../libs/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+    <link rel="stylesheet" href="../../libs/bootstrap/css/bootstrap-select.css" />
+
+    <link rel="stylesheet" href="../../stylesheets/newinfo.css" />
+    <link rel="stylesheet" href="../../stylesheets/common.css" />
+
+
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="../../images/favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../../images/favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../../images/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../../images/favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../../images/favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../../images/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../../images/favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../../images/favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../images/favicons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="../../images/favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../images/favicons/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="../../images/favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="../../images/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="../../images/favicons/manifest.json">
+    <meta name="apple-mobile-web-app-title" content="RookieKorea">
+    <meta name="application-name" content="RookieKorea">
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="msapplication-TileImage" content="images/favicons/mstile-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+
+    <script type="text/javascript" src="../../libs/jquery/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="../../libs/moment/min/moment.min.js"></script>
+    <script type="text/javascript" src="../../libs/moment/locale/ko.js"></script>
+    <script type="text/javascript" src="../../libs/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../libs/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="../../libs/ckeditor/ckeditor.js"></script>
+    <script type="text/javascript" src="../../libs/ckeditor/config.js"></script>
+
+
+
+
+</head>
+
+
+
+<body class="padding0">
+
+    <!-- Start Header -->
+
+
+
+    <nav class="navbar navbar-default navbar-fixed-top margin0" ng-app="common" ng-controller="NavCtrl" ng-include="template.navBar">
+
+    </nav>
+
+
+
+    <div class="container marginT74">
+        <div class="row-fluid">
+            <div>
+                <div class="page-header">
+                    <h1>대회 정보를 입력해 주세요.</h1>
+                </div>
+
+                <form class="container marginB100" method="post" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class='col-sm-10'>
+                            <div class="form-group">
+                                <label for="compName">대회 이름</label>
+                                <input type="text" class="form-control" id="compName" name="compName" placeholder="대회이름">
+                            </div>
+
+
+                            <div class="form-inline marginB15 width100">
+                                <div class='input-group date width100'>
+                                    <label for="compDate1">대회 일시</label><br/>
+                                    <div class="input-group col-md-5 col-sm-5">
+                                        <input type="text" class="form-control" id="compDate1" name="compDate1" placeholder="대회 시작일시">
+                                        <input type="text" class="form-control" id="compDate11" name="compDate11" placeholder="대회 시작일시" style="display: none;">
+                                        <div class="input-group-addon">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                        </div>
+                                    </div>
+                                    <div class="input-group col-md-2 col-sm-2 textCenter">
+                                        <span class="glyphicon glyphicon-minus"></span>
+                                    </div>
+                                    <div class="input-group col-md-5 col-sm-5">
+                                        <input type="text" class="form-control" id="compDate2" name="compDate2" placeholder="대회 종료일시">
+                                        <input type="text" class="form-control" id="compDate22" name="compDate22" placeholder="대회 종료일시" style="display: none;">
+                                        <div class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span></div>
+                                    </div>
+                                </div>
+                                <script type="text/javascript">
+                                    $(function() {
+                                        $('#compDate1').datetimepicker();
+                                        $('#compDate2').datetimepicker();
+                                        $("#compDate1").on("dp.change", function (e) {
+                                            $('#compDate11').val(e.date._d);
+                                            $('#compDate22').val(e.date._d);
+                                            $('#compDate2').data("DateTimePicker").minDate(e.date);
+                                            e.date._d.setDate(e.date._d.getDate()-1);
+                                            $('#registDate11').val(e.date._d);
+                                            $('#registDate22').val(e.date._d);
+                                            $('#registDate1').data("DateTimePicker").maxDate(e.date);
+                                            $('#registDate2').data("DateTimePicker").maxDate(e.date);
+                                        });
+                                        $("#compDate2").on("dp.change", function (e) {
+                                            $('#compDate22').val(e.date._d);
+                                        });
+                                    });
+                                </script>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="compLocation">대회 장소</label>
+                                <input type="text" class="form-control" id="compLocation" name="compLocation" placeholder="대회장소">
+                            </div>
+
+                            <div class="form-inline marginB15 width100">
+                                <div class='input-group date width100'>
+                                    <label for="compDate1">신청마감</label><br/>
+                                    <div class="input-group col-md-5 col-sm-5">
+                                        <input type="text" class="form-control" id="registDate1" name="registDate1" placeholder="대회신청 시작일">
+                                        <input type="text" class="form-control" id="registDate11" name="registDate11" placeholder="대회신청 시작일" style="display: none;">
+                                        <div class="input-group-addon">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                        </div>
+                                    </div>
+                                    <div class="input-group col-md-2 col-sm-2 textCenter">
+                                        <span class="glyphicon glyphicon-minus"></span>
+                                    </div>
+                                    <div class="input-group col-md-5 col-sm-5">
+                                        <input type="text" class="form-control" id="registDate2" name="registDate2" placeholder="대회신청 마감일">
+                                        <input type="text" class="form-control" id="registDate22" name="registDate22" placeholder="대회신청 마감일" style="display: none;">
+                                        <div class="input-group-addon">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <script type="text/javascript">
+                                    $(function() {
+                                        $('#registDate1').datetimepicker();
+                                        $('#registDate2').datetimepicker();
+                                        $("#registDate1").on("dp.change", function (e) {
+                                            $('#registDate11').val(e.date._d);
+                                            $('#registDate22').val(e.date._d);
+                                            $('#registDate2').data("DateTimePicker").minDate(e.date);
+                                        });
+                                        $("#registDate2").on("dp.change", function (e) {
+                                            $('#registDate22').val(e.date._d);
+                                        });
+                                    });
+                                </script>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="compSponsorship">추가정보</label>
+
+    
+                                <textarea name="editor1" id="editor1" rows="10" cols="80">
+                                    This is my textarea to be replaced with CKEditor.
+                                </textarea>
+                                <script>
+                                    // Replace the <textarea id="editor1"> with a CKEditor
+                                    // instance, using default configuration.
+                                    CKEDITOR.replace( 'editor1' );
+                    
+                                </script>
+
+                            </div>
+
+                            <div class="form-group">
+                                <label for="compURL">대회 URL</label>
+                                <input type="text" class="form-control" id="compURL" name="compURL" placeholder="대회 URL">
+                            </div>
+
+
+                            <div class="form-inline marginB15 width100">
+                                <div class='input-group date width100'>
+                                    <label for="compImgText">사진 업로드</label><br/>
+                                    <div class="input-group col-sm-5">
+                                        <input type="text" class="form-control" id="compImgText" name="registDate" placeholder="" readonly="readonly">
+                                        <div class="input-group-addon padding0" style="width: 74px; background: url('../../images/btn/uploadBtn.png') no-repeat 0 0;">
+                                            <input type="file" id="compImg" name="compImg" />
+                                        </div>
+                                    </div>
+                                    <p class="help-block">대회포스터, 사진 업로드해주세요.</p>
+                                    <p class="help-block">사진 크기는 가로 300px / 세로 200px에 최적화되어 있습니다.</p>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <a href="" id="modalPreview" class="btn btn-primary col-md-12" data-toggle="modal" data-target="#preview">미리보기</a>
+                            </div>
+                            <script>
+                                $(document).ready(function(){
+                                    $('#submit').hide();
+                                });
+                                
+                            
+                            </script>
+
+                            <script>
+                                $('#modalPreview').click(function(){
+
+                                    var url = window.location.pathname;
+                                    var urlSub = url.split('/');
+                                    $('#modalTitle').html($('#compName').val()+"<br><small>"+urlSub[2]+"</small>");
+                                    $('#cLocation').html($('#compLocation').val());
+                                    $('#dDay').html($('#compDate1').val()+' ~ '+$('#compDate2').val());
+                                    $('#rDay').html($('#registDate1').val()+' ~ '+$('#registDate2').val());
+                                    $('#cURL').html('<a href="'+ $('#compURL').val() +'" target="_blank">'+ $('#compURL').val() +'</a>');
+                                    $('#info').html(CKEDITOR.instances.editor1.getData());
+
+                                    if($('#compName').val() != '' && $('#compDate1').val() != '' && $('#compLocation').val() != '' && $('#compImgText').val() != ''){
+
+                                        
+
+                                        $('#submit').show();
+
+                                    } else {
+                                        $('#submit').hide();
+                                    }
+
+
+
+                                    
+
+                                })
+
+                            </script>
+                            <script>
+                                var fileInput = document.getElementById('compImg');
+                                fileInput.onchange = function(){
+                                    $('#compImgText').val(this.value);
+                                    var files = this.files;
+
+                                    for(var i=0; i<files.length; i++){
+                                        var file = files.item(i);
+
+                                        var reader = new FileReader();
+                                        reader.onload = function(){
+                                            var image = document.createElement('img');
+                                            image.width = 192.5;
+                                            image.height = 128.328;
+                                            image.style = "border: 1px solid rgb(221,221,221); padding: 5px;";
+                                            image.src = reader.result;
+
+                                            $('#imgReview').append(image);
+                                        };
+                                        reader.readAsDataURL(file);
+                                    }
+                                };
+
+                            </script>
+                            <div class="form-group">
+                                <button id="submit" type="submit" class="btn btn-success col-md-12 marginT15">완료</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="preview" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: darkturquoise;">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        대회보기
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="page-header col-md-9 margin0 paddingT10">
+                                <h1 id="modalTitle"></h1>
+                            </div>
+                            <div class="col-md-3" id="imgReview">
+                            </div>
+                        </div>
+                        <div class="row marginT30">
+                            <table class="table table-condensed">
+                                <tbody class="borderT2SG">
+                                    <tr>
+                                        <th>대회장소</th>
+                                        <td id="cLocation"></td>
+                                    </tr>
+                                    <tr>
+                                        <th>경기일시</th>
+                                        <td id="dDay"> ~ </td>
+                                    </tr>
+                                    <tr>
+                                        <th>신청기간</th>
+                                        <td id="rDay"> ~ </td>
+                                    </tr>
+                                    <tr>
+                                        <th>홈페이지</th>
+                                        <td id="cURL"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="row marginT30">
+                            <div id="info"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <img src="../../images/logo.png">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="isLogin">
+        <%= user %>
+    </div>
+    <script src="../../libs/angular/angular.min.js"></script>
+    <script src="../../libs/angular/angular-route.min.js"></script>
+    <script src="../../javascripts/controllers/commonCTRL.js"></script>
+</body>
+</html>

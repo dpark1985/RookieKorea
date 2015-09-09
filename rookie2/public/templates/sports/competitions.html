@@ -1,0 +1,29 @@
+<ul class="nav nav-tabs order">
+    <li role="presentation" ng-click="tab1()" class="{{tab1Active}}"><a href="#"><h4>조회순</h4></a></li>
+    <li role="presentation" ng-click="tab2()" class="{{tab2Active}}"><a href="#"><h4>신규등록순</h4></a></li>
+    <li role="presentation" ng-click="tab3()" class="{{tab3Active}}"><a href="#"><h4>마감일순</h4></a></li>
+</ul>
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <a ng-href="/{{curLocation.en}}/{{curCategory}}/{{item._id}}" class="col-sm-4 col-md-4 item" ng-repeat="item in items | filter:filteredStateEvent">
+                <div class="wrapper">
+                    <img ng-src="{{item.eventImg}}">
+                    <div class="info">
+                        <h5>{{item.eventTitle}}</h5>
+                        <div class="rating">
+                            <ul>    
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star-half-o"></i></li>
+                                <li><i class="fa fa-star-o"></i></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>

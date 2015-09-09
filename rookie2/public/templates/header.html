@@ -1,0 +1,65 @@
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/"><img src="../../images/logos/logo-nav.png"></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                <form class="navbar-form navbar-left" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">검색</button>
+                        </span>
+                    </div><!-- /input-group -->
+                </form>
+                <ul ng-if="!isLogin" class="nav navbar-nav navbar-right">
+                    <li><a href="/register">회원가입</a></li>
+                    <li><a href="/login">로그인</a></li>
+                    <li class="newinfo"><a href="/newinfo">정보 등록하기</a></li>
+                </ul>
+
+                <ul ng-if="isLogin" class="nav navbar-nav navbar-right">
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{loginID}} <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="/logout" ng-click="logout()">로그아웃</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="newinfo"><a href="/newinfo">정보 등록하기</a></li>
+                </ul>
+
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <div class="container subnav">
+        <div class="row">
+            <ul class="sportsList col-sm-10 col-md-10">
+                <li><a href="/soccer"><h5>축구</h5></a></li>
+                <li><a href="/bowling"><h5>볼링</h5></a></li>
+                <li><a href="/tennis"><h5>테니스</h5></a></li>
+                <li><a href="/baseball"><h5>야구</h5></a></li>
+                <li><a href="/bedminton"><h5>배드민턴</h5></a></li>
+                <li><a href="/basketball"><h5>농구</h5></a></li>
+                <li><a href="/market"><h5>마켓</h5></a></li>
+            </ul>
+            <div class="eventLink col-sm-2 col-md-2">
+                <a href="#"><h5>이벤트</h5></a>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ko" ng-app="sports">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>루키코리</title>
+
+    <!-- Bootstrap -->
+    <link href="libs/bootstrap-3.3.5-dist/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="libs/font-awesome-4.4.0/css/font-awesome.min.css">
+
+    <!-- Custom -->
+    <link href="stylesheets/sports.css" rel="stylesheet">
+    <link href="stylesheets/header.css" rel="stylesheet">
+    <link href="stylesheets/footer.css" rel="stylesheet">
+    <link href="stylesheets/font.css" rel="stylesheet">
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="images/favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="images/favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="images/favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="images/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="images/favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="images/favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="images/favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="images/favicons/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="images/favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="images/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="images/favicons/manifest.json">
+    <meta name="apple-mobile-web-app-title" content="RookieKorea">
+    <meta name="application-name" content="RookieKorea">
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="msapplication-TileImage" content="images/favicons/mstile-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+</head>
+
+<body ng-controller="sportsCtrl">
+    <header-custom></header-custom>
+    <div id="loadingModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="loadingModal">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <h4>로딩</h4>
+                <i class="fa fa-spinner fa-pulse"></i>
+            </div>
+        </div>
+    </div>    
+
+    <div class="container-fluid mainImg">
+        <img src="images/bg/sportsBG1.png">
+        <div class="container">
+            <h1>{{curLocation.ko}}: {{curLocation.en}}</h1>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3 col-md-3 left">
+                    <div class="wrapper">
+                        <div class="header">
+                            <h4>세부 카테고리</h4>
+                        </div>
+                        <div class="subcategory">
+                            <div class="list"><a href="" ng-click="subTab1()" class="{{subTab1Active}}">대회</a><span>({{totalNums[0]}})</span></div>
+                            <div class="list"><a href="" ng-click="subTab2()" class="{{subTab2Active}}">코트</a><span>({{totalNums[1]}})</span></div>
+                            <div class="list"><a href="" ng-click="subTab3()" class="{{subTab3Active}}">동호회</a><span>({{totalNums[2]}})</span></div>
+                        </div>
+
+
+                        <div class="location">
+                            <h5>지역</h5>
+                            <div class="row">
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" ng-model="state.all" name="all" ng-change="selectAll()"> 전체선택</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" ng-model="state.seoul" name="seoul" ng-change="stateChange()"> 서울특별시</label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" ng-model="state.busan" name="busan" ng-change="stateChange()"> 부산광역시</label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" ng-model="state.daegue" name="daegue" ng-change="stateChange()"> 대구광역시</label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" ng-model="state.incheon" name="incheon" ng-change="stateChange()"> 인천광역시</label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" ng-model="state.gwangju" name="gwangju" ng-change="stateChange()"> 광주광역시</label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" ng-model="state.daejeon" name="daejeon" ng-change="stateChange()"> 대전광역시</label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" ng-model="state.ulsan" name="ulsan" ng-change="stateChange()"> 울산광역시</label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" ng-model="state.jeju" name="jeju" ng-change="stateChange()"> 제주도</label>
+                                    </div>
+                                </div class="col-sm-6 col-md-6">
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" ng-model="state.gyeonggi" name="gyeonggi" ng-change="stateChange()"> 경기도</label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" ng-model="state.ganwon" name="ganwon" ng-change="stateChange()"> 강원도</label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" ng-model="state.chungbuk" name="chungbuk" ng-change="stateChange()"> 충청북도</label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" ng-model="state.chungnam" name="chungnam" ng-change="stateChange()"> 충청남도</label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" ng-model="state.jeonbuk" name="jeonbuk" ng-change="stateChange()"> 전라북도</label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" ng-model="state.jeonnam" name="jeonnam" ng-change="stateChange()"> 전라남도</label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" ng-model="state.gyeongbuk" name="gyeongbuk" ng-change="stateChange()"> 경상북도</label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" ng-model="state.gyeongnam" name="gyeongnam" ng-change="stateChange()"> 경상남도</label>
+                                    </div>
+                                    
+
+                                </div class="col-sm-6 col-md-6">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="col-sm-9 col-md-9 right" ng-include="curPage"></div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+    <footer-custom></footer-custom>
+    <div id="isLogin">
+        <%= user %>
+    </div>
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="libs/jquery/jquery-1.11.3.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="libs/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <!-- Angular 1.4.4 -->
+    <script src="libs/angular-1.4.4-dist/angular.min.js"></script>
+    <script src="libs/angular-1.4.4-dist/angular-route.min.js"></script>
+
+    <!-- Index Controller -->
+    <script src="javascripts/controllers/sportsCtrl.js"></script>
+
+</body>
+
+</html>

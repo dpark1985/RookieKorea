@@ -1,0 +1,56 @@
+body {
+	background-color: white;
+}
+
+div.container.logo {
+	text-align: center;
+	padding-top: 60px;
+}
+
+div.container.logo > a > img {
+	width: 180px;
+	height: 180px;
+}
+
+div.container.formBox {
+	padding-top: 40px;
+}
+
+div.container.formBox > div.reg-block {
+	width: 340px;
+	height: 346px;
+	padding: 20px;
+	margin: auto;
+	background-color: white;
+	border: 1px solid #E3434B;
+}
+
+div.container.formBox > div.reg-block > div.reg-block-header > h2 {
+	text-align: center;
+}
+
+div.container.formBox > div.reg-block > div.reg-block-header > form > button {
+	background-color: #E3434B;
+	color: white;
+}
+
+span.register {
+	float: left;
+	margin-top: 20px;
+}
+
+span.resetpwd {
+	float: right;
+	margin-top: 20px;
+}
+
+span.register > a,
+span.resetpwd > a,
+p.copyright a {
+	color: #E3434B;
+}
+
+p.copyright {
+	text-align: center;
+	min-width: 970px;
+}

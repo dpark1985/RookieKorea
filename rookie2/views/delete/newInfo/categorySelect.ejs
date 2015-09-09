@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko" ng-app="common">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Rookie Korea</title>
+
+
+    <!-- Include CSS Assets -->
+
+    <link rel="stylesheet" href="../libs/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="../libs/font-awesome/font-awesome.css" />
+
+    <link rel="stylesheet" href="../stylesheets/non-responsive.css" />
+    <link rel="stylesheet" href="../stylesheets/newinfo.css" />
+    <link rel="stylesheet" href="../stylesheets/common.css" />
+
+
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="../images/favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../images/favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../images/favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../images/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../images/favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../images/favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/favicons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="../images/favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../images/favicons/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="../images/favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="../images/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="../images/favicons/manifest.json">
+    <meta name="apple-mobile-web-app-title" content="RookieKorea">
+    <meta name="application-name" content="RookieKorea">
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="msapplication-TileImage" content="images/favicons/mstile-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+</head>
+
+<body>
+
+    <!-- Start Header -->
+
+
+
+    <nav class="navbar navbar-default navbar-fixed-top margin0" ng-controller="NavCtrl" ng-include="template.navBar">
+
+    </nav>
+
+
+
+
+    <div class="container">
+        <div class="row-fluid">
+            <div>
+                <div class="page-header">
+                    <h1>카테고리를 선택해 주세요.</h1>
+                </div>
+                <div class="container-fluid">
+                    <a href="/newinfo/<%= selectedSport %>/competition">
+                        <div class="categoryList col-lg-4">
+                        대회
+                        </div>
+                    </a>
+
+                    <a href="/newinfo/<%= selectedSport %>/court">
+                        <div class="categoryList col-lg-4">
+                        코트장
+                        </div>
+                    </a>
+
+                    <a href="/newinfo/<%= selectedSport %>/club">
+                        <div class="categoryList col-lg-4">
+                        동호회
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <nav id="footer" class="navbar navbar-default navbar-fixed-bottom" ng-controller="FooterCtrl" ng-include="template.footerBar">
+
+    </nav>
+
+    <div id="isLogin">
+        <%= user %>
+    </div>
+
+    <script type="text/javascript" src="../libs/jquery/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="../libs/bootstrap/js/bootstrap.min.js"></script>
+
+
+    <script src="../libs/angular/angular.min.js"></script>
+    <script src="../libs/angular/angular-route.min.js"></script>
+    <script src="../javascripts/controllers/commonCTRL.js"></script>
+
+
+
+</body>
+
+</html>

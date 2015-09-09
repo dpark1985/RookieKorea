@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ko" ng-app="main">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>루키코리</title>
+
+    <!-- Bootstrap -->
+    <link href="libs/bootstrap-3.3.5-dist/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="libs/font-awesome-4.4.0/css/font-awesome.min.css">
+
+    <!-- Custom -->
+    <link href="stylesheets/index.css" rel="stylesheet">
+    <link href="stylesheets/footer.css" rel="stylesheet">
+    <link href="stylesheets/font.css" rel="stylesheet">
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="images/favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="images/favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="images/favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="images/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="images/favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="images/favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="images/favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="images/favicons/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="images/favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="images/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="images/favicons/manifest.json">
+    <meta name="apple-mobile-web-app-title" content="RookieKorea">
+    <meta name="application-name" content="RookieKorea">
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="msapplication-TileImage" content="images/favicons/mstile-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+</head>
+
+<body ng-controller="mainCtrl">
+
+    <nav class="navbar navbar-default navbar-static-top border0">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/"><img src="images/logos/headerLogo1.png"></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="navbar-collapse-1">
+
+                <ul ng-if="!isLogin" class="nav navbar-nav navbar-right">
+                    <li><a href="/register">회원가입</a></li>
+                    <li><a href="/login">로그인</a></li>
+                    <li><a href="#">고객센터</a></li>
+                </ul>
+
+                <ul ng-if="isLogin" class="nav navbar-nav navbar-right">
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{loginID}} <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="/logout" ng-click="logout()">로그아웃</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="#">고객센터</a></li>
+                </ul>
+
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <div class="headerBG">
+        <div class="container">
+            <h1>대회, 코트장, 동호회 정보를 한번에!</h1>
+            <p>필요한 정보를 찾아주는 곳, <b>루키코리아</b></p>
+        </div>
+        <div class="container">
+            <a href="#" class="btn_infoRegi" ng-click="newInfo()">
+                <i class="fa fa-archive"></i> <span>정보 등록하기</span>
+            </a>
+        </div>
+
+    </div>
+    <div class="opacity50"></div>
+
+
+    <div class="search input-group">
+        <input type="text" class="form-control" placeholder="어떤 정보를 찾고 계신가요?" ng-model="searchInput">
+        <span class="input-group-btn">
+            <button class="btn btn-default" type="button" ng-click="search()">정보검색</button>
+        </span>
+    </div>
+
+    <div class="category">
+        <div class="container">
+            <h3>카테고리</h3>
+            <h5>원하시는 카테고리를 선택하세요</h5>
+
+            <div class="row seven-cols categoryRow">
+                <div class="col-sm-1 col-md-1 categoryList">
+                    <a href="/soccer">
+                        <img src="images/btn/soccer.png">
+                        <p>축구</p>
+                    </a>
+                </div>
+                <div class="col-sm-1 col-md-1 categoryList">
+                    <a href="/bowling">
+                        <img src="images/btn/bowling.png">
+                        <p>볼링</p>
+                    </a>
+                </div>
+                <div class="col-sm-1 col-md-1 categoryList">
+                    <a href="/tennis">
+                        <img src="images/btn/tennis.png">
+                        <p>테니스</p>
+                    </a>
+                </div>
+                <div class="col-sm-1 col-md-1 categoryList">
+                    <a href="/baseball">
+                        <img src="images/btn/baseball.png">
+                        <p>야구</p>
+                    </a>
+                </div>
+                <div class="col-sm-1 col-md-1 categoryList">
+                    <a href="/bedminton">
+                        <img src="images/btn/bedminton.png">
+                        <p>배드민턴</p>
+                    </a>
+                </div>
+                <div class="col-sm-1 col-md-1 categoryList">
+                    <a href="/basketball">
+                        <img src="images/btn/basketball.png">
+                        <p>농구</p>
+                    </a>
+                </div>
+                <div class="col-sm-1 col-md-1 categoryList">
+                    <a href="/market">
+                        <img src="images/btn/shopping.png">
+                        <p>마켓</p>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="promo">
+        <div class="container events">
+            <h3>이벤트</h3>
+            <h5>루키코리아 대박 이벤트</h5>
+
+            <div>
+                <a href="#"><img src="images/event/event1.jpg"></a>
+            </div>
+        </div>
+
+        <div class="container plans">
+            <h3>기획관</h3>
+            <h5>루키코리아 대박 이벤트</h5>
+
+            <div class="row">
+                <div class="col-sm-4 col-md-4">
+                    <a href="#"><img src="http://dummyimage.com/293.3x190/000/fff"></a>
+                </div>
+                <div class="col-sm-4 col-md-4">
+                    <a href="#"><img src="http://dummyimage.com/293.3x190/000/fff"></a>
+                </div>
+                <div class="col-sm-4 col-md-4">
+                    <a href="#"><img src="http://dummyimage.com/293.3x190/000/fff"></a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-12">
+                    <a href="#"><img src="http://dummyimage.com/940x100/000/fff"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blog">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-1 col-md-1 left">
+                    <i class="fa fa-angle-left"></i>
+                </div>
+
+                <div class="col-sm-10 col-md-10 content">
+                    <h2>루키코리아 이야기</h2>
+                    <img src="http://dummyimage.com/778.328x175/000/fff">
+                    <p>aslkdfjlaskdfjlasdjflaskdjfalskdfjalsjfdlaskjdflasjflaskjdflaskjfdlaskjfdlkasjdflajsldfjas</p>
+                    <p>aslkdfjlaskdfjlasdjflaskdjfalskdfjalsjfdlaskjdflasjflaskjdflaskjfdlaskjfdlkasjdflajsldfjas</p>
+                    <p>aslkdfjlaskdfjlasdjflaskdjfalskdfjalsjfdlaskjdflasjflaskjdflaskjfdlaskjfdlkasjdflajsldfjas</p>
+
+                    <span><a href="#">자세히 보기</a></span>
+                </div>
+
+
+                <div class="col-sm-1 col-md-1 right">
+                    <i class="fa fa-angle-right"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer-custom></footer-custom>
+    <div id="isLogin">
+        <%= user %>
+    </div>
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="libs/jquery/jquery-1.11.3.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="libs/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <!-- Angular 1.4.4 -->
+    <script src="libs/angular-1.4.4-dist/angular.min.js"></script>
+    <script src="libs/angular-1.4.4-dist/angular-route.min.js"></script>
+
+    <!-- Index Controller -->
+    <script src="javascripts/controllers/indexCtrl.js"></script>
+
+</body>
+
+</html>

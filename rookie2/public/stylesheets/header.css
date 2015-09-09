@@ -1,0 +1,95 @@
+nav.navbar.navbar-default {
+	background-color: #E3434B;
+	min-width: 970px;
+	margin-bottom: 0px;
+}
+
+nav.navbar.navbar-default > div.container > div.navbar-header > a {
+	padding: 8px 15px;
+}
+
+nav.navbar.navbar-default > div.container > div.navbar-header > a > img {
+	width: 191px;
+	height: 34px;
+}
+
+nav.navbar.navbar-default > div.container > div.collapse.navbar-collapse > ul > li.dropdown.open > a {
+	background-color: transparent;
+}
+
+nav.navbar.navbar-default > div.container > div.collapse.navbar-collapse > ul > li.newinfo {
+	height: 30px;
+	background-color: #333333;
+	margin-top: 10px;
+	border-radius: 5px;
+}
+
+nav.navbar.navbar-default > div.container > div.collapse.navbar-collapse > ul > li.newinfo:hover {
+	background-color: black;
+}
+
+nav.navbar.navbar-default > div.container > div.collapse.navbar-collapse > ul > li.newinfo:hover > a {
+	color: #ffe200;
+}
+
+nav.navbar.navbar-default > div.container > div.collapse.navbar-collapse > ul > li.newinfo > a {
+	margin-top: -10px;
+}
+
+nav.navbar.navbar-default > div.container > div.collapse.navbar-collapse > ul > li > a {
+	color: white;
+}
+
+div.container.subnav {
+	height: 35px;
+	padding-left: 0px;
+}
+
+div.container.subnav > div.row {
+	height: 35px;
+}
+
+div.container.subnav > div.row > ul.sportsList {
+	list-style-type: none;
+	margin-bottom: 0px;
+}
+
+div.container.subnav > div.row > ul.sportsList > li {
+	float: left;
+}
+
+div.container.subnav > div.row > ul.sportsList > li:hover {
+	background-color: #F4F4F4;
+}
+
+div.container.subnav > div.row > ul.sportsList > li > a {
+	color: #333333;
+	text-decoration: none;
+	display: block;
+	width: 100%;
+	height: 100%;
+	padding:10px 20px;
+}
+
+div.container.subnav > div.row > ul.sportsList > li > a > h5 {
+	margin: 0;
+}
+
+div.container.subnav > div.row > div.eventLink > a > h5 {
+	margin: 0px;
+	line-height: 35px;
+}
+
+div.container.subnav > div.row > div.eventLink > a {
+	float: right;
+	text-decoration: none;
+	color: #333333;
+	height: 35px;
+
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+div.container.subnav > div.row > div.eventLink > h5 > a:hover {
+	background-color: #F4F4F4;
+}

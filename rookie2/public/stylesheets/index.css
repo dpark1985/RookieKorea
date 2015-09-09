@@ -1,0 +1,238 @@
+
+
+.border0 {
+	border: 0px;
+}
+
+.transparent,
+nav.navbar,
+nav > div > #navbar-collapse-1 > ul > li.dropdown.open > a {
+	background-color: transparent;
+}
+
+nav > div > #navbar-collapse-1 > ul > li > a {
+	color: white;
+}
+
+a.navbar-brand > img {
+	width: 191px;
+	height: 31px;
+}
+
+div.headerBG {
+	z-index: 1;
+	padding: 200px 0;
+	text-align: center;
+	background: url(../images/bg/headerBG1.png) no-repeat;
+	background-size: cover;
+	background-position: center center;
+	min-width: 970px;
+	margin-top: -70px;
+}
+
+
+div.headerBG > div.container {
+	margin: auto;
+}
+
+div.headerBG > div.container > h1 {
+	color: white;
+}
+
+div.headerBG > div.container > p {
+	color: white;
+}
+
+div.headerBG > div.container > p > b {
+	color: white;
+}
+
+div.headerBG > div.container > a.btn_infoRegi {
+	background-color: #E3434B;
+	display: block;
+	width: 150px;
+	height: 40px;
+	border-radius: 10px;
+	margin: 0 auto;
+	text-decoration: none !important;
+	opacity: 0.8;
+}
+
+div.headerBG > div.container > a.btn_infoRegi:hover {
+	opacity: 1;
+}
+
+div.headerBG > div.container > a.btn_infoRegi > i {
+	color: white;
+	font-size: 15px;
+	line-height: 40px;
+}
+
+div.headerBG > div.container > a.btn_infoRegi > span {
+	color: white;
+	font-size: 15px;
+	line-height: 40px;
+}
+
+div.opacity50 {
+	background-color: red;
+	width: 100%;
+	height: 100px;
+	margin-top: -100px;
+	opacity: 0.5;
+	min-width: 970px;
+}
+
+
+
+div.search {
+	width: 529px;
+	margin: auto;
+	margin-top: -72.5px;
+}
+
+div.search > input.form-control {
+	height: 45px;
+}
+
+div.search > span.input-group-btn > button.btn {
+	height: 45px;
+}
+
+div.category {
+	padding-top: 60px;
+	padding-bottom: 40px;
+}
+
+div.category > div.container > h5 {
+	color: #909090;
+}
+
+div.category > div.container > div.categoryRow {
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 40px;
+	
+}
+
+div.category > div.container > div.categoryRow > div.categoryList {
+	text-align: center;
+}
+
+div.category > div.container > div.categoryRow > div.categoryList > a {
+	text-decoration: none !important;
+}
+
+div.category > div.container > div.categoryRow > div.categoryList > a > img {
+	opacity: 0.8;
+}
+
+div.category > div.container > div.categoryRow > div.categoryList > a:hover > img {
+	opacity: 1;
+}
+
+div.category > div.container > div.categoryRow > div.categoryList > a > p {
+	margin-top: 10px;
+	color: black;
+	font-weight: bold;
+}
+
+div.promo {
+	background-color: #F4F4F4;
+	padding-top: 20px;
+	padding-bottom: 60px;
+	min-width: 970px;
+}
+
+div.promo > div.container.events {
+	padding-top: 20px;
+}
+
+div.promo > div.container.events > h5 {
+	color: #909090;
+}
+
+div.promo > div.container.events > div {
+	padding-top: 20px;
+}
+
+div.promo > div.container.events > div > a > img {
+	width: 100%;
+	height: 150px;
+}
+
+div.promo > div.container.plans {
+	padding-top: 40px;
+}
+
+div.promo > div.container.plans > h5 {
+	color: #909090;
+}
+
+div.promo > div.container.plans > div {
+	padding-top: 20px;
+}
+
+div.promo > div.container.plans > div > a > img {
+	width: 100%;
+	height: 150px;
+}
+
+div.blog {
+	background-color: white;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+div.blog > div.container {
+
+}
+
+div.blog > div.container > div.row {
+	padding-top: 20px;
+}
+
+div.blog > div.container > div.row > div.left,
+div.blog > div.container > div.row > div.right {
+	font-size: 80px;
+	height: 400px;
+}
+
+div.blog > div.container > div.row > div.left > i,
+div.blog > div.container > div.row > div.right > i{
+	color: #E3434B;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+div.blog > div.container > div.row > div.left > i:hover,
+div.blog > div.container > div.row > div.right > i:hover{
+	color: #E01616;
+}
+
+div.blog > div.container > div.row > div.content {
+	height: 400px;
+}
+
+div.blog > div.container > div.row > div.content > h2 {
+	text-align: center;
+}
+
+div.blog > div.container > div.row > div.content > img {
+	margin: auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+div.blog > div.container > div.row > div.content > p {
+	text-align: center;
+}
+
+div.blog > div.container > div.row > div.content > span {
+	float: right;
+}
+
+div.blog > div.container > div.row > div.content > span > a {
+	color: #E3434B;
+}
