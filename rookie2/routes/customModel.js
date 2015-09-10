@@ -237,13 +237,18 @@ exports.active = function(app, db, fs){
 						state: newinfo.location.state,
 						city: newinfo.location.city
 					},
+					clubCourtName : newinfo.courtName,
+					clubGPS: {
+						lat: newinfo.GPS.lat,
+						lng: newinfo.GPS.lng
+					},
 					clubContact: {
 						phone: newinfo.contact.phone,
 						email: newinfo.contact.email,
 						url: newinfo.contact.url
 					},
 					clubInfo: newinfo.detailInfo,
-					clubImg: newinfo.infoImg,
+					clubImg: filepath,
 					clubMembers: [{"id": newinfo.author}],
 					clubVisits: 0,
 					clubLikes: 0,
@@ -306,10 +311,104 @@ exports.active = function(app, db, fs){
 	});
 
 
+
+	app.post('/model/admin/:query', function (req, res, next){
+		
+		var query = req.params.query;
+
+		if(query === 'login'){
+			var id = req.body.id;
+			var pwd = req.body.pwd;
+			if(id == '1' && pwd == '2'){
+				res.json({"status": "1"});
+			} else {
+				res.json({"status": "2"});
+			}			
+		} else if (query === 'users'){
+			db.users.find({}, function (err, data){
+				res.json(data);
+			});
+		} else if (query === 'query'){
+			db.query.find({queryType : 'query'}, function (err, data){
+				res.json(data);
+			});
+		} else if (query === 'queryUpdate'){
+			var id = req.body.id;
+
+			db.query.update({_id: db.ObjectId(id)},
+				{ "$set" : {checked: true}}, function (err, data){
+					res.json(data);
+			});
+		} else if (query === 'ads'){
+			db.query.find({queryType : 'ads'}, function (err, data){
+				res.json(data);
+			});
+		} else if (query === 'queryUpdate'){
+			var id = req.body.id;
+
+			db.query.update({_id: db.ObjectId(id)},
+				{ "$set" : {checked: true}}, function (err, data){
+					res.json(data);
+			});
+		} else if (query === 'noti'){
+			var type = req.body.type;
+
+			db.noti.find({type : type}, function (err, data){
+				res.json(data);
+			});
+		} else if (query === 'notiActive'){
+			var id = req.body.id;
+
+			db.noti.update({_id: db.ObjectId(id)},
+				{ "$set" : {active: true}}, function (err, data){
+					res.json(data);
+			});
+		} else if (query === 'notiDeActive'){
+			var id = req.body.id;
+
+			db.noti.update({_id: db.ObjectId(id)},
+				{ "$set" : {active: false}}, function (err, data){
+					res.json(data);
+			});
+		} else if (query === 'notiNew'){
+			var newNoti = req.body.newNoti;
+
+			var imgFileName = newNoti.type + '_' + Date.now();
+			req.base64Img.img(newNoti.img, './public/uploads/noti', imgFileName, function(err, filepath) {
+
+				db.noti.insert({
+					type : newNoti.type,
+					data : Date(),
+					title : newNoti.title,
+					link : newNoti.link,
+					img : filepath,
+					active : false
+				}, function (err, data){
+					res.json(data);
+				});
+			});
+		} else if (query === 'notiNew2'){
+			var newNoti = req.body.newNoti;
+
+			db.noti.insert({
+				type : newNoti.type,
+				data : Date(),
+				title : newNoti.title,
+				link : newNoti.link,
+				active : false
+			}, function (err, data){
+				res.json(data);
+			});
+
+		} 
+
+	});
+
+
+
 	app.get('/model/:sports/:category', function (req, res, next) {
 		var sports = req.params.sports;
 		var category = req.params.category;
-
 
 
 		if(category === 'competitions'){

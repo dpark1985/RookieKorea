@@ -1,0 +1,81 @@
+<h1 class="page-header">대회 관리</h1>
+
+<div class="row placeholders">
+    <div class="col-xs-6 col-sm-3 placeholder">
+        <h1>{{items.length}}</h1>
+        <span class="text-muted">총 회원수</span>
+    </div>
+    <div class="col-xs-6 col-sm-3 placeholder">
+        <h1>{{totalVisits}}</h1>
+        <span class="text-muted">총 방문수</span>
+    </div>
+    <div class="col-xs-6 col-sm-3 placeholder">
+
+    </div>
+    <div class="col-xs-6 col-sm-3 placeholder">
+
+    </div>
+</div>
+
+<h2 class="sub-header">대회 리스트</h2>
+<div class="table-responsive">
+    <table class="table table-striped main">
+        <colgroup>
+
+        </colgroup>
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th rowspan="2">스포츠</th>
+                <th rowspan="2">등록일</th>
+                <th rowspan="2">대회이름</th>
+                <th rowspan="2">대회코트장</th>
+                <th colspan="2">위치</th>
+                <th colspan="2">대회날짜</th>
+                <th colspan="2">신청날짜</th>
+                <th colspan="3">연락처</th>
+                <th rowspan="2">설명</th>
+                <th rowspan="2">사진</th>
+                <th rowspan="2">좋아요</th>
+                <th rowspan="2">클릭수</th>
+                <th rowspan="2">승인/거절</th>
+            </tr>
+            <tr>
+                <th>위도</th>
+                <th>경도</th>
+                <th>시작</th>
+                <th>종료</th>
+                <th>시작</th>
+                <th>종료</th>
+                <th>전화</th>
+                <th>이메일</th>
+                <th>홈페이지</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in items">
+                <th>#</th>
+                <th>{{item.name}}</th>
+                <th>{{item.login}}</th>
+                <th>{{item.password}}</th>
+                <th>{{item.since}}</th>
+                <th>{{item.visits}}</th>
+                <th>{{item.competitions.length}}</th>
+                <th>{{item.courts.length}}</th>
+                <th>{{item.clubs.length}}</th>
+                <th>{{item.likes.length}}</th>
+                <th>{{item.posted.length}}</th>
+                <th>{{item.name}}</th>
+                <th>{{item.login}}</th>
+                <th>{{item.password}}</th>
+                <th>{{item.since}}</th>
+                <th>{{item.visits}}</th>
+                <th>{{item.competitions.length}}</th>
+                <th>{{item.courts.length}}</th>
+                <th>{{item.clubs.length}}</th>
+    
+        
+            </tr>
+        </tbody>
+    </table>
+</div>

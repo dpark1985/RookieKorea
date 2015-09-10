@@ -128,6 +128,15 @@ div.wrapper > div.container.wrapper > div.row > div.col-md-3 > div.subsection > 
 	margin-bottom: 20px;
 }
 
+div.wrapper > div.container.wrapper > div.row > div.col-md-3 > div.subsection > div.clubLogo {
+	padding-bottom: 20px;
+}
+
+div.wrapper > div.container.wrapper > div.row > div.col-md-3 > div.subsection > div.clubLogo > img {
+	width: 100%;
+	height: 100%;
+}
+
 div.wrapper > div.container.wrapper > div.row > div.col-md-3 > div.subsection > table > tbody > tr:first-child {
 	border-top: 2px solid #888888;
 

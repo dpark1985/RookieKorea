@@ -48,8 +48,9 @@ angular.module('newinfo', ['ngRoute'])
 
 	$scope.subCategory = function(){
 		if($scope.newinfoInput.subcategory == '동호회'){
-			$('#courtName').hide();
-			$('#infoMap').hide();
+			$('#courtName').show();
+			$('#courtNameSpan').html('주요 활동 코트장명');
+			$('#infoMap').show();
 			$('#date').hide();
 			$('#phoneMust').addClass('option');	
 			$('#phoneMust').html('선택');
@@ -208,11 +209,17 @@ angular.module('newinfo', ['ngRoute'])
 				&& $scope.newinfoData.category.subcategory != '' 
 				&& $scope.newinfoData.location.state != '' 
 				&& $scope.newinfoData.location.city != '' 
+				&& $scope.newinfoData.courtName != '' 
+				&& $scope.newinfoData.GPS.lat != '' 
+				&& $scope.newinfoData.GPS.lng != '' 
 				&& typeof($scope.newinfoData.title) != "undefined" 
 				&& typeof($scope.newinfoData.category.sports) != "undefined" 
 				&& typeof($scope.newinfoData.category.subcategory) != "undefined" 
 				&& typeof($scope.newinfoData.location.state) != "undefined" 
 				&& typeof($scope.newinfoData.location.city) != "undefined" 
+				&& typeof($scope.newinfoData.courtName) != "undefined" 
+				&& typeof($scope.newinfoData.GPS.lat) != "undefined" 
+				&& typeof($scope.newinfoData.GPS.lng) != "undefined" 
 				){
 				$scope.club = true;
 				$scope.inputValidation = true;
@@ -307,7 +314,7 @@ angular.module('newinfo', ['ngRoute'])
 			$('#alertComplete').modal('show');
 			
 
-			console.log($scope.newinfoData);
+			//console.log($scope.newinfoData);
 
 
 			$http.post('/model/newinfo', {newinfo: $scope.newinfoData}).

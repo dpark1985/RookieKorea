@@ -1,0 +1,56 @@
+<h1 class="page-header">회원 관리</h1>
+
+<div class="row placeholders">
+    <div class="col-xs-6 col-sm-3 placeholder">
+        <h1>{{items.length}}</h1>
+        <span class="text-muted">총 회원수</span>
+    </div>
+    <div class="col-xs-6 col-sm-3 placeholder">
+        <h1>{{totalVisits}}</h1>
+        <span class="text-muted">총 방문수</span>
+    </div>
+    <div class="col-xs-6 col-sm-3 placeholder">
+
+    </div>
+    <div class="col-xs-6 col-sm-3 placeholder">
+
+    </div>
+</div>
+
+<h2 class="sub-header">회원 리스트</h2>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>이름</th>
+                <th>ID</th>
+                <th>PWD</th>
+                <th>가입일</th>
+                <th>방문수</th>
+                <th>대회</th>
+                <th>코트장</th>
+                <th>동호회</th>
+                <th>Likes</th>
+                <th>Posted</th>
+                <th>Img</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in items">
+                <th>#</th>
+                <th>{{item.name}}</th>
+                <th>{{item.login}}</th>
+                <th>{{item.password}}</th>
+                <th>{{item.since}}</th>
+                <th>{{item.visits}}</th>
+                <th>{{item.competitions.length}}</th>
+                <th>{{item.courts.length}}</th>
+                <th>{{item.clubs.length}}</th>
+                <th>{{item.likes.length}}</th>
+                <th>{{item.posted.length}}</th>
+                <th>{{item.img}}</th>
+            </tr>
+        </tbody>
+    </table>
+</div>

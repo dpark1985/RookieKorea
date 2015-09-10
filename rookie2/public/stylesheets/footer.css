@@ -1,3 +1,4 @@
+
 footer.content1 {
 	border-top: 4px solid #E3434B;
 	padding-top: 20px;
@@ -61,7 +62,7 @@ footer.content1 > div.container > div.row > div.col-md-3 > div.cs > div.header >
 footer.content1 > div.container > div.row > div.col-md-3 > div.cs > div.header > div.cs_phone > h2 {
 	padding-top: 5px;
 	font-weight: bold;
-	font-size: 28px;
+	font-size: 2em;
 }
 
 footer.content1 > div.container > div.row > div.col-md-3 > div.cs > div.header > div.cs_time > span {

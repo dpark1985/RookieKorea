@@ -1,7 +1,7 @@
 <div class="container title">
     <div class="row">
         <div class="col-sm-10 col-md-10">
-            <h4>제1회 강원 원주배 테니스 대회</h4>
+            <h4>{{data[0].courtTitle}}</h4>
         </div>
 
         <div class="col-sm-2 col-md-2">
@@ -18,15 +18,15 @@
         <div class="col-sm-9 col-md-9">
 
             <div class="section img">
-                <img src="http://dummyimage.com/718x600/000/fff">
-                <div class="heart">
+                <img ng-src="{{data[0].courtImg}}">
+                <div class="heart" ng-click="heart()">
                     <i class="fa fa-heart"></i>
                 </div>
             </div>
 
             <div class="section title">
-                <h3>{{data.eventTitle}}</h3>
-                <h4>Tennis</h4>
+                <h3>{{data[0].courtTitle}}</h3>
+                <h4>{{data[0].courtSport}}</h4>
             </div>
 
             <div class="section info">
@@ -34,36 +34,59 @@
                 <table class="table">
                     <tbody class="">
                         <tr>
-                            <th class="col-md-4">대회장소</th>
-                            <td class="col-md-8">rasdfasdfasdfas</td>
+                            <th class="col-md-4">코트장 명칭</th>
+                            <td class="col-md-8">{{data[0].courtTitle}}</td>
                         </tr>
                         <tr>
-                            <th>경기일시</th>
-                            <td>rasdfasdfasdfas</td>
-                        </tr>
-                        <tr>
-                            <th>신청기간</th>
-                            <td>rasdfasdfasdfas</td>
-                        </tr>
-                        <tr>
-                            <th>홈페이지</th>
-                            <td>rasdfasdfasdfas</td>
+                            <th class="col-md-4">주요활동코트장</th>
+                            <td class="col-md-8">{{data[0].courtCourtName}} ({{data[0].courtLocation.state}}, {{data[0].courtLocation.city}})</td>
                         </tr>
                         <tr>
                             <th>전화번호</th>
-                            <td>rasdfasdfasdfas</td>
+                            <td>{{data[0].courtContact.phone}}</td>
+                        </tr>
+                        <tr>
+                            <th>이메일</th>
+                            <td>{{data[0].courtContact.email}}</td>
+                        </tr>
+                        <tr>
+                            <th>홈페이지</th>
+                            <td><a ng-href="{{data[0].courtContact.url}}">{{data[0].courtContact.url}}</a></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
+            <div class="section info">
+                <h4>주요 활동 코트장</h4>
+                <div id="map" style="width:100%;height:350px;"></div>
+            </div>
+            
+            <script>
+                var lat = $('[ng-controller="detailCtrl"]').scope().data[0].courtGPS.lat;
+                var lng = $('[ng-controller="detailCtrl"]').scope().data[0].courtGPS.lng;
+                var courtName = $('[ng-controller="detailCtrl"]').scope().data[0].courtCourtName;
+                var markers = [
+                    {
+                        position: new daum.maps.LatLng(lat, lng), 
+                        text: courtName // text 옵션을 설정하면 마커 위에 텍스트를 함께 표시할 수 있습니다     
+                    }
+                ];
+                var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+                    mapOption = { 
+                        center: new daum.maps.LatLng(lat, lng), // 지도의 중심좌표
+                        level: 3, // 지도의 확대 레벨
+                        marker: markers // 이미지 지도에 표시할 마커 
+                    };
+
+                // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
+                var map = new daum.maps.StaticMap(mapContainer, mapOption);
+
+            </script>
+
             <div class="section details">
                 <h4>상세정보</h4>
-
-
-
-
-
+                <div ng-bind-html="data[0].courtInfo"></div>
             </div>
 
 
@@ -73,27 +96,23 @@
 
         <div class="col-sm-3 col-md-3">
             <div class="subsection">
-                <div class="dday">
-                    <h4>D-23</h4>
+                <div class="clubLogo">
+                    <img src="http://dummyimage.com/198x59/000/fff">
                 </div>
 
                 <table class="table">
                     <tbody class="">
                         <tr>
                             <th class="col-md-4">개시일</th>
-                            <td class="col-md-8">rasdfasdf</td>
-                        </tr>
-                        <tr>
-                            <th>만료일</th>
-                            <td>rasdfasdfasdfas</td>
+                            <td class="col-md-8">{{data[0].registDate}}</td>
                         </tr>
                         <tr>
                             <th>관심하트</th>
-                            <td>rasdfasdfasdfas</td>
+                            <td>{{data[0].courtLikes}}</td>
                         </tr>
                         <tr>
                             <th>클릭수</th>
-                            <td>rasdfasdfasdfas</td>
+                            <td>{{data[0].courtVisits}}</td>
                         </tr>
                     </tbody>
                 </table>

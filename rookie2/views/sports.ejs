@@ -68,7 +68,7 @@
     <div class="container-fluid mainImg">
         <img src="images/bg/sportsBG1.png">
         <div class="container">
-            <h1>{{curLocation.ko}}: {{curLocation.en}}</h1>
+            <h1>{{curLocationText.ko}}: {{curLocationText.en}}</h1>
         </div>
     </div>
 
@@ -81,9 +81,9 @@
                             <h4>세부 카테고리</h4>
                         </div>
                         <div class="subcategory">
-                            <div class="list"><a href="" ng-click="subTab1()" class="{{subTab1Active}}">대회</a><span>({{totalNums[0]}})</span></div>
-                            <div class="list"><a href="" ng-click="subTab2()" class="{{subTab2Active}}">코트</a><span>({{totalNums[1]}})</span></div>
-                            <div class="list"><a href="" ng-click="subTab3()" class="{{subTab3Active}}">동호회</a><span>({{totalNums[2]}})</span></div>
+                            <div class="list"><a ng-href="/{{curLocation}}#/competitions" ng-click="subTab1()" class="{{subTab1Active}}">대회</a><span>({{totalNums[0]}})</span></div>
+                            <div class="list"><a ng-href="/{{curLocation}}#/courts" ng-click="subTab2()" class="{{subTab2Active}}">코트</a><span>({{totalNums[1]}})</span></div>
+                            <div class="list"><a ng-href="/{{curLocation}}#/clubs" ng-click="subTab3()" class="{{subTab3Active}}">동호회</a><span>({{totalNums[2]}})</span></div>
                         </div>
 
 
@@ -158,7 +158,7 @@
                 </div>
 
                 
-                <div class="col-sm-9 col-md-9 right" ng-include="curPage"></div>
+                <div class="col-sm-9 col-md-9 right" ng-view></div>
             </div>
         </div>
 

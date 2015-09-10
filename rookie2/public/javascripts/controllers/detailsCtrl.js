@@ -23,7 +23,10 @@ angular.module('details', ['ngRoute'])
 	    // this callback will be called asynchronously
 	    // when the response is available
 	    $scope.data = response.data;
-	    //console.log($scope.data);
+	    console.log($scope.data);
+
+
+	    console.log(curCategory);
 
 	    if(curCategory === 'competitions'){
 	    	$scope.data[0].eventImg = $scope.data[0].eventImg.replace("public", "");
@@ -51,15 +54,26 @@ angular.module('details', ['ngRoute'])
 				date = '0'+date;
 			}
 			$scope.data[0].registDate = year+'.'+month+'.'+date;
-
 			$scope.eventEndDate = $scope.data[0].eventDate.start1.substring(0, 10);
-
-			
-
+		
 	    } else if(curCategory === 'courts'){
 	    	$scope.data[0].courtImg = $scope.data[0].courtImg.replace("public", "");
 	    	$scope.curPage = $scope.templates.courts;
 	    	$scope.data[0].courtInfo = $sce.trustAsHtml($scope.data[0].courtInfo);	
+
+	    	var registDate = new Date($scope.data[0].registDate);
+			var year = registDate.getFullYear();
+			var month = registDate.getMonth() + 1;
+			if(month < 10){
+				month = '0'+month;
+			}
+			var date = registDate.getDate();
+			if(date < 10){
+				date = '0'+date;
+			}
+	    	$scope.data[0].registDate = year+'.'+month+'.'+date;
+
+
 
 
 	    } else if(curCategory === 'clubs'){
@@ -67,11 +81,19 @@ angular.module('details', ['ngRoute'])
 	    	$scope.curPage = $scope.templates.clubs;
 	    	$scope.data[0].clubInfo = $sce.trustAsHtml($scope.data[0].clubInfo);	
 
+	    	var registDate = new Date($scope.data[0].registDate);
+			var year = registDate.getFullYear();
+			var month = registDate.getMonth() + 1;
+			if(month < 10){
+				month = '0'+month;
+			}
+			var date = registDate.getDate();
+			if(date < 10){
+				date = '0'+date;
+			}
+	    	$scope.data[0].registDate = year+'.'+month+'.'+date;
 
 	    }
-
-	    
-
 	}, function(response) {
 	    // called asynchronously if an error occurs
 	    // or server returns response with an error status.
@@ -84,9 +106,9 @@ angular.module('details', ['ngRoute'])
 			$http.get('/model/'+curLocation+'/'+curCategory+'/'+curId+'/heart').
 			then(function(response) {
 				$scope.data[0].eventLikes += 1;
+				$scope.data[0].courtLikes += 1;
+				$scope.data[0].clubLikes += 1;
 				$route.reload();
-			    
-
 			}, function(response) {
 			    // called asynchronously if an error occurs
 			    // or server returns response with an error status.
@@ -97,13 +119,7 @@ angular.module('details', ['ngRoute'])
 		        keyboard: false
 		    });
 		    $('#toLoginModal').modal('show');
-
-
 		}
-
-
-
-
 	}
 
 	$scope.doLogin = function(){
@@ -118,7 +134,7 @@ angular.module('details', ['ngRoute'])
 		    //console.log(response);
 
 		    var isError = response.data.search("userLogCtrl");
-		    console.log(isError);
+		    //console.log(isError);
 
 		    if(isError == '-1'){
 		    	$scope.isLogin = true;
