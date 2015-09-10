@@ -22,20 +22,20 @@ footer.content1 > div.container > div.row > div.col-md-9 > div.notiList > ul > l
 	color: #909090;
 }
 
-footer.content1 > div.container > div.row > div.col-md-3 > div.cs > div.header > div.cs_header > i {
+div.cs_header > i {
 	float: left;
 	line-height: 25px;
 	font-weight: bold;
 	margin-right: 5px;
 }
 
-footer.content1 > div.container > div.row > div.col-md-3 > div.cs > div.header > div.cs_header > span {
+div.cs_header > span {
 	float: left;
 	line-height: 25px;
 	font-weight: bold;
 }
 
-footer.content1 > div.container > div.row > div.col-md-3 > div.cs > div.header > div.cs_header > div.cs_btn > a {
+div.cs_header > div.cs_btn > a {
 	border: 2px solid #E3434B;
 	border-radius: 5px;
 	height: 25px;
@@ -48,24 +48,29 @@ footer.content1 > div.container > div.row > div.col-md-3 > div.cs > div.header >
 	color: #E3434B;
 }
 
-footer.content1 > div.container > div.row > div.col-md-3 > div.cs > div.header > div.cs_header > div.cs_btn > a:hover {
+div.cs_header > div.cs_btn > a:hover {
 	background-color: #E3434B;
 	color: white;
 	border: 2px solid #E01616;
 	border-radius: 5px;
 }
 
-footer.content1 > div.container > div.row > div.col-md-3 > div.cs > div.header > div.cs_phone {
+div.cs_phone {
+	clear: both;
+	height: 60px;
+}
+
+div.cs_phone > h2 {
+	font-weight: bold;
+	font-size: 28px;
+	float: right;
+}
+
+div.cs_time {
 	clear: both;
 }
 
-footer.content1 > div.container > div.row > div.col-md-3 > div.cs > div.header > div.cs_phone > h2 {
-	padding-top: 5px;
-	font-weight: bold;
-	font-size: 2em;
-}
-
-footer.content1 > div.container > div.row > div.col-md-3 > div.cs > div.header > div.cs_time > span {
+div.cs_time > span {
 	color: #909090;
 	float: right;
 }

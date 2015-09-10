@@ -220,7 +220,7 @@ angular.module('sports', ['ngRoute'])
 
 	if ($rootScope.curLocation === 'baseball'){ $scope.curLocationText = {ko: '야구', en: 'baseball'}; } 
 	else if ($rootScope.curLocation === 'basketball'){ $scope.curLocationText = {ko: '농구', en: 'basketball'}; } 
-	else if ($rootScope.curLocation === 'bedminton'){ $scope.curLocationText = {ko: '배드민턴', en: 'bedminton'}; } 
+	else if ($rootScope.curLocation === 'badminton'){ $scope.curLocationText = {ko: '배드민턴', en: 'badminton'}; } 
 	else if ($rootScope.curLocation === 'bowling'){ $scope.curLocationText = {ko: '볼링', en: 'bowling'}; } 
 	else if ($rootScope.curLocation === 'soccer'){ $scope.curLocationText = {ko: '축구', en: 'soccer'}; } 
 	else if($rootScope.curLocation === 'tennis'){ $scope.curLocationText = {ko: '테니스', en: 'tennis'}; } 

@@ -14,7 +14,6 @@ nav > div > #navbar-collapse-1 > ul > li > a {
 }
 
 a.navbar-brand > img {
-	width: 191px;
 	height: 31px;
 }
 
@@ -22,7 +21,7 @@ div.headerBG {
 	z-index: 1;
 	padding: 200px 0;
 	text-align: center;
-	background: url(../images/bg/headerBG1.png) no-repeat;
+	background: url(../images/bg/headerBG5.png) no-repeat;
 	background-size: cover;
 	background-position: center center;
 	min-width: 970px;

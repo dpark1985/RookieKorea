@@ -10,7 +10,7 @@ angular.module('userLogCtrl', ['ngRoute'])
 
 
 	$scope.doReset = function() {
-		console.log($scope.resetData);
+		//console.log($scope.resetData);
 
 		if($scope.resetData.name == ''){
 			$('#name').addClass('has-error');
@@ -37,7 +37,7 @@ angular.module('userLogCtrl', ['ngRoute'])
 			    // this callback will be called asynchronously
 			    // when the response is available
 			    
-			    console.log(response);
+			    //console.log(response);
 			}, function(response) {
 			    // called asynchronously if an error occurs
 			    // or server returns response with an error status.
@@ -57,7 +57,7 @@ angular.module('userLogCtrl', ['ngRoute'])
 	$scope.loginCheck2 = false;
 
 	$scope.doLogin = function() {
-		console.log($scope.loginData);
+		//console.log($scope.loginData);
 
 		if($scope.loginData.login == ''){
 			$('#login').addClass('has-error');
