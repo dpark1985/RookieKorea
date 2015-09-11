@@ -1,10 +1,9 @@
 
 @font-face {
-  font-family: 'MyWebFont';
-  src: url('../fonts/NanumBarunGothic.ttf') format('truetype');
+  @import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
 }
 
 
 body {
-    font-family: 'MyWebFont', Fallback, sans-serif;
+    font-family: 'Hanna', sans-serif;
 }
