@@ -58,12 +58,13 @@ div.cs_header > div.cs_btn > a:hover {
 
 div.cs_phone {
 	clear: both;
-	height: 60px;
+	height: 53px;
 }
 
 div.cs_phone > h2 {
 	font-weight: bold;
 	float: right;
+	margin-top: 10px;
 }
 
 div.cs_time {
