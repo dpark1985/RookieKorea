@@ -27,6 +27,7 @@ div.cs_header > i {
 	line-height: 25px;
 	font-weight: bold;
 	margin-right: 5px;
+	padding-left: 16px;
 }
 
 div.cs_header > span {
