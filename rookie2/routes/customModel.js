@@ -400,7 +400,14 @@ exports.active = function(app, db, fs){
 				res.json(data);
 			});
 
-		} 
+		} else if (query === 'notiDelete'){
+			var id = req.body.id;
+
+			db.noti.remove({_id: db.ObjectId(id)}, function (err, data){
+				res.json(data);
+			});
+
+		}
 
 	});
 

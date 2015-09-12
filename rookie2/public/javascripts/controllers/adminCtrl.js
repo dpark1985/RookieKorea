@@ -171,7 +171,6 @@ angular.module('admin', ['ngRoute'])
 		then(function(response) {
 		    // this callback will be called asynchronously
 		    // when the response is available
-
 		    if(response.statusText == 'OK'){
 		    	$route.reload();
 		    }
@@ -179,8 +178,6 @@ angular.module('admin', ['ngRoute'])
 		    // called asynchronously if an error occurs
 		    // or server returns response with an error status.
 		});
-
-
 	}
 
 	$scope.activate = function(id){
@@ -188,7 +185,6 @@ angular.module('admin', ['ngRoute'])
 		then(function(response) {
 		    // this callback will be called asynchronously
 		    // when the response is available
-		   
 		    if(response.statusText == 'OK'){
 		    	$route.reload();
 		    }
@@ -203,7 +199,20 @@ angular.module('admin', ['ngRoute'])
 		then(function(response) {
 		    // this callback will be called asynchronously
 		    // when the response is available
-		   
+		    if(response.statusText == 'OK'){
+		    	$route.reload();
+		    }
+		}, function(response) {
+		    // called asynchronously if an error occurs
+		    // or server returns response with an error status.
+		});
+	};
+
+	$scope.delete = function(id){
+		$http.post('/model/admin/notiDelete', {id: id}).
+		then(function(response) {
+		    // this callback will be called asynchronously
+		    // when the response is available
 		    if(response.statusText == 'OK'){
 		    	$route.reload();
 		    }
@@ -299,6 +308,21 @@ angular.module('admin', ['ngRoute'])
 		});
 	};
 
+	$scope.delete = function(id){
+		$http.post('/model/admin/notiDelete', {id: id}).
+		then(function(response) {
+		    // this callback will be called asynchronously
+		    // when the response is available
+		    if(response.statusText == 'OK'){
+		    	$route.reload();
+		    }
+		}, function(response) {
+		    // called asynchronously if an error occurs
+		    // or server returns response with an error status.
+		});
+	};
+
+
 
 }])
 .controller('BlogCtrl', ['$rootScope', '$scope', '$http', '$location', function ($rootScope, $scope, $http, $location){
@@ -383,6 +407,20 @@ angular.module('admin', ['ngRoute'])
 		    // this callback will be called asynchronously
 		    // when the response is available
 		   
+		    if(response.statusText == 'OK'){
+		    	$route.reload();
+		    }
+		}, function(response) {
+		    // called asynchronously if an error occurs
+		    // or server returns response with an error status.
+		});
+	};
+
+	$scope.delete = function(id){
+		$http.post('/model/admin/notiDelete', {id: id}).
+		then(function(response) {
+		    // this callback will be called asynchronously
+		    // when the response is available
 		    if(response.statusText == 'OK'){
 		    	$route.reload();
 		    }

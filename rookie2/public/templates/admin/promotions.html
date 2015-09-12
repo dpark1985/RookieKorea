@@ -71,6 +71,7 @@
                 <th>
                     <button ng-if="!item.active" type="button" ng-click="activate(item._id)" class="btn btn-success">활성화</button>
                     <button ng-if="item.active" type="button" ng-click="deActivate(item._id)" class="btn btn-danger" >비활성화</button>
+                    <button ng-if="item.active || !item.active" type="button" ng-click="delete(item._id)" class="btn btn-danger" >삭제</button>
                 </th>
             </tr>
         </tbody>

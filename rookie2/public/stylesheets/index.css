@@ -167,11 +167,16 @@ div.promo > div.container.plans > h5 {
 	color: #909090;
 }
 
-div.promo > div.container.plans > div {
+div.promo > div.container.plans > div.row {
 	padding-top: 20px;
 }
 
-div.promo > div.container.plans > div > a > img {
+.smallPlans {
+	background-color: #F4F4F4;
+	border: 0px;
+}
+
+div.promo > div.container.plans > div.row > div > a > img {
 	width: 100%;
 	height: 150px;
 }
