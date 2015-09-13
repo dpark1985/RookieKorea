@@ -156,17 +156,16 @@ body {
   width: 100%;
 }
 
-.table.main > thead {
-  border-top: 1px solid #ddd;
+ul.nav.nav-tabs > li > a {
+  cursor: pointer;
 }
 
-.table.main > thead > tr > th {
-  border-left: 1px solid #ddd;
-  vertical-align: middle;
-  text-align: center;
+.successText {
+  color: #5cb85c;
 }
 
-.table.main > thead > tr > th:last-child {
-  border-right: 1px solid #ddd;
+.failText {
+  color: #d9534f;
 }
+
 

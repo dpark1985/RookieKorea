@@ -267,17 +267,17 @@ exports.active = function(app, db, fs){
 
 	app.get('/model/numbers/:sports', function (req, res, next){
 		var num = [];
-		var sports = req.params.sports
+		var sports = req.params.sports;
 
-		db.competitions.find({eventSport: sports}, function (err, data1){
+		db.competitions.find({eventSport: sports, eventApproved: true}, function (err, data1){
 			var compNum = data1.length;
 			num.push(compNum);
 
-			db.courts.find({courtSport: sports}, function (err, data2){
+			db.courts.find({courtSport: sports, courtApproved: true}, function (err, data2){
 				var courtsNum = data2.length;
 				num.push(courtsNum);
 
-				db.clubs.find({clubSport: sports}, function (err, data3){
+				db.clubs.find({clubSport: sports, clubApproved: true}, function (err, data3){
 					var clubsNum = data3.length;
 					num.push(clubsNum);
 
@@ -353,7 +353,7 @@ exports.active = function(app, db, fs){
 		} else if (query === 'noti'){
 			var type = req.body.type;
 
-			db.noti.find({type : type}, function (err, data){
+			db.noti.find({type : type}).sort({"_id" : -1}, function (err, data){
 				res.json(data);
 			});
 		} else if (query === 'notiActive'){
@@ -378,7 +378,7 @@ exports.active = function(app, db, fs){
 
 				db.noti.insert({
 					type : newNoti.type,
-					data : Date(),
+					date : Date(),
 					title : newNoti.title,
 					link : newNoti.link,
 					img : filepath,
@@ -392,7 +392,7 @@ exports.active = function(app, db, fs){
 
 			db.noti.insert({
 				type : newNoti.type,
-				data : Date(),
+				date : Date(),
 				title : newNoti.title,
 				link : newNoti.link,
 				active : false
@@ -406,7 +406,75 @@ exports.active = function(app, db, fs){
 			db.noti.remove({_id: db.ObjectId(id)}, function (err, data){
 				res.json(data);
 			});
+		} else if (query === 'competitions'){
+			db.competitions.find({}).sort({"_id": -1}, function (err, data){
+				res.json(data);
+			});
+		} else if (query === 'courts'){
+			db.courts.find({}).sort({"_id": -1}, function (err, data){
+				res.json(data);
+			});
+		} else if (query === 'clubs'){
+			db.clubs.find({}).sort({"_id": -1}, function (err, data){
+				res.json(data);
+			});
+		} else if (query === 'infoApprove'){
+			var id = req.body.id;
+			var category = req.body.category;
 
+			if(category === 'competitions'){
+				db.competitions.update({_id: db.ObjectId(id)},
+				{ "$set" : {eventApproved: true}}, function (err, data){
+						res.json(data);
+				});
+			} else if (category === 'courts'){
+				db.courts.update({_id: db.ObjectId(id)},
+				{ "$set" : {courtApproved: true}}, function (err, data){
+						res.json(data);
+				});
+			} else if (category === 'clubs'){
+				db.clubs.update({_id: db.ObjectId(id)},
+				{ "$set" : {clubApproved: true}}, function (err, data){
+						res.json(data);
+				});
+			}
+		} else if (query === 'infoReject'){
+			var id = req.body.id;
+			var category = req.body.category;
+
+			if(category === 'competitions'){
+				db.competitions.update({_id: db.ObjectId(id)},
+				{ "$set" : {eventRejected: true}}, function (err, data){
+						res.json(data);
+				});
+			} else if (category === 'courts'){
+				db.courts.update({_id: db.ObjectId(id)},
+				{ "$set" : {courtRejected: true}}, function (err, data){
+						res.json(data);
+				});
+			} else if (category === 'clubs'){
+				db.clubs.update({_id: db.ObjectId(id)},
+				{ "$set" : {clubRejected: true}}, function (err, data){
+						res.json(data);
+				});
+			}
+		} else if (query === 'infoDelete'){
+			var id = req.body.id;
+			var category = req.body.category;
+
+			if(category === 'competitions'){
+				db.competitions.remove({_id: db.ObjectId(id)}, function (err, data){
+					res.json(data);
+				});
+			} else if (category === 'courts'){
+				db.courts.remove({_id: db.ObjectId(id)}, function (err, data){
+					res.json(data);
+				});
+			} else if (category === 'clubs'){
+				db.clubs.remove({_id: db.ObjectId(id)}, function (err, data){
+					res.json(data);
+				});
+			}
 		}
 
 	});
@@ -419,15 +487,15 @@ exports.active = function(app, db, fs){
 
 
 		if(category === 'competitions'){
-			db.competitions.find({eventSport: sports}).sort({"_id" : -1}, function (err, data){
+			db.competitions.find({eventSport: sports, eventApproved: true}).sort({"_id" : -1}, function (err, data){
 				res.json(data);
 			});
 		} else if (category === 'courts'){
-			db.courts.find({courtSport: sports}).sort({"_id" : -1}, function (err, data){
+			db.courts.find({courtSport: sports, courtApproved: true}).sort({"_id" : -1}, function (err, data){
 				res.json(data);
 			});
 		} else if (category === 'clubs'){
-			db.clubs.find({clubSport: sports}).sort({"_id" : -1}, function (err, data){
+			db.clubs.find({clubSport: sports, clubApproved: true}).sort({"_id" : -1}, function (err, data){
 				res.json(data);
 			});
 		}

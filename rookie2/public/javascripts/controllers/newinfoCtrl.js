@@ -91,8 +91,8 @@ angular.module('newinfo', ['ngRoute'])
 
 		if($scope.newinfoInput.sports === '야구'){
 			$scope.newinfoInput.sports = 'baseball';
-		} else if ($scope.newinfoInput.subcategory === '농구'){
-			$scope.newinfoInput.sports = 'baseketball';
+		} else if ($scope.newinfoInput.sports === '농구'){
+			$scope.newinfoInput.sports = 'basketball';
 		} else if ($scope.newinfoInput.sports === '배드민턴'){
 			$scope.newinfoInput.sports = 'badminton';
 		} else if ($scope.newinfoInput.sports === '볼링'){

@@ -35,11 +35,11 @@
         <h1>{{items.length}}</h1>
         <span class="text-muted">총 이벤트수</span>
     </div>
-    <div class="col-xs-6 col-sm-3 placeholder">
+    <div class="col-xs-6 col-sm-3 placeholder successText">
         <h1>{{activateNum}}</h1>
         <span class="text-muted">활성화 이벤트수</span>
     </div>
-    <div class="col-xs-6 col-sm-3 placeholder">
+    <div class="col-xs-6 col-sm-3 placeholder failText">
         <h1>{{deActivateNum}}</h1>
         <span class="text-muted">비활성화 이벤트</span>
     </div>
@@ -63,7 +63,7 @@
         </thead>
         <tbody>
             <tr ng-repeat="item in items">
-                <th>#</th>
+                <th>{{item.count}}</th>
                 <th>{{item.date}}</th>
                 <th>{{item.title}}</th>
                 <th>{{item.link}}</th>

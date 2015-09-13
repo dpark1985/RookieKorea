@@ -1,6 +1,6 @@
 angular.module('admin', ['ngRoute'])
 
-.config(['$routeProvider', function ($routeProvider) {
+.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
 	$routeProvider.when('/', {
 		templateUrl: '/templates/admin/login.html',
 		controller: 'LoginCtrl',
@@ -54,6 +54,8 @@ angular.module('admin', ['ngRoute'])
 		templateUrl: '/templates/admin/login.html',
 		controller: 'LoginCtrl',
 	});
+
+	$locationProvider.html5Mode(true);
 }])
 
 .controller('LoginCtrl', ['$rootScope', '$scope', '$http', '$location', function ($rootScope, $scope, $http, $location){
@@ -79,13 +81,7 @@ angular.module('admin', ['ngRoute'])
 		    // called asynchronously if an error occurs
 		    // or server returns response with an error status.
 		});
-
-
-	}
-
-
-
-
+	};
 }])
 .controller('MainCtrl', ['$rootScope', '$scope', '$http', '$location', function ($rootScope, $scope, $http, $location){
 
@@ -102,30 +98,272 @@ angular.module('admin', ['ngRoute'])
 
 
 }])
-.controller('CompCtrl', ['$rootScope', '$scope', '$http', '$location', function ($rootScope, $scope, $http, $location){
+.controller('CompCtrl', ['$rootScope', '$scope', '$http', '$location', '$route', function ($rootScope, $scope, $http, $location, $route){
 	if($rootScope.isLogin){
+
+		$http.post('/model/admin/competitions', {}).
+		then(function(response) {
+		    // this callback will be called asynchronously
+		    // when the response is available
+
+		    $scope.items = response.data;
+		    $scope.count = $scope.items.length;
+		    $scope.approveWait = [];
+		    $scope.rejected = [];
+		    $scope.approved = [];
+
+		    for(var i in $scope.items){
+		    	$scope.items[i].count = $scope.count;
+		    	$scope.count --;
+
+		    	$scope.items[i].eventDate.start2 = $scope.items[i].eventDate.start2.replace('GMT+0900 (KST)', '');
+		    	$scope.items[i].registDate = $scope.items[i].registDate.replace('GMT+0900 (KST)', '');
+
+		    	if($scope.items[i].eventApproved == false && $scope.items[i].eventRejected == false){
+		    		$scope.approveWait.push($scope.items[i]);
+		    	} else if ($scope.items[i].eventApproved == true){
+		    		$scope.approved.push($scope.items[i]);
+		    	} else if ($scope.items[i].eventRejected == true){
+		    		$scope.rejected.push($scope.items[i]);
+		    	}
+
+
+		    }
+		}, function(response) {
+		    // called asynchronously if an error occurs
+		    // or server returns response with an error status.
+		});
 
 	} else {
 		$location.path( "/" );
 	}
+
+	$scope.approve = function(id){
+		$http.post('/model/admin/infoApprove', {id: id, category: "competitions"}).
+		then(function(response) {
+		    // this callback will be called asynchronously
+		    // when the response is available
+		    if(response.statusText == 'OK'){
+		    	$route.reload();
+		    }
+		}, function(response) {
+		    // called asynchronously if an error occurs
+		    // or server returns response with an error status.
+		});
+	};
+
+	$scope.reject = function(id){
+		console.log('rejected');
+		$http.post('/model/admin/infoReject', {id: id, category: "competitions"}).
+		then(function(response) {
+		    // this callback will be called asynchronously
+		    // when the response is available
+		    if(response.statusText == 'OK'){
+		    	$route.reload();
+		    }
+		}, function(response) {
+		    // called asynchronously if an error occurs
+		    // or server returns response with an error status.
+		});
+	};
+
+	$scope.delete = function(id){
+		$http.post('/model/admin/infoDelete', {id: id, category: "competitions"}).
+		then(function(response) {
+		    // this callback will be called asynchronously
+		    // when the response is available
+		    if(response.statusText == 'OK'){
+		    	$route.reload();
+		    }
+		}, function(response) {
+		    // called asynchronously if an error occurs
+		    // or server returns response with an error status.
+		});
+	};
+
+	$('#compTabs a').click(function (e) {
+		e.preventDefault()
+		$(this).tab('show')
+	})
+
 
 
 }])
-.controller('CourtCtrl', ['$rootScope', '$scope', '$http', '$location', function ($rootScope, $scope, $http, $location){
+.controller('CourtCtrl', ['$rootScope', '$scope', '$http', '$location', '$route', function ($rootScope, $scope, $http, $location, $route){
 	if($rootScope.isLogin){
+
+		$http.post('/model/admin/courts', {}).
+		then(function(response) {
+		    // this callback will be called asynchronously
+		    // when the response is available
+
+		    $scope.items = response.data;
+		    $scope.count = $scope.items.length;
+		    $scope.approveWait = [];
+		    $scope.rejected = [];
+		    $scope.approved = [];
+
+		    for(var i in $scope.items){
+		    	$scope.items[i].count = $scope.count;
+		    	$scope.count --;
+
+		    	$scope.items[i].registDate = $scope.items[i].registDate.replace('GMT+0900 (KST)', '');
+
+		    	if($scope.items[i].courtApproved == false && $scope.items[i].courtRejected == false){
+		    		$scope.approveWait.push($scope.items[i]);
+		    	} else if ($scope.items[i].courtApproved == true){
+		    		$scope.approved.push($scope.items[i]);
+		    	} else if ($scope.items[i].courtRejected == true){
+		    		$scope.rejected.push($scope.items[i]);
+		    	}
+
+
+		    }
+		}, function(response) {
+		    // called asynchronously if an error occurs
+		    // or server returns response with an error status.
+		});
 
 	} else {
 		$location.path( "/" );
 	}
+
+	$scope.approve = function(id){
+		$http.post('/model/admin/infoApprove', {id: id, category: "courts"}).
+		then(function(response) {
+		    // this callback will be called asynchronously
+		    // when the response is available
+		    if(response.statusText == 'OK'){
+		    	$route.reload();
+		    }
+		}, function(response) {
+		    // called asynchronously if an error occurs
+		    // or server returns response with an error status.
+		});
+	};
+
+	$scope.reject = function(id){
+		console.log('rejected');
+		$http.post('/model/admin/infoReject', {id: id, category: "courts"}).
+		then(function(response) {
+		    // this callback will be called asynchronously
+		    // when the response is available
+		    if(response.statusText == 'OK'){
+		    	$route.reload();
+		    }
+		}, function(response) {
+		    // called asynchronously if an error occurs
+		    // or server returns response with an error status.
+		});
+	};
+
+	$scope.delete = function(id){
+		$http.post('/model/admin/infoDelete', {id: id, category: "courts"}).
+		then(function(response) {
+		    // this callback will be called asynchronously
+		    // when the response is available
+		    if(response.statusText == 'OK'){
+		    	$route.reload();
+		    }
+		}, function(response) {
+		    // called asynchronously if an error occurs
+		    // or server returns response with an error status.
+		});
+	};
+
+	$('#compTabs a').click(function (e) {
+		e.preventDefault()
+		$(this).tab('show')
+	})
 
 
 }])
-.controller('ClubCtrl', ['$rootScope', '$scope', '$http', '$location', function ($rootScope, $scope, $http, $location){
+.controller('ClubCtrl', ['$rootScope', '$scope', '$http', '$location', '$route', function ($rootScope, $scope, $http, $location, $route){
 	if($rootScope.isLogin){
+
+		$http.post('/model/admin/clubs', {}).
+		then(function(response) {
+		    // this callback will be called asynchronously
+		    // when the response is available
+
+		    $scope.items = response.data;
+		    $scope.count = $scope.items.length;
+		    $scope.approveWait = [];
+		    $scope.rejected = [];
+		    $scope.approved = [];
+
+		    for(var i in $scope.items){
+		    	$scope.items[i].count = $scope.count;
+		    	$scope.count --;
+
+		    	$scope.items[i].registDate = $scope.items[i].registDate.replace('GMT+0900 (KST)', '');
+
+		    	if($scope.items[i].clubApproved == false && $scope.items[i].clubRejected == false){
+		    		$scope.approveWait.push($scope.items[i]);
+		    	} else if ($scope.items[i].clubApproved == true){
+		    		$scope.approved.push($scope.items[i]);
+		    	} else if ($scope.items[i].clubRejected == true){
+		    		$scope.rejected.push($scope.items[i]);
+		    	}
+
+
+		    }
+		}, function(response) {
+		    // called asynchronously if an error occurs
+		    // or server returns response with an error status.
+		});
 
 	} else {
 		$location.path( "/" );
 	}
+
+	$scope.approve = function(id){
+		$http.post('/model/admin/infoApprove', {id: id, category: "clubs"}).
+		then(function(response) {
+		    // this callback will be called asynchronously
+		    // when the response is available
+		    if(response.statusText == 'OK'){
+		    	$route.reload();
+		    }
+		}, function(response) {
+		    // called asynchronously if an error occurs
+		    // or server returns response with an error status.
+		});
+	};
+
+	$scope.reject = function(id){
+		console.log('rejected');
+		$http.post('/model/admin/infoReject', {id: id, category: "clubs"}).
+		then(function(response) {
+		    // this callback will be called asynchronously
+		    // when the response is available
+		    if(response.statusText == 'OK'){
+		    	$route.reload();
+		    }
+		}, function(response) {
+		    // called asynchronously if an error occurs
+		    // or server returns response with an error status.
+		});
+	};
+
+	$scope.delete = function(id){
+		$http.post('/model/admin/infoDelete', {id: id, category: "clubs"}).
+		then(function(response) {
+		    // this callback will be called asynchronously
+		    // when the response is available
+		    if(response.statusText == 'OK'){
+		    	$route.reload();
+		    }
+		}, function(response) {
+		    // called asynchronously if an error occurs
+		    // or server returns response with an error status.
+		});
+	};
+
+	$('#compTabs a').click(function (e) {
+		e.preventDefault()
+		$(this).tab('show')
+	})
 
 
 }])
@@ -139,9 +377,14 @@ angular.module('admin', ['ngRoute'])
 		    // when the response is available
 
 		    $scope.items = response.data;
-
+		    $scope.count = $scope.items.length;
 
 		    for(var i in $scope.items){
+		    	$scope.items[i].count = $scope.count;
+		    	$scope.count --;
+
+		    	$scope.items[i].date = $scope.items[i].date.replace('GMT+0900 (KST)', '');
+
 		    	if($scope.items[i].active){
 		    		$scope.activateNum += 1;
 		    	} else {
@@ -235,8 +478,15 @@ angular.module('admin', ['ngRoute'])
 		    // when the response is available
 
 		    $scope.items = response.data;
+		    $scope.count = $scope.items.length;
 
 		    for(var i in $scope.items){
+		    	$scope.items[i].count = $scope.count;
+		    	$scope.count --;
+
+		    	$scope.items[i].date = $scope.items[i].date.replace('GMT+0900 (KST)', '');
+
+
 		    	if($scope.items[i].active){
 		    		$scope.activateNum += 1;
 		    	} else {
@@ -344,8 +594,15 @@ angular.module('admin', ['ngRoute'])
 		    // when the response is available
 
 		    $scope.items = response.data;
+		    $scope.count = $scope.items.length;
 
 		    for(var i in $scope.items){
+		    	$scope.items[i].count = $scope.count;
+		    	$scope.count --;
+
+		    	$scope.items[i].date = $scope.items[i].date.replace('GMT+0900 (KST)', '');
+
+
 		    	if($scope.items[i].active){
 		    		$scope.activateNum += 1;
 		    	} else {

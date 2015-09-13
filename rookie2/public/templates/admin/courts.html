@@ -1,0 +1,155 @@
+<h1 class="page-header">코트장 관리</h1>
+
+<div class="row placeholders">
+    <div class="col-xs-6 col-sm-3 placeholder">
+        <h1>{{items.length}}</h1>
+        <span class="text-muted">총 코트장수</span>
+    </div>
+    <div class="col-xs-6 col-sm-3 placeholder">
+        <h1>{{approveWait.length}}</h1>
+        <span class="text-muted">승인대기중</span>
+    </div>
+    <div class="col-xs-6 col-sm-3 placeholder successText">
+        <h1>{{approved.length}}</h1>
+        <span class="text-muted">승인</span>
+    </div>
+    <div class="col-xs-6 col-sm-3 placeholder failText">
+        <h1>{{rejected.length}}</h1>
+        <span class="text-muted">거절</span>
+    </div>
+</div>
+
+
+<div>
+
+    <!-- Nav tabs -->
+    <ul id="compTabs" class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#approveWait" aria-controls="approveWait" role="tab" data-toggle="tab">승인대기</a></li>
+        <li role="presentation"><a href="#approved" aria-controls="rejected" role="tab" data-toggle="tab">승인</a></li>
+        <li role="presentation"><a href="#rejected" aria-controls="rejected" role="tab" data-toggle="tab">거절</a></li>
+        <li role="presentation"><a href="#allList" aria-controls="allList" role="tab" data-toggle="tab">모든 코트장</a></li>
+
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="approveWait">
+
+            <h2 class="sub-header">승인대기 코트장 리스트</h2>
+            <div class="table-responsive">
+                <table class="table table-striped main">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>스포츠</th>
+                            <th>등록일</th>
+                            <th>코트장 이름</th>
+                            <th>승인/거절</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in approveWait">
+                            <td>{{item.count}}</td>
+                            <td>{{item.courtSport}}</td>
+                            <td>{{item.registDate}}</td>
+                            <td>{{item.courtTitle}}</td>
+                            <td>
+                                <button type="button" ng-click="approve(item._id)" class="btn btn-success">승인</button>
+                                <button type="button" ng-click="reject(item._id)" class="btn btn-danger" >거절</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+        <div role="tabpanel" class="tab-pane" id="approved">
+            
+            <h2 class="sub-header">승인 코트장 리스트</h2>
+            <div class="table-responsive">
+                <table class="table table-striped main">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>스포츠</th>
+                            <th>등록일</th>
+                            <th>코트장 이름</th>
+                            <th>버튼</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in approved">
+                            <td>{{item.count}}</td>
+                            <td>{{item.courtSport}}</td>
+                            <td>{{item.registDate}}</td>
+                            <td>{{item.courtTitle}}</td>
+                            <td>
+                                <button type="button" ng-click="delete(item._id)" class="btn btn-danger" >삭제</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+        <div role="tabpanel" class="tab-pane" id="rejected">
+            
+            <h2 class="sub-header">거절 코트장 리스트</h2>
+            <div class="table-responsive">
+                <table class="table table-striped main">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>스포츠</th>
+                            <th>등록일</th>
+                            <th>코트장 이름</th>
+                            <th>버튼</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in rejected">
+                            <td>{{item.count}}</td>
+                            <td>{{item.courtSport}}</td>
+                            <td>{{item.registDate}}</td>
+                            <td>{{item.courtTitle}}</td>
+                            <td>
+                                <button type="button" ng-click="delete(item._id)" class="btn btn-danger" >삭제</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+        <div role="tabpanel" class="tab-pane" id="allList">
+            <h2 class="sub-header">모든 코트장 리스트</h2>
+            <div class="table-responsive">
+                <table class="table table-striped main">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>스포츠</th>
+                            <th>등록일</th>
+                            <th>코트장 이름</th>
+                            <th>승인/거절</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in items">
+                            <td>{{item.count}}</td>
+                            <td>{{item.courtSport}}</td>
+                            <td>{{item.registDate}}</td>
+                            <td>{{item.courtTitle}}</td>
+                            <td>
+                                <button type="button" ng-click="delete(item._id)" class="btn btn-danger">삭제</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+    </div>
+</div>
