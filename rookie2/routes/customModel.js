@@ -343,13 +343,6 @@ exports.active = function(app, db, fs){
 			db.query.find({queryType : 'ads'}, function (err, data){
 				res.json(data);
 			});
-		} else if (query === 'queryUpdate'){
-			var id = req.body.id;
-
-			db.query.update({_id: db.ObjectId(id)},
-				{ "$set" : {checked: true}}, function (err, data){
-					res.json(data);
-			});
 		} else if (query === 'noti'){
 			var type = req.body.type;
 
@@ -403,8 +396,20 @@ exports.active = function(app, db, fs){
 		} else if (query === 'notiDelete'){
 			var id = req.body.id;
 
-			db.noti.remove({_id: db.ObjectId(id)}, function (err, data){
-				res.json(data);
+			db.noti.find({_id: db.ObjectId(id)}, function (err, data){
+				console.log(data[0]);
+				if(data[0].img){
+					var imgPath = data[0].img;
+					fs.unlink(imgPath, function(){
+						db.noti.remove({_id: db.ObjectId(id)}, function (err, data){
+							res.json(data);
+						});
+					});
+				} else {
+					db.noti.remove({_id: db.ObjectId(id)}, function (err, data){
+						res.json(data);
+					});
+				}
 			});
 		} else if (query === 'competitions'){
 			db.competitions.find({}).sort({"_id": -1}, function (err, data){
@@ -463,20 +468,34 @@ exports.active = function(app, db, fs){
 			var category = req.body.category;
 
 			if(category === 'competitions'){
-				db.competitions.remove({_id: db.ObjectId(id)}, function (err, data){
-					res.json(data);
+				db.competitions.find({_id: db.ObjectId(id)}, function (err, data){
+					var imgPath = data[0].compImg;
+					fs.unlink(imgPath, function(){
+						db.competitions.remove({_id: db.ObjectId(id)}, function (err, data){
+							res.json(data);
+						});
+					});
 				});
 			} else if (category === 'courts'){
-				db.courts.remove({_id: db.ObjectId(id)}, function (err, data){
-					res.json(data);
+				db.courts.find({_id: db.ObjectId(id)}, function (err, data){
+					var imgPath = data[0].courtImg;
+					fs.unlink(imgPath, function(){
+						db.courts.remove({_id: db.ObjectId(id)}, function (err, data){
+							res.json(data);
+						});
+					});
 				});
 			} else if (category === 'clubs'){
-				db.clubs.remove({_id: db.ObjectId(id)}, function (err, data){
-					res.json(data);
+				db.clubs.find({_id: db.ObjectId(id)}, function (err, data){
+					var imgPath = data[0].clubImg;
+					fs.unlink(imgPath, function(){
+						db.clubs.remove({_id: db.ObjectId(id)}, function (err, data){
+							res.json(data);
+						});
+					});
 				});
 			}
 		}
-
 	});
 
 
