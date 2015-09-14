@@ -83,7 +83,10 @@ angular.module('admin', ['ngRoute'])
 		});
 	};
 }])
-.controller('MainCtrl', ['$rootScope', '$scope', '$http', '$location', function ($rootScope, $scope, $http, $location){
+.controller('MainCtrl', ['$rootScope', '$scope', '$http', '$location', '$route', function ($rootScope, $scope, $http, $location, $route){
+
+
+
 
 
 }])
@@ -182,9 +185,9 @@ angular.module('admin', ['ngRoute'])
 	};
 
 	$('#compTabs a').click(function (e) {
-		e.preventDefault()
-		$(this).tab('show')
-	})
+		e.preventDefault();
+		$(this).tab('show');
+	});
 
 
 
@@ -272,9 +275,9 @@ angular.module('admin', ['ngRoute'])
 	};
 
 	$('#compTabs a').click(function (e) {
-		e.preventDefault()
-		$(this).tab('show')
-	})
+		e.preventDefault();
+		$(this).tab('show');
+	});
 
 
 }])
@@ -361,9 +364,9 @@ angular.module('admin', ['ngRoute'])
 	};
 
 	$('#compTabs a').click(function (e) {
-		e.preventDefault()
-		$(this).tab('show')
-	})
+		e.preventDefault();
+		$(this).tab('show');
+	});
 
 
 }])
