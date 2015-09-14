@@ -156,7 +156,6 @@ angular.module('admin', ['ngRoute'])
 	};
 
 	$scope.reject = function(id){
-		console.log('rejected');
 		$http.post('/model/admin/infoReject', {id: id, category: "competitions"}).
 		then(function(response) {
 		    // this callback will be called asynchronously

@@ -469,7 +469,7 @@ exports.active = function(app, db, fs){
 
 			if(category === 'competitions'){
 				db.competitions.find({_id: db.ObjectId(id)}, function (err, data){
-					var imgPath = data[0].compImg;
+					var imgPath = data[0].eventImg;
 					fs.unlink(imgPath, function(){
 						db.competitions.remove({_id: db.ObjectId(id)}, function (err, data){
 							res.json(data);
