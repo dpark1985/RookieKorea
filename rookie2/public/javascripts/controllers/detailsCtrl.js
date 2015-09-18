@@ -23,10 +23,10 @@ angular.module('details', ['ngRoute'])
 	    // this callback will be called asynchronously
 	    // when the response is available
 	    $scope.data = response.data;
-	    console.log($scope.data);
+	    //console.log($scope.data);
 
 
-	    console.log(curCategory);
+	    //console.log(curCategory);
 
 	    if(curCategory === 'competitions'){
 	    	$scope.data[0].eventImg = $scope.data[0].eventImg.replace("public", "");

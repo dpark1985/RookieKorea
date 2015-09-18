@@ -438,6 +438,7 @@ angular.module('newinfo', ['ngRoute'])
 		                $(".imgupload").append(img);
 		                $("img").css(imgStyle);
 		                $(".phase3Nav").css(navStyle);
+		                $("#navLogo").css(navStyle);
                     });
                 }
                 reader.readAsDataURL(changeEvent.target.files[0]);

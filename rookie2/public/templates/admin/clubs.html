@@ -23,7 +23,7 @@
 <div>
 
     <!-- Nav tabs -->
-    <ul id="compTabs" class="nav nav-tabs" role="tablist">
+    <ul id="clubTabs" class="nav nav-tabs" role="tablist">
         <li role="presentation" class="active"><a href="#approveWait" aria-controls="approveWait" role="tab" data-toggle="tab">승인대기</a></li>
         <li role="presentation"><a href="#approved" aria-controls="rejected" role="tab" data-toggle="tab">승인</a></li>
         <li role="presentation"><a href="#rejected" aria-controls="rejected" role="tab" data-toggle="tab">거절</a></li>
@@ -44,7 +44,8 @@
                             <th>스포츠</th>
                             <th>등록일</th>
                             <th>동호회 이름</th>
-                            <th>승인/거절</th>
+                            <th class="btnCenter">수정</th>
+                            <th class="btnCenter">승인/거절</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -53,7 +54,10 @@
                             <td>{{item.clubSport}}</td>
                             <td>{{item.registDate}}</td>
                             <td>{{item.clubTitle}}</td>
-                            <td>
+                            <td class="btnCenter">
+                                <button type="button" ng-click="modifyModal(item._id)" class="btn btn-success" data-toggle="modal" data-target="#modifyModal">수정</button>
+                            </td>
+                            <td class="btnCenter">
                                 <button type="button" ng-click="approve(item._id)" class="btn btn-success">승인</button>
                                 <button type="button" ng-click="reject(item._id)" class="btn btn-danger" >거절</button>
                             </td>
@@ -74,6 +78,7 @@
                             <th>스포츠</th>
                             <th>등록일</th>
                             <th>대회이름</th>
+                            <th class="btnCenter">수정</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -82,6 +87,9 @@
                             <td>{{item.clubSport}}</td>
                             <td>{{item.registDate}}</td>
                             <td>{{item.clubTitle}}</td>
+                            <td class="btnCenter">
+                                <button type="button" ng-click="modifyModal(item._id)" class="btn btn-success" data-toggle="modal" data-target="#modifyModal">수정</button>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -125,7 +133,8 @@
                             <th>스포츠</th>
                             <th>등록일</th>
                             <th>동호회 이름</th>
-                            <th>삭제</th>
+                            <th>상태</th>
+                            <th class="btnCenter">삭제</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -134,7 +143,8 @@
                             <td>{{item.clubSport}}</td>
                             <td>{{item.registDate}}</td>
                             <td>{{item.clubTitle}}</td>
-                            <td>
+                            <td>{{item.status}}</td>
+                            <td class="btnCenter">
                                 <button type="button" ng-click="delete(item._id)" class="btn btn-danger">삭제</button>
                             </td>
                         </tr>
@@ -142,6 +152,77 @@
                 </table>
             </div>
         </div>
-        
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modifyModal" tabindex="-1" role="dialog" aria-labelledby="modifyModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="modifyModalLabel">동호회 정보수정</h4>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <form class="row">
+                        <div class="form-group col-xs-12 modifyForm">
+                            <label for="infoTitle">등록정보 제목</label>
+                            <input type="text" class="form-control" id="infoTitle" ng-model="modify.title">
+                        </div>
+                        <div class="form-group col-xs-6 modifyForm">
+                            <label for="infoSports">스포츠</label>
+                            <input type="text" class="form-control" id="infoSports" ng-model="modify.category.sports" disabled>
+                        </div>
+                        <div class="form-group col-xs-6 modifyForm">
+                            <label for="infoCategory">카테고리</label>
+                            <input type="text" class="form-control" id="infoCategory" ng-model="modify.category.subcategory" disabled>
+                        </div>
+                        <div class="form-group col-xs-6 modifyForm">
+                            <label for="infoState">시/도</label>
+                            <input type="text" class="form-control" id="infoState" ng-model="modify.location.state" disabled>
+                        </div>
+                        <div class="form-group col-xs-6 modifyForm">
+                            <label for="infoCity">시/구/군</label>
+                            <input type="text" class="form-control" id="infoCity" ng-model="modify.location.city" disabled>
+                        </div>
+                        <div class="form-group col-xs-12 modifyForm">
+                            <label for="infoCourtName">코트장 이름</label>
+                            <input type="text" class="form-control" id="infoCourtName" ng-model="modify.courtName">
+                        </div>
+                        <div class="form-group col-xs-6 modifyForm">
+                            <label for="infoLat">위도</label>
+                            <input type="text" class="form-control" id="infoLat" ng-model="modify.GPS.lat">
+                        </div>
+                        <div class="form-group col-xs-6 modifyForm">
+                            <label for="infoLng">경도</label>
+                            <input type="text" class="form-control" id="infoLng" ng-model="modify.GPS.lng">
+                        </div>
+                        <div class="form-group col-xs-12 modifyForm">
+                            <label for="infoContactPhone">연락처</label>
+                            <input type="text" class="form-control" id="infoContactPhone" ng-model="modify.contact.phone">
+                        </div>
+                        <div class="form-group col-xs-12 modifyForm">
+                            <label for="infoContactEmail">이메일</label>
+                            <input type="text" class="form-control" id="infoContactEmail" ng-model="modify.contact.email">
+                        </div>
+                        <div class="form-group col-xs-12 modifyForm">
+                            <label for="infoContactUrl">홈페이지</label>
+                            <input type="text" class="form-control" id="infoContactUrl" ng-model="modify.contact.url">
+                        </div>
+                        <div class="form-group col-xs-12 modifyForm">
+                            <label for="infoDetail">상세정보</label>
+                            <textarea class="form-control"  name="infoDetail" id="infoDetail" rows="10" ng-model="modify.detailInfo"></textarea>
+                        </div>
+                        <div class="form-group col-xs-12">
+                            <button type="button" class="btn btn-success" style="width: 100%;" ng-click="modifySubmit(modify.id)">저장하기</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+            </div>
+        </div>
     </div>
 </div>

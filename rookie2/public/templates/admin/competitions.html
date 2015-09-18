@@ -1,21 +1,27 @@
 <h1 class="page-header">대회 관리</h1>
+<button type="button" ng-click="iterateData()" class="btn btn-success">대회 데이터 갱신</button>
+Current time is: <span my-current-time="format"></span>
 
 <div class="row placeholders">
-    <div class="col-xs-6 col-sm-3 placeholder">
+    <div class="col-xs-6 col-sm-2 placeholder">
         <h1>{{items.length}}</h1>
         <span class="text-muted">총 대회수</span>
     </div>
-    <div class="col-xs-6 col-sm-3 placeholder">
+    <div class="col-xs-6 col-sm-2 placeholder">
         <h1>{{approveWait.length}}</h1>
         <span class="text-muted">승인대기중</span>
     </div>
-    <div class="col-xs-6 col-sm-3 placeholder successText">
+    <div class="col-xs-6 col-sm-2 placeholder successText">
         <h1>{{approved.length}}</h1>
         <span class="text-muted">승인</span>
     </div>
-    <div class="col-xs-6 col-sm-3 placeholder failText">
+    <div class="col-xs-6 col-sm-2 placeholder failText">
         <h1>{{rejected.length}}</h1>
         <span class="text-muted">거절</span>
+    </div>
+    <div class="col-xs-6 col-sm-2 placeholder failText">
+        <h1>{{expired.length}}</h1>
+        <span class="text-muted">만료</span>
     </div>
 </div>
 
@@ -27,6 +33,7 @@
         <li role="presentation" class="active"><a href="#approveWait" aria-controls="approveWait" role="tab" data-toggle="tab">승인대기</a></li>
         <li role="presentation"><a href="#approved" aria-controls="rejected" role="tab" data-toggle="tab">승인</a></li>
         <li role="presentation"><a href="#rejected" aria-controls="rejected" role="tab" data-toggle="tab">거절</a></li>
+        <li role="presentation"><a href="#expired" aria-controls="expired" role="tab" data-toggle="tab">만료</a></li>
         <li role="presentation"><a href="#allList" aria-controls="allList" role="tab" data-toggle="tab">모든 대회</a></li>
 
     </ul>
@@ -45,7 +52,8 @@
                             <th>등록일</th>
                             <th>만료일</th>
                             <th>대회이름</th>
-                            <th>승인/거절</th>
+                            <th class="btnCenter">수정</th>
+                            <th class="btnCenter">승인/거절</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -55,7 +63,10 @@
                             <td>{{item.registDate}}</td>
                             <td>{{item.eventDate.start2}}</td>
                             <td>{{item.eventTitle}}</td>
-                            <td>
+                            <td class="btnCenter">
+                                <button type="button" ng-click="modifyModal(item._id)" class="btn btn-success" data-toggle="modal" data-target="#modifyModal">수정</button>
+                            </td>
+                            <td class="btnCenter">
                                 <button type="button" ng-click="approve(item._id)" class="btn btn-success">승인</button>
                                 <button type="button" ng-click="reject(item._id)" class="btn btn-danger" >거절</button>
                             </td>
@@ -77,6 +88,7 @@
                             <th>등록일</th>
                             <th>만료일</th>
                             <th>대회이름</th>
+                            <th class="btnCenter">수정</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -86,6 +98,9 @@
                             <td>{{item.registDate}}</td>
                             <td>{{item.eventDate.start2}}</td>
                             <td>{{item.eventTitle}}</td>
+                            <td class="btnCenter">
+                                <button type="button" ng-click="modifyModal(item._id)" class="btn btn-success" data-toggle="modal" data-target="#modifyModal">수정</button>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -121,6 +136,34 @@
 
 
         </div>
+        <div role="tabpanel" class="tab-pane" id="expired">
+            
+            <h2 class="sub-header">거절 대회 리스트</h2>
+            <div class="table-responsive">
+                <table class="table table-striped main">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>스포츠</th>
+                            <th>등록일</th>
+                            <th>만료일</th>
+                            <th>대회이름</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in expired">
+                            <td>{{item.count}}</td>
+                            <td>{{item.eventSport}}</td>
+                            <td>{{item.registDate}}</td>
+                            <td>{{item.eventDate.start2}}</td>
+                            <td>{{item.eventTitle}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
         <div role="tabpanel" class="tab-pane" id="allList">
             <h2 class="sub-header">모든 대회 리스트</h2>
             <div class="table-responsive">
@@ -132,7 +175,8 @@
                             <th>등록일</th>
                             <th>만료일</th>
                             <th>대회이름</th>
-                            <th>삭제</th>
+                            <th>상태</th>
+                            <th class="btnCenter">삭제</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -142,7 +186,8 @@
                             <td>{{item.registDate}}</td>
                             <td>{{item.eventDate.start2}}</td>
                             <td>{{item.eventTitle}}</td>
-                            <td>
+                            <td>{{item.status}}</td>
+                            <td class="btnCenter">
                                 <button type="button" ng-click="delete(item._id)" class="btn btn-danger">삭제</button>
                             </td>
                         </tr>
@@ -151,5 +196,109 @@
             </div>
         </div>
         
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modifyModal" tabindex="-1" role="dialog" aria-labelledby="modifyModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="modifyModalLabel">대회 정보수정</h4>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <form class="row">
+                        <div class="form-group col-xs-12 modifyForm">
+                            <label for="infoTitle">등록정보 제목</label>
+                            <input type="text" class="form-control" id="infoTitle" ng-model="modify.title">
+                        </div>
+                        <div class="form-group col-xs-6 modifyForm">
+                            <label for="infoSports">스포츠</label>
+                            <input type="text" class="form-control" id="infoSports" ng-model="modify.category.sports" disabled>
+                        </div>
+                        <div class="form-group col-xs-6 modifyForm">
+                            <label for="infoCategory">카테고리</label>
+                            <input type="text" class="form-control" id="infoCategory" ng-model="modify.category.subcategory" disabled>
+                        </div>
+                        <div class="form-group col-xs-6 modifyForm">
+                            <label for="infoState">시/도</label>
+                            <input type="text" class="form-control" id="infoState" ng-model="modify.location.state" disabled>
+                        </div>
+                        <div class="form-group col-xs-6 modifyForm">
+                            <label for="infoCity">시/구/군</label>
+                            <input type="text" class="form-control" id="infoCity" ng-model="modify.location.city" disabled>
+                        </div>
+                        <div class="form-group col-xs-12 modifyForm">
+                            <label for="infoCourtName">코트장 이름</label>
+                            <input type="text" class="form-control" id="infoCourtName" ng-model="modify.courtName">
+                        </div>
+                        <div class="form-group col-xs-6 modifyForm">
+                            <label for="infoLat">위도</label>
+                            <input type="text" class="form-control" id="infoLat" ng-model="modify.GPS.lat">
+                        </div>
+                        <div class="form-group col-xs-6 modifyForm">
+                            <label for="infoLng">경도</label>
+                            <input type="text" class="form-control" id="infoLng" ng-model="modify.GPS.lng">
+                        </div>
+                        <div class="form-group col-xs-6 modifyForm">
+                            <label for="infoEventStart">대회 시작</label>
+                            <input type="text" class="form-control" id="compDate1" name="compDate1" placeholder="대회 시작일시">
+                            <input type="text" class="form-control" id="compDate11" name="compDate11" placeholder="대회 시작일시" style="display: none;">
+
+                        </div>
+                        <div class="form-group col-xs-6 modifyForm">
+                            <label for="infoEventEnd">대회 종료</label>
+                            <input type="text" class="form-control" id="compDate2" name="compDate2" placeholder="대회 종료일시">
+                            <input type="text" class="form-control" id="compDate22" name="compDate22" placeholder="대회 종료일시" style="display: none;">
+                        </div>
+ 
+
+
+                        <div class="form-group col-xs-6 modifyForm">
+                            <label for="infoEventRegistStart">대회신청 시작</label>
+                            <input type="text" class="form-control" id="registDate1" name="registDate1" placeholder="대회신청 시작일">
+                            <input type="text" class="form-control" id="registDate11" name="registDate11" placeholder="대회신청 시작일" style="display: none;">
+                        </div>
+                        <div class="form-group col-xs-6 modifyForm">
+                            <label for="infoEventRegistEnd">대회신청 종료</label>
+                            <input type="text" class="form-control" id="registDate2" name="registDate2" placeholder="대회신청 마감일">
+                            <input type="text" class="form-control" id="registDate22" name="registDate22" placeholder="대회신청 마감일" style="display: none;">
+                        </div> 
+
+                        <div class="form-group col-xs-12 modifyForm">
+                            <label for="infoContactPhone">연락처</label>
+                            <input type="text" class="form-control" id="infoContactPhone" ng-model="modify.contact.phone">
+                        </div>
+                        <div class="form-group col-xs-12 modifyForm">
+                            <label for="infoContactEmail">이메일</label>
+                            <input type="text" class="form-control" id="infoContactEmail" ng-model="modify.contact.email">
+                        </div>
+                        <div class="form-group col-xs-12 modifyForm">
+                            <label for="infoContactUrl">홈페이지</label>
+                            <input type="text" class="form-control" id="infoContactUrl" ng-model="modify.contact.url">
+                        </div>
+                        <div class="form-group col-xs-12 modifyForm">
+                            <label for="infoDetail">상세정보</label>
+                            <textarea class="form-control"  name="infoDetail" id="infoDetail" rows="10" ng-model="modify.detailInfo"></textarea>
+                        </div>
+
+
+                        <div class="form-group col-xs-12">
+                            <button type="button" class="btn btn-success" style="width: 100%;" ng-click="modifySubmit(modify.id)">저장하기</button>
+                        </div>
+
+
+                        
+                    </div>
+                </form>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+            </div>
+        </div>
     </div>
 </div>

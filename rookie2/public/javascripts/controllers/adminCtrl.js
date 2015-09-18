@@ -85,7 +85,7 @@ angular.module('admin', ['ngRoute'])
 }])
 .controller('MainCtrl', ['$rootScope', '$scope', '$http', '$location', '$route', function ($rootScope, $scope, $http, $location, $route){
 
-
+	$scope.format = 'M/d/yy h:mm:ss a';
 
 
 
@@ -114,6 +114,7 @@ angular.module('admin', ['ngRoute'])
 		    $scope.approveWait = [];
 		    $scope.rejected = [];
 		    $scope.approved = [];
+		    $scope.expired = [];
 
 		    for(var i in $scope.items){
 		    	$scope.items[i].count = $scope.count;
@@ -123,14 +124,18 @@ angular.module('admin', ['ngRoute'])
 		    	$scope.items[i].registDate = $scope.items[i].registDate.replace('GMT+0900 (KST)', '');
 
 		    	if($scope.items[i].eventApproved == false && $scope.items[i].eventRejected == false){
+		    		$scope.items[i].status = '승인대기중';
 		    		$scope.approveWait.push($scope.items[i]);
-		    	} else if ($scope.items[i].eventApproved == true){
+		    	} else if ($scope.items[i].eventApproved == true && $scope.items[i].eventExpired != true){
+		    		$scope.items[i].status = '승인';
 		    		$scope.approved.push($scope.items[i]);
 		    	} else if ($scope.items[i].eventRejected == true){
+		    		$scope.items[i].status = '거절';
 		    		$scope.rejected.push($scope.items[i]);
+		    	} else if ($scope.items[i].eventExpired == true){
+		    		$scope.items[i].status = '만료';
+		    		$scope.expired.push($scope.items[i]);
 		    	}
-
-
 		    }
 		}, function(response) {
 		    // called asynchronously if an error occurs
@@ -183,9 +188,157 @@ angular.module('admin', ['ngRoute'])
 		});
 	};
 
+	$scope.modifyModal = function(id){
+
+		$scope.modify = [];
+		$scope.modifyItem = '';
+
+		$http.post('/model/admin/getInfo', {id: id, category: "competitions"}).
+		then(function(response) {
+		    // this callback will be called asynchronously
+		    // when the response is available
+		    if(response.statusText == 'OK'){
+		    	$scope.modifyItem = response.data;
+		    	//console.log($scope.modifyItem);
+
+				$scope.modify = {
+					id: $scope.modifyItem[0]._id,
+					title: $scope.modifyItem[0].eventTitle,
+					category: {
+						sports: $scope.modifyItem[0].eventSport,
+						subcategory: '대회'
+					},
+					location: {
+						state: $scope.modifyItem[0].eventLocation.state,
+						city: $scope.modifyItem[0].eventLocation.city
+					},
+					courtName: $scope.modifyItem[0].eventCourtName,
+					GPS: {
+						lat: $scope.modifyItem[0].eventGPS.lat,
+						lng: $scope.modifyItem[0].eventGPS.lng
+					},
+					eventDate: {
+						start1: $scope.modifyItem[0].eventDate.start1,
+						start2: $scope.modifyItem[0].eventDate.start2,
+						end1: $scope.modifyItem[0].eventDate.end1,
+						end2: $scope.modifyItem[0].eventDate.end2
+					},
+					eventRegist: {
+						start1: $scope.modifyItem[0].eventRegistDate.start1,
+						start2: $scope.modifyItem[0].eventRegistDate.start2,
+						end1: $scope.modifyItem[0].eventRegistDate.end1,
+						end2: $scope.modifyItem[0].eventRegistDate.end2
+					},
+					contact: {
+						phone: $scope.modifyItem[0].eventContact.phone,
+						email: $scope.modifyItem[0].eventContact.email,
+						url: $scope.modifyItem[0].eventContact.url
+					},
+					detailInfo : $scope.modifyItem[0].eventInfo
+				};
+
+
+				$('#compDate1').val('');
+				$('#compDate11').val('');
+				$('#compDate2').val('');
+				$('#compDate22').val('');
+
+				$('#registDate1').val('');
+				$('#registDate11').val('');
+				$('#registDate2').val('');
+				$('#registDate22').val('');
+
+                $('#compDate1').datetimepicker();
+                $('#compDate2').datetimepicker();
+
+
+                $("#compDate1").on("dp.change", function (e) {
+                    $('#compDate11').val(e.date._d);
+                    $('#compDate22').val(e.date._d);
+                    $('#compDate2').data("DateTimePicker").minDate(e.date);
+                    e.date._d.setDate(e.date._d.getDate()-1);
+                    $('#registDate11').val(e.date._d);
+                    $('#registDate22').val(e.date._d);
+                    $('#registDate1').data("DateTimePicker").maxDate(e.date);
+                    $('#registDate2').data("DateTimePicker").maxDate(e.date);
+                });
+                $("#compDate2").on("dp.change", function (e) {
+                    $('#compDate22').val(e.date._d);
+                });
+
+                $('#registDate1').datetimepicker();
+                $('#registDate2').datetimepicker();
+
+                $("#registDate1").on("dp.change", function (e) {
+                    $('#registDate11').val(e.date._d);
+                    $('#registDate22').val(e.date._d);
+                    $('#registDate2').data("DateTimePicker").minDate(e.date);
+                });
+                $("#registDate2").on("dp.change", function (e) {
+                    $('#registDate22').val(e.date._d);
+                });
+
+		    }
+		}, function(response) {
+		    // called asynchronously if an error occurs
+		    // or server returns response with an error status.
+		});
+	};
+
+	$scope.modifySubmit = function(id){
+		//console.log($scope.modify);
+		//console.log(id);
+
+		if($('#compDate1').val() != ''){
+			$scope.modify.eventDate.start1 = $('#compDate1').val();
+			$scope.modify.eventDate.start2 = $('#compDate11').val();
+			$scope.modify.eventDate.end1 = $('#compDate2').val();
+			$scope.modify.eventDate.end2 = $('#compDate22').val();
+
+			$scope.modify.eventRegist.start1 = $('#registDate1').val();
+			$scope.modify.eventRegist.start2 = $('#registDate11').val();
+			$scope.modify.eventRegist.end1 = $('#registDate2').val();
+			$scope.modify.eventRegist.end2 = $('#registDate22').val();	
+		} else {
+
+		}
+
+
+
+		$http.post('/model/admin/modifyData', {id: id, category: "competitions", data: $scope.modify}).
+		then(function(response) {
+		    // this callback will be called asynchronously
+		    // when the response is available
+		    if(response.statusText == 'OK'){
+		    	$('#modifyModal').modal('hide');
+		    }
+		}, function(response) {
+		    // called asynchronously if an error occurs
+		    // or server returns response with an error status.
+		});
+
+	}
+
+	$rootScope.iterateData = function(){
+		$http.get('/model/dataIterate').
+		then(function(response) {
+		    // this callback will be called asynchronously
+		    // when the response is available
+
+		}, function(response) {
+		    // called asynchronously if an error occurs
+		    // or server returns response with an error status.
+		});
+		$route.reload();
+	}
+
 	$('#compTabs a').click(function (e) {
 		e.preventDefault();
 		$(this).tab('show');
+	});
+
+	$('#modifyModal').on('hidden.bs.modal', function (e) {
+		$route.reload();
 	});
 
 
@@ -212,14 +365,15 @@ angular.module('admin', ['ngRoute'])
 		    	$scope.items[i].registDate = $scope.items[i].registDate.replace('GMT+0900 (KST)', '');
 
 		    	if($scope.items[i].courtApproved == false && $scope.items[i].courtRejected == false){
+		    		$scope.items[i].status = '승인대기중';
 		    		$scope.approveWait.push($scope.items[i]);
-		    	} else if ($scope.items[i].courtApproved == true){
+		    	} else if ($scope.items[i].courtApproved == true && $scope.items[i].courtExpired != true){
+		    		$scope.items[i].status = '승인';
 		    		$scope.approved.push($scope.items[i]);
 		    	} else if ($scope.items[i].courtRejected == true){
+		    		$scope.items[i].status = '거절';
 		    		$scope.rejected.push($scope.items[i]);
 		    	}
-
-
 		    }
 		}, function(response) {
 		    // called asynchronously if an error occurs
@@ -273,9 +427,73 @@ angular.module('admin', ['ngRoute'])
 		});
 	};
 
-	$('#compTabs a').click(function (e) {
+	$scope.modifyModal = function(id){
+
+		$scope.modify = [];
+		$scope.modifyItem = '';
+
+		$http.post('/model/admin/getInfo', {id: id, category: "courts"}).
+		then(function(response) {
+		    // this callback will be called asynchronously
+		    // when the response is available
+		    if(response.statusText == 'OK'){
+		    	$scope.modifyItem = response.data;
+
+				$scope.modify = {
+					id: $scope.modifyItem[0]._id,
+					title: $scope.modifyItem[0].courtTitle,
+					category: {
+						sports: $scope.modifyItem[0].courtSport,
+						subcategory: '코트장'
+					},
+					location: {
+						state: $scope.modifyItem[0].courtLocation.state,
+						city: $scope.modifyItem[0].courtLocation.city
+					},
+					courtName: $scope.modifyItem[0].courtCourtName,
+					GPS: {
+						lat: $scope.modifyItem[0].courtGPS.lat,
+						lng: $scope.modifyItem[0].courtGPS.lng
+					},
+					contact: {
+						phone: $scope.modifyItem[0].courtContact.phone,
+						email: $scope.modifyItem[0].courtContact.email,
+						url: $scope.modifyItem[0].courtContact.url
+					},
+					detailInfo : $scope.modifyItem[0].courtInfo
+				};
+
+		    }
+		}, function(response) {
+		    // called asynchronously if an error occurs
+		    // or server returns response with an error status.
+		});
+	};
+
+	$scope.modifySubmit = function(id){
+		//console.log($scope.modify);
+		//console.log(id);
+
+		$http.post('/model/admin/modifyData', {id: id, category: "courts", data: $scope.modify}).
+		then(function(response) {
+		    // this callback will be called asynchronously
+		    // when the response is available
+		    if(response.statusText == 'OK'){
+		    	$('#modifyModal').modal('hide');
+		    }
+		}, function(response) {
+		    // called asynchronously if an error occurs
+		    // or server returns response with an error status.
+		});
+	};
+
+	$('#courtTabs a').click(function (e) {
 		e.preventDefault();
 		$(this).tab('show');
+	});
+
+	$('#modifyModal').on('hidden.bs.modal', function (e) {
+		$route.reload();
 	});
 
 
@@ -301,13 +519,15 @@ angular.module('admin', ['ngRoute'])
 		    	$scope.items[i].registDate = $scope.items[i].registDate.replace('GMT+0900 (KST)', '');
 
 		    	if($scope.items[i].clubApproved == false && $scope.items[i].clubRejected == false){
+		    		$scope.items[i].status = '승인대기중';
 		    		$scope.approveWait.push($scope.items[i]);
-		    	} else if ($scope.items[i].clubApproved == true){
+		    	} else if ($scope.items[i].clubApproved == true && $scope.items[i].clubExpired != true){
+		    		$scope.items[i].status = '승인';
 		    		$scope.approved.push($scope.items[i]);
 		    	} else if ($scope.items[i].clubRejected == true){
+		    		$scope.items[i].status = '거절';
 		    		$scope.rejected.push($scope.items[i]);
 		    	}
-
 
 		    }
 		}, function(response) {
@@ -362,14 +582,78 @@ angular.module('admin', ['ngRoute'])
 		});
 	};
 
-	$('#compTabs a').click(function (e) {
+	$scope.modifyModal = function(id){
+
+		$scope.modify = [];
+		$scope.modifyItem = '';
+
+		$http.post('/model/admin/getInfo', {id: id, category: "clubs"}).
+		then(function(response) {
+		    // this callback will be called asynchronously
+		    // when the response is available
+		    if(response.statusText == 'OK'){
+		    	$scope.modifyItem = response.data;
+
+				$scope.modify = {
+					id: $scope.modifyItem[0]._id,
+					title: $scope.modifyItem[0].clubTitle,
+					category: {
+						sports: $scope.modifyItem[0].clubSport,
+						subcategory: '동호회'
+					},
+					location: {
+						state: $scope.modifyItem[0].clubLocation.state,
+						city: $scope.modifyItem[0].clubLocation.city
+					},
+					courtName: $scope.modifyItem[0].clubCourtName,
+					GPS: {
+						lat: $scope.modifyItem[0].clubGPS.lat,
+						lng: $scope.modifyItem[0].clubGPS.lng
+					},
+					contact: {
+						phone: $scope.modifyItem[0].clubContact.phone,
+						email: $scope.modifyItem[0].clubContact.email,
+						url: $scope.modifyItem[0].clubContact.url
+					},
+					detailInfo : $scope.modifyItem[0].clubInfo
+				};
+
+		    }
+		}, function(response) {
+		    // called asynchronously if an error occurs
+		    // or server returns response with an error status.
+		});
+	};
+
+	$scope.modifySubmit = function(id){
+		//console.log($scope.modify);
+		//console.log(id);
+
+		$http.post('/model/admin/modifyData', {id: id, category: "clubs", data: $scope.modify}).
+		then(function(response) {
+		    // this callback will be called asynchronously
+		    // when the response is available
+		    if(response.statusText == 'OK'){
+		    	$('#modifyModal').modal('hide');
+		    }
+		}, function(response) {
+		    // called asynchronously if an error occurs
+		    // or server returns response with an error status.
+		});
+	};
+
+	$('#clubTabs a').click(function (e) {
 		e.preventDefault();
 		$(this).tab('show');
 	});
 
+	$('#modifyModal').on('hidden.bs.modal', function (e) {
+		$route.reload();
+	});
+
 
 }])
-.controller('EventCtrl', ['$rootScope', '$scope', '$http', '$location', '$route', function ($rootScope, $scope, $http, $location, $route){
+.controller('EventCtrl', ['$rootScope', '$scope', '$http', '$location', '$route', 'notiDelete', 'notiDeActive', 'notiActive', function ($rootScope, $scope, $http, $location, $route, notiDelete, notiDeActive, notiActive){
 	if($rootScope.isLogin){
 		$scope.activateNum = 0;
 		$scope.deActivateNum = 0;
@@ -426,51 +710,21 @@ angular.module('admin', ['ngRoute'])
 	}
 
 	$scope.activate = function(id){
-		$http.post('/model/admin/notiActive', {id: id}).
-		then(function(response) {
-		    // this callback will be called asynchronously
-		    // when the response is available
-		    if(response.statusText == 'OK'){
-		    	$route.reload();
-		    }
-		}, function(response) {
-		    // called asynchronously if an error occurs
-		    // or server returns response with an error status.
-		});
+		notiActive(id);
 	};
 
 	$scope.deActivate = function(id){
-		$http.post('/model/admin/notiDeActive', {id: id}).
-		then(function(response) {
-		    // this callback will be called asynchronously
-		    // when the response is available
-		    if(response.statusText == 'OK'){
-		    	$route.reload();
-		    }
-		}, function(response) {
-		    // called asynchronously if an error occurs
-		    // or server returns response with an error status.
-		});
+		notiDeActive(id);
 	};
 
 	$scope.delete = function(id){
-		$http.post('/model/admin/notiDelete', {id: id}).
-		then(function(response) {
-		    // this callback will be called asynchronously
-		    // when the response is available
-		    if(response.statusText == 'OK'){
-		    	$route.reload();
-		    }
-		}, function(response) {
-		    // called asynchronously if an error occurs
-		    // or server returns response with an error status.
-		});
+		notiDelete(id);
 	};
 
 
 
 }])
-.controller('PromoCtrl', ['$rootScope', '$scope', '$http', '$location', '$route', function ($rootScope, $scope, $http, $location, $route){
+.controller('PromoCtrl', ['$rootScope', '$scope', '$http', '$location', '$route', 'notiDelete', 'notiDeActive', 'notiActive', function ($rootScope, $scope, $http, $location, $route, notiDelete, notiDeActive, notiActive){
 	if($rootScope.isLogin){
 		$scope.activateNum = 0;
 		$scope.deActivateNum = 0;
@@ -531,47 +785,15 @@ angular.module('admin', ['ngRoute'])
 	}
 
 	$scope.activate = function(id){
-		$http.post('/model/admin/notiActive', {id: id}).
-		then(function(response) {
-		    // this callback will be called asynchronously
-		    // when the response is available
-		   
-		    if(response.statusText == 'OK'){
-		    	$route.reload();
-		    }
-		}, function(response) {
-		    // called asynchronously if an error occurs
-		    // or server returns response with an error status.
-		});
+		notiActive(id);
 	};
 
 	$scope.deActivate = function(id){
-		$http.post('/model/admin/notiDeActive', {id: id}).
-		then(function(response) {
-		    // this callback will be called asynchronously
-		    // when the response is available
-		   
-		    if(response.statusText == 'OK'){
-		    	$route.reload();
-		    }
-		}, function(response) {
-		    // called asynchronously if an error occurs
-		    // or server returns response with an error status.
-		});
+		notiDeActive(id);
 	};
 
 	$scope.delete = function(id){
-		$http.post('/model/admin/notiDelete', {id: id}).
-		then(function(response) {
-		    // this callback will be called asynchronously
-		    // when the response is available
-		    if(response.statusText == 'OK'){
-		    	$route.reload();
-		    }
-		}, function(response) {
-		    // called asynchronously if an error occurs
-		    // or server returns response with an error status.
-		});
+		notiDelete(id);
 	};
 
 
@@ -586,7 +808,7 @@ angular.module('admin', ['ngRoute'])
 
 
 }])
-.controller('NotiCtrl', ['$rootScope', '$scope', '$http', '$location', '$route', function ($rootScope, $scope, $http, $location, $route){
+.controller('NotiCtrl', ['$rootScope', '$scope', '$http', '$location', '$route', 'notiDelete', 'notiDeActive', 'notiActive', function ($rootScope, $scope, $http, $location, $route, notiDelete, notiDeActive, notiActive){
 	if($rootScope.isLogin){
 		$scope.activateNum = 0;
 		$scope.deActivateNum = 0;
@@ -646,47 +868,15 @@ angular.module('admin', ['ngRoute'])
 	}
 
 	$scope.activate = function(id){
-		$http.post('/model/admin/notiActive', {id: id}).
-		then(function(response) {
-		    // this callback will be called asynchronously
-		    // when the response is available
-		   
-		    if(response.statusText == 'OK'){
-		    	$route.reload();
-		    }
-		}, function(response) {
-		    // called asynchronously if an error occurs
-		    // or server returns response with an error status.
-		});
+		notiActive(id);
 	};
 
 	$scope.deActivate = function(id){
-		$http.post('/model/admin/notiDeActive', {id: id}).
-		then(function(response) {
-		    // this callback will be called asynchronously
-		    // when the response is available
-		   
-		    if(response.statusText == 'OK'){
-		    	$route.reload();
-		    }
-		}, function(response) {
-		    // called asynchronously if an error occurs
-		    // or server returns response with an error status.
-		});
+		notiDeActive(id);
 	};
 
 	$scope.delete = function(id){
-		$http.post('/model/admin/notiDelete', {id: id}).
-		then(function(response) {
-		    // this callback will be called asynchronously
-		    // when the response is available
-		    if(response.statusText == 'OK'){
-		    	$route.reload();
-		    }
-		}, function(response) {
-		    // called asynchronously if an error occurs
-		    // or server returns response with an error status.
-		});
+		notiDelete(id);
 	};
 
 }])
@@ -798,6 +988,60 @@ angular.module('admin', ['ngRoute'])
 
 	}
 }])
+.factory('notiDelete', ['$http', '$route', function ($http, $route) {
+	return function(id) {
+
+		$http.post('/model/admin/notiDelete', {id: id}).
+		then(function(response) {
+		    // this callback will be called asynchronously
+		    // when the response is available
+		    if(response.statusText == 'OK'){
+		    	$route.reload();
+		    }
+		}, function(response) {
+		    // called asynchronously if an error occurs
+		    // or server returns response with an error status.
+		});
+	};
+}])
+.factory('notiDeActive', ['$http', '$route', function ($http, $route) {
+	return function(id) {
+
+		$http.post('/model/admin/notiDeActive', {id: id}).
+		then(function(response) {
+		    // this callback will be called asynchronously
+		    // when the response is available
+		   
+		    if(response.statusText == 'OK'){
+		    	$route.reload();
+		    }
+		}, function(response) {
+		    // called asynchronously if an error occurs
+		    // or server returns response with an error status.
+		});
+	};
+}])
+.factory('notiActive', ['$http', '$route', function ($http, $route) {
+	return function(id) {
+
+		$http.post('/model/admin/notiActive', {id: id}).
+		then(function(response) {
+		    // this callback will be called asynchronously
+		    // when the response is available
+		   
+		    if(response.statusText == 'OK'){
+		    	$route.reload();
+		    }
+		}, function(response) {
+		    // called asynchronously if an error occurs
+		    // or server returns response with an error status.
+		});
+	};
+}])
+
+
+
+
 .directive("fileread", function () {
     return {
         scope: {
@@ -815,4 +1059,39 @@ angular.module('admin', ['ngRoute'])
             });
         }
     }
-});
+})
+.directive('myCurrentTime', ['$interval', 'dateFilter', '$rootScope', function($interval, dateFilter, $rootScope) {
+	// return the directive link function. (compile function not needed)
+	return function(scope, element, attrs) {
+		var format,  // date format
+			stopTime; // so that we can cancel the time updates
+
+		// used to update the UI
+		function updateTime() {
+			element.text(dateFilter(new Date(), format));
+			var curTime = element.text(dateFilter(new Date(), format)).context.innerText.split(' ')[1];
+			//console.log(curTime);
+			if(curTime === '12:00:00'){	
+			//if(curTime === '4:17:00'){	
+				//console.log('testing');
+				$rootScope.iterateData();
+			}
+		}
+
+		// watch the expression, and update the UI on change.
+		scope.$watch(attrs.myCurrentTime, function(value) {
+			format = value;
+			updateTime();
+		});
+
+		stopTime = $interval(updateTime, 1000);
+
+		// listen on DOM destroy (removal) event, and cancel the next UI update
+		// to prevent updating time after the DOM element was removed.
+		element.on('$destroy', function() {
+			$interval.cancel(stopTime);
+		});
+	}
+}]);
+
+

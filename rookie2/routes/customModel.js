@@ -138,6 +138,7 @@ exports.active = function(app, db, fs){
 					eventSport: newinfo.category.sports,
 					eventApproved: false,
 					eventRejected: false,
+					eventExpired: false,
 					registDate: Date(),
 					eventAuthor: newinfo.author,
 					eventTitle: newinfo.title,
@@ -187,6 +188,7 @@ exports.active = function(app, db, fs){
 					courtSport: newinfo.category.sports,
 					courtApproved: false,
 					courtRejected: false,
+					courtExpired: false,
 					registDate: Date(),
 					courtAuthor: newinfo.author,
 					courtTitle: newinfo.title,
@@ -230,6 +232,7 @@ exports.active = function(app, db, fs){
 					clubSport: newinfo.category.sports,
 					clubApproved: false,
 					clubRejected: false,
+					clubExpired: false,
 					registDate: Date(),
 					clubAuthor: newinfo.author,
 					clubTitle: newinfo.title,
@@ -289,19 +292,29 @@ exports.active = function(app, db, fs){
 	});
 
 
-/*
-	app.get('/model/clearData', function (req, res, next){
+
+	app.get('/model/dataIterate', function (req, res, next){
 		var today = new Date();
-		db.competitions.find({}, function (err, data){
+		console.log('testing');
+		db.competitions.find({eventExpired: false}, function (err, data){
 			for(var i in data){
 				var endDate = new Date(data[i].eventDate.start2);
+				var id = data[i]._id;
+				var imgPath = data[i].eventImg;
 				if(today > endDate){
-					db.competitions.remove(data[i]);
+					fs.unlink(imgPath, function(){
+						db.competitions.update({_id: db.ObjectId(id)}, 
+							{ "$set": {
+								eventExpired : true,
+								eventImg : 'public/uploads/expried.png'
+							}
+						});
+					});
 				}
 			}
 		});
 	});
-*/
+
 
 	app.get('/model/search/:query', function (req, res, next){
 		var query = req.params.query;
@@ -397,7 +410,7 @@ exports.active = function(app, db, fs){
 			var id = req.body.id;
 
 			db.noti.find({_id: db.ObjectId(id)}, function (err, data){
-				console.log(data[0]);
+				//console.log(data[0]);
 				if(data[0].img){
 					var imgPath = data[0].img;
 					fs.unlink(imgPath, function(){
@@ -448,21 +461,42 @@ exports.active = function(app, db, fs){
 			var category = req.body.category;
 
 			if(category === 'competitions'){
-				db.competitions.update({_id: db.ObjectId(id)},
-				{ "$set" : {eventRejected: true}}, function (err, data){
-						res.json(data);
+				db.competitions.find({_id: db.ObjectId(id)}, function (err, data){
+					var imgPath = data[0].eventImg;
+					fs.unlink(imgPath, function(){
+						db.competitions.update({_id: db.ObjectId(id)},
+						{ "$set" : { eventRejected: true, eventImg : 'public/uploads/expried.png' }}, 
+						function (err, data){
+								res.json(data);
+						});
+					});
 				});
+
 			} else if (category === 'courts'){
-				db.courts.update({_id: db.ObjectId(id)},
-				{ "$set" : {courtRejected: true}}, function (err, data){
-						res.json(data);
+				db.courts.find({_id: db.ObjectId(id)}, function (err, data){
+					var imgPath = data[0].courtImg;
+					fs.unlink(imgPath, function(){
+						db.courts.update({_id: db.ObjectId(id)},
+						{ "$set" : { courtRejected: true, courtImg : 'public/uploads/expried.png' }}, 
+						function (err, data){
+								res.json(data);
+						});
+					});
 				});
+
 			} else if (category === 'clubs'){
-				db.clubs.update({_id: db.ObjectId(id)},
-				{ "$set" : {clubRejected: true}}, function (err, data){
-						res.json(data);
+				db.clubs.find({_id: db.ObjectId(id)}, function (err, data){
+					var imgPath = data[0].clubImg;
+					fs.unlink(imgPath, function(){
+						db.clubs.update({_id: db.ObjectId(id)},
+						{ "$set" : { clubRejected: true, clubImg : 'public/uploads/expried.png' }}, 
+						function (err, data){
+								res.json(data);
+						});
+					});
 				});
 			}
+
 		} else if (query === 'infoDelete'){
 			var id = req.body.id;
 			var category = req.body.category;
@@ -495,7 +529,122 @@ exports.active = function(app, db, fs){
 					});
 				});
 			}
+		} else if (query === 'getInfo'){
+			var id = req.body.id;
+			var category = req.body.category;
+
+			if(category === 'competitions'){
+				db.competitions.find({_id: db.ObjectId(id)}, function (err, data){
+					res.json(data);
+				});
+			} else if (category === 'courts'){
+				db.courts.find({_id: db.ObjectId(id)}, function (err, data){
+					res.json(data);
+				});
+			} else if (category === 'clubs'){
+				db.clubs.find({_id: db.ObjectId(id)}, function (err, data){
+					res.json(data);
+				});
+			}
+		} else if (query === 'modifyData'){
+			var id = req.body.id;
+			var category = req.body.category;
+			var data = req.body.data;
+
+			console.log(data);
+
+			if(category === 'competitions'){
+				db.competitions.update({_id: db.ObjectId(id)},
+				{
+					"$set": {
+						eventTitle: data.title,
+						eventCourtName: data.courtName,
+						eventLocation: {
+							state: data.location.state,
+							city: data.location.city
+						},
+						eventGPS: {
+							lat: data.GPS.lat,
+							lng: data.GPS.lng
+						},
+						eventDate: {
+							start1: data.eventDate.start1,
+							start2: data.eventDate.start2,
+							end1: data.eventDate.end1,
+							end2: data.eventDate.end2
+						},
+						eventRegistDate: {
+							start1: data.eventRegist.start1,
+							start2: data.eventRegist.start2,
+							end1: data.eventRegist.end1,
+							end2: data.eventRegist.end2
+						},
+						eventContact: {
+							phone: data.contact.phone,
+							email: data.contact.email,
+							url: data.contact.url
+						},
+						eventInfo: data.detailInfo
+					}
+				}, function (err, data){
+					res.json(data);
+				});
+			} else if (category === 'courts'){
+				db.courts.update({_id: db.ObjectId(id)},
+				{
+					"$set": {
+						courtTitle: data.title,
+						courtCourtName: data.courtName,
+						courtLocation: {
+							state: data.location.state,
+							city: data.location.city
+						},
+						courtGPS: {
+							lat: data.GPS.lat,
+							lng: data.GPS.lng
+						},
+						courtContact: {
+							phone: data.contact.phone,
+							email: data.contact.email,
+							url: data.contact.url
+						},
+						courtInfo: data.detailInfo
+					}
+				}, function (err, data){
+					res.json(data);
+				});
+			} else if (category === 'clubs'){
+				db.clubs.update({_id: db.ObjectId(id)},
+				{
+					"$set": {
+						clubTitle: data.title,
+						clubCourtName: data.courtName,
+						clubLocation: {
+							state: data.location.state,
+							city: data.location.city
+						},
+						clubGPS: {
+							lat: data.GPS.lat,
+							lng: data.GPS.lng
+						},
+						clubContact: {
+							phone: data.contact.phone,
+							email: data.contact.email,
+							url: data.contact.url
+						},
+						clubInfo: data.detailInfo
+					}
+				}, function (err, data){
+					res.json(data);
+				});
+			}
 		}
+
+
+
+
+
+
 	});
 
 
@@ -506,15 +655,15 @@ exports.active = function(app, db, fs){
 
 
 		if(category === 'competitions'){
-			db.competitions.find({eventSport: sports, eventApproved: true}).sort({"_id" : -1}, function (err, data){
+			db.competitions.find({eventSport: sports, eventApproved: true, eventExpired: false}).sort({"_id" : -1}, function (err, data){
 				res.json(data);
 			});
 		} else if (category === 'courts'){
-			db.courts.find({courtSport: sports, courtApproved: true}).sort({"_id" : -1}, function (err, data){
+			db.courts.find({courtSport: sports, courtApproved: true, courtExpired: false}).sort({"_id" : -1}, function (err, data){
 				res.json(data);
 			});
 		} else if (category === 'clubs'){
-			db.clubs.find({clubSport: sports, clubApproved: true}).sort({"_id" : -1}, function (err, data){
+			db.clubs.find({clubSport: sports, clubApproved: true, clubExpired: false}).sort({"_id" : -1}, function (err, data){
 				res.json(data);
 			});
 		}
