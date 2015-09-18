@@ -29,6 +29,16 @@ exports.active = function(app, db, fs){
 		res.render('admin');
 	});
 
+/*
+	app.get('/event', function (req, res, next) {
+		isLogin(req, res, function(user){
+			res.render('sports', { user: user.login });
+		}, function(){
+			res.render('sports', { user: '' });
+		});	
+	});
+*/
+
 	app.get('/:sports', function (req, res, next) {
 		isLogin(req, res, function(user){
 			res.render('sports', { user: user.login });

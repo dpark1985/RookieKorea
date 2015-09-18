@@ -272,15 +272,15 @@ exports.active = function(app, db, fs){
 		var num = [];
 		var sports = req.params.sports;
 
-		db.competitions.find({eventSport: sports, eventApproved: true}, function (err, data1){
+		db.competitions.find({eventSport: sports, eventApproved: true, eventExpired: false}, function (err, data1){
 			var compNum = data1.length;
 			num.push(compNum);
 
-			db.courts.find({courtSport: sports, courtApproved: true}, function (err, data2){
+			db.courts.find({courtSport: sports, courtApproved: true, courtExpired: false}, function (err, data2){
 				var courtsNum = data2.length;
 				num.push(courtsNum);
 
-				db.clubs.find({clubSport: sports, clubApproved: true}, function (err, data3){
+				db.clubs.find({clubSport: sports, clubApproved: true, clubExpired: false}, function (err, data3){
 					var clubsNum = data3.length;
 					num.push(clubsNum);
 
