@@ -306,7 +306,7 @@ exports.active = function(app, db, fs){
 						db.competitions.update({_id: db.ObjectId(id)}, 
 							{ "$set": {
 								eventExpired : true,
-								eventImg : 'public/uploads/expried.png'
+								eventImg : 'public/uploads/expired.png'
 							}
 						});
 					});
@@ -465,7 +465,7 @@ exports.active = function(app, db, fs){
 					var imgPath = data[0].eventImg;
 					fs.unlink(imgPath, function(){
 						db.competitions.update({_id: db.ObjectId(id)},
-						{ "$set" : { eventRejected: true, eventImg : 'public/uploads/expried.png' }}, 
+						{ "$set" : { eventRejected: true, eventImg : 'public/uploads/expired.png' }}, 
 						function (err, data){
 								res.json(data);
 						});
@@ -477,7 +477,7 @@ exports.active = function(app, db, fs){
 					var imgPath = data[0].courtImg;
 					fs.unlink(imgPath, function(){
 						db.courts.update({_id: db.ObjectId(id)},
-						{ "$set" : { courtRejected: true, courtImg : 'public/uploads/expried.png' }}, 
+						{ "$set" : { courtRejected: true, courtImg : 'public/uploads/expired.png' }}, 
 						function (err, data){
 								res.json(data);
 						});
@@ -489,7 +489,7 @@ exports.active = function(app, db, fs){
 					var imgPath = data[0].clubImg;
 					fs.unlink(imgPath, function(){
 						db.clubs.update({_id: db.ObjectId(id)},
-						{ "$set" : { clubRejected: true, clubImg : 'public/uploads/expried.png' }}, 
+						{ "$set" : { clubRejected: true, clubImg : 'public/uploads/expired.png' }}, 
 						function (err, data){
 								res.json(data);
 						});
