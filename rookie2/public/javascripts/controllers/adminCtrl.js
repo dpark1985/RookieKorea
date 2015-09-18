@@ -721,8 +721,6 @@ angular.module('admin', ['ngRoute'])
 		notiDelete(id);
 	};
 
-
-
 }])
 .controller('PromoCtrl', ['$rootScope', '$scope', '$http', '$location', '$route', 'notiDelete', 'notiDeActive', 'notiActive', function ($rootScope, $scope, $http, $location, $route, notiDelete, notiDeActive, notiActive){
 	if($rootScope.isLogin){
@@ -795,8 +793,6 @@ angular.module('admin', ['ngRoute'])
 	$scope.delete = function(id){
 		notiDelete(id);
 	};
-
-
 
 }])
 .controller('BlogCtrl', ['$rootScope', '$scope', '$http', '$location', function ($rootScope, $scope, $http, $location){
@@ -990,7 +986,6 @@ angular.module('admin', ['ngRoute'])
 }])
 .factory('notiDelete', ['$http', '$route', function ($http, $route) {
 	return function(id) {
-
 		$http.post('/model/admin/notiDelete', {id: id}).
 		then(function(response) {
 		    // this callback will be called asynchronously
@@ -1006,7 +1001,6 @@ angular.module('admin', ['ngRoute'])
 }])
 .factory('notiDeActive', ['$http', '$route', function ($http, $route) {
 	return function(id) {
-
 		$http.post('/model/admin/notiDeActive', {id: id}).
 		then(function(response) {
 		    // this callback will be called asynchronously
@@ -1023,7 +1017,6 @@ angular.module('admin', ['ngRoute'])
 }])
 .factory('notiActive', ['$http', '$route', function ($http, $route) {
 	return function(id) {
-
 		$http.post('/model/admin/notiActive', {id: id}).
 		then(function(response) {
 		    // this callback will be called asynchronously
