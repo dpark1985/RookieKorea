@@ -27,19 +27,19 @@
                 <th>날짜</th>
                 <th>ID</th>
                 <th>내용</th>
-                <th>확인유무</th>
+                <th class="btnCenter">확인유무</th>
             </tr>
         </thead>
         <tbody>
             <tr ng-repeat="item in items">
-                <th>#</th>
-                <th>{{item.queryDate}}</th>
-                <th>{{item.queryAuthor}}</th>
-                <th>{{item.queryContext}}</th>
-                <th>
+                <td>{{item.count}}</th>
+                <td>{{item.queryDate}}</td>
+                <td>{{item.queryAuthor}}</td>
+                <td>{{item.queryContext}}</td>
+                <td class="btnCenter">
                     <button ng-if="!item.checked" type="button" ng-click="success(item._id)" class="btn btn-success">확인</button>
                     <button ng-if="item.checked" type="button" class="btn btn-info" disabled="disabled">완료</button>
-                </th>
+                </td>
             </tr>
         </tbody>
     </table>

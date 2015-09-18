@@ -886,8 +886,10 @@ angular.module('admin', ['ngRoute'])
 		    // when the response is available
 
 		    $scope.items = response.data;
-
+		    $scope.count = $scope.items.length;
 		    for(var i in $scope.items){
+		    	$scope.items[i].count = $scope.count;
+		    	$scope.count --;
 		    	if($scope.items[i].checked){
 		    		$scope.successNum += 1;
 		    	} else {
@@ -930,8 +932,10 @@ angular.module('admin', ['ngRoute'])
 		    // this callback will be called asynchronously
 		    // when the response is available
 		    $scope.items = response.data;
-
+		    $scope.count = $scope.items.length;
 		    for(var i in $scope.items){
+		    	$scope.items[i].count = $scope.count;
+		    	$scope.count --;
 		    	if($scope.items[i].checked){
 		    		$scope.successNum += 1;
 		    	} else {
@@ -972,7 +976,10 @@ angular.module('admin', ['ngRoute'])
 		    // this callback will be called asynchronously
 		    // when the response is available
 		    $scope.items = response.data;
+		    $scope.count = $scope.items.length;
 		    for(var i in $scope.items){
+		    	$scope.items[i].count = $scope.count;
+		    	$scope.count --;
 		    	$scope.totalVisits += $scope.items[i].visits;
 		    }
 		}, function(response) {

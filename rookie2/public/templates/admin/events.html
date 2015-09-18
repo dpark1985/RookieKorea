@@ -58,21 +58,21 @@
                 <th>제목</th>
                 <th>링크</th>
                 <th>이미지</th>
-                <th>활성화</th>
+                <th class="btnCenter">활성화</th>
             </tr>
         </thead>
         <tbody>
             <tr ng-repeat="item in items">
-                <th>{{item.count}}</th>
-                <th>{{item.date}}</th>
-                <th>{{item.title}}</th>
-                <th>{{item.link}}</th>
-                <th>{{item.img}}</th>
-                <th>
+                <td>{{item.count}}</td>
+                <td>{{item.date}}</td>
+                <td>{{item.title}}</td>
+                <td>{{item.link}}</td>
+                <td>{{item.img}}</td>
+                <td class="btnCenter">
                     <button ng-if="!item.active" type="button" ng-click="activate(item._id)" class="btn btn-success">활성화</button>
                     <button ng-if="item.active" type="button" ng-click="deActivate(item._id)" class="btn btn-danger" >비활성화</button>
                     <button ng-if="item.active || !item.active" type="button" ng-click="delete(item._id)" class="btn btn-danger" >삭제</button>
-                </th>
+                </td>
             </tr>
         </tbody>
     </table>
