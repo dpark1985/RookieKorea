@@ -22,11 +22,7 @@ exports.active = function(app, db, fs){
 	});
 
 	app.get('/profile/*', function (req, res, next) {
-		isLogin(req, res, function(user){
-			res.render('profile', { user: user.login });
-		}, function(){
-			res.redirect('/login');
-		});
+		res.redirect('/profile');
 	});
 
 	app.get('/newinfo', function (req, res, next) {
@@ -42,7 +38,7 @@ exports.active = function(app, db, fs){
 	});
 
 	app.get('/admin/*', function (req, res, next) {
-		res.render('admin');
+		res.redirect('/admin');
 	});
 
 /*

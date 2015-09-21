@@ -24,8 +24,7 @@ angular.module('profile', ['ngRoute'])
 	
 
 	$routeProvider.otherwise('/', {
-		templateUrl: '/templates/profile/overview.html',
-		controller: 'OverviewCtrl',
+		controller: 'ProfileCtrl',
 	});
 
 	$locationProvider.html5Mode(true);
