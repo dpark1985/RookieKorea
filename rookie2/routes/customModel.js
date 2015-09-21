@@ -298,13 +298,15 @@ exports.active = function(app, db, fs){
 
 	app.get('/model/dataIterate', function (req, res, next){
 		var today = new Date();
-		console.log('testing');
 		db.competitions.find({eventExpired: false}, function (err, data){
 			for(var i in data){
 				var endDate = new Date(data[i].eventDate.start2);
 				var id = data[i]._id;
 				var imgPath = data[i].eventImg;
 				if(today > endDate){
+					console.log('======dataIterate======');
+					console.log('today = ' + today);
+					console.log('endDate = ' + endDate);
 					fs.unlink(imgPath, function(){
 						db.competitions.update({_id: db.ObjectId(id)}, 
 							{ "$set": {
@@ -313,6 +315,8 @@ exports.active = function(app, db, fs){
 							}
 						});
 					});
+				} else {
+					console.log('today = ' + today);
 				}
 			}
 		});
