@@ -1071,7 +1071,6 @@ angular.module('admin', ['ngRoute'])
 			//console.log(curTime);
 			if(curTime === '12:00:00'){	
 			//if(curTime === '4:17:00'){	
-				//console.log('testing');
 				$rootScope.iterateData();
 			}
 		}
