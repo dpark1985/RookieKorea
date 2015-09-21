@@ -63,6 +63,9 @@ angular.module('profile', ['ngRoute'])
 		then(function(response) {
 		    // this callback will be called asynchronously
 		    // when the response is available
+		    if(response.statusText === "OK"){
+		    	$rootScope.reloadPage();
+		    }
 		}, function(response) {
 		    // called asynchronously if an error occurs
 		    // or server returns response with an error status.
@@ -180,7 +183,7 @@ angular.module('profile', ['ngRoute'])
                         scope.fileread = loadEvent.target.result;
                     });
                     $rootScope.userImgChange();
-                    $rootScope.reloadPage();
+                    //$rootScope.reloadPage();
                 }
                 reader.readAsDataURL(changeEvent.target.files[0]);
             });

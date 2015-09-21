@@ -691,24 +691,17 @@ exports.active = function(app, db, fs){
 
 		db.users.find({login: newInfo.id}, function (err, data){
 			if(data[0].img === null){
-				req.base64Img.img(newInfo.img, './public/uploads/users', imgFileName, function(err, filepath) {
-					db.users.update({login: newInfo.id}, 
-						{"$set": {
-							img: filepath
-						}}, 
+				req.base64Img.img(newInfo.img, './public/uploads/users', imgFileName, function (err, filepath) {
+					db.users.update({login: newInfo.id}, {"$set": {img: filepath}}, 
 						function (err, data){
 							res.json(data);
 					});
-
 				});
 			} else {
 				var imgPath = data[0].img;
 				fs.unlink(imgPath, function(){
-					req.base64Img.img(newInfo.img, './public/uploads/users', imgFileName, function(err, filepath) {
-						db.users.update({login: newInfo.id}, 
-							{"$set": {
-								img: filepath
-							}}, 
+					req.base64Img.img(newInfo.img, './public/uploads/users', imgFileName, function (err, filepath) {
+						db.users.update({login: newInfo.id}, {"$set": {img: filepath}}, 
 							function (err, data){
 								res.json(data);
 						});
