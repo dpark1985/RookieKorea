@@ -3,6 +3,9 @@ angular.module('profile', ['ngRoute'])
 
 .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
 	$routeProvider.when('/', {
+		controller: 'ProfileCtrl',
+	});
+	$routeProvider.when('/profile', {
 		templateUrl: '/templates/profile/overview.html',
 		controller: 'OverviewCtrl',
 	});
@@ -31,9 +34,7 @@ angular.module('profile', ['ngRoute'])
 .controller('OverviewCtrl', ['$scope', '$rootScope', '$http', '$timeout', '$route', function ($scope, $rootScope, $http, $timeout, $route){
 	var userInfo = $rootScope.userInfo;
 
-	if(userInfo.visits != 'undefined'){
-		$('#loadingModal').modal('hide');
-	}
+
 
 
 	$scope.totalVisit = userInfo.visits;
@@ -86,7 +87,7 @@ angular.module('profile', ['ngRoute'])
 
 }])
 
-.controller('profileCtrl', ['$scope', '$rootScope', '$window', '$http', '$route', function ($scope, $rootScope, $window, $http, $route){
+.controller('profileCtrl', ['$scope', '$rootScope', '$window', '$http', '$route', '$location', function ($scope, $rootScope, $window, $http, $route, $location){
 
 	$rootScope.reloadPage = function(){
 		$window.location.reload();
@@ -117,7 +118,8 @@ angular.module('profile', ['ngRoute'])
 			$scope.userImgSrc = $rootScope.userInfo.img.replace("public", "");
 		}
 		
-
+		$('#loadingModal').modal('hide');
+		$location.path('/profile');
 	}, function(response) {
 	    // called asynchronously if an error occurs
 	    // or server returns response with an error status.
