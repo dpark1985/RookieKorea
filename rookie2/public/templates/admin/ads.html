@@ -33,7 +33,7 @@
         <tbody>
             <tr ng-repeat="item in items">
                 <td>{{item.count}}</th>
-                <td>{{item.queryDate}}</td>
+                <td>{{item.queryDate | date:'short'}}</td>
                 <td>{{item.queryAuthor}}</td>
                 <td>{{item.queryContext}}</td>
                 <td class="btnCenter">
