@@ -195,6 +195,14 @@ div.content > div.container > div.row > div.right > div.section > div.container 
 	margin: 0px;
 	padding-top: 10px;
 	padding-bottom: 10px;
+	font-weight: bold;
+}
+
+div.content > div.container > div.row > div.right > div.section > div.container > div.row > a.item > div.wrapper > div.info > div.dday {
+	float: left;
+	padding-top: 20px;
+	padding-bottom: 10px;
+	color: #E3434B;
 }
 
 div.content > div.container > div.row > div.right > div.section > div.container > div.row > a.item > div.wrapper > div.info > div.rating > ul {

@@ -36,7 +36,7 @@ angular.module('details', ['ngRoute'])
 			var today = new Date();
 			var eventDateStart = new Date($scope.data[0].eventDate.start2);
 			var DDay = new Date(eventDateStart-today).getDate();
-			console.log(DDay);
+			//console.log(DDay);
 			if(DDay == '1'){
 				$scope.DDay = 'Day';
 			} else {

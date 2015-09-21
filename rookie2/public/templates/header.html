@@ -2,7 +2,7 @@
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <a class="navbar-brand" href="/"><img id="navLogo" src="../../images/logos/headerLogo1.png"></a>
+            <a class="navbar-brand" href="/"><img id="navLogo" src="../../images/logos/headerLogo2.png"></a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navbar-collapse-1">
@@ -22,12 +22,12 @@
             <ul ng-if="isLogin" class="nav navbar-nav navbar-right">
 
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{loginID}} <span class="caret"></span></a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{loginID}} <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">회원정보</a></li>
-                            <li><a href="/newinfo">정보등록하기</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="/logout" ng-click="logout()">로그아웃</a></li>
+                        <li><a href="/profile">회원정보</a></li>
+                        <li><a href="/newinfo">정보등록하기</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="/logout" ng-click="logout()">로그아웃</a></li>
                     </ul>
                 </li>
             </ul>
@@ -40,13 +40,13 @@
 <div class="container subnav">
     <div class="row">
         <ul class="sportsList col-sm-10 col-md-10">
-            <li><a href="/soccer"><h5>축구</h5></a></li>
-            <li><a href="/bowling"><h5>볼링</h5></a></li>
-            <li><a href="/tennis"><h5>테니스</h5></a></li>
-            <li><a href="/baseball"><h5>야구</h5></a></li>
-            <li><a href="/badminton"><h5>배드민턴</h5></a></li>
-            <li><a href="/basketball"><h5>농구</h5></a></li>
-            <li><a href="/market"><h5>마켓</h5></a></li>
+            <li><a href="/soccer#/competitions"><h5>축구</h5></a></li>
+            <li><a href="/bowling#/competitions"><h5>볼링</h5></a></li>
+            <li><a href="/tennis#/competitions"><h5>테니스</h5></a></li>
+            <li><a href="/baseball#/competitions"><h5>야구</h5></a></li>
+            <li><a href="/badminton#/competitions"><h5>배드민턴</h5></a></li>
+            <li><a href="/basketball#/competitions"><h5>농구</h5></a></li>
+            <li><a href="#"><h5>마켓</h5></a></li>
         </ul>
         <div class="eventLink col-sm-2 col-md-2">
             <a href="#"><h5>이벤트</h5></a>

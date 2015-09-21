@@ -2,10 +2,6 @@ angular.module('sports', ['ngRoute'])
 
 
 .config(['$routeProvider', function ($routeProvider) {
-	$routeProvider.when('/', {
-		templateUrl: '/templates/sports/competitions.html',
-		controller: 'CompCtrl',
-	});
 	$routeProvider.when('/competitions', {
 		templateUrl: '/templates/sports/competitions.html',
 		controller: 'CompCtrl'
@@ -19,8 +15,7 @@ angular.module('sports', ['ngRoute'])
 		controller: 'ClubCtrl'
 	});
 
-
-	$routeProvider.otherwise('/', {
+	$routeProvider.otherwise('/competitions', {
 		templateUrl: '/templates/sports/competitions.html',
 		controller: 'CompCtrl',
 	});
@@ -39,18 +34,16 @@ angular.module('sports', ['ngRoute'])
 	    //console.log($scope.items);
 	    for(var i in $scope.items){
 	    	$scope.items[i].eventImg = $scope.items[i].eventImg.replace("public", "");
+			var today = new Date();
+			var eventDateStart = new Date($scope.items[i].eventDate.start2);
+			var DDay = new Date(eventDateStart-today).getDate();
+			//console.log(DDay);
+			if(DDay == '1'){
+				$scope.items[i].DDay = 'Day';
+			} else {
+				$scope.items[i].DDay = DDay;
+			}
 	    }
-
-		$http.get('/model/numbers/'+$rootScope.curLocation).
-		then(function(response) {
-		    // this callback will be called asynchronously
-		    // when the response is available
-		    $scope.totalNums = response.data;
-		}, function(response) {
-		    // called asynchronously if an error occurs
-		    // or server returns response with an error status.
-		});
-
 
 	}, function(response) {
 	    // called asynchronously if an error occurs
@@ -80,8 +73,6 @@ angular.module('sports', ['ngRoute'])
 		$scope.tab2Active = '';
 		$scope.tab3Active = 'active';
 	}
-
-
 	$scope.filteredStateEvent = function(item){
 		return ($scope.selectedState.indexOf(item.eventLocation.state) !== -1);
 	}
@@ -102,18 +93,6 @@ angular.module('sports', ['ngRoute'])
 	    for(var i in $scope.items){
 	    	$scope.items[i].courtImg = $scope.items[i].courtImg.replace("public", "");
 	    }
-
-		$http.get('/model/numbers/'+$rootScope.curLocation).
-		then(function(response) {
-		    // this callback will be called asynchronously
-		    // when the response is available
-		    $scope.totalNums = response.data;
-		}, function(response) {
-		    // called asynchronously if an error occurs
-		    // or server returns response with an error status.
-		});
-
-
 	}, function(response) {
 	    // called asynchronously if an error occurs
 	    // or server returns response with an error status.
@@ -142,13 +121,9 @@ angular.module('sports', ['ngRoute'])
 		$scope.tab2Active = '';
 		$scope.tab3Active = 'active';
 	}
-
-
 	$scope.filteredStateCourt = function(item){
 		return ($scope.selectedState.indexOf(item.courtLocation.state) !== -1);
 	}
-
-
 }])
 .controller('ClubCtrl', ['$scope', '$rootScope', '$http', function ($scope, $rootScope, $http){
 	
@@ -164,16 +139,6 @@ angular.module('sports', ['ngRoute'])
 	    for(var i in $scope.items){
 	    	$scope.items[i].clubImg = $scope.items[i].clubImg.replace("public", "");
 	    }
-
-		$http.get('/model/numbers/'+$rootScope.curLocation).
-		then(function(response) {
-		    // this callback will be called asynchronously
-		    // when the response is available
-		    $scope.totalNums = response.data;
-		}, function(response) {
-		    // called asynchronously if an error occurs
-		    // or server returns response with an error status.
-		});
 	}, function(response) {
 	    // called asynchronously if an error occurs
 	    // or server returns response with an error status.
@@ -203,20 +168,31 @@ angular.module('sports', ['ngRoute'])
 		$scope.tab2Active = '';
 		$scope.tab3Active = 'active';
 	}
-
 	$scope.filteredStateClub = function(item){
 		return ($scope.selectedState.indexOf(item.clubLocation.state) !== -1);
 	}
-
-
 }])
 
 .controller('sportsCtrl', ['$scope', '$rootScope', '$window', '$location', '$http', function ($scope, $rootScope, $window, $location, $http){
 	
-	$rootScope.curLocation = $location.absUrl().split('/')[3];
-	$rootScope.curLocation = $rootScope.curLocation.replace('#', '');
+	$rootScope.curLocation = $location.absUrl().split('/')[3].replace('#', '');
+	$('#loadingModal').modal('show');
 
-	//console.log($rootScope.curLocation);
+	$http.get('/model/numbers/'+$rootScope.curLocation).
+	then(function(response) {
+	    // this callback will be called asynchronously
+	    // when the response is available
+	    var totalNums = response.data;
+
+	    $scope.compNum = totalNums[0];
+	    $scope.courtNum = totalNums[1];
+	    $scope.clubNum = totalNums[2];
+
+	    $('#loadingModal').modal('hide');
+	}, function(response) {
+	    // called asynchronously if an error occurs
+	    // or server returns response with an error status.
+	});	
 
 	if ($rootScope.curLocation === 'baseball'){ $scope.curLocationText = {ko: '야구', en: 'baseball'}; } 
 	else if ($rootScope.curLocation === 'basketball'){ $scope.curLocationText = {ko: '농구', en: 'basketball'}; } 
@@ -225,22 +201,6 @@ angular.module('sports', ['ngRoute'])
 	else if ($rootScope.curLocation === 'soccer'){ $scope.curLocationText = {ko: '축구', en: 'soccer'}; } 
 	else if($rootScope.curLocation === 'tennis'){ $scope.curLocationText = {ko: '테니스', en: 'tennis'}; } 
 	else if($rootScope.curLocation === 'market'){ $scope.curLocationText = {ko: '마켓', en: 'market'}; }
-
-
-
-
-	$http.get('/model/numbers/'+$rootScope.curLocation).
-	then(function(response) {
-	    // this callback will be called asynchronously
-	    // when the response is available
-	    $scope.totalNums = response.data;
-	}, function(response) {
-	    // called asynchronously if an error occurs
-	    // or server returns response with an error status.
-	});	
-
-
-
 
 	// Subcategory (SubTab) Active class
 	// Initiate subcategory active = active;
@@ -318,14 +278,8 @@ angular.module('sports', ['ngRoute'])
 		if($scope.selectedState == ''){
 			$scope.state.all = true;
 			$scope.selectAll();
-		}
-		
+		}	
 	}
-
-
-
-
-
 
 	// COMMON FUNCTIONS
 	var login = $('#isLogin').html().trim();

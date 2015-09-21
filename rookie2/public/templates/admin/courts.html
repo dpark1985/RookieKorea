@@ -52,7 +52,7 @@
                         <tr ng-repeat="item in approveWait">
                             <td>{{item.count}}</td>
                             <td>{{item.courtSport}}</td>
-                            <td>{{item.registDate}}</td>
+                            <td>{{item.registDate | date:'short'}}</td>
                             <td>{{item.courtTitle}}</td>
                             <td class="btnCenter">
                                 <button type="button" ng-click="modifyModal(item._id)" class="btn btn-success" data-toggle="modal" data-target="#modifyModal">수정</button>
@@ -85,7 +85,7 @@
                         <tr ng-repeat="item in approved">
                             <td>{{item.count}}</td>
                             <td>{{item.courtSport}}</td>
-                            <td>{{item.registDate}}</td>
+                            <td>{{item.registDate | date:'short'}}</td>
                             <td>{{item.courtTitle}}</td>
                             <td class="btnCenter">
                                 <button type="button" ng-click="modifyModal(item._id)" class="btn btn-success" data-toggle="modal" data-target="#modifyModal">수정</button>
@@ -114,7 +114,7 @@
                         <tr ng-repeat="item in rejected">
                             <td>{{item.count}}</td>
                             <td>{{item.courtSport}}</td>
-                            <td>{{item.registDate}}</td>
+                            <td>{{item.registDate | date:'short'}}</td>
                             <td>{{item.courtTitle}}</td>
                         </tr>
                     </tbody>
@@ -141,7 +141,7 @@
                         <tr ng-repeat="item in items">
                             <td>{{item.count}}</td>
                             <td>{{item.courtSport}}</td>
-                            <td>{{item.registDate}}</td>
+                            <td>{{item.registDate | date:'short'}}</td>
                             <td>{{item.courtTitle}}</td>
                             <td>{{item.status}}</td>
                             <td class="btnCenter">

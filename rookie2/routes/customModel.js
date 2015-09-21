@@ -174,6 +174,7 @@ exports.active = function(app, db, fs){
 					eventVisits: 0
 				}, function (err, data){
 					if(data){
+						db.users.update({login: newinfo.author}, {'$push' : {competitions: data._id}});
 						res.json(data);
 					} else{
 						console.log("INPUT ERROR === " + err);
@@ -217,6 +218,7 @@ exports.active = function(app, db, fs){
 					courtLikes: 0
 				}, function (err, data){
 					if(data){
+						db.users.update({login: newinfo.author}, {'$push' : {courts: data._id}});
 						res.json(data);
 					} else{
 						console.log("INPUT ERROR === " + err);
@@ -257,6 +259,7 @@ exports.active = function(app, db, fs){
 					clubLikes: 0,
 				}, function (err, data){
 					if(data){
+						db.users.update({login: newinfo.author}, {'$push' : {clubs: data._id}});
 						res.json(data);
 					} else{
 						console.log("INPUT ERROR === " + err);
@@ -315,15 +318,12 @@ exports.active = function(app, db, fs){
 		});
 	});
 
-
 	app.get('/model/search/:query', function (req, res, next){
 		var query = req.params.query;
 
 		db.competitions.find()
 
 	});
-
-
 
 	app.post('/model/admin/:query', function (req, res, next){
 		
@@ -645,6 +645,55 @@ exports.active = function(app, db, fs){
 
 
 
+	});
+
+	app.post('/model/profile', function (req, res, next) {
+		var id = req.body.id;
+
+		db.users.find({login: id}, function (err, data){
+			var pwLength = data[0].password.length;
+			data[0].password = '';
+			data[0]._id = '';
+			for (var i=0; i<pwLength; i++){
+				data[0].password += '*';
+			}
+			res.json(data);
+		});
+
+	});
+
+	app.post('/model/profile/userImg', function (req, res, next) {
+		var newInfo = req.body.newInfo;
+		var imgFileName = newInfo.id + '_' + Date.now();
+
+		db.users.find({login: newInfo.id}, function (err, data){
+			if(data[0].img === null){
+				req.base64Img.img(newInfo.img, './public/uploads/users', imgFileName, function(err, filepath) {
+					db.users.update({login: newInfo.id}, 
+						{"$set": {
+							img: filepath
+						}}, 
+						function (err, data){
+							res.json(data);
+					});
+
+				});
+			} else {
+				var imgPath = data[0].img;
+				fs.unlink(imgPath, function(){
+					req.base64Img.img(newInfo.img, './public/uploads/users', imgFileName, function(err, filepath) {
+						db.users.update({login: newInfo.id}, 
+							{"$set": {
+								img: filepath
+							}}, 
+							function (err, data){
+								res.json(data);
+						});
+
+					});
+				});				
+			}
+		});
 	});
 
 

@@ -120,8 +120,8 @@ angular.module('admin', ['ngRoute'])
 		    	$scope.items[i].count = $scope.count;
 		    	$scope.count --;
 
-		    	$scope.items[i].eventDate.start2 = $scope.items[i].eventDate.start2.replace('GMT+0900 (KST)', '');
-		    	$scope.items[i].registDate = $scope.items[i].registDate.replace('GMT+0900 (KST)', '');
+		    	$scope.items[i].eventDate.start2 = new Date($scope.items[i].eventDate.start2);
+		    	$scope.items[i].registDate = new Date($scope.items[i].registDate);
 
 		    	if($scope.items[i].eventApproved == false && $scope.items[i].eventRejected == false){
 		    		$scope.items[i].status = '승인대기중';
@@ -362,7 +362,7 @@ angular.module('admin', ['ngRoute'])
 		    	$scope.items[i].count = $scope.count;
 		    	$scope.count --;
 
-		    	$scope.items[i].registDate = $scope.items[i].registDate.replace('GMT+0900 (KST)', '');
+		    	$scope.items[i].registDate = new Date($scope.items[i].registDate);
 
 		    	if($scope.items[i].courtApproved == false && $scope.items[i].courtRejected == false){
 		    		$scope.items[i].status = '승인대기중';
@@ -516,7 +516,7 @@ angular.module('admin', ['ngRoute'])
 		    	$scope.items[i].count = $scope.count;
 		    	$scope.count --;
 
-		    	$scope.items[i].registDate = $scope.items[i].registDate.replace('GMT+0900 (KST)', '');
+		    	$scope.items[i].registDate = new Date($scope.items[i].registDate);
 
 		    	if($scope.items[i].clubApproved == false && $scope.items[i].clubRejected == false){
 		    		$scope.items[i].status = '승인대기중';
@@ -764,7 +764,7 @@ angular.module('admin', ['ngRoute'])
 			link: $scope.promoData.link,
 			img: $scope.promoData.img,
 			active: false
-		}
+		};
 	
 		$http.post('/model/admin/notiNew', { newNoti : $scope.newInfo }).
 		then(function(response) {

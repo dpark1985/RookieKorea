@@ -57,6 +57,8 @@ exports.active = function(everyauth, db){
 			password: userAttribute.password,
 			since: Date(),
 			visits: 0,
+			lastLoginDate: Date(),
+			curLoginDate: Date(),
 			competitions: [],
 			courts: [],
 			clubs: [],
@@ -90,7 +92,18 @@ exports.active = function(everyauth, db){
 			if(error){
 				promise.fulfill([getCode('auth:1')]);
 			} else if(user){
-				db.users.update({login: login}, {"$inc" : {"visits" : 1}});
+				db.users.find({login: login}, function (err, data){
+					var temp = data[0].curLoginDate;
+					db.users.update({login: login}, 
+						{"$set" : 
+							{lastLoginDate: temp, curLoginDate: Date()}
+						}, 
+						{"$inc" : 
+							{"visits" : 1}
+						}
+					);
+				});
+
 				promise.fulfill(user);
 			} else{
 				promise.fulfill([getCode('auth:2')]);

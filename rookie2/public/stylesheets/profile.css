@@ -1,0 +1,66 @@
+div.container-fluid.mainImg {
+	min-width: 970px;
+	height: 220px;
+	padding: 0px;
+}
+
+div.container-fluid.mainImg > img {
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	background-size: cover;
+	background-position: center center;
+}
+
+div.container-fluid.mainImg > div.container {
+	margin-top: -150px;
+}
+
+div.container-fluid.mainImg > div.container > h1 {	
+	color: white;
+}
+
+div.content {
+	background-color: #F4F4F4;
+	padding-bottom: 40px;
+	padding-top: 40px;
+	min-width: 970px;
+}
+
+h3 {
+	color: white;
+}
+
+.panel-heading {
+	color: #888;
+}
+
+.service-block-v3 > .row > .col-xs-4 {
+	border: 0px;
+	padding: 0px 15px;
+	background-color: #e67e22;
+}
+
+.txtCenter {
+	text-align: center;
+}
+
+div.imgupload {
+	opacity: 0.8;
+	cursor: pointer;
+}
+
+div.imgupload:hover {
+	opacity: 1;
+}
+div.imgupload > input {
+	overflow: hidden;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.img-responsive {
+	width: 213px;
+	height: 273px;
+}
