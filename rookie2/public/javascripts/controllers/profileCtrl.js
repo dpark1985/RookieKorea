@@ -31,6 +31,11 @@ angular.module('profile', ['ngRoute'])
 .controller('OverviewCtrl', ['$scope', '$rootScope', '$http', '$timeout', '$route', function ($scope, $rootScope, $http, $timeout, $route){
 	var userInfo = $rootScope.userInfo;
 
+	if(userInfo.visits != 'undefined'){
+		$('#loadingModal').modal('hide');
+	}
+
+
 	$scope.totalVisit = userInfo.visits;
 	$scope.totalPost = userInfo.competitions.length + userInfo.courts.length + userInfo.clubs.length;
 	$scope.compNum = userInfo.competitions.length;
@@ -111,7 +116,7 @@ angular.module('profile', ['ngRoute'])
 		} else {
 			$scope.userImgSrc = $rootScope.userInfo.img.replace("public", "");
 		}
-		$('#loadingModal').modal('hide');
+		
 
 	}, function(response) {
 	    // called asynchronously if an error occurs
