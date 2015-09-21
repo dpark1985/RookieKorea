@@ -890,6 +890,7 @@ angular.module('admin', ['ngRoute'])
 		    for(var i in $scope.items){
 		    	$scope.items[i].count = $scope.count;
 		    	$scope.count --;
+		    	$scope.items[i].queryDate = new Date($scope.items[i].queryDate);
 		    	if($scope.items[i].checked){
 		    		$scope.successNum += 1;
 		    	} else {
@@ -936,6 +937,7 @@ angular.module('admin', ['ngRoute'])
 		    for(var i in $scope.items){
 		    	$scope.items[i].count = $scope.count;
 		    	$scope.count --;
+		    	$scope.items[i].queryDate = new Date($scope.items[i].queryDate);
 		    	if($scope.items[i].checked){
 		    		$scope.successNum += 1;
 		    	} else {
@@ -979,6 +981,7 @@ angular.module('admin', ['ngRoute'])
 
 		    for(var i in $scope.items){
 		    	$scope.totalVisits += $scope.items[i].visits;
+		    	$scope.items[i].since = new Date($scope.items[i].since);
 		    }
 		}, function(response) {
 		    // called asynchronously if an error occurs

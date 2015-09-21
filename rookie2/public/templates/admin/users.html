@@ -31,21 +31,19 @@
                 <th>동호회</th>
                 <th>Likes</th>
                 <th>Posted</th>
-                <th>Img</th>
             </tr>
         </thead>
         <tbody>
             <tr ng-repeat="item in items">
                 <td>{{item.name}}</td>
                 <td>{{item.login}}</td>
-                <td>{{item.since}}</td>
+                <td>{{item.since | date:'short'}}</td>
                 <td>{{item.visits}}</td>
                 <td>{{item.competitions.length}}</td>
                 <td>{{item.courts.length}}</td>
                 <td>{{item.clubs.length}}</td>
                 <td>{{item.likes.length}}</td>
                 <td>{{item.posted.length}}</td>
-                <td>{{item.img}}</td>
             </tr>
         </tbody>
     </table>
