@@ -311,7 +311,7 @@ exports.active = function(app, db, fs){
 						db.competitions.update({_id: db.ObjectId(id)}, 
 							{ "$set": {
 								eventExpired : true,
-								eventImg : 'public/uploads/expired.png'
+								eventImg : 'public/uploads/expired1.png'
 							}
 						});
 					});
@@ -508,29 +508,48 @@ exports.active = function(app, db, fs){
 			if(category === 'competitions'){
 				db.competitions.find({_id: db.ObjectId(id)}, function (err, data){
 					var imgPath = data[0].eventImg;
-					fs.unlink(imgPath, function(){
+					if(imgPath === 'public/uploads/expired1.png'){
 						db.competitions.remove({_id: db.ObjectId(id)}, function (err, data){
 							res.json(data);
 						});
-					});
+					} else {
+						fs.unlink(imgPath, function(){
+							db.competitions.remove({_id: db.ObjectId(id)}, function (err, data){
+								res.json(data);
+							});
+						});	
+					}
 				});
 			} else if (category === 'courts'){
 				db.courts.find({_id: db.ObjectId(id)}, function (err, data){
 					var imgPath = data[0].courtImg;
-					fs.unlink(imgPath, function(){
+					if(imgPath === 'public/uploads/expired1.png'){
 						db.courts.remove({_id: db.ObjectId(id)}, function (err, data){
 							res.json(data);
 						});
-					});
+					} else {
+						fs.unlink(imgPath, function(){
+							db.courts.remove({_id: db.ObjectId(id)}, function (err, data){
+								res.json(data);
+							});
+						});						
+					}
 				});
 			} else if (category === 'clubs'){
 				db.clubs.find({_id: db.ObjectId(id)}, function (err, data){
 					var imgPath = data[0].clubImg;
-					fs.unlink(imgPath, function(){
+					if(imgPath === 'public/uploads/expired1.png'){
 						db.clubs.remove({_id: db.ObjectId(id)}, function (err, data){
 							res.json(data);
 						});
-					});
+					} else {
+						fs.unlink(imgPath, function(){
+							db.clubs.remove({_id: db.ObjectId(id)}, function (err, data){
+								res.json(data);
+							});
+						});						
+					}
+
 				});
 			}
 		} else if (query === 'getInfo'){
