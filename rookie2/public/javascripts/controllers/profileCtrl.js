@@ -46,7 +46,7 @@ angular.module('profile', ['ngRoute'])
 	$scope.userName = userInfo.name;
 	$scope.userId = userInfo.login;
 	if(userInfo.img === null){
-		$scope.userImgSrc = "../assets/img/team/img32-md.jpg";
+		$scope.userImgSrc = "../images/user/img32-md.jpg";
 	} else {
 		$scope.userImgSrc = userInfo.img.replace("public", "");
 	}

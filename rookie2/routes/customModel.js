@@ -175,6 +175,7 @@ exports.active = function(app, db, fs){
 				}, function (err, data){
 					if(data){
 						db.users.update({login: newinfo.author}, {'$push' : {competitions: data._id}});
+						db.users.update({login: newinfo.author}, {'$inc' : {posted: 1}});
 						res.json(data);
 					} else{
 						console.log("INPUT ERROR === " + err);
@@ -219,6 +220,7 @@ exports.active = function(app, db, fs){
 				}, function (err, data){
 					if(data){
 						db.users.update({login: newinfo.author}, {'$push' : {courts: data._id}});
+						db.users.update({login: newinfo.author}, {'$inc' : {posted: 1}});
 						res.json(data);
 					} else{
 						console.log("INPUT ERROR === " + err);
@@ -260,6 +262,7 @@ exports.active = function(app, db, fs){
 				}, function (err, data){
 					if(data){
 						db.users.update({login: newinfo.author}, {'$push' : {clubs: data._id}});
+						db.users.update({login: newinfo.author}, {'$inc' : {posted: 1}});
 						res.json(data);
 					} else{
 						console.log("INPUT ERROR === " + err);

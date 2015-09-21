@@ -64,3 +64,8 @@ div.imgupload > input {
 	width: 213px;
 	height: 273px;
 }
+
+.col-xs-4 {
+	background-color: #F4F4F4;
+	border: 0px;
+}

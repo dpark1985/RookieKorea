@@ -63,7 +63,7 @@ exports.active = function(everyauth, db){
 			courts: [],
 			clubs: [],
 			likes: [],
-			posted: [],
+			posted: 0,
 			img: null
 		}, function(error, result){
 			if(result){
