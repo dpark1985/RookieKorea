@@ -31,8 +31,6 @@ angular.module('profile', ['ngRoute'])
 .controller('OverviewCtrl', ['$scope', '$rootScope', '$http', '$timeout', '$route', function ($scope, $rootScope, $http, $timeout, $route){
 	var userInfo = $rootScope.userInfo;
 
-	console.log(userInfo);
-
 	$scope.totalVisit = userInfo.visits;
 	$scope.totalPost = userInfo.competitions.length + userInfo.courts.length + userInfo.clubs.length;
 	$scope.compNum = userInfo.competitions.length;
@@ -60,7 +58,6 @@ angular.module('profile', ['ngRoute'])
 		then(function(response) {
 		    // this callback will be called asynchronously
 		    // when the response is available
-
 		}, function(response) {
 		    // called asynchronously if an error occurs
 		    // or server returns response with an error status.
@@ -102,7 +99,7 @@ angular.module('profile', ['ngRoute'])
 		$scope.isLogin = false;
 	}
 
-
+	$('#loadingModal').modal('show');
 	$http.post('/model/profile', {id: $scope.loginID})
 	.then(function(response) {
 	    // this callback will be called asynchronously
@@ -114,6 +111,7 @@ angular.module('profile', ['ngRoute'])
 		} else {
 			$scope.userImgSrc = $rootScope.userInfo.img.replace("public", "");
 		}
+		$('#loadingModal').modal('hide');
 
 	}, function(response) {
 	    // called asynchronously if an error occurs
