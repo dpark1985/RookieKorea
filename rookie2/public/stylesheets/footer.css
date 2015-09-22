@@ -6,19 +6,19 @@ footer.content1 {
 	min-width: 970px;
 }
 
-footer.content1 > div.container > div.row > div.col-md-9 > div.noti > i {
+footer.content1 > div.container > div.row > div.col-xs-9 > div.noti > i {
 	float: left;
 	line-height: 25px;
 	font-weight: bold;
 	margin-right: 5px;
 }
 
-footer.content1 > div.container > div.row > div.col-md-9 > div.noti > span {
+footer.content1 > div.container > div.row > div.col-xs-9 > div.noti > span {
 	line-height: 25px;
 	font-weight: bold;
 }
 
-footer.content1 > div.container > div.row > div.col-md-9 > div.notiList > ul > li > a {
+footer.content1 > div.container > div.row > div.col-xs-9 > div.notiList > ul > li > a {
 	color: #909090;
 }
 
@@ -76,7 +76,7 @@ div.cs_time > span {
 	float: right;
 }
 
-footer.content1 > div.container > div.row > div.col-md-3 > div.cs > div.header > div.cs_time > span.time {
+footer.content1 > div.container > div.row > div.col-xs-3 > div.cs > div.header > div.cs_time > span.time {
 	margin-left: 10px;
 }
 
@@ -86,11 +86,11 @@ footer.content2 {
 	padding-bottom: 20px;
 }
 
-footer.content2 > div.container > div.row > div.col-md-9 > div.terms > span > a {
+footer.content2 > div.container > div.row > div.col-xs-9 > div.terms > span > a {
 	color: black;
 }
 
-footer.content2 > div.container > div.row > div.col-md-9 > div.compInfo > ul > li {
+footer.content2 > div.container > div.row > div.col-xs-9 > div.compInfo > ul > li {
 	float: left;
 	margin-right: 30px;
 	font-size: 11.5px;
