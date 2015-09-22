@@ -362,7 +362,6 @@ angular.module('newinfo', ['ngRoute'])
 
 	// COMMON FUNCTIONS
 	var login = $('#isLogin').html().trim();
-
 	$('#isLogin').hide();
 	$scope.isLogin = false;
 
@@ -382,6 +381,32 @@ angular.module('newinfo', ['ngRoute'])
 		if($scope.isLogin === true) {$window.location.href = '/newinfo';} 
 		else {$window.location.href = '/login';}
 	}
+
+	$scope.queryData = {};
+	$scope.querySubmit = function(){
+		$http.post('/model/query', {
+			queryAuthor: $scope.queryData.userEmail,
+			queryContext: $scope.queryData.context
+		})
+		.then(function(response) {
+		    // this callback will be called asynchronously
+		    // when the response is available
+		}, function(response) {
+		    // called asynchronously if an error occurs
+		    // or server returns response with an error status.
+		});
+		$('.csQuery').modal('hide');
+	}
+
+	$http.get('/model/noti').
+	then(function(response) {
+	    // this callback will be called asynchronously
+	    // when the response is available
+	    $scope.notiData = response.data;
+	}, function(response) {
+	    // called asynchronously if an error occurs
+	    // or server returns response with an error status.
+	});
 	// COMMON FUNCTIONS
 
 }])

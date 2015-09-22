@@ -669,7 +669,7 @@ angular.module('admin', ['ngRoute'])
 		    	$scope.items[i].count = $scope.count;
 		    	$scope.count --;
 
-		    	$scope.items[i].date = $scope.items[i].date.replace('GMT+0900 (KST)', '');
+		    	$scope.items[i].date = new Date($scope.items[i].date);
 
 		    	if($scope.items[i].active){
 		    		$scope.activateNum += 1;
@@ -738,8 +738,7 @@ angular.module('admin', ['ngRoute'])
 		    	$scope.items[i].count = $scope.count;
 		    	$scope.count --;
 
-		    	$scope.items[i].date = $scope.items[i].date.replace('GMT+0900 (KST)', '');
-
+		    	$scope.items[i].date = new Date($scope.items[i].date);
 
 		    	if($scope.items[i].active){
 		    		$scope.activateNum += 1;
@@ -820,7 +819,7 @@ angular.module('admin', ['ngRoute'])
 		    	$scope.items[i].count = $scope.count;
 		    	$scope.count --;
 
-		    	$scope.items[i].date = $scope.items[i].date.replace('GMT+0900 (KST)', '');
+		    	$scope.items[i].date = new Date($scope.items[i].date);
 
 
 		    	if($scope.items[i].active){

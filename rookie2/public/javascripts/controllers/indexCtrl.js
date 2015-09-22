@@ -15,7 +15,7 @@ angular.module('main', ['ngRoute'])
 	var login = $('#isLogin').html().trim();
 	$('#isLogin').hide();
 	$scope.isLogin = false;
-	
+
 	if(login != ''){
 		$scope.loginID = login;
 		$scope.isLogin = true;
@@ -27,6 +27,7 @@ angular.module('main', ['ngRoute'])
 		$scope.isLogin = false;
 		$window.location.reload();
 	}
+
 	$scope.newInfo = function(){
 		if($scope.isLogin === true) {$window.location.href = '/newinfo';} 
 		else {$window.location.href = '/login';}
@@ -47,6 +48,16 @@ angular.module('main', ['ngRoute'])
 		});
 		$('.csQuery').modal('hide');
 	}
+
+	$http.get('/model/noti').
+	then(function(response) {
+	    // this callback will be called asynchronously
+	    // when the response is available
+	    $scope.notiData = response.data;
+	}, function(response) {
+	    // called asynchronously if an error occurs
+	    // or server returns response with an error status.
+	});
 	// COMMON FUNCTIONS
 
 }])

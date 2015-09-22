@@ -133,8 +133,10 @@ exports.active = function(app, db, fs){
 
 		if(newinfo.category.subcategory === '대회'){
 			var imgFileName = 'comp_' + Date.now();
+			var count = db.competitions.count() + 1;
 			req.base64Img.img(newinfo.infoImg, './public/uploads/competitions', imgFileName, function(err, filepath) {
 				db.competitions.insert({
+					eventCount: count,
 					eventSport: newinfo.category.sports,
 					eventApproved: false,
 					eventRejected: false,
@@ -185,8 +187,10 @@ exports.active = function(app, db, fs){
 
 		} else if (newinfo.category.subcategory === '코트'){
 			var imgFileName = 'court_' + Date.now();
+			var count = db.courts.count() + 1;
 			req.base64Img.img(newinfo.infoImg, './public/uploads/courts', imgFileName, function(err, filepath) {
 				db.courts.insert({
+					courtCount: count,
 					courtSport: newinfo.category.sports,
 					courtApproved: false,
 					courtRejected: false,
@@ -231,8 +235,10 @@ exports.active = function(app, db, fs){
 
 		} else {
 			var imgFileName = 'club_' + Date.now();
+			var count = db.clubs.count() + 1;
 			req.base64Img.img(newinfo.infoImg, './public/uploads/clubs', imgFileName, function(err, filepath) {
 				db.clubs.insert({
+					clubCount: count,
 					clubSport: newinfo.category.sports,
 					clubApproved: false,
 					clubRejected: false,
@@ -711,6 +717,13 @@ exports.active = function(app, db, fs){
 					});
 				});				
 			}
+		});
+	});
+
+
+	app.get('/model/noti', function (req, res, next){
+		db.noti.find({type: "noti", active: true}).limit(5).sort({"_id" : -1}, function (err, data){
+			res.json(data);
 		});
 	});
 

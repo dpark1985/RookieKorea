@@ -7,12 +7,8 @@
                     <span>공지사항</span>
                 </div>
                 <div class="row notiList">
-                    <ul>
-                        <li><a href="#">루키코리아가 출시되었습니다.</a></li>
-                        <li><a href="#">루키코리아가 출시되었습니다.</a></li>
-                        <li><a href="#">루키코리아가 출시되었습니다.</a></li>
-                        <li><a href="#">루키코리아가 출시되었습니다.</a></li>
-                        <li><a href="#">루키코리아가 출시되었습니다.</a></li>
+                    <ul ng-repeat="item in notiData">
+                        <li><a ng-href="{{item.link}}" target="_blank">{{item.title}}</a></li>
                     </ul>
                 </div>
             </div>
