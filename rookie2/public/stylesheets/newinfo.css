@@ -205,7 +205,9 @@ div.wrapper > div.phase2 > div.container.wrapper > div.row > div.col-xs-12 > div
 div.wrapper > div.phase2 > div.container.wrapper > div.row > div.col-xs-12 > div.container.section > div.row.email > div.col-xs-9 > div.row > div.col-xs-12 > span,
 div.wrapper > div.phase2 > div.container.wrapper > div.row > div.col-xs-12 > div.container.section > div.row.homepage > div.col-xs-9 > div.row > div.col-xs-12 > span,
 
-div.wrapper > div.phase3 > div.container.wrapper > div.row > div.col-xs-12 > div.container.section > div.row.title > div.col-xs-9 > div.row > div.col-xs-12 > span {
+div.wrapper > div.phase3 > div.container.wrapper > div.row > div.col-xs-12 > div.container.section > div.row.title > div.col-xs-9 > div.row > div.col-xs-12 > span,
+
+#clickLatlng {
 	color: #E3434B;
 }
 

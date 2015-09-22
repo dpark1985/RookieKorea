@@ -269,7 +269,6 @@ exports.active = function(app, db, fs){
 					}
 				});
 			});
-
 		}
 	});
 
