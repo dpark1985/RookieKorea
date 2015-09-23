@@ -66,12 +66,12 @@ angular.module('details', ['ngRoute'])
 
 
 	    } else if(curCategory === 'courts'){
-	    	if($scope.data[0].eventImg === 'public/uploads/default.png'){
+	    	if($scope.data[0].courtImg === 'public/uploads/default.png'){
 	    		$scope.noImg = true;
-	    		$scope.data[0].eventImg = $scope.data[0].eventImg.replace("public", "");
+	    		$scope.data[0].courtImg = $scope.data[0].courtImg.replace("public", "");
 	    	} else {
 	    		$scope.noImg = false;
-	    		$scope.data[0].eventImg = $scope.data[0].eventImg.replace("public", "");
+	    		$scope.data[0].courtImg = $scope.data[0].courtImg.replace("public", "");
 	    	}
 	    	$scope.curPage = $scope.templates.courts;
 	    	$scope.data[0].courtInfo = $sce.trustAsHtml($scope.data[0].courtInfo);	
@@ -92,12 +92,12 @@ angular.module('details', ['ngRoute'])
 
 
 	    } else if(curCategory === 'clubs'){
-	    	if($scope.data[0].eventImg === 'public/uploads/default.png'){
+	    	if($scope.data[0].clubImg === 'public/uploads/default.png'){
 	    		$scope.noImg = true;
-	    		$scope.data[0].eventImg = $scope.data[0].eventImg.replace("public", "");
+	    		$scope.data[0].clubImg = $scope.data[0].clubImg.replace("public", "");
 	    	} else {
 	    		$scope.noImg = false;
-	    		$scope.data[0].eventImg = $scope.data[0].eventImg.replace("public", "");
+	    		$scope.data[0].clubImg = $scope.data[0].clubImg.replace("public", "");
 	    	}
 	    	$scope.curPage = $scope.templates.clubs;
 	    	$scope.data[0].clubInfo = $sce.trustAsHtml($scope.data[0].clubInfo);	
