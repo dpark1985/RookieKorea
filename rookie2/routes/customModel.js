@@ -131,11 +131,11 @@ exports.active = function(app, db, fs){
 	app.post('/model/newinfo', function (req, res, next) {
 		var newinfo = req.body.newinfo;
 
+		
 		if(newinfo.category.subcategory === '대회'){
-			var imgFileName = 'comp_' + Date.now();
-			db.courts.count({}, function(err, data){
-				var count = data+1;
-				req.base64Img.img(newinfo.infoImg, './public/uploads/competitions', imgFileName, function(err, filepath) {
+			if(newinfo.infoImg === undefined){
+				db.courts.count({}, function(err, data){
+					var count = data+1;
 					db.competitions.insert({
 						eventCount: count,
 						eventSport: newinfo.category.sports,
@@ -172,7 +172,7 @@ exports.active = function(app, db, fs){
 							url: newinfo.contact.url
 						},
 						eventInfo: newinfo.detailInfo,
-						eventImg: filepath,
+						eventImg: 'public/uploads/defaultImg.png',
 						eventLikes: 0,
 						eventVisits: 0
 					}, function (err, data){
@@ -184,17 +184,123 @@ exports.active = function(app, db, fs){
 							console.log("INPUT ERROR === " + err);
 						}
 					});
+
 				});
-			});
+
+			} else {
+				var imgFileName = 'comp_' + Date.now();
+				db.courts.count({}, function(err, data){
+					var count = data+1;
+					req.base64Img.img(newinfo.infoImg, './public/uploads/competitions', imgFileName, function(err, filepath) {
+						db.competitions.insert({
+							eventCount: count,
+							eventSport: newinfo.category.sports,
+							eventApproved: false,
+							eventRejected: false,
+							eventExpired: false,
+							registDate: Date(),
+							eventAuthor: newinfo.author,
+							eventTitle: newinfo.title,
+							eventCourtName: newinfo.courtName,
+							eventLocation: {
+								state: newinfo.location.state,
+								city: newinfo.location.city
+							},
+							eventGPS: {
+								lat: newinfo.GPS.lat,
+								lng: newinfo.GPS.lng
+							},
+							eventDate: {
+								start1: newinfo.eventDate.start1,
+								start2: newinfo.eventDate.start2,
+								end1: newinfo.eventDate.end1,
+								end2: newinfo.eventDate.end2
+							},
+							eventRegistDate: {
+								start1: newinfo.eventRegist.start1,
+								start2: newinfo.eventRegist.start2,
+								end1: newinfo.eventRegist.end1,
+								end2: newinfo.eventRegist.end2
+							},
+							eventContact: {
+								phone: newinfo.contact.phone,
+								email: newinfo.contact.email,
+								url: newinfo.contact.url
+							},
+							eventInfo: newinfo.detailInfo,
+							eventImg: filepath,
+							eventLikes: 0,
+							eventVisits: 0
+						}, function (err, data){
+							if(data){
+								db.users.update({login: newinfo.author}, {'$push' : {competitions: data._id}});
+								db.users.update({login: newinfo.author}, {'$inc' : {posted: 1}});
+								res.json(data);
+							} else{
+								console.log("INPUT ERROR === " + err);
+							}
+						});
+					});
+				});
+			}
+
+
 
 
 
 		} else if (newinfo.category.subcategory === '코트'){
-			var imgFileName = 'court_' + Date.now();
-			db.courts.count({}, function(err, data){
-				var count = data+1;
-
-				req.base64Img.img(newinfo.infoImg, './public/uploads/courts', imgFileName, function(err, filepath) {
+			if(newinfo.infoImg === undefined){
+				db.courts.count({}, function(err, data){
+					var count = data+1;
+					db.courts.insert({
+						courtCount: count,
+						courtSport: newinfo.category.sports,
+						courtApproved: false,
+						courtRejected: false,
+						courtExpired: false,
+						registDate: Date(),
+						courtAuthor: newinfo.author,
+						courtTitle: newinfo.title,
+						courtCourtName: newinfo.courtName,
+						courtLocation: {
+							state: newinfo.location.state,
+							city: newinfo.location.city
+						},
+						courtGPS: {
+							lat: newinfo.GPS.lat,
+							lng: newinfo.GPS.lng
+						},
+						courtContact: {
+							phone: newinfo.contact.phone,
+							email: newinfo.contact.email,
+							url: newinfo.contact.url
+						},
+						courtInfo: newinfo.detailInfo,
+						courtImg: 'public/uploads/defaultImg.png',
+						courtRate: {
+							voters: 0,
+							rate: 0,
+							comments: []
+						},
+						courtVisits: 0,
+						courtLikes: 0
+					}, function (err, data){
+						if(data){
+							db.users.update({login: newinfo.author}, {'$push' : {courts: data._id}});
+							db.users.update({login: newinfo.author}, {'$inc' : {posted: 1}});
+							res.json(data);
+						} else{
+							console.log("INPUT ERROR === " + err);
+						}
+					});
+				
+				});
+			
+			} else {
+				var imgFileName = 'court_' + Date.now();
+				db.courts.count({}, function(err, data){
+					var count = data+1;
+					req.base64Img.img(newinfo.infoImg, './public/uploads/courts', imgFileName, function(err, filepath) {
 						db.courts.insert({
 							courtCount: count,
 							courtSport: newinfo.category.sports,
@@ -237,17 +343,20 @@ exports.active = function(app, db, fs){
 							}
 						});
 					});
-			});
+				});
+			}
 
 
 
 
-		} else {
-			var imgFileName = 'club_' + Date.now();
-			db.courts.count({}, function(err, data){
-				var count = data+1;
 
-				req.base64Img.img(newinfo.infoImg, './public/uploads/clubs', imgFileName, function(err, filepath) {
+
+
+		} else if (newinfo.category.subcategory === '동호회') {
+			if(newinfo.infoImg === undefined){
+				db.courts.count({}, function(err, data){
+					var count = data+1;
+
 					db.clubs.insert({
 						clubCount: count,
 						clubSport: newinfo.category.sports,
@@ -272,7 +381,7 @@ exports.active = function(app, db, fs){
 							url: newinfo.contact.url
 						},
 						clubInfo: newinfo.detailInfo,
-						clubImg: filepath,
+						clubImg: 'public/uploads/defaultImg.png',
 						clubMembers: [{"id": newinfo.author}],
 						clubVisits: 0,
 						clubLikes: 0,
@@ -285,10 +394,57 @@ exports.active = function(app, db, fs){
 							console.log("INPUT ERROR === " + err);
 						}
 					});
+			
 				});
-			});
 
 
+
+			} else {
+				var imgFileName = 'club_' + Date.now();
+				db.courts.count({}, function(err, data){
+					var count = data+1;
+					req.base64Img.img(newinfo.infoImg, './public/uploads/clubs', imgFileName, function(err, filepath) {
+						db.clubs.insert({
+							clubCount: count,
+							clubSport: newinfo.category.sports,
+							clubApproved: false,
+							clubRejected: false,
+							clubExpired: false,
+							registDate: Date(),
+							clubAuthor: newinfo.author,
+							clubTitle: newinfo.title,
+							clubLocation: {
+								state: newinfo.location.state,
+								city: newinfo.location.city
+							},
+							clubCourtName : newinfo.courtName,
+							clubGPS: {
+								lat: newinfo.GPS.lat,
+								lng: newinfo.GPS.lng
+							},
+							clubContact: {
+								phone: newinfo.contact.phone,
+								email: newinfo.contact.email,
+								url: newinfo.contact.url
+							},
+							clubInfo: newinfo.detailInfo,
+							clubImg: filepath,
+							clubMembers: [{"id": newinfo.author}],
+							clubVisits: 0,
+							clubLikes: 0,
+						}, function (err, data){
+							if(data){
+								db.users.update({login: newinfo.author}, {'$push' : {clubs: data._id}});
+								db.users.update({login: newinfo.author}, {'$inc' : {posted: 1}});
+								res.json(data);
+							} else{
+								console.log("INPUT ERROR === " + err);
+							}
+						});
+					});
+				});
+
+			}
 
 		}
 	});
@@ -324,20 +480,37 @@ exports.active = function(app, db, fs){
 		db.competitions.find({eventExpired: false}, function (err, data){
 			for(var i in data){
 				var endDate = new Date(data[i].eventDate.start2);
-				var id = data[i]._id;
-				var imgPath = data[i].eventImg;
+
+
 				if(today > endDate){
 					console.log('======dataIterate======');
 					console.log('today = ' + today);
 					console.log('endDate = ' + endDate);
-					fs.unlink(imgPath, function(){
+
+
+					var id = data[i]._id;
+					var imgPath = data[i].eventImg;
+					if (imgPath == 'public/uploads/defaultImg.png'){
 						db.competitions.update({_id: db.ObjectId(id)}, 
 							{ "$set": {
 								eventExpired : true,
 								eventImg : 'public/uploads/expired1.png'
 							}
 						});
-					});
+					} else {
+						fs.unlink(imgPath, function(){
+							db.competitions.update({_id: db.ObjectId(id)}, 
+								{ "$set": {
+									eventExpired : true,
+									eventImg : 'public/uploads/expired1.png'
+								}
+							});
+						});
+					}					
+
+
+
+
 				} else {
 					console.log('today = ' + today);
 				}
@@ -531,7 +704,7 @@ exports.active = function(app, db, fs){
 			if(category === 'competitions'){
 				db.competitions.find({_id: db.ObjectId(id)}, function (err, data){
 					var imgPath = data[0].eventImg;
-					if(imgPath === 'public/uploads/expired1.png'){
+					if(imgPath === 'public/uploads/expired1.png' || imgPath === 'public/uploads/defaultImg.png'){
 						db.competitions.remove({_id: db.ObjectId(id)}, function (err, data){
 							res.json(data);
 						});
@@ -546,7 +719,7 @@ exports.active = function(app, db, fs){
 			} else if (category === 'courts'){
 				db.courts.find({_id: db.ObjectId(id)}, function (err, data){
 					var imgPath = data[0].courtImg;
-					if(imgPath === 'public/uploads/expired1.png'){
+					if(imgPath === 'public/uploads/expired1.png' || imgPath === 'public/uploads/defaultImg.png'){
 						db.courts.remove({_id: db.ObjectId(id)}, function (err, data){
 							res.json(data);
 						});
@@ -561,7 +734,7 @@ exports.active = function(app, db, fs){
 			} else if (category === 'clubs'){
 				db.clubs.find({_id: db.ObjectId(id)}, function (err, data){
 					var imgPath = data[0].clubImg;
-					if(imgPath === 'public/uploads/expired1.png'){
+					if(imgPath === 'public/uploads/expired1.png' || imgPath === 'public/uploads/defaultImg.png'){
 						db.clubs.remove({_id: db.ObjectId(id)}, function (err, data){
 							res.json(data);
 						});

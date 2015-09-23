@@ -295,16 +295,29 @@ angular.module('newinfo', ['ngRoute'])
 
 	$scope.infoComplete = function(){
 		if (typeof($scope.newinfoInput.infoImg) == "undefined"){
-			$scope.inputValidation3 = false;
 
-			$('#alertModal').modal({
+			$('#alertComplete').modal({
 			 	backdrop: 'static',
 			 	keyboard: false
 			});
-			$('#alertModal').modal('show');
+			$('#alertComplete').modal('show');
+
+			$http.post('/model/newinfo', {newinfo: $scope.newinfoData}).
+			then(function(response) {
+			    // this callback will be called asynchronously
+			    // when the response is available
+			    console.log("response: " + response);
+			    if(response){
+			    	$scope.newinfoData = {};
+			    }
+			}, function(response) {
+			    // called asynchronously if an error occurs
+			    // or server returns response with an error status.
+			    console.log(response);
+			});
+
 
 		} else {
-			$scope.inputValidation3 = true;
 			$scope.newinfoData['infoImg'] = $scope.newinfoInput.infoImg;
 
 			$('#alertComplete').modal({
@@ -313,9 +326,6 @@ angular.module('newinfo', ['ngRoute'])
 			});
 			$('#alertComplete').modal('show');
 			
-
-			console.log($scope.newinfoData);
-
 
 			$http.post('/model/newinfo', {newinfo: $scope.newinfoData}).
 			then(function(response) {
