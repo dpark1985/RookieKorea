@@ -314,7 +314,7 @@ angular.module('newinfo', ['ngRoute'])
 			$('#alertComplete').modal('show');
 			
 
-			//console.log($scope.newinfoData);
+			console.log($scope.newinfoData);
 
 
 			$http.post('/model/newinfo', {newinfo: $scope.newinfoData}).
