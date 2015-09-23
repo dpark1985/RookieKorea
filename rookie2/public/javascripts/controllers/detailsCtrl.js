@@ -66,7 +66,7 @@ angular.module('details', ['ngRoute'])
 
 
 	    } else if(curCategory === 'courts'){
-	    	if($scope.data[0].courtImg === 'public/uploads/default.png'){
+	    	if($scope.data[0].courtImg === 'public/uploads/defaultImg.png'){
 	    		$scope.noImg = true;
 	    		$scope.data[0].courtImg = $scope.data[0].courtImg.replace("public", "");
 	    	} else {
@@ -92,7 +92,7 @@ angular.module('details', ['ngRoute'])
 
 
 	    } else if(curCategory === 'clubs'){
-	    	if($scope.data[0].clubImg === 'public/uploads/default.png'){
+	    	if($scope.data[0].clubImg === 'public/uploads/defaultImg.png'){
 	    		$scope.noImg = true;
 	    		$scope.data[0].clubImg = $scope.data[0].clubImg.replace("public", "");
 	    	} else {
