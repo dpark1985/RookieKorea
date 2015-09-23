@@ -16,7 +16,7 @@ angular.module('details', ['ngRoute'])
 	var curCategory = $location.absUrl().split('/')[4];
 	var curId = $location.absUrl().split('/')[5];
 
-
+	$scope.noImg = false;
 
 	$http.get('/model/'+curLocation+'/'+curCategory+'/'+curId).
 	then(function(response) {
@@ -29,7 +29,14 @@ angular.module('details', ['ngRoute'])
 	    //console.log(curCategory);
 
 	    if(curCategory === 'competitions'){
-	    	$scope.data[0].eventImg = $scope.data[0].eventImg.replace("public", "");
+	    	if($scope.data[0].eventImg === 'public/uploads/defaultImg.png'){
+	    		$scope.noImg = true;
+	    		$scope.data[0].eventImg = $scope.data[0].eventImg.replace("public", "");
+	    	} else {
+	    		$scope.noImg = false;
+	    		$scope.data[0].eventImg = $scope.data[0].eventImg.replace("public", "");
+	    	}
+	    	
 	    	$scope.curPage = $scope.templates.competitions;
 			$scope.data[0].eventInfo = $sce.trustAsHtml($scope.data[0].eventInfo);		
 
@@ -56,8 +63,16 @@ angular.module('details', ['ngRoute'])
 			$scope.data[0].registDate = year+'.'+month+'.'+date;
 			$scope.eventEndDate = $scope.data[0].eventDate.start1.substring(0, 10);
 		
+
+
 	    } else if(curCategory === 'courts'){
-	    	$scope.data[0].courtImg = $scope.data[0].courtImg.replace("public", "");
+	    	if($scope.data[0].eventImg === 'public/uploads/default.png'){
+	    		$scope.noImg = true;
+	    		$scope.data[0].eventImg = $scope.data[0].eventImg.replace("public", "");
+	    	} else {
+	    		$scope.noImg = false;
+	    		$scope.data[0].eventImg = $scope.data[0].eventImg.replace("public", "");
+	    	}
 	    	$scope.curPage = $scope.templates.courts;
 	    	$scope.data[0].courtInfo = $sce.trustAsHtml($scope.data[0].courtInfo);	
 
@@ -77,7 +92,13 @@ angular.module('details', ['ngRoute'])
 
 
 	    } else if(curCategory === 'clubs'){
-	    	$scope.data[0].clubImg = $scope.data[0].clubImg.replace("public", "");
+	    	if($scope.data[0].eventImg === 'public/uploads/default.png'){
+	    		$scope.noImg = true;
+	    		$scope.data[0].eventImg = $scope.data[0].eventImg.replace("public", "");
+	    	} else {
+	    		$scope.noImg = false;
+	    		$scope.data[0].eventImg = $scope.data[0].eventImg.replace("public", "");
+	    	}
 	    	$scope.curPage = $scope.templates.clubs;
 	    	$scope.data[0].clubInfo = $sce.trustAsHtml($scope.data[0].clubInfo);	
 

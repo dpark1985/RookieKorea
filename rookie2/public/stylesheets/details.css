@@ -1,14 +1,4 @@
 
-@font-face {
-  font-family: 'MyWebFont';
-  src: url('../fonts/NanumBarunGothic.ttf') format('truetype');
-}
-
-
-body {
-    font-family: 'MyWebFont', Fallback, sans-serif;
-}
-
 div.wrapper {
 	background-color: #F4F4F4;
 	min-width: 970px;
@@ -173,4 +163,6 @@ div.wrapper > div.container.wrapper > div.row > div.col-md-3 > div.subsection > 
 }
 
 
-
+.displayNone {
+	display: none;
+}
