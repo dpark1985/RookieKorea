@@ -339,11 +339,6 @@ angular.module('admin', ['ngRoute'])
 		$(this).tab('show');
 	});
 
-	$('#modifyModal').on('hidden.bs.modal', function (e) {
-		$route.reload();
-	});
-
-
 
 }])
 .controller('CourtCtrl', ['$rootScope', '$scope', '$http', '$location', '$route', function ($rootScope, $scope, $http, $location, $route){
@@ -496,9 +491,6 @@ angular.module('admin', ['ngRoute'])
 		$(this).tab('show');
 	});
 
-	$('#modifyModal').on('hidden.bs.modal', function (e) {
-		$route.reload();
-	});
 
 
 }])
