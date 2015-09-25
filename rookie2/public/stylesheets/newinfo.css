@@ -50,13 +50,6 @@ div.wrapper > div.phase3 > div.container.title > ul > li.active {
 	font-weight: bold;
 }
 
-div.wrapper > div.phase1 > div.container.title > ul > li:hover,
-div.wrapper > div.phase2 > div.container.title > ul > li:hover,
-div.wrapper > div.phase3 > div.container.title > ul > li:hover {
-	opacity: 1;
-	font-weight: bold;
-}
-
 div.wrapper > div.phase1 > div.container.title > ul > li > a,
 div.wrapper > div.phase2 > div.container.title > ul > li > a,
 div.wrapper > div.phase3 > div.container.title > ul > li > a {
@@ -165,7 +158,6 @@ div.wrapper > div.phase3 > div.container.wrapper > div.row > div.col-xs-12 > div
 div.wrapper > div.phase1 > div.container.wrapper > div.row > div.col-xs-12 > div.container.section > div.row > div.col-xs-9 > div.row,
 div.wrapper > div.phase2 > div.container.wrapper > div.row > div.col-xs-12 > div.container.section > div.row > div.col-xs-9 > div.row,
 div.wrapper > div.phase3 > div.container.wrapper > div.row > div.col-xs-12 > div.container.section > div.row > div.col-xs-9 > div.row {
-	padding-top: 10px;
 	width: 100%;
 }
 
@@ -205,10 +197,13 @@ div.wrapper > div.phase2 > div.container.wrapper > div.row > div.col-xs-12 > div
 div.wrapper > div.phase2 > div.container.wrapper > div.row > div.col-xs-12 > div.container.section > div.row.email > div.col-xs-9 > div.row > div.col-xs-12 > span,
 div.wrapper > div.phase2 > div.container.wrapper > div.row > div.col-xs-12 > div.container.section > div.row.homepage > div.col-xs-9 > div.row > div.col-xs-12 > span,
 
-div.wrapper > div.phase3 > div.container.wrapper > div.row > div.col-xs-12 > div.container.section > div.row.title > div.col-xs-9 > div.row > div.col-xs-12 > span,
-
-#clickLatlng {
+div.wrapper > div.phase3 > div.container.wrapper > div.row > div.col-xs-12 > div.container.section > div.row.title > div.col-xs-9 > div.row > div.col-xs-12 > span {
 	color: #E3434B;
+}
+
+#clickLatlng,
+#address {
+	color: #888888;
 }
 
 div.wrapper > div.phase1 > div.container.wrapper > div.row > div.col-xs-12 > div.container.section > div.row.location > div.col-xs-9 > div.row > div.col-xs-12 > div#map {
@@ -244,6 +239,15 @@ div.wrapper > div.phase3 > div.container.wrapper > div.row > div.col-xs-12 > div
 div.wrapper > div.phase3 > div.container.wrapper > div.row > div.col-xs-12 > div.container.section > div.row.title > div.col-xs-9 > div.row > span {
 	color: #E3434B;
 	float: left;
+}
+
+.indent {
+	text-indent: 50px
+}
+
+.underLine {
+	font-weight: bold;
+	text-decoration: underline
 }
 
 

@@ -226,7 +226,7 @@ angular.module('sports', ['ngRoute'])
 		$scope.subTab3Active = 'active';
 	}
 
-	$scope.selectedState = ['서울특별시', '부산광역시', '대구광역시', '인천광역시', '광주광역시', '대전광역시', '울산광역시', '제주도', '경기도', '강원도', '충청북도', '충청남도', '전라북도', '전라남도', '경상북도', '경상남도'];
+	$scope.selectedState = ['서울', '부산', '대구', '인천', '광주', '대전', '울산', '제주', '경기', '강원', '충북', '충남', '전북', '전남', '경북', '경남'];
 	$scope.state = {all: true,seoul: false,busan: false,daegue: false,incheon: false,gwangju: false,daejeon: false,ulsan: false,jeju: false,gyeonggi: false,ganwon: false,chungbuk: false,chungnam: false,jeonbuk: false,jeonnam: false,gyeongbuk: false,gyeongnam: false};
 
 	$scope.selectAll = function(){
@@ -247,7 +247,7 @@ angular.module('sports', ['ngRoute'])
 			$scope.state.jeonnam=false;
 			$scope.state.gyeongbuk=false;
 			$scope.state.gyeongnam=false;
-			$scope.selectedState = ['서울특별시', '부산광역시', '부산광역시', '인천광역시', '광주광역시', '대전광역시', '울산광역시', '제주도', '경기도', '강원도', '충청북도', '충청남도', '전라북도', '전라남도', '경상북도', '경상남도'];
+			$scope.selectedState = ['서울', '부산', '대구', '인천', '광주', '대전', '울산', '제주', '경기', '강원', '충북', '충남', '전북', '전남', '경북', '경남'];
 		} else {
 			$scope.selectedState = [];
 		}
@@ -258,22 +258,22 @@ angular.module('sports', ['ngRoute'])
 		$scope.state.all = false;
 		$scope.selectedState = [];
 
-		if($scope.state.seoul){ $scope.selectedState.push('서울특별시'); }
-		if ($scope.state.busan){ $scope.selectedState.push('부산광역시'); } 
-		if ($scope.state.daegue){ $scope.selectedState.push('대구광역시'); } 
-		if ($scope.state.incheon){ $scope.selectedState.push('인천광역시'); } 
-		if ($scope.state.gwangju){ $scope.selectedState.push('광주광역시'); }
-		if ($scope.state.daejeon){ $scope.selectedState.push('대전광역시'); } 
-		if ($scope.state.ulsan){ $scope.selectedState.push('울산광역시'); } 
-		if ($scope.state.jeju){ $scope.selectedState.push('제주도'); } 
-		if ($scope.state.gyeonggi){ $scope.selectedState.push('경기도'); } 
-		if ($scope.state.ganwon){ $scope.selectedState.push('강원도'); } 
-		if ($scope.state.chungbuk){ $scope.selectedState.push('충청북도'); } 
-		if ($scope.state.chungnam){ $scope.selectedState.push('충청남도'); } 
-		if ($scope.state.jeonbuk){ $scope.selectedState.push('전라북도'); } 
-		if ($scope.state.jeonnam){ $scope.selectedState.push('전라남도'); } 
-		if ($scope.state.gyeongbuk){ $scope.selectedState.push('경상북도'); } 
-		if ($scope.state.gyeongnam){ $scope.selectedState.push('경상남도'); }
+		if($scope.state.seoul){ $scope.selectedState.push('서울'); }
+		if ($scope.state.busan){ $scope.selectedState.push('부산'); } 
+		if ($scope.state.daegue){ $scope.selectedState.push('대구'); } 
+		if ($scope.state.incheon){ $scope.selectedState.push('인천'); } 
+		if ($scope.state.gwangju){ $scope.selectedState.push('광주'); }
+		if ($scope.state.daejeon){ $scope.selectedState.push('대전'); } 
+		if ($scope.state.ulsan){ $scope.selectedState.push('울산'); } 
+		if ($scope.state.jeju){ $scope.selectedState.push('제주'); } 
+		if ($scope.state.gyeonggi){ $scope.selectedState.push('경기'); } 
+		if ($scope.state.ganwon){ $scope.selectedState.push('강원'); } 
+		if ($scope.state.chungbuk){ $scope.selectedState.push('충북'); } 
+		if ($scope.state.chungnam){ $scope.selectedState.push('충남'); } 
+		if ($scope.state.jeonbuk){ $scope.selectedState.push('전북'); } 
+		if ($scope.state.jeonnam){ $scope.selectedState.push('전남'); } 
+		if ($scope.state.gyeongbuk){ $scope.selectedState.push('경북'); } 
+		if ($scope.state.gyeongnam){ $scope.selectedState.push('경남'); }
 
 		if($scope.selectedState == ''){
 			$scope.state.all = true;

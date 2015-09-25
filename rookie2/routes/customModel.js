@@ -168,6 +168,8 @@ exports.active = function(app, db, fs){
 						},
 						eventContact: {
 							phone: newinfo.contact.phone,
+							phone2: newinfo.contact.phone2,
+							phone3: newinfo.contact.phone3,
 							email: newinfo.contact.email,
 							url: newinfo.contact.url
 						},
@@ -224,6 +226,8 @@ exports.active = function(app, db, fs){
 							},
 							eventContact: {
 								phone: newinfo.contact.phone,
+								phone2: newinfo.contact.phone2,
+								phone3: newinfo.contact.phone3,
 								email: newinfo.contact.email,
 								url: newinfo.contact.url
 							},
@@ -260,8 +264,6 @@ exports.active = function(app, db, fs){
 						courtExpired: false,
 						registDate: Date(),
 						courtAuthor: newinfo.author,
-						courtTitle: newinfo.title,
-						courtCourtName: newinfo.courtName,
 						courtLocation: {
 							state: newinfo.location.state,
 							city: newinfo.location.city
@@ -272,6 +274,8 @@ exports.active = function(app, db, fs){
 						},
 						courtContact: {
 							phone: newinfo.contact.phone,
+							phone2: newinfo.contact.phone2,
+							phone3: newinfo.contact.phone3,
 							email: newinfo.contact.email,
 							url: newinfo.contact.url
 						},
@@ -321,6 +325,8 @@ exports.active = function(app, db, fs){
 							},
 							courtContact: {
 								phone: newinfo.contact.phone,
+								phone2: newinfo.contact.phone2,
+								phone3: newinfo.contact.phone3,
 								email: newinfo.contact.email,
 								url: newinfo.contact.url
 							},
@@ -377,6 +383,8 @@ exports.active = function(app, db, fs){
 						},
 						clubContact: {
 							phone: newinfo.contact.phone,
+							phone2: newinfo.contact.phone2,
+							phone3: newinfo.contact.phone3,
 							email: newinfo.contact.email,
 							url: newinfo.contact.url
 						},
@@ -424,6 +432,8 @@ exports.active = function(app, db, fs){
 							},
 							clubContact: {
 								phone: newinfo.contact.phone,
+								phone2: newinfo.contact.phone2,
+								phone3: newinfo.contact.phone3,
 								email: newinfo.contact.email,
 								url: newinfo.contact.url
 							},
@@ -770,8 +780,6 @@ exports.active = function(app, db, fs){
 			var category = req.body.category;
 			var data = req.body.data;
 
-			console.log(data);
-
 			if(category === 'competitions'){
 				db.competitions.update({_id: db.ObjectId(id)},
 				{
@@ -800,6 +808,8 @@ exports.active = function(app, db, fs){
 						},
 						eventContact: {
 							phone: data.contact.phone,
+							phone2: data.contact.phone2,
+							phone3: data.contact.phone3,
 							email: data.contact.email,
 							url: data.contact.url
 						},
@@ -809,6 +819,7 @@ exports.active = function(app, db, fs){
 					res.json(data);
 				});
 			} else if (category === 'courts'){
+
 				db.courts.update({_id: db.ObjectId(id)},
 				{
 					"$set": {
@@ -824,6 +835,8 @@ exports.active = function(app, db, fs){
 						},
 						courtContact: {
 							phone: data.contact.phone,
+							phone2: data.contact.phone2,
+							phone3: data.contact.phone3,
 							email: data.contact.email,
 							url: data.contact.url
 						},
@@ -848,6 +861,8 @@ exports.active = function(app, db, fs){
 						},
 						clubContact: {
 							phone: data.contact.phone,
+							phone2: data.contact.phone2,
+							phone3: data.contact.phone3,
 							email: data.contact.email,
 							url: data.contact.url
 						},

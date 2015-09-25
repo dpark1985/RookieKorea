@@ -231,6 +231,8 @@ angular.module('admin', ['ngRoute'])
 					},
 					contact: {
 						phone: $scope.modifyItem[0].eventContact.phone,
+						phone2: $scope.modifyItem[0].eventContact.phone2,
+						phone3: $scope.modifyItem[0].eventContact.phone3,
 						email: $scope.modifyItem[0].eventContact.email,
 						url: $scope.modifyItem[0].eventContact.url
 					},
@@ -457,6 +459,8 @@ angular.module('admin', ['ngRoute'])
 					},
 					contact: {
 						phone: $scope.modifyItem[0].courtContact.phone,
+						phone2: $scope.modifyItem[0].courtContact.phone2,
+						phone3: $scope.modifyItem[0].courtContact.phone3,
 						email: $scope.modifyItem[0].courtContact.email,
 						url: $scope.modifyItem[0].courtContact.url
 					},
@@ -612,6 +616,8 @@ angular.module('admin', ['ngRoute'])
 					},
 					contact: {
 						phone: $scope.modifyItem[0].clubContact.phone,
+						phone2: $scope.modifyItem[0].clubContact.phone2,
+						phone3: $scope.modifyItem[0].clubContact.phone3,
 						email: $scope.modifyItem[0].clubContact.email,
 						url: $scope.modifyItem[0].clubContact.url
 					},

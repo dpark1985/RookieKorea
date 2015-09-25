@@ -38,8 +38,8 @@
                             <td class="col-md-8">{{data[0].courtTitle}}</td>
                         </tr>
                         <tr>
-                            <th class="col-md-4">주요활동코트장</th>
-                            <td class="col-md-8">{{data[0].courtCourtName}} ({{data[0].courtLocation.state}}, {{data[0].courtLocation.city}})</td>
+                            <th class="col-md-4">코트장 주소</th>
+                            <td class="col-md-8" id="courtAddress"></td>
                         </tr>
                         <tr>
                             <th>전화번호</th>
@@ -65,7 +65,7 @@
             <script>
                 var lat = $('[ng-controller="detailCtrl"]').scope().data[0].courtGPS.lat;
                 var lng = $('[ng-controller="detailCtrl"]').scope().data[0].courtGPS.lng;
-                var courtName = $('[ng-controller="detailCtrl"]').scope().data[0].courtCourtName;
+                var courtName = $('[ng-controller="detailCtrl"]').scope().data[0].courtTitle;
                 var markers = [
                     {
                         position: new daum.maps.LatLng(lat, lng), 
@@ -81,6 +81,36 @@
 
                 // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
                 var map = new daum.maps.StaticMap(mapContainer, mapOption);
+
+                var geocoder = new daum.maps.services.Geocoder();
+
+                var coord = new daum.maps.LatLng(lat, lng);
+                var callback = function(status, result) {
+                    if (status === daum.maps.services.Status.OK) {
+                    
+                        // 요청위치에 건물이 없는 경우 도로명 주소는 빈값입니다
+                        var roadAddress = result[0].roadAddress.name;
+
+                        var jibunAddress = result[0].jibunAddress.name;
+
+                        var addr = '';
+                        if(roadAddress){
+                            addr = '도로명 주소 : ' + roadAddress;
+                        } else {
+                            addr = '도로명 주소 : 없음';
+                        }
+
+                        if(jibunAddress){
+                            addr += '<br/>지번 주소 : ' + jibunAddress;
+                        } else{
+                            addr += '<br/>지번 주소 : 없음';
+                        }
+                        $('#courtAddress').append(addr);
+                    }   
+                };
+
+                geocoder.coord2detailaddr(coord, callback);
+
 
             </script>
 

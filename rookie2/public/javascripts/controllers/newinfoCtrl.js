@@ -8,6 +8,16 @@ angular.module('newinfo', ['ngRoute'])
 	
 	$('#phase2').addClass('deactive');
 	$('#phase3').addClass('deactive');
+	$('#MainTitle').hide();
+	$('#MainDate').hide();
+	$('#MainLocation').hide();
+	$('#MainContact1').hide();
+	$('#MainContact2').hide();
+	$('#MainContact3').hide();
+
+	$('#MainCategory').css('border-bottom', '1px solid #888888');
+
+
 
 
 	$scope.newinfoInput = {};
@@ -20,7 +30,7 @@ angular.module('newinfo', ['ngRoute'])
 		GPS: { lat: '', lng: '' },
 		eventDate: { start1: '', start2: '', end1: '', end2: '' },
 		eventRegist: { start1: '', start2: '', end1: '', end2: '' },
-		contact: { phone: '', email: '', url: '' },
+		contact: { phone: '', phone2: '', phone3: '', email: '', url: '' },
 		detailInfo: '',
 		infoImg: ''
 	};
@@ -34,7 +44,36 @@ angular.module('newinfo', ['ngRoute'])
 	$scope.newinfoInput.infoImg == '';
 
 
+	CKEDITOR.replace( 'editor1' );
+    $('#compDate1').datetimepicker();
+    $('#compDate2').datetimepicker();
+    $("#compDate1").on("dp.change", function (e) {
+        $('#compDate11').val(e.date._d);
+        $('#compDate22').val(e.date._d);
+        $('#compDate2').data("DateTimePicker").minDate(e.date);
+        e.date._d.setDate(e.date._d.getDate()-1);
+        $('#registDate11').val(e.date._d);
+        $('#registDate22').val(e.date._d);
+        $('#registDate1').data("DateTimePicker").maxDate(e.date);
+        $('#registDate2').data("DateTimePicker").maxDate(e.date);
+    });
+    $("#compDate2").on("dp.change", function (e) {
+        $('#compDate22').val(e.date._d);
+    });
 
+    $('#registDate1').datetimepicker();
+    $('#registDate2').datetimepicker();
+    $("#registDate1").on("dp.change", function (e) {
+        $('#registDate11').val(e.date._d);
+        $('#registDate22').val(e.date._d);
+        $('#registDate2').data("DateTimePicker").minDate(e.date);
+    });
+    $("#registDate2").on("dp.change", function (e) {
+        $('#registDate22').val(e.date._d);
+    });
+
+
+/*
 	$http.get('/model/address/states')
 	.then(function(response) {
 	    // this callback will be called asynchronously
@@ -44,26 +83,57 @@ angular.module('newinfo', ['ngRoute'])
 	    // called asynchronously if an error occurs
 	    // or server returns response with an error status.
 	});
-
+*/
 
 	$scope.subCategory = function(){
 		if($scope.newinfoInput.subcategory == '동호회'){
+			$('#MainTitle').show();
+			$('#MainLocation').show();
+			$('#MainContact1').show();
+			$('#MainContact2').show();
+			$('#MainContact3').show();
 			$('#courtName').show();
-			$('#courtNameSpan').html('주요 활동 코트장명');
 			$('#infoMap').show();
-			$('#date').hide();
+		
+			$('#MainDate').hide();
+			$('#location').hide();
+
+			$('#MainCategory').css('border-bottom', '');
+			$('#titleSpan').html('동호회 명칭을 입력해주세요.');
+			$('#courtNameSpan').html('주요 활동 코트장 이름');
 			$('#phoneMust').addClass('option');	
 			$('#phoneMust').html('선택');
 		} else if($scope.newinfoInput.subcategory == '코트'){
-			$('#date').hide();
-			$('#courtName').show();
+			$('#MainTitle').show();
+			$('#MainLocation').show();
+			$('#MainContact1').show();
+			$('#MainContact2').show();
+			$('#MainContact3').show();
 			$('#infoMap').show();
+
+			$('#MainDate').hide();
+			$('#location').hide();
+			$('#courtName').hide();
+
+			$('#MainCategory').css('border-bottom', '');
+			$('#titleSpan').html('코트장 명칭을 입력해주세요.');
 			$('#phoneMust').removeClass('option');
 			$('#phoneMust').html('필수');
-		} else {
+		} else if($scope.newinfoInput.subcategory == '대회') {
+			$('#MainTitle').show();
+			$('#MainLocation').show();
+			$('#MainContact1').show();
+			$('#MainContact2').show();
+			$('#MainContact3').show();
 			$('#courtName').show();
 			$('#infoMap').show();
-			$('#date').show();
+			$('#MainDate').show();
+
+			$('#location').hide();
+
+			$('#MainCategory').css('border-bottom', '');
+			$('#titleSpan').html('대회 명칭을 입력해주세요.');
+			$('#courtNameSpan').html('대회 코트장 이름');
 			$('#phoneMust').removeClass('option');
 			$('#phoneMust').html('필수');	
 		}
@@ -88,6 +158,11 @@ angular.module('newinfo', ['ngRoute'])
 	$scope.phase1Next = function(){
 
 		var latlng = $('#clickLatlng').html().split(' ');
+		var address = $('#address').html().split(' ');
+
+		var state = address[3].substring(0, 2);
+		var city = address[4];
+
 
 		if($scope.newinfoInput.sports === '야구'){
 			$scope.newinfoInput.sports = 'baseball';
@@ -112,8 +187,8 @@ angular.module('newinfo', ['ngRoute'])
 				subcategory: $scope.newinfoInput.subcategory
 			},
 			location: {
-				state: $scope.newinfoInput.state,
-				city: $scope.newinfoInput.city
+				state: state,
+				city: city
 			},
 			courtName: $scope.newinfoInput.courtName,
 			GPS: {
@@ -133,7 +208,9 @@ angular.module('newinfo', ['ngRoute'])
 				end2: $('#registDate22').val()
 			},
 			contact: {
-				phone: $scope.newinfoInput.phone,
+				phone: $scope.newinfoInput.phone1,
+				phone2: $scope.newinfoInput.phone2,
+				phone3: $scope.newinfoInput.phone3,
 				email: $scope.newinfoInput.email,
 				url: $scope.newinfoInput.url
 			}
@@ -143,7 +220,6 @@ angular.module('newinfo', ['ngRoute'])
 
 
 		if($scope.newinfoData.category.subcategory === '대회'){
-
 			if($scope.newinfoData.title != '' 
 				&& $scope.newinfoData.category.sports != '' 
 				&& $scope.newinfoData.category.subcategory != '' 
@@ -183,7 +259,6 @@ angular.module('newinfo', ['ngRoute'])
 				&& $scope.newinfoData.category.subcategory != '' 
 				&& $scope.newinfoData.location.state != '' 
 				&& $scope.newinfoData.location.city != '' 
-				&& $scope.newinfoData.courtName != '' 
 				&& $scope.newinfoData.GPS.lat != '' 
 				&& $scope.newinfoData.GPS.lng != '' 
 				&& $scope.newinfoData.contact.phone != '' 
@@ -192,7 +267,6 @@ angular.module('newinfo', ['ngRoute'])
 				&& typeof($scope.newinfoData.category.subcategory) != "undefined" 
 				&& typeof($scope.newinfoData.location.state) != "undefined" 
 				&& typeof($scope.newinfoData.location.city) != "undefined" 
-				&& typeof($scope.newinfoData.courtName) != "undefined" 
 				&& typeof($scope.newinfoData.GPS.lat) != "undefined" 
 				&& typeof($scope.newinfoData.GPS.lng) != "undefined" 
 				&& typeof($scope.newinfoData.contact.phone) != "undefined" 
@@ -260,7 +334,7 @@ angular.module('newinfo', ['ngRoute'])
 	$scope.phase2Next = function(){
 		var detailText = CKEDITOR.instances.editor1.getData();
 
-		if(CKEDITOR.instances.editor1.getData() == ''){
+		if(detailText == ''){
 			$scope.inputValidation2 = false;
 
 			$('#alertModal').modal({
@@ -294,7 +368,7 @@ angular.module('newinfo', ['ngRoute'])
 	}
 
 	$scope.infoComplete = function(){
-		if (typeof($scope.newinfoInput.infoImg) == "undefined"){
+		if ($scope.newinfoInput.infoImg === undefined){
 
 			$('#alertComplete').modal({
 			 	backdrop: 'static',
