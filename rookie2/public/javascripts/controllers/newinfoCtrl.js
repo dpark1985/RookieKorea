@@ -139,6 +139,7 @@ angular.module('newinfo', ['ngRoute'])
 		}
 	}
 
+/*
     $scope.stateChange = function(){
     	for(var i in $scope.states){
     		if($scope.states[i].providence == $scope.newinfoInput.state){
@@ -154,6 +155,7 @@ angular.module('newinfo', ['ngRoute'])
     		}
     	}
     }
+*/
 
 	$scope.phase1Next = function(){
 

@@ -2,6 +2,9 @@ angular.module('sports', ['ngRoute'])
 
 
 .config(['$routeProvider', function ($routeProvider) {
+	$routeProvider.when('/', {
+		controller: 'sportsCtrl'
+	});
 	$routeProvider.when('/competitions', {
 		templateUrl: '/templates/sports/competitions.html',
 		controller: 'CompCtrl'
@@ -74,7 +77,7 @@ angular.module('sports', ['ngRoute'])
 		$scope.tab3Active = 'active';
 	}
 	$scope.filteredStateEvent = function(item){
-		return ($scope.selectedState.indexOf(item.eventLocation.state) !== -1);
+		return ($rootScope.selectedState.indexOf(item.eventLocation.state) !== -1);
 	}
 
 
@@ -98,31 +101,49 @@ angular.module('sports', ['ngRoute'])
 	    // or server returns response with an error status.
 	});
 
-	// Tab Active class
-	// Initiate tab1Active = active
-	/*
-		$scope.tab1Active = '';		//조회순
-		$scope.tab2Active = '';		//신규등록순
-		$scope.tab3Active = '';		//마감일순
-	*/
-	$scope.tab1Active = 'active';
-	$scope.tab1 = function(){
-		$scope.tab1Active = 'active';
-		$scope.tab2Active = '';
-		$scope.tab3Active = '';
+
+	$scope.courtCity = {};
+	$scope.courtCity.all = true;
+
+	$scope.selectedCity = [];
+	
+	//console.log($scope.selectedCity);
+
+	$scope.selectAllCities = function(){
+		$scope.selectedCity = [];
+		for(var i in $rootScope.cities){
+			$scope.selectedCity.push($rootScope.cities[i].city);
+		}
+
+		for (var i in $scope.courtCity){
+			$scope.courtCity[i] = false;
+		}
+		$scope.courtCity.all = true;
 	}
-	$scope.tab2 = function(){
-		$scope.tab1Active = '';
-		$scope.tab2Active = 'active';
-		$scope.tab3Active = '';
+
+	$scope.citySelected = function(city){
+		for(var i in $scope.selectedCity){
+			if($scope.selectedCity[i] == city){
+				console.log('tsting');
+				console.log($scope.courtCity);
+				
+			}
+		}
+
+
+		$scope.selectedCity.push(city);
+		$scope.courtCity.all = false;
 	}
-	$scope.tab3 = function(){
-		$scope.tab1Active = '';
-		$scope.tab2Active = '';
-		$scope.tab3Active = 'active';
-	}
+
+
+
 	$scope.filteredStateCourt = function(item){
-		return ($scope.selectedState.indexOf(item.courtLocation.state) !== -1);
+		if($scope.courtCity.all){
+			return ($rootScope.selectedState.indexOf(item.courtLocation.state) != -1);
+		} else {
+			return ($scope.selectedCity.indexOf(item.courtLocation.city) != -1);
+		}
+		
 	}
 }])
 .controller('ClubCtrl', ['$scope', '$rootScope', '$http', function ($scope, $rootScope, $http){
@@ -169,7 +190,7 @@ angular.module('sports', ['ngRoute'])
 		$scope.tab3Active = 'active';
 	}
 	$scope.filteredStateClub = function(item){
-		return ($scope.selectedState.indexOf(item.clubLocation.state) !== -1);
+		return ($rootScope.selectedState.indexOf(item.clubLocation.state) !== -1);
 	}
 }])
 
@@ -188,11 +209,67 @@ angular.module('sports', ['ngRoute'])
 	    $scope.courtNum = totalNums[1];
 	    $scope.clubNum = totalNums[2];
 
-	    $('#loadingModal').modal('hide');
+
+		$http.get('/model/address/states')
+		.then(function(response) {
+		    // this callback will be called asynchronously
+		    // when the response is available
+		    $rootScope.states = response.data;
+		    $rootScope.allStates = [];
+		    for(var i in $rootScope.states){
+		    	$rootScope.allStates.push($rootScope.states[i].providence);
+		    }
+
+		    $rootScope.selectedState = $rootScope.allStates;
+
+		    $scope.state = 'all';
+		    $('#loadingModal').modal('hide');
+		    $location.path('/competitions');
+
+		}, function(response) {
+		    // called asynchronously if an error occurs
+		    // or server returns response with an error status.
+		});
+
+
+	    
 	}, function(response) {
 	    // called asynchronously if an error occurs
 	    // or server returns response with an error status.
 	});	
+
+
+
+
+	
+
+	$rootScope.selectAllStates = function(){
+		$rootScope.selectedState = ['서울', '부산', '대구', '인천', '광주', '대전', '울산', '제주', '경기', '강원', '충북', '충남', '전북', '전남', '경북', '경남'];
+		$rootScope.cities = [];
+	}	
+
+	$rootScope.stateChange = function(state){
+		$rootScope.selectedState = state;
+    	for(var i in $rootScope.states){
+    		if($rootScope.states[i].providence === state){
+				$http.get('/model/address/'+$rootScope.states[i].id )
+				.then(function(response) {
+				    // this callback will be called asynchronously
+				    // when the response is available
+				    $rootScope.cities = [];
+				    for(var i in response.data){
+				    	$rootScope.cities.push(response.data[i]);
+				    }
+
+				}, function(response) {
+				    // called asynchronously if an error occurs
+				    // or server returns response with an error status.
+				});
+    		}
+    	}
+
+	}
+
 
 	if ($rootScope.curLocation === 'baseball'){ $scope.curLocationText = {ko: '야구', en: 'baseball'}; } 
 	else if ($rootScope.curLocation === 'basketball'){ $scope.curLocationText = {ko: '농구', en: 'basketball'}; } 
@@ -214,71 +291,22 @@ angular.module('sports', ['ngRoute'])
 		$scope.subTab1Active = 'active';
 		$scope.subTab2Active = '';
 		$scope.subTab3Active = '';
+
+		$scope.state = 'all';
 	}
 	$scope.subTab2 = function(){
 		$scope.subTab1Active = '';
 		$scope.subTab2Active = 'active';
 		$scope.subTab3Active = '';
+
+		$scope.state = 'all';
 	}
 	$scope.subTab3 = function(){
 		$scope.subTab1Active = '';
 		$scope.subTab2Active = '';
 		$scope.subTab3Active = 'active';
-	}
 
-	$scope.selectedState = ['서울', '부산', '대구', '인천', '광주', '대전', '울산', '제주', '경기', '강원', '충북', '충남', '전북', '전남', '경북', '경남'];
-	$scope.state = {all: true,seoul: false,busan: false,daegue: false,incheon: false,gwangju: false,daejeon: false,ulsan: false,jeju: false,gyeonggi: false,ganwon: false,chungbuk: false,chungnam: false,jeonbuk: false,jeonnam: false,gyeongbuk: false,gyeongnam: false};
-
-	$scope.selectAll = function(){
-		if($scope.state.all){
-			$scope.state.seoul=false;
-			$scope.state.busan=false;
-			$scope.state.daegue=false;
-			$scope.state.incheon=false;
-			$scope.state.gwangju=false;
-			$scope.state.daejeon=false;
-			$scope.state.ulsan=false;
-			$scope.state.jeju=false;
-			$scope.state.gyeonggi=false;
-			$scope.state.ganwon=false;
-			$scope.state.chungbuk=false;
-			$scope.state.chungnam=false;
-			$scope.state.jeonbuk=false;
-			$scope.state.jeonnam=false;
-			$scope.state.gyeongbuk=false;
-			$scope.state.gyeongnam=false;
-			$scope.selectedState = ['서울', '부산', '대구', '인천', '광주', '대전', '울산', '제주', '경기', '강원', '충북', '충남', '전북', '전남', '경북', '경남'];
-		} else {
-			$scope.selectedState = [];
-		}
-	}	
-
-	$scope.stateChange = function(){
-
-		$scope.state.all = false;
-		$scope.selectedState = [];
-
-		if($scope.state.seoul){ $scope.selectedState.push('서울'); }
-		if ($scope.state.busan){ $scope.selectedState.push('부산'); } 
-		if ($scope.state.daegue){ $scope.selectedState.push('대구'); } 
-		if ($scope.state.incheon){ $scope.selectedState.push('인천'); } 
-		if ($scope.state.gwangju){ $scope.selectedState.push('광주'); }
-		if ($scope.state.daejeon){ $scope.selectedState.push('대전'); } 
-		if ($scope.state.ulsan){ $scope.selectedState.push('울산'); } 
-		if ($scope.state.jeju){ $scope.selectedState.push('제주'); } 
-		if ($scope.state.gyeonggi){ $scope.selectedState.push('경기'); } 
-		if ($scope.state.ganwon){ $scope.selectedState.push('강원'); } 
-		if ($scope.state.chungbuk){ $scope.selectedState.push('충북'); } 
-		if ($scope.state.chungnam){ $scope.selectedState.push('충남'); } 
-		if ($scope.state.jeonbuk){ $scope.selectedState.push('전북'); } 
-		if ($scope.state.jeonnam){ $scope.selectedState.push('전남'); } 
-		if ($scope.state.gyeongbuk){ $scope.selectedState.push('경북'); } 
-		if ($scope.state.gyeongnam){ $scope.selectedState.push('경남'); }
-
-		if($scope.selectedState == ''){
-			$scope.state.all = true;
-			$scope.selectAll();
-		}	
+		$scope.state = 'all';
 	}
 
 	// COMMON FUNCTIONS

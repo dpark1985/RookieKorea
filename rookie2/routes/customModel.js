@@ -54,22 +54,22 @@ exports.active = function(app, db, fs){
 
 	app.get('/model/address/:id', function (req, res, next) {
 		var states = [
-			{providence: '서울특별시', id: 'SE1100000000' },
-			{providence: '부산광역시', id: 'BS2600000000' },
-		    {providence: '대구광역시', id: 'DG2700000000' },
-		    {providence: '인천광역시', id: 'IC2800000000' },
-		    {providence: '광주광역시', id: 'GJ2900000000' },
-		    {providence: '대전광역시', id: 'DJ3000000000' },
-		    {providence: '울산광역시', id: 'US3100000000' },
-		    {providence: '경기도', id: 'KG4100000000' },
-		    {providence: '강원도', id: 'GW4200000000' },
-		    {providence: '충청북도', id: 'CB4300000000' },
-		    {providence: '충청남도', id: 'CN4400000000' },
-		    {providence: '전라북도', id: 'JB4500000000' },
-		    {providence: '전라남도', id: 'JN4600000000' },
-		    {providence: '경상북도', id: 'GB4700000000' },
-		    {providence: '경상남도', id: 'GN4800000000' },
-		    {providence: '제주특별자치도', id: 'JJ5000000000' }
+			{providence: '서울', id: 'SE1100000000' },
+			{providence: '부산', id: 'BS2600000000' },
+		    {providence: '대구', id: 'DG2700000000' },
+		    {providence: '인천', id: 'IC2800000000' },
+		    {providence: '광주', id: 'GJ2900000000' },
+		    {providence: '대전', id: 'DJ3000000000' },
+		    {providence: '울산', id: 'US3100000000' },
+		    {providence: '경기', id: 'KG4100000000' },
+		    {providence: '강원', id: 'GW4200000000' },
+		    {providence: '충북', id: 'CB4300000000' },
+		    {providence: '충남', id: 'CN4400000000' },
+		    {providence: '전북', id: 'JB4500000000' },
+		    {providence: '전남', id: 'JN4600000000' },
+		    {providence: '경북', id: 'GB4700000000' },
+		    {providence: '경남', id: 'GN4800000000' },
+		    {providence: '제주', id: 'JJ5000000000' }
 		];
 
 		var SE1100000000 = [{city: '종로구', id: '1111000000' },{city: '중구', id: '1114000000' },{city: '용산구', id: '1117000000' },{city: '성동구', id: '1120000000' },{city: '광진구', id: '1121500000' },{city: '동대문구', id: '1123000000' },{city: '중랑구', id: '1126000000' },{city: '성북구', id: '1129000000' },{city: '강북구', id: '1130500000' },{city: '도봉구', id: '1132000000' },{city: '노원구', id: '1135000000' },{city: '은평구', id: '1138000000' },{city: '서대문구', id: '1141000000' },{city: '마포구', id: '1144000000' },{city: '양천구', id: '1147000000' },{city: '강서구', id: '1150000000' },{city: '구로구', id: '1153000000' },{city: '금천구', id: '1154500000' },{city: '영등포구', id: '1156000000' },{city: '동작구', id: '1159000000' },{city: '관악구', id: '1162000000' },{city: '서초구', id: '1165000000' },{city: '강남구', id: '1168000000' },{city: '송파구', id: '1171000000' },{city: '강동구', id: '1174000000' }];
@@ -264,6 +264,7 @@ exports.active = function(app, db, fs){
 						courtExpired: false,
 						registDate: Date(),
 						courtAuthor: newinfo.author,
+						courtTitle: newinfo.title,
 						courtLocation: {
 							state: newinfo.location.state,
 							city: newinfo.location.city

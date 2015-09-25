@@ -117,7 +117,6 @@ div.content > div.container > div.row > div.right > ul.order {
 }
 
 div.content > div.container > div.row > div.right > ul.order > li {
-
 	margin-left: 20px;
 	height: 100%;
 	opacity: 0.8;
@@ -142,6 +141,42 @@ div.content > div.container > div.row > div.right > ul.order > li > h4 {
 	margin: 0px;
 	padding:10px 0;
 }
+
+
+
+div.content > div.container > div.row > div.right > ul.ordercourt {
+	width: 100%;
+	border: 1px solid #e5e5e5;
+	border-bottom: 0px;
+	box-shadow: 0px 1px 2px #ccc;
+	padding: 0px;
+	background-color: white;
+}
+
+div.content > div.container > div.row > div.right > ul.ordercourt > li {
+	margin-left: 20px;
+	height: 25px;
+	opacity: 0.8;
+	cursor: pointer;
+}
+
+div.content > div.container > div.row > div.right > ul.ordercourt > li:hover {
+	border: 0px;
+	border-bottom: 3px solid #E3434B;
+	opacity: 1;
+}
+
+div.content > div.container > div.row > div.right > ul.ordercourt > li.active {
+	border: 0px;
+	border-bottom: 3px solid #E3434B;
+	color: #333333;
+	opacity: 1;
+}
+
+
+
+
+
 
 
 div.content > div.container > div.row > div.right > div.section {
