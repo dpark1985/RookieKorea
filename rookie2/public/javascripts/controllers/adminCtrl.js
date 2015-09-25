@@ -653,9 +653,6 @@ angular.module('admin', ['ngRoute'])
 		$(this).tab('show');
 	});
 
-	$('#modifyModal').on('hidden.bs.modal', function (e) {
-		$route.reload();
-	});
 
 
 }])
