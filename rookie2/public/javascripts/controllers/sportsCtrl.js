@@ -26,7 +26,8 @@ angular.module('sports', ['ngRoute'])
 
 
 .controller('CompCtrl', ['$scope', '$rootScope', '$http', function ($scope, $rootScope, $http){
-	//console.log($rootScope.curLocation);
+
+
 
 	$scope.curCategory = 'competitions';
 	$http.get('/model/'+$rootScope.curLocation+'/competitions').
@@ -84,7 +85,7 @@ angular.module('sports', ['ngRoute'])
 }])
 .controller('CourtCtrl', ['$scope', '$rootScope', '$http', function ($scope, $rootScope, $http){
 	
-	//console.log($rootScope.curLocation);
+
 
 	$scope.curCategory = 'courts';
 	$http.get('/model/'+$rootScope.curLocation+'/courts').
@@ -101,18 +102,14 @@ angular.module('sports', ['ngRoute'])
 	    // or server returns response with an error status.
 	});
 
-
 	$scope.courtCity = {};
 	$scope.courtCity.all = true;
-
-	$scope.selectedCity = [];
-	
-	//console.log($scope.selectedCity);
+	$rootScope.selectedCity = [];
 
 	$scope.selectAllCities = function(){
-		$scope.selectedCity = [];
+		$rootScope.selectedCity = [];
 		for(var i in $rootScope.cities){
-			$scope.selectedCity.push($rootScope.cities[i].city);
+			$rootScope.selectedCity.push($rootScope.cities[i].city);
 		}
 
 		for (var i in $scope.courtCity){
@@ -122,48 +119,29 @@ angular.module('sports', ['ngRoute'])
 	}
 
 	$scope.citySelected = function(city){
-		for(var i in $scope.selectedCity){
-			if($scope.selectedCity[i] == city){
-				console.log('tsting');
-				console.log($scope.courtCity);
-				
+
+		if($scope.courtCity.all){
+			$scope.courtCity.all = false;
+			$rootScope.selectedCity = [];
+		} 
+
+		for(var i in $rootScope.selectedCity){
+			if($rootScope.selectedCity[i] == city){
+				$rootScope.selectedCity.splice(i, 1);
+				var dataRemoved = true;
+			} else {
+				var dataRemoved = false;
 			}
 		}
 
-
-		$scope.selectedCity.push(city);
-		$scope.courtCity.all = false;
-	}
-
-
-
-	$scope.filteredStateCourt = function(item){
-		if($scope.courtCity.all){
-			return ($rootScope.selectedState.indexOf(item.courtLocation.state) != -1);
+		if(dataRemoved){
+			if($rootScope.selectedCity.length === 0){
+				$scope.selectAllCities(); 
+			}
 		} else {
-			return ($scope.selectedCity.indexOf(item.courtLocation.city) != -1);
+			$rootScope.selectedCity.push(city);
 		}
-		
 	}
-}])
-.controller('ClubCtrl', ['$scope', '$rootScope', '$http', function ($scope, $rootScope, $http){
-	
-	//console.log($rootScope.curLocation);
-
-	$scope.curCategory = 'clubs';
-	$http.get('/model/'+$rootScope.curLocation+'/clubs').
-	then(function(response) {
-	    // this callback will be called asynchronously
-	    // when the response is available
-	    $scope.items = response.data;
-	    //console.log($scope.items);
-	    for(var i in $scope.items){
-	    	$scope.items[i].clubImg = $scope.items[i].clubImg.replace("public", "");
-	    }
-	}, function(response) {
-	    // called asynchronously if an error occurs
-	    // or server returns response with an error status.
-	});
 
 
 	// Tab Active class
@@ -189,12 +167,107 @@ angular.module('sports', ['ngRoute'])
 		$scope.tab2Active = '';
 		$scope.tab3Active = 'active';
 	}
+	$scope.filteredStateCourt = function(item){
+		if($scope.courtCity.all){
+			return ($rootScope.selectedState.indexOf(item.courtLocation.state) != -1);
+		} else {
+			return ($rootScope.selectedCity.indexOf(item.courtLocation.city) != -1);
+		}
+		
+	}
+}])
+.controller('ClubCtrl', ['$scope', '$rootScope', '$http', function ($scope, $rootScope, $http){
+	
+
+
+	$scope.curCategory = 'clubs';
+	$http.get('/model/'+$rootScope.curLocation+'/clubs').
+	then(function(response) {
+	    // this callback will be called asynchronously
+	    // when the response is available
+	    $scope.items = response.data;
+	    //console.log($scope.items);
+	    for(var i in $scope.items){
+	    	$scope.items[i].clubImg = $scope.items[i].clubImg.replace("public", "");
+	    }
+	}, function(response) {
+	    // called asynchronously if an error occurs
+	    // or server returns response with an error status.
+	});
+
+
+	$scope.courtCity = {};
+	$scope.courtCity.all = true;
+
+	$rootScope.selectedCity = [];
+
+	$scope.selectAllCities = function(){
+		$rootScope.selectedCity = [];
+		for(var i in $rootScope.cities){
+			$rootScope.selectedCity.push($rootScope.cities[i].city);
+		}
+		for (var i in $scope.courtCity){
+			$scope.courtCity[i] = false;
+		}
+		$scope.courtCity.all = true;
+	}
+
+	$scope.citySelected = function(city){
+		if($scope.courtCity.all){
+			$scope.courtCity.all = false;
+			$rootScope.selectedCity = [];
+		} 
+		for(var i in $rootScope.selectedCity){
+			if($rootScope.selectedCity[i] == city){
+				$rootScope.selectedCity.splice(i, 1);
+				var dataRemoved = true;
+			} else {
+				var dataRemoved = false;
+			}
+		}
+		if(dataRemoved){
+			if($rootScope.selectedCity.length === 0){
+				$scope.selectAllCities(); 
+			}
+		} else {
+			$rootScope.selectedCity.push(city);
+		}
+	}
+
+	// Tab Active class
+	// Initiate tab1Active = active
+	/*
+		$scope.tab1Active = '';		//조회순
+		$scope.tab2Active = '';		//신규등록순
+		$scope.tab3Active = '';		//마감일순
+	*/
+	$scope.tab1Active = 'active';
+	$scope.tab1 = function(){
+		$scope.tab1Active = 'active';
+		$scope.tab2Active = '';
+		$scope.tab3Active = '';
+	}
+	$scope.tab2 = function(){
+		$scope.tab1Active = '';
+		$scope.tab2Active = 'active';
+		$scope.tab3Active = '';
+	}
+	$scope.tab3 = function(){
+		$scope.tab1Active = '';
+		$scope.tab2Active = '';
+		$scope.tab3Active = 'active';
+	}
 	$scope.filteredStateClub = function(item){
-		return ($rootScope.selectedState.indexOf(item.clubLocation.state) !== -1);
+		if($scope.courtCity.all){
+			return ($rootScope.selectedState.indexOf(item.clubLocation.state) !== -1);
+		} else {
+			return ($rootScope.selectedCity.indexOf(item.clubLocation.city) != -1);
+		}
+		
 	}
 }])
 
-.controller('sportsCtrl', ['$scope', '$rootScope', '$window', '$location', '$http', function ($scope, $rootScope, $window, $location, $http){
+.controller('sportsCtrl', ['$scope', '$rootScope', '$window', '$location', '$http', '$route', function ($scope, $rootScope, $window, $location, $http, $route){
 	
 	$rootScope.curLocation = $location.absUrl().split('/')[3].replace('#', '');
 	$('#loadingModal').modal('show');
@@ -239,17 +312,16 @@ angular.module('sports', ['ngRoute'])
 	});	
 
 
-
-
-	
-
 	$rootScope.selectAllStates = function(){
 		$rootScope.selectedState = ['서울', '부산', '대구', '인천', '광주', '대전', '울산', '제주', '경기', '강원', '충북', '충남', '전북', '전남', '경북', '경남'];
 		$rootScope.cities = [];
+		$rootScope.stateSelected = false;
+		$route.reload();
 	}	
 
 	$rootScope.stateChange = function(state){
 		$rootScope.selectedState = state;
+
     	for(var i in $rootScope.states){
     		if($rootScope.states[i].providence === state){
 				$http.get('/model/address/'+$rootScope.states[i].id )
@@ -260,13 +332,14 @@ angular.module('sports', ['ngRoute'])
 				    for(var i in response.data){
 				    	$rootScope.cities.push(response.data[i]);
 				    }
-
+				    $rootScope.stateSelected = true;
 				}, function(response) {
 				    // called asynchronously if an error occurs
 				    // or server returns response with an error status.
 				});
     		}
     	}
+    	$route.reload();
 
 	}
 
@@ -293,6 +366,7 @@ angular.module('sports', ['ngRoute'])
 		$scope.subTab3Active = '';
 
 		$scope.state = 'all';
+		$rootScope.stateSelected = false;
 	}
 	$scope.subTab2 = function(){
 		$scope.subTab1Active = '';
@@ -300,6 +374,7 @@ angular.module('sports', ['ngRoute'])
 		$scope.subTab3Active = '';
 
 		$scope.state = 'all';
+		$rootScope.stateSelected = false;
 	}
 	$scope.subTab3 = function(){
 		$scope.subTab1Active = '';
@@ -307,6 +382,7 @@ angular.module('sports', ['ngRoute'])
 		$scope.subTab3Active = 'active';
 
 		$scope.state = 'all';
+		$rootScope.stateSelected = false;
 	}
 
 	// COMMON FUNCTIONS

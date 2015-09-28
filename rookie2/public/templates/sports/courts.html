@@ -1,5 +1,5 @@
 
-<ul class="nav nav-tabs ordercourt">
+<ul ng-if="stateSelected" class="nav nav-tabs ordercourt">
     <li role="presentation">
         <label>
             <input type="checkbox" ng-model="courtCity.all" ng-change="selectAllCities()"> 전체
@@ -10,9 +10,13 @@
             <input type="checkbox" ng-model="courtCity[city.city]" ng-change="citySelected(city.city)"> {{city.city}}
         </label>
     </li>
-
 </ul>
 
+<ul ng-if="!stateSelected" class="nav nav-tabs order">
+    <li role="presentation" ng-click="tab1()" class="{{tab1Active}}"><h4>조회순</h4></li>
+    <li role="presentation" ng-click="tab2()" class="{{tab2Active}}"><h4>신규등록순</h4></li>
+    <li role="presentation" ng-click="tab3()" class="{{tab3Active}}"><h4>마감일순</h4></li>
+</ul>
 
 <div class="section">
     <div class="container">

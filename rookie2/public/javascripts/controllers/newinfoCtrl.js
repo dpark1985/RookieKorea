@@ -73,17 +73,9 @@ angular.module('newinfo', ['ngRoute'])
     });
 
 
-/*
-	$http.get('/model/address/states')
-	.then(function(response) {
-	    // this callback will be called asynchronously
-	    // when the response is available
-	    $scope.states = response.data;
-	}, function(response) {
-	    // called asynchronously if an error occurs
-	    // or server returns response with an error status.
-	});
-*/
+
+
+
 
 	$scope.subCategory = function(){
 		if($scope.newinfoInput.subcategory == '동호회'){
@@ -94,9 +86,21 @@ angular.module('newinfo', ['ngRoute'])
 			$('#MainContact3').show();
 			$('#courtName').show();
 			$('#infoMap').show();
+			$('#location').show();
 		
+			$http.get('/model/address/states')
+			.then(function(response) {
+			    // this callback will be called asynchronously
+			    // when the response is available
+			    $scope.states = response.data;
+			}, function(response) {
+			    // called asynchronously if an error occurs
+			    // or server returns response with an error status.
+			});
+
+
 			$('#MainDate').hide();
-			$('#location').hide();
+			
 
 			$('#MainCategory').css('border-bottom', '');
 			$('#titleSpan').html('동호회 명칭을 입력해주세요.');
@@ -139,7 +143,7 @@ angular.module('newinfo', ['ngRoute'])
 		}
 	}
 
-/*
+
     $scope.stateChange = function(){
     	for(var i in $scope.states){
     		if($scope.states[i].providence == $scope.newinfoInput.state){
@@ -155,7 +159,7 @@ angular.module('newinfo', ['ngRoute'])
     		}
     	}
     }
-*/
+
 
 	$scope.phase1Next = function(){
 
