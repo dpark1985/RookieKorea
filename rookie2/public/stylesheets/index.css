@@ -102,6 +102,10 @@ div.category {
 	padding-bottom: 40px;
 }
 
+div.category > div.container > h3 {
+	font-weight: bold;
+}
+
 div.category > div.container > h5 {
 	color: #909090;
 }
@@ -146,6 +150,10 @@ div.promo > div.container.events {
 	padding-top: 20px;
 }
 
+div.promo > div.container.events > h3 {
+	font-weight: bold;
+}
+
 div.promo > div.container.events > h5 {
 	color: #909090;
 }
@@ -161,6 +169,10 @@ div.promo > div.container.events > div > a > img {
 
 div.promo > div.container.plans {
 	padding-top: 40px;
+}
+
+div.promo > div.container.plans > h3 {
+	font-weight: bold;
 }
 
 div.promo > div.container.plans > h5 {
@@ -220,6 +232,7 @@ div.blog > div.container > div.row > div.content {
 
 div.blog > div.container > div.row > div.content > h2 {
 	text-align: center;
+	font-weight: bold;
 }
 
 div.blog > div.container > div.row > div.content > img {
