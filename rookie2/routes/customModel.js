@@ -674,37 +674,64 @@ exports.active = function(app, db, fs){
 			if(category === 'competitions'){
 				db.competitions.find({_id: db.ObjectId(id)}, function (err, data){
 					var imgPath = data[0].eventImg;
-					fs.unlink(imgPath, function(){
+					if(imgPath == 'public/uploads/expired1.png' || imgPath == 'public/uploads/defaultImg.png'){
 						db.competitions.update({_id: db.ObjectId(id)},
-						{ "$set" : { eventRejected: true, eventImg : 'public/uploads/expired.png' }}, 
-						function (err, data){
-								res.json(data);
+							{ "$set" : { eventRejected: true, eventImg : 'public/uploads/expired.png' }}, 
+							function (err, data){
+									res.json(data);
 						});
-					});
+					} else {
+						fs.unlink(imgPath, function(){
+							db.competitions.update({_id: db.ObjectId(id)},
+								{ "$set" : { eventRejected: true, eventImg : 'public/uploads/expired.png' }}, 
+								function (err, data){
+										res.json(data);
+							});
+						});
+					}
 				});
+
 
 			} else if (category === 'courts'){
 				db.courts.find({_id: db.ObjectId(id)}, function (err, data){
 					var imgPath = data[0].courtImg;
-					fs.unlink(imgPath, function(){
+					if(imgPath == 'public/uploads/expired1.png' || imgPath == 'public/uploads/defaultImg.png'){
 						db.courts.update({_id: db.ObjectId(id)},
-						{ "$set" : { courtRejected: true, courtImg : 'public/uploads/expired.png' }}, 
-						function (err, data){
-								res.json(data);
+							{ "$set" : { courtRejected: true, courtImg : 'public/uploads/expired.png' }}, 
+							function (err, data){
+									res.json(data);
 						});
-					});
+					} else {
+						fs.unlink(imgPath, function(){
+							db.courts.update({_id: db.ObjectId(id)},
+								{ "$set" : { courtRejected: true, courtImg : 'public/uploads/expired.png' }}, 
+								function (err, data){
+										res.json(data);
+							});
+						});
+					}
+
 				});
 
 			} else if (category === 'clubs'){
 				db.clubs.find({_id: db.ObjectId(id)}, function (err, data){
 					var imgPath = data[0].clubImg;
-					fs.unlink(imgPath, function(){
+					if(imgPath == 'public/uploads/expired1.png' || imgPath == 'public/uploads/defaultImg.png'){
 						db.clubs.update({_id: db.ObjectId(id)},
-						{ "$set" : { clubRejected: true, clubImg : 'public/uploads/expired.png' }}, 
-						function (err, data){
-								res.json(data);
+							{ "$set" : { clubRejected: true, clubImg : 'public/uploads/expired.png' }}, 
+							function (err, data){
+									res.json(data);
 						});
-					});
+					} else {
+						fs.unlink(imgPath, function(){
+							db.clubs.update({_id: db.ObjectId(id)},
+								{ "$set" : { clubRejected: true, clubImg : 'public/uploads/expired.png' }}, 
+								function (err, data){
+										res.json(data);
+							});
+						});
+					}
+					
 				});
 			}
 
