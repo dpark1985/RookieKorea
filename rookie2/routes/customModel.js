@@ -715,7 +715,7 @@ exports.active = function(app, db, fs){
 			if(category === 'competitions'){
 				db.competitions.find({_id: db.ObjectId(id)}, function (err, data){
 					var imgPath = data[0].eventImg;
-					if(imgPath === 'public/uploads/expired1.png' || imgPath === 'public/uploads/defaultImg.png'){
+					if(imgPath == 'public/uploads/expired1.png' || imgPath == 'public/uploads/defaultImg.png'){
 						db.competitions.remove({_id: db.ObjectId(id)}, function (err, data){
 							res.json(data);
 						});
@@ -730,7 +730,7 @@ exports.active = function(app, db, fs){
 			} else if (category === 'courts'){
 				db.courts.find({_id: db.ObjectId(id)}, function (err, data){
 					var imgPath = data[0].courtImg;
-					if(imgPath === 'public/uploads/expired1.png' || imgPath === 'public/uploads/defaultImg.png'){
+					if(imgPath == 'public/uploads/expired1.png' || imgPath == 'public/uploads/defaultImg.png'){
 						db.courts.remove({_id: db.ObjectId(id)}, function (err, data){
 							res.json(data);
 						});
@@ -745,7 +745,7 @@ exports.active = function(app, db, fs){
 			} else if (category === 'clubs'){
 				db.clubs.find({_id: db.ObjectId(id)}, function (err, data){
 					var imgPath = data[0].clubImg;
-					if(imgPath === 'public/uploads/expired1.png' || imgPath === 'public/uploads/defaultImg.png'){
+					if(imgPath == 'public/uploads/expired1.png' || imgPath == 'public/uploads/defaultImg.png'){
 						db.clubs.remove({_id: db.ObjectId(id)}, function (err, data){
 							res.json(data);
 						});
