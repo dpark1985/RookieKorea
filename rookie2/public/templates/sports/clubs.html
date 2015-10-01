@@ -1,13 +1,13 @@
 
 <ul ng-if="stateSelected" class="nav nav-tabs ordercourt">
-    <li role="presentation">
+    <li role="presentation radio">
         <label>
-            <input type="checkbox" ng-model="courtCity.all" ng-change="selectAllCities()"> 전체
+            <input type="radio" ng-model="courtCity.name" name="all" value="all" ng-change="selectAllCities()"> 전체
         </label>
     </li>
-    <li role="presentation" ng-repeat="city in cities">
+    <li role="presentation radio" ng-repeat="city in cities">
         <label>
-            <input type="checkbox" ng-model="courtCity[city.city]" ng-change="citySelected(city.city)"> {{city.city}}
+            <input type="radio" ng-model="courtCity.name" name="{{city.id}}" value="{{city.id}}" ng-value="{{city.id}}" ng-change="citySelected(city.city, city.id)"> {{city.city}}
         </label>
     </li>
 </ul>

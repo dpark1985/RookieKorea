@@ -86,7 +86,9 @@ angular.module('sports', ['ngRoute'])
 .controller('CourtCtrl', ['$scope', '$rootScope', '$http', function ($scope, $rootScope, $http){
 	
 
-
+	$scope.courtCity = {
+		name: 'all'
+	};
 	$scope.curCategory = 'courts';
 	$http.get('/model/'+$rootScope.curLocation+'/courts').
 	then(function(response) {
@@ -96,51 +98,33 @@ angular.module('sports', ['ngRoute'])
 	    //console.log($scope.items);
 	    for(var i in $scope.items){
 	    	$scope.items[i].courtImg = $scope.items[i].courtImg.replace("public", "");
+	    	
 	    }
+
+		$rootScope.selectedCity = [];
+		for(var i in $rootScope.cities){
+			$rootScope.selectedCity.push($rootScope.cities[i].city);
+		}
+
 	}, function(response) {
 	    // called asynchronously if an error occurs
 	    // or server returns response with an error status.
 	});
 
-	$scope.courtCity = {};
-	$scope.courtCity.all = true;
-	$rootScope.selectedCity = [];
+
+
+
 
 	$scope.selectAllCities = function(){
 		$rootScope.selectedCity = [];
 		for(var i in $rootScope.cities){
 			$rootScope.selectedCity.push($rootScope.cities[i].city);
 		}
-
-		for (var i in $scope.courtCity){
-			$scope.courtCity[i] = false;
-		}
-		$scope.courtCity.all = true;
 	}
 
-	$scope.citySelected = function(city){
-
-		if($scope.courtCity.all){
-			$scope.courtCity.all = false;
-			$rootScope.selectedCity = [];
-		} 
-
-		for(var i in $rootScope.selectedCity){
-			if($rootScope.selectedCity[i] == city){
-				$rootScope.selectedCity.splice(i, 1);
-				var dataRemoved = true;
-			} else {
-				var dataRemoved = false;
-			}
-		}
-
-		if(dataRemoved){
-			if($rootScope.selectedCity.length === 0){
-				$scope.selectAllCities(); 
-			}
-		} else {
-			$rootScope.selectedCity.push(city);
-		}
+	$scope.citySelected = function(city, id){
+		$rootScope.selectedCity = [];
+		$rootScope.selectedCity = city;
 	}
 
 
@@ -179,7 +163,9 @@ angular.module('sports', ['ngRoute'])
 .controller('ClubCtrl', ['$scope', '$rootScope', '$http', function ($scope, $rootScope, $http){
 	
 
-
+	$scope.courtCity = {
+		name: 'all'
+	};
 	$scope.curCategory = 'clubs';
 	$http.get('/model/'+$rootScope.curLocation+'/clubs').
 	then(function(response) {
@@ -190,48 +176,27 @@ angular.module('sports', ['ngRoute'])
 	    for(var i in $scope.items){
 	    	$scope.items[i].clubImg = $scope.items[i].clubImg.replace("public", "");
 	    }
+
+
+	    $rootScope.selectedCity = [];
+		for(var i in $rootScope.cities){
+			$rootScope.selectedCity.push($rootScope.cities[i].city);
+		}
 	}, function(response) {
 	    // called asynchronously if an error occurs
 	    // or server returns response with an error status.
 	});
-
-
-	$scope.courtCity = {};
-	$scope.courtCity.all = true;
-
-	$rootScope.selectedCity = [];
 
 	$scope.selectAllCities = function(){
 		$rootScope.selectedCity = [];
 		for(var i in $rootScope.cities){
 			$rootScope.selectedCity.push($rootScope.cities[i].city);
 		}
-		for (var i in $scope.courtCity){
-			$scope.courtCity[i] = false;
-		}
-		$scope.courtCity.all = true;
 	}
 
-	$scope.citySelected = function(city){
-		if($scope.courtCity.all){
-			$scope.courtCity.all = false;
-			$rootScope.selectedCity = [];
-		} 
-		for(var i in $rootScope.selectedCity){
-			if($rootScope.selectedCity[i] == city){
-				$rootScope.selectedCity.splice(i, 1);
-				var dataRemoved = true;
-			} else {
-				var dataRemoved = false;
-			}
-		}
-		if(dataRemoved){
-			if($rootScope.selectedCity.length === 0){
-				$scope.selectAllCities(); 
-			}
-		} else {
-			$rootScope.selectedCity.push(city);
-		}
+	$scope.citySelected = function(city, id){
+		$rootScope.selectedCity = [];
+		$rootScope.selectedCity = city;
 	}
 
 	// Tab Active class
@@ -340,7 +305,6 @@ angular.module('sports', ['ngRoute'])
     		}
     	}
     	$route.reload();
-
 	}
 
 
