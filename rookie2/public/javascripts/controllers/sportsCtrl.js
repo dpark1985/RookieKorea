@@ -95,10 +95,9 @@ angular.module('sports', ['ngRoute'])
 	    // this callback will be called asynchronously
 	    // when the response is available
 	    $scope.items = response.data;
-	    //console.log($scope.items);
+	    console.log($scope.items);
 	    for(var i in $scope.items){
 	    	$scope.items[i].courtImg = $scope.items[i].courtImg.replace("public", "");
-	    	
 	    }
 
 		$rootScope.selectedCity = [];
@@ -110,9 +109,6 @@ angular.module('sports', ['ngRoute'])
 	    // called asynchronously if an error occurs
 	    // or server returns response with an error status.
 	});
-
-
-
 
 
 	$scope.selectAllCities = function(){
@@ -152,7 +148,7 @@ angular.module('sports', ['ngRoute'])
 		$scope.tab3Active = 'active';
 	}
 	$scope.filteredStateCourt = function(item){
-		if($scope.courtCity.all){
+		if($scope.courtCity.name=='all'){
 			return ($rootScope.selectedState.indexOf(item.courtLocation.state) != -1);
 		} else {
 			return ($rootScope.selectedCity.indexOf(item.courtLocation.city) != -1);
@@ -223,7 +219,7 @@ angular.module('sports', ['ngRoute'])
 		$scope.tab3Active = 'active';
 	}
 	$scope.filteredStateClub = function(item){
-		if($scope.courtCity.all){
+		if($scope.courtCity.name=='all'){
 			return ($rootScope.selectedState.indexOf(item.clubLocation.state) !== -1);
 		} else {
 			return ($rootScope.selectedCity.indexOf(item.clubLocation.city) != -1);
