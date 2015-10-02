@@ -229,6 +229,7 @@ angular.module('sports', ['ngRoute'])
 .controller('sportsCtrl', ['$scope', '$rootScope', '$window', '$location', '$http', '$route', function ($scope, $rootScope, $window, $location, $http, $route){
 	
 	$rootScope.curLocation = $location.absUrl().split('/')[3].replace('#', '');
+	//console.log($rootScope.curLocation);
 	$('#loadingModal').modal('show');
 
 	$http.get('/model/numbers/'+$rootScope.curLocation).
@@ -359,6 +360,10 @@ angular.module('sports', ['ngRoute'])
 		$scope.isLogin = false;
 		$window.location.reload();
 	}
+
+	$scope.search = function(){
+		$window.location.href = '/search?q='+$scope.searchInput;
+	}	
 
 	$scope.newInfo = function(){
 		if($scope.isLogin === true) {$window.location.href = '/newinfo';} 

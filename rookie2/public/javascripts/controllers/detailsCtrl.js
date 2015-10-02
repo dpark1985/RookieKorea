@@ -199,6 +199,10 @@ angular.module('details', ['ngRoute'])
 		$window.location.reload();
 	}
 
+	$scope.search = function(){
+		$window.location.href = '/search?q='+$scope.searchInput;
+	}	
+
 	$scope.newInfo = function(){
 		if($scope.isLogin === true) {$window.location.href = '/newinfo';} 
 		else {$window.location.href = '/login';}

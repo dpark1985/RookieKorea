@@ -7,7 +7,7 @@ angular.module('main', ['ngRoute'])
 
 
 	$scope.search = function(){
-		console.log($scope.searchInput);
+		$window.location.href = '/search?q='+$scope.searchInput;
 	}
 
 

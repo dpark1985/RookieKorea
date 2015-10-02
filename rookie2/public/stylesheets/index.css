@@ -89,11 +89,12 @@ div.search {
 	margin-top: -72.5px;
 }
 
-div.search > input.form-control {
+div.search > form > input.form-control {
 	height: 45px;
+	width: 454.55px;
 }
 
-div.search > span.input-group-btn > button.btn {
+div.search > form > span.input-group-btn > button.btn {
 	height: 45px;
 }
 

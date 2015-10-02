@@ -529,10 +529,36 @@ exports.active = function(app, db, fs){
 		});
 	});
 
-	app.get('/model/search/:query', function (req, res, next){
-		var query = req.params.query;
+	app.post('/model/search', function (req, res, next){
+		var querys = req.body.searchKey.split(',');
+		var endIndex = querys.length;
+		var results = [];
 
-		db.competitions.find()
+
+
+
+		req.db.competitions.find({eventTitle: {$regex : ".*"+querys[0]+".*"}}, function (err, data1){
+			results.push(data1);
+
+
+			req.db.courts.find({courtTitle: {$regex : ".*"+querys[0]+".*"}}, function (err, data2){
+				results.push(data2);
+
+
+				req.db.clubs.find({clubTitle: {$regex : ".*"+querys[0]+".*"}}, function (err, data3){
+					results.push(data3);
+
+					res.json(results);
+
+				});
+
+
+			});
+
+		});
+
+
+
 
 	});
 
@@ -957,7 +983,6 @@ exports.active = function(app, db, fs){
 			res.json(data);
 		});
 	});
-
 
 
 	app.get('/model/:sports/:category', function (req, res, next) {

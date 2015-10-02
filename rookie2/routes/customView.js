@@ -33,6 +33,22 @@ exports.active = function(app, db, fs){
 		});
 	});
 
+	app.get('/search', function (req, res, next) {
+		isLogin(req, res, function(user){
+			res.render('search', { user: user.login });
+		}, function(){
+			res.render('search', { user: '' });
+		});
+	});
+
+	app.get('/search/:category/:events', function (req, res, next) {
+		isLogin(req, res, function(user){
+			res.render('details', { user: user.login });
+		}, function(){
+			res.render('details', { user: '' });
+		});
+	});
+
 	app.get('/admin', function (req, res, next) {
 		res.render('admin');
 	});
