@@ -95,7 +95,7 @@ angular.module('sports', ['ngRoute'])
 	    // this callback will be called asynchronously
 	    // when the response is available
 	    $scope.items = response.data;
-	    console.log($scope.items);
+	    
 	    for(var i in $scope.items){
 	    	$scope.items[i].courtImg = $scope.items[i].courtImg.replace("public", "");
 	    }
@@ -112,13 +112,12 @@ angular.module('sports', ['ngRoute'])
 
 
 	$scope.selectAllCities = function(){
-		$rootScope.selectedCity = [];
-		for(var i in $rootScope.cities){
-			$rootScope.selectedCity.push($rootScope.cities[i].city);
-		}
+		//console.log($scope.courtCity.name);
+
 	}
 
 	$scope.citySelected = function(city, id){
+		//console.log($scope.courtCity.name);
 		$rootScope.selectedCity = [];
 		$rootScope.selectedCity = city;
 	}
@@ -184,13 +183,12 @@ angular.module('sports', ['ngRoute'])
 	});
 
 	$scope.selectAllCities = function(){
-		$rootScope.selectedCity = [];
-		for(var i in $rootScope.cities){
-			$rootScope.selectedCity.push($rootScope.cities[i].city);
-		}
+		//console.log($scope.courtCity.name);
+
 	}
 
 	$scope.citySelected = function(city, id){
+		//console.log($scope.courtCity.name);
 		$rootScope.selectedCity = [];
 		$rootScope.selectedCity = city;
 	}
