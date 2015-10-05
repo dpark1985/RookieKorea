@@ -1,8 +1,5 @@
 exports.active = function(app, db, fs){
 
-
-
-
 	app.post('/model/resetpwd', function (req, res, next) {
 		var varificationCode = Math.floor(10000000 + Math.random() * 90000000 );
 		var transporter = req.nodemailer.createTransport({
@@ -124,14 +121,12 @@ exports.active = function(app, db, fs){
 		} else if (req.params.id == 'JJ5000000000') {
 			res.json(JJ5000000000);
 		}
-		
 	});
 
 
 	app.post('/model/newinfo', function (req, res, next) {
 		var newinfo = req.body.newinfo;
 
-		
 		if(newinfo.category.subcategory === '대회'){
 			if(newinfo.infoImg === undefined){
 				db.courts.count({}, function(err, data){
@@ -186,7 +181,6 @@ exports.active = function(app, db, fs){
 							console.log("INPUT ERROR === " + err);
 						}
 					});
-
 				});
 
 			} else {
@@ -249,9 +243,6 @@ exports.active = function(app, db, fs){
 			}
 
 
-
-
-
 		} else if (newinfo.category.subcategory === '코트'){
 			if(newinfo.infoImg === undefined){
 				db.courts.count({}, function(err, data){
@@ -298,7 +289,6 @@ exports.active = function(app, db, fs){
 							console.log("INPUT ERROR === " + err);
 						}
 					});
-				
 				});
 			
 			} else {
@@ -353,12 +343,6 @@ exports.active = function(app, db, fs){
 				});
 			}
 
-
-
-
-
-
-
 		} else if (newinfo.category.subcategory === '동호회') {
 			if(newinfo.infoImg === undefined){
 				db.courts.count({}, function(err, data){
@@ -403,10 +387,7 @@ exports.active = function(app, db, fs){
 							console.log("INPUT ERROR === " + err);
 						}
 					});
-			
 				});
-
-
 
 			} else {
 				var imgFileName = 'club_' + Date.now();
@@ -454,9 +435,7 @@ exports.active = function(app, db, fs){
 						});
 					});
 				});
-
 			}
-
 		}
 	});
 
@@ -476,14 +455,11 @@ exports.active = function(app, db, fs){
 				db.clubs.find({clubSport: sports, clubApproved: true, clubExpired: false}, function (err, data3){
 					var clubsNum = data3.length;
 					num.push(clubsNum);
-
 					res.json(num);
-					
 				})
 			})
 		})
 	});
-
 
 
 	app.get('/model/dataIterate', function (req, res, next){
@@ -492,12 +468,10 @@ exports.active = function(app, db, fs){
 			for(var i in data){
 				var endDate = new Date(data[i].eventDate.start2);
 
-
 				if(today > endDate){
 					console.log('======dataIterate======');
 					console.log('today = ' + today);
 					console.log('endDate = ' + endDate);
-
 
 					var id = data[i]._id;
 					var imgPath = data[i].eventImg;
@@ -518,10 +492,6 @@ exports.active = function(app, db, fs){
 							});
 						});
 					}					
-
-
-
-
 				} else {
 					console.log('today = ' + today);
 				}
@@ -529,38 +499,25 @@ exports.active = function(app, db, fs){
 		});
 	});
 
+
 	app.post('/model/search', function (req, res, next){
 		var querys = req.body.searchKey.split(',');
-		var endIndex = querys.length;
 		var results = [];
-
-
-
 
 		req.db.competitions.find({eventTitle: {$regex : ".*"+querys[0]+".*"}}, function (err, data1){
 			results.push(data1);
 
-
 			req.db.courts.find({courtTitle: {$regex : ".*"+querys[0]+".*"}}, function (err, data2){
 				results.push(data2);
 
-
 				req.db.clubs.find({clubTitle: {$regex : ".*"+querys[0]+".*"}}, function (err, data3){
 					results.push(data3);
-
 					res.json(results);
-
 				});
-
-
 			});
-
 		});
-
-
-
-
 	});
+
 
 	app.post('/model/admin/:query', function (req, res, next){
 		
@@ -716,7 +673,6 @@ exports.active = function(app, db, fs){
 						});
 					}
 				});
-
 
 			} else if (category === 'courts'){
 				db.courts.find({_id: db.ObjectId(id)}, function (err, data){
@@ -928,12 +884,8 @@ exports.active = function(app, db, fs){
 			}
 		}
 
-
-
-
-
-
 	});
+
 
 	app.post('/model/profile', function (req, res, next) {
 		var id = req.body.id;
@@ -949,6 +901,7 @@ exports.active = function(app, db, fs){
 		});
 
 	});
+
 
 	app.post('/model/profile/userImg', function (req, res, next) {
 		var newInfo = req.body.newInfo;
@@ -1005,6 +958,7 @@ exports.active = function(app, db, fs){
 		}
 	});
 
+
 	app.get('/model/:sports/:category/:id', function (req, res, next) {
 		var sports = req.params.sports;
 		var category = req.params.category;
@@ -1031,6 +985,7 @@ exports.active = function(app, db, fs){
 		}
 	});
 
+
 	app.get('/model/:sports/:category/:id/heart', function (req, res, next) {
 		var sports = req.params.sports;
 		var category = req.params.category;
@@ -1049,19 +1004,7 @@ exports.active = function(app, db, fs){
 				res.json(data);
 			});
 		}
-
 	});
-
-
-
-
-
-
-
-	
-
-
-
 
 
 };

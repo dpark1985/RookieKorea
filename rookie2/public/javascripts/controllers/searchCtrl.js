@@ -1,6 +1,5 @@
 angular.module('search', ['ngRoute'])
 
-
 .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
 	$routeProvider.when('/', {
 		controller: 'searchCtrl'
@@ -21,10 +20,7 @@ angular.module('search', ['ngRoute'])
 	$routeProvider.otherwise('/', {
 		controller: 'searchCtrl',
 	});
-
-
 }])
-
 
 .controller('CompCtrl', ['$scope', '$rootScope', '$http', function ($scope, $rootScope, $http){
 
@@ -33,8 +29,6 @@ angular.module('search', ['ngRoute'])
 	for(var i in $scope.items){
     	$scope.items[i].eventImg = $scope.items[i].eventImg.replace("public", "");
     }
-
-
 
 }])
 .controller('CourtCtrl', ['$scope', '$rootScope', '$http', function ($scope, $rootScope, $http){
@@ -53,7 +47,6 @@ angular.module('search', ['ngRoute'])
 	for(var i in $scope.items){
     	$scope.items[i].clubImg = $scope.items[i].clubImg.replace("public", "");
     }
-
 
 }])
 
@@ -175,7 +168,6 @@ angular.module('search', ['ngRoute'])
 	// COMMON FUNCTIONS
 
 }])
-
 
 .directive('headerCustom', function() {
 	return {

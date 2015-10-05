@@ -81,8 +81,6 @@ div.opacity50 {
 	min-width: 970px;
 }
 
-
-
 div.search {
 	width: 529px;
 	margin: auto;
@@ -92,6 +90,11 @@ div.search {
 div.search > form > input.form-control {
 	height: 45px;
 	width: 454.55px;
+}
+
+div.search > form > span.input-group-btn {
+	width: 45px;
+	float: left;
 }
 
 div.search > form > span.input-group-btn > button.btn {
@@ -115,7 +118,6 @@ div.category > div.container > div.categoryRow {
 	padding-left: 20px;
 	padding-right: 20px;
 	padding-top: 40px;
-	
 }
 
 div.category > div.container > div.categoryRow > div.categoryList {
