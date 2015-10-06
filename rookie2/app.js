@@ -67,12 +67,13 @@ var server = http.createServer(app);
 var io = socket_io.listen(server);
 io.set('log level', 2);
 
-
-
+//하이브리드 라우팅
+var hybridApp = require('./routes/happ');
 
 //기본 모듈 실행
 customGlobal.active(nconf);
 customAuth.active(everyauth, db);
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -136,7 +137,7 @@ io.set('log level', 2);
 
 
 
-
+app.use('/happ', hybridApp);
 customModel.active(app, db, fs);
 customView.active(app, db, fs);
 
