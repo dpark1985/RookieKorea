@@ -195,6 +195,7 @@ router.post('/testing', function (req, res, next) {
 	}
 });
 
+
 router.get('/model/:sports/:category', function (req, res, next) {
 	var sports = req.params.sports;
 	var category = req.params.category;
