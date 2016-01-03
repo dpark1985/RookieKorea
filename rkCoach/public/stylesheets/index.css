@@ -1,0 +1,275 @@
+h1, h2, h3 {
+	font-weight: bold;
+}
+
+
+/* Jumbotron */
+div.jumbotron.rkBanner {
+	background: url('/images/banner/rkBanner.png');
+	background-size: cover;
+	background-position: center center;
+	padding: 0;
+	height: 330px;
+
+	margin-bottom: 0;
+	border-bottom: 1px solid #333;
+}
+
+div.innerJumbo {
+	height: 100%;
+	padding-top: 50px;
+	max-width: 1080px;
+	margin:0 auto;
+	color: #ffffff;
+	text-align: center;
+	
+}
+
+#searchLesson{
+    opacity: .8;
+    transition: opacity .5s ease-out;
+    -moz-transition: opacity .5s ease-out;
+    -webkit-transition: opacity .5s ease-out;
+    -o-transition: opacity .5s ease-out;
+}
+#searchLesson:hover {
+	opacity: 1;
+}
+/* Jumbotron */
+
+/* Stats */
+div.container-fluid.stats {
+	border-bottom: 1px solid #ececec;
+
+}
+
+div.container-fluid.stats > div.container > div.row {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+div.container-fluid.stats > div.container > div.row > div.col-xs-12.col-sm-4 {
+	text-align: center;
+}
+
+div.container-fluid.stats > div.container > div.row > div.col-xs-12.col-sm-4:nth-child(2n+2) {
+	border-left: 1px solid #ececec;
+	border-right: 1px solid #ececec;
+}
+
+@media (max-width: 768px) {
+	div.container-fluid.stats {
+		border: 0;
+	}
+	div.container-fluid.stats > div.container > div.row {
+		padding: 0;
+	}
+	div.container-fluid.stats > div.container > div.row > div.col-xs-12.col-sm-4 {
+		margin-bottom: 10px;
+		border-bottom: 1px solid #ececec;
+	}
+	div.container-fluid.stats > div.container > div.row > div.col-xs-12.col-sm-4:nth-child(2n+2) {
+		border: 0;
+		border-bottom: 1px solid #ececec;
+	}
+}
+/* Stats */
+
+/* LessionList */
+div.container-fluid.lessonList {
+	background-color: #F9F9F9;
+	padding-top: 20px;
+	padding-bottom: 40px;
+	border-bottom: 1px solid #ececec;
+}
+
+div.container-fluid.lessonList > div.container > div.row {
+	padding-top: 20px;
+	padding-bottom: 40px;
+}
+
+div.container-fluid.lessonList > div.container > div.row > div.col-xs-12.col-sm-12 > h4 {
+	text-align: center;
+	font-weight: bold;
+}
+
+.listItem {
+	display: block;
+	width: 100%;
+	height: 90px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background-color: #333333;
+	cursor: pointer;
+	margin-bottom: 20px;
+}
+
+.listItem:hover {
+	background-color: #222222;
+}
+
+@media (max-width: 768px) {
+
+	div.container-fluid.lessonList > div.container > div.row {
+		padding: 0;
+	}
+	.listItem {
+		margin-bottom: 2px;
+	}
+}
+
+div.row.title, div.row.details {
+	margin:0;
+}
+
+div.row.title {
+	margin-bottom: 10px;
+}
+
+div.row.title > div:last-child {
+	text-align: right;
+}
+
+div.row.details > div:nth-child(2n+2) {
+	text-align: center;
+}
+
+div.row.details > div:last-child {
+	text-align: right;
+}
+
+div.row.title > div > span.sportsName {
+	color: #ffeb58;
+	font-size: 25px;
+	font-weight: bold;
+}
+
+div.row.title > div > span.location,
+div.row.details > div > span.fee,
+div.row.details > div > span.duration,
+div.row.details > div > span.applicants {
+	color: #ffffff;
+	font-weight: bold;
+}
+/* LessionList */
+
+/* Process */
+div.container-fluid.process {
+	background-color: #ffffff;
+	padding-top: 20px;
+	padding-bottom: 40px;
+	border-bottom: 1px solid #ececec;
+}
+
+div.container-fluid.process > div.container > div.row {
+	padding-top: 20px;
+	padding-bottom: 40px;
+}
+
+div.container-fluid.process > div.container > div.row > div.col-xs-12.col-sm-12 > h4 {
+	text-align: center;
+}
+
+div.container-fluid.process > div.container > div.row > div.col-xs-12.col-sm-12 > h3 {
+	text-align: center;
+	font-weight: bold;
+}
+
+.processImg {
+	width: 100%;
+}
+
+@media (max-width: 768px) {
+	.processImg {
+		width: 100%;
+	}
+}
+/* Process */
+
+/* adds1 */
+div.container-fluid.adds1 {
+	background-color: #F9F9F9;
+	border-bottom: 1px solid #ececec;
+}
+
+
+div.container-fluid.adds1 > div.container > div.row > div.col-xs-12.col-sm-12 > p {
+	text-align: center;
+	margin: 0;
+	font-weight: bold;
+}
+
+
+@media (max-width: 768px) {
+	div.container-fluid.adds1 > div.container > div.row {
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
+}
+/* adds1 */
+
+
+/* adds2 */
+div.container-fluid.adds2 {
+	background-color: #ffffff;
+	padding-top: 20px;
+	padding-bottom: 40px;
+	border-bottom: 1px solid #ececec;
+}
+
+div.container-fluid.adds2 > div.container > div.row {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+div.container-fluid.adds2 > div.container > div.row > div.col-xs-12.col-sm-12 > h4,
+div.container-fluid.adds2 > div.container > div.row > div.col-xs-12.col-sm-12 > h3 {
+	text-align: center;
+}
+
+.addsTitle {
+	font-weight: bold;
+	color: #333333;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.addsTitle {
+	color: #444444;
+	text-align: center;
+}
+
+/* adds2 */
+
+/* adds3 */
+div.container-fluid.adds3 {
+	background-color: #000000;
+	border-bottom: 1px solid #ececec;
+}
+
+div.container-fluid.adds3 > div.container > div.row {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+div.container-fluid.adds3 > div.container > div.row > div.col-xs-12.col-sm-12 > h4 {
+	text-align: center;
+	color: #ffeb58;
+	margin: 0;
+	font-weight: bold;
+}
+/* adds3 */
+
+
+/* from 768px or grather */
+@media (min-width: 768px) {
+
+
+	.jumbotron, .stats, .lessonList, .process, .adds1, .adds2, .adds3 {
+		min-width: 1100px;
+	}
+}
+/* from 768px or grather */
+
+
+

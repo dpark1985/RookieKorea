@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="ko" ng-app="index" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="ko" ng-app="index" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="ko" ng-app="index"> <!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <title>루키코리아::스포츠 레슨 전문 플랫폼</title>
+
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="libraries/bootstrap/css/bootstrap.min.css">
+
+    <!-- Custom -->
+    <link rel="stylesheet" href="stylesheets/common.css">
+    <link rel="stylesheet" href="stylesheets/mainstyle.css">
+
+
+
+    <!-- Web Fonts -->
+    <link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin'>
+
+    <!-- CSS Global Compulsory -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- CSS Header and Footer -->
+    <link rel="stylesheet" href="assets/css/headers/header-default.css">
+    <link rel="stylesheet" href="assets/css/footers/footer-v1.css">
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="assets/plugins/animate.css">
+    <link rel="stylesheet" href="assets/plugins/line-icons/line-icons.css">
+    <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/plugins/parallax-slider/css/parallax-slider.css">
+    <link rel="stylesheet" href="assets/plugins/owl-carousel/owl-carousel/owl.carousel.css">
+
+
+</head>
+
+<body>
+    <script>
+        var isLoggedIn = <%= everyauth.loggedIn %>
+        <% if(everyauth.loggedIn) { %>
+            var userID = "<%= userID %>";
+        <% } %>
+    </script>
+
+    <div class="wrapper">
+        <div class="conatiner-fluid topHeader">
+            <div class="container">
+                <nav class="navbar navbar-default navbar-static-top topNavMain">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-rookie-navbar-collapse-1" aria-expanded="false">
+                                <span class="sr-only">RookieKorea</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="/"><img src="images/logo/logo_nav_main.svg"></a>
+                        </div>
+
+                        <div class="collapse navbar-collapse" id="bs-rookie-navbar-collapse-1">
+                            <ul class="nav navbar-nav navbar-right">
+                            <%if(!everyauth.loggedIn){%>
+                                <li><a href="/login">로그인</a></li>
+                                <li><a href="/register">회원가입</a></li>
+                            <%} else {%>
+                              <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        안녕하세요 <%= userID %> <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="/profile">회원정보</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a href="/logout">로그아웃</a></li>
+                                    </ul>
+                                </li>
+                            <%}%>
+                            </ul> 
+                        </div>
+                    </div>
+                </nav>
+
+                <section>
+                    <h4>스포츠를 쉽게 배울 수 있는 곳</h4>
+                    <h1>스포츠 레슨 전문 플랫폼</h1>
+                    <h2>루키코리아</h2>
+                    <form ng-controller="searchCtrl" ng-submit="lessonSearch()" class="form-inline text-center mt50">
+                        <div class="form-group" id="sports">
+                            <label class="sr-only" for="inputSports">스포츠 종목</label>
+                            <input type="text" class="form-control typeahead" id="inputSports" placeholder="스포츠 종목">
+                        </div>
+                        <div class="form-group" id="locations">
+                            <label class="sr-only" for="inputLocation">시, 구, 군</label>
+                            <input type="text" class="form-control typeahead" id="inputLocations" placeholder="시, 구, 군">
+                        </div>
+                        <button type="submit" class="btn btn-default">레슨 검색</button>
+                    </form>
+                </section>
+            </div>
+        </div>
+
+
+
+        <div class="container-fluid section">
+
+
+        </div>
+
+
+        <footer-custom></footer-custom>
+
+
+
+
+
+    </div>
+    <!-- /.wrapper -->
+
+
+    <script src="libraries/jquery/jquery.min.js"></script>
+    <script src="libraries/bootstrap/js/bootstrap.min.js"></script>
+    <script src="libraries/angular/angular/angular.min.js"></script>
+    <script src="libraries/angular/angular/angular-route.min.js"></script>  
+    <script src="libraries/typeahead/dist/bloodhound.min.js"></script>
+    <script src="libraries/typeahead/dist/typeahead.bundle.min.js"></script>
+    <script src="libraries/typeahead/dist/typeahead.jquery.min.js"></script>
+    
+
+    <script src="javascripts/controlls/commonCtrl.js"></script>
+    <script src="javascripts/controlls/indexCtrl.js"></script>  
+    <script src="javascripts/utilities/searchForm.js"></script>
+
+
+    <!-- JS Implementing Plugins -->
+    <script type="text/javascript" src="assets/plugins/parallax-slider/js/modernizr.js"></script>
+    <script type="text/javascript" src="assets/plugins/parallax-slider/js/jquery.cslider.js"></script>
+    <script type="text/javascript" src="assets/plugins/owl-carousel/owl-carousel/owl.carousel.js"></script>
+    <!-- JS Page Level -->
+    <script type="text/javascript" src="assets/js/app.js"></script>
+    <script type="text/javascript" src="assets/js/plugins/owl-carousel.js"></script>
+    <script type="text/javascript" src="assets/js/plugins/parallax-slider.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+            App.init();
+            OwlCarousel.initOwlCarousel();
+            ParallaxSlider.initParallaxSlider();
+        });
+    </script>
+    <!--[if lt IE 9]>
+        <script src="assets/plugins/respond.js"></script>
+        <script src="assets/plugins/html5shiv.js"></script>
+        <script src="assets/plugins/placeholder-IE-fixes.js"></script>
+    <![endif]-->
+
+</body>
+
+</html>

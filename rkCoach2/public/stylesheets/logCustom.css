@@ -1,0 +1,60 @@
+
+
+.radioLabel > input,
+.radioLabel2 > input {
+	visibility: hidden;
+	position: absolute;
+}
+
+.radioLabel > img,
+.radioLabel2 > img {
+	width: 150px;
+	height: 136px;
+}
+
+.radioLabel > img:hover,
+.radioLabel2 > img:hover {
+	background-position: 0 -136px;
+}
+
+.radioLabel > input + img {
+	cursor: pointer;
+	opacity: 0.8;
+	width: 150px;
+	height: 136px;
+	background: url('../images/btn/registBtn_user_rollover.png');
+}
+
+.radioLabel2 > input + img {
+	cursor: pointer;
+	opacity: 0.8;
+	width: 150px;
+	height: 136px;
+	background: url('../images/btn/registBtn_coach_rollover.png');
+}
+
+.radioLabel > input:checked + img,
+.radioLabel2 > input:checked + img {
+	opacity: 1;
+	background-position: 0 -136px;
+}
+
+
+
+
+
+
+.checkbox+.checkbox, .radio+.radio {
+	float: left;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.checkbox label, .radio label {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.radio {
+	float: left;
+}

@@ -1,0 +1,22 @@
+.wrapper {
+	background-color: #F9F9F9;
+	padding-top: 20px;
+	padding-bottom: 40px;
+	border-bottom: 1px solid #ececec;
+}
+
+.findPannel {
+	background-color: #ffffff;
+	border: 1px solid #ececec;
+	margin-bottom: 30px;
+}
+
+
+@media (min-width: 768px) {
+
+
+	.wrapper {
+		min-width: 1100px;
+	}
+
+}

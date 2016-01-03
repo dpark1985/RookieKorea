@@ -1,0 +1,140 @@
+<div class="panel panel-default" id="setupPage1">
+    <div class="panel-heading">
+        <h3 class="panel-title">기본 정보 (1/4)</h3>
+    </div>
+
+    <div class="panel-body section">
+        <div class="panel panel-default setupInfo">
+            <div class="panel-body ">
+                필수 입력 정보입니다. 코치님의 기본정보를 입력해주세요. 
+            </div>
+        </div>  
+        <hr/> 
+        <div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                    <div class="form-group">
+                        <label for="inputName">이름</label>
+                        <div class="panel panel-default sectionInfo">
+                            <div class="panel-body">
+                                <p>코치님 이름을 입력해주세요.</p>
+                                <hr class="infoHr"/>
+                                <input type="text" class="form-control" id="inputName" ng-model="coachData.coachName" placeholder="{{coachData.coachName}}">
+                            </div>
+                        </div>
+                    </div>
+                    <hr/>
+                    <div class="form-group">
+                        <label for="inputSex">성별</label>
+                        <div class="panel panel-default sectionInfo">
+                            <div class="panel-body">
+                                <p>코치님 성별을 선택해주세요.</p>
+                                <hr class="infoHr"/>
+                                <div id="inputSex">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="userSex" ng-model="coachData.sex" id="inlineRadio1" value="m"> 남
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="userSex" ng-model="coachData.sex" id="inlineRadio2" value="f"> 여
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr/>
+                    <div class="form-group">
+                        <label for="inputDOB">생년월일</label>
+                        <div class="panel panel-default sectionInfo">
+                            <div class="panel-body">
+                                <p>코치님 생년월일을 입력해주세요.</p>
+                                <hr class="infoHr"/>
+                                <div class="form-inline" id="inputDOB">
+                                    <select class="form-control" id="inputDOBM" placeholder="월" ng-model="coachData.dob.year" ng-change="monthSelected()">
+                                        <option ng-repeat="year in years" value="{{year}}">{{year}}</option>
+                                    </select>
+                                    <select class="form-control" id="inputDOBM" placeholder="월" ng-model="coachData.dob.month" ng-change="monthSelected()">
+                                        <option ng-repeat="month in months" value="{{month.month}}">{{month.month}}</option>
+                                    </select>
+                                    <select class="form-control" id="inputDOBM" placeholder="일" ng-model="coachData.dob.day" ng-change="daySelected()">
+                                        <option ng-repeat="day in days" value="{{day}}">{{day}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <div class="form-group">
+                        <label for="inputImg">프로필 사진</label>
+                        <div class="panel panel-default sectionInfo">
+                            <div class="panel-body">
+                                <p>코치님 사진을 업로드해주세요.</p>
+                                <hr class="infoHr"/>
+                                <div class="imgupload toCenter" >
+                                    <input type="file" id="infoImg" name="infoImg" accept="image/gif, image/jpeg, image/png" fileread="coachData.img">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr/>
+            <div class="form-group">
+                <label for="inputAddress">주소</label>
+
+                <div class="panel panel-default sectionInfo">
+                    <div class="panel-body">
+                        <p>코치님 직장 또는 자택 주소를 입력해주세요.</p>
+                        <hr class="infoHr"/>
+                        <div class="row address">
+                            <div class="col-xs-4 col-sm-2">
+                                <input type="text" class="form-control" id="postcode" ng-model="coachData.address.zipcode" placeholder="우편번호">
+                            </div>
+                            <div class="col-xs-2 col-sm-2">
+                                <input type="button" class="btn btn-default" onclick="execDaumPostcode()" value="우편번호 찾기">
+                            </div>
+                        </div>
+                        <div class="row address">
+                            <div class="col-xs-12 col-sm-6">
+                                <input type="text" class="form-control" id="roadAddress" ng-model="coachData.address.roadAddress" placeholder="도로명주소">
+                            </div>
+                            <div class="col-xs-12 col-sm-6">
+                                <input type="text" class="form-control" id="jibunAddress" ng-model="coachData.address.jibunAddress" placeholder="지번주소">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12">
+                                <input type="text" class="form-control" id="extraAddress" ng-model="coachData.address.extra" placeholder="추가 입력">
+                            </div>
+                        </div>
+                        <span id="guide" style="color:#999"></span>
+
+                    </div>
+                </div>
+            </div>
+            <hr/>
+            <button type="button" ng-click="setupPage1()" class="btn btn-default">다음</button>
+
+        </div>
+    </div>
+</div>
+
+
+
+<div id="alertModal1" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">잘못된 입력</h4>
+            </div>
+            <div class="modal-body">
+                <ul ng-if="errs">
+                    <li ng-repeat="err in errs">{{err}}</li>
+                </ul>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

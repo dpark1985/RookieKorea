@@ -1,0 +1,50 @@
+.wrapper {
+	background-color: #F9F9F9;
+	padding-top: 20px;
+	padding-bottom: 40px;
+	border-bottom: 1px solid #ececec;
+}
+
+.logTitle {
+	background-color: #ffffff;
+	border: 1px solid #ececec;
+	margin-bottom: 30px;
+}
+
+.logForm {
+	background-color: #ffffff;
+	border: 1px solid #ececec;
+	padding-top: 20px;
+	padding-bottom: 40px;
+}
+
+.logForm > div.row {
+	padding-top: 40px;
+}
+
+.red {
+	color: red;
+}
+
+.checkbox > label > a {
+	font-weight: bold;
+}
+
+.instruction {
+	color: #555555;
+}
+
+.validCheck {
+	padding: 0;
+	padding-top: 6px;
+	padding-bottom: 6px;
+}
+
+@media (min-width: 768px) {
+
+
+	.wrapper {
+		min-width: 1100px;
+	}
+
+}

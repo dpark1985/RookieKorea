@@ -1,0 +1,141 @@
+
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+body {
+	font-family: "Nanum Gothic", sans-serif;
+
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+/* Navigation */
+.navbar-default {
+	background-color: #ffffff;
+}
+
+.rkNav {
+	margin: 0;
+}
+.navbar-brand {
+	line-height: 30px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.lastBtn { margin-right: 0; }
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus { background-image:none !important; }
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus { background-color: #ffeb58; }
+
+
+#login, #register {
+	padding: 0;
+	padding-left: 6px;
+	padding-right: 6px;
+	width: 76px;
+	height: 36px;
+}
+
+#login > span,
+#register > span {
+	line-height: 36px;
+	font-weight: 600;
+	color: #777;
+}
+
+#login:hover > span,
+#register:hover > span {
+	color: #444;
+} 
+
+
+/* footer */
+.rkFooter {
+	background-color: #ffffff;
+	color: #333333;
+	padding-top: 20px;
+	padding-bottom: 40px;
+}
+
+.rkFooter > div.container > div.row > div > h1 {
+	margin-top: 0;
+}
+
+.infoText {
+	color: #333333;
+	font-size: 13px;
+	margin-bottom: 5px;
+}
+
+.infoText > i {
+	width: 13px;
+	text-align: center;
+}
+
+.infoText > a {
+	color: #333333;
+}
+
+address {
+	margin: 0;
+}
+
+address > i {
+	width: 13px;
+	text-align: center;
+}
+
+
+.footerRight {
+	margin-top: 30px;
+}
+
+.infoTitle {
+	font-weight: bold;
+	color: #000000;
+	margin-bottom: 10px;
+}
+
+.infoMenu > ul {
+	list-style-type: none;
+	padding: 0;
+}
+
+.infoMenu > ul > li {
+	margin-bottom: 5px;
+}
+
+.infoMenu > ul > li > a {
+	color: #333333;
+	font-size: 13px;
+}
+/* footer */
+
+/* Mobile */
+@media (max-width: 768px) {
+	#rookieNavMenu > ul.nav.navbar-nav.navbar-right.ng-scope > li {
+		width: 50%;
+		float: left;
+	}
+	#rookieNavMenu > ul.nav.navbar-nav.navbar-right.ng-scope > li.dropdown {
+		width: 100%;
+	}
+	#menu1, #menu2, #menu3, #menu4, #login, #register, #userMenu{
+	 	width: 100%;
+	 	margin-left: 0;
+	 	margin-right: 0;
+	 }
+}
+
+/* from 768px or grather */
+@media (min-width: 768px) {
+
+	.container {
+		width: 970px;
+	}
+	.rkFooter, .rkNav {
+		min-width: 1100px;
+	}
+}
+/* from 768px or grather */
+
+

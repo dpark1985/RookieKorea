@@ -1,0 +1,82 @@
+
+
+
+div.panel-body {
+	background-color: #eee;
+}
+
+div.panel.panel-default.title {
+	border: 0;
+}
+
+div.panel.panel-default.title > div.panel-body {
+	background-color: #fff;
+}
+
+div.panel.panel-default.title > div.panel-body > div.page-header {
+	border: 0;
+}
+
+
+
+
+div.panel.panel-default.list {
+	border: 0;
+}
+
+div.panel.panel-default.list > div.panel-heading {
+	background-color: #244C6F;
+	color: #fff;
+}
+
+div.panel.panel-default.list > div.panel-body > div.media > div.media-body > h5 > i {
+	margin-right: 5px;
+}
+
+@media (max-width: 769px) { 
+	.listImg {
+		display: none;
+	}
+}
+
+
+
+div.panel.panel-default.moreList > div.panel-body {
+	background-color: #244C6F;
+	padding-top: 30px;
+	padding-bottom: 30px;
+
+}
+div.panel.panel-default.moreList > div.panel-body > p {
+	color: #fff;
+}
+
+
+
+
+
+span.badge.sports {
+	background-color: #337ab7;
+}
+
+span.badge.able {
+	background-color: #5cb85c;
+}
+
+span.badge.disable {
+	background-color: #d9534f;
+}
+
+span.badge.pro {
+	background-color: #5bc0de;
+}
+
+span.badge.ama {
+	background-color: #f0ad4e;
+}
+
+span.badge.rookie {
+	background-color: #d9534f;
+}
+
+

@@ -1,68 +1,14 @@
-
 // 마커를 담을 배열입니다
 var markers = [];
 
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = {
-        center: new daum.maps.LatLng(37.304470636190445, 127.90758156772726), // 지도의 중심좌표
+        center: new daum.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
         level: 3 // 지도의 확대 레벨
     };  
 
 // 지도를 생성합니다    
 var map = new daum.maps.Map(mapContainer, mapOption); 
-
-var zoomControl = new daum.maps.ZoomControl();
-map.addControl(zoomControl, daum.maps.ControlPosition.RIGHT);
-
-// 지도를 클릭한 위치에 표출할 마커입니다
-var marker = new daum.maps.Marker({ 
-    // 지도 중심좌표에 마커를 생성합니다 
-    position: map.getCenter() 
-}); 
-// 지도에 마커를 표시합니다
-marker.setMap(map);
-
-// 지도에 클릭 이벤트를 등록합니다
-// 지도를 클릭하면 마지막 파라미터로 넘어온 함수를 호출합니다
-daum.maps.event.addListener(map, 'click', function(mouseEvent) {        
-    
-    // 클릭한 위도, 경도 정보를 가져옵니다 
-    var latlng = mouseEvent.latLng; 
-    
-    // 마커 위치를 클릭한 위치로 옮깁니다
-    marker.setPosition(latlng);
-    
-    var message = '위도: ' + latlng.getLat() + ' ';
-    message += '경도: ' + latlng.getLng();
-
-    var geocoder = new daum.maps.services.Geocoder();
-
-    var coord = new daum.maps.LatLng(latlng.getLat(), latlng.getLng());
-    var callback = function(status, result) {
-        if (status === daum.maps.services.Status.OK) {
-        
-            $('#address').html('');
-            var roadAddress = result[0].roadAddress.name;
-
-            var jibunAddress = result[0].jibunAddress.name;
-
-            var addr = '';
-            if(roadAddress){
-                addr = '도로명 주소 : ' + roadAddress;
-            } else if (!roadAddress && jibunAddress ){
-                addr += '지번 주소 : ' + jibunAddress;
-            }
-
-            $('#address').append(addr);
-
-        }   
-    };
-
-    geocoder.coord2detailaddr(coord, callback);
-    var resultDiv = document.getElementById('clickLatlng'); 
-    resultDiv.innerHTML = message;
-});
-
 
 // 장소 검색 객체를 생성합니다
 var ps = new daum.maps.services.Places();  
@@ -71,8 +17,7 @@ var ps = new daum.maps.services.Places();
 var infowindow = new daum.maps.InfoWindow({zIndex:1});
 
 // 키워드로 장소를 검색합니다
-searchPlaces(); 
-
+searchPlaces();
 
 // 키워드 검색을 요청하는 함수입니다
 function searchPlaces() {

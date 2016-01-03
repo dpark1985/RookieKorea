@@ -1,0 +1,88 @@
+    <nav class="navbar navbar-default rkNav" >
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#rookieNavMenu" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <a class="navbar-brand" href="/"><img src="images/logo/logo_nav.svg"></a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="rookieNavMenu">
+                <ul class="nav navbar-nav">
+                    <li class="">
+                        <md-button id="menu1">레슨 검색</md-button>
+                    </li>
+                    <li>
+                        <md-button id="menu2">레슨요청 리스트</md-button>
+                    </li>
+                    <li>
+                        <md-button id="menu3">코치 리스트</md-button>
+                    </li>
+                </ul>
+
+
+                <ul class="nav navbar-nav navbar-right " ng-if="login">
+                    <li ng-if="pc" class="dropdown">
+                        <md-button id="userMenu" class="md-raised md-primary lastBtn dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">안녕하세요.
+                            {{userID}} <span class="caret"></md-button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="/logout">로그아웃</a></li>
+                        </ul>
+                    </li>
+                    <li ng-if="!pc" class="dropdown">
+                        <md-button id="userMenu" class="md-raised md-primary lastBtn dropdown-toggle" data-toggle="modal" data-target="#userModal" role="button" aria-haspopup="true" aria-expanded="false">안녕하세요.
+                            {{userID}} <span class="caret"></md-button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#" ng-click="toLogout()">로그아웃</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right" ng-if="!login">
+                    <li>
+                        <md-button id="login" class="md-raised" href="/login">로그인</md-button>
+                    </li>
+                    <li>
+                        <md-button id="register" class="md-raised md-primary lastBtn " href="/register">회원가입</md-button>
+                    </li>                  
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Modal -->
+    <div class="modal fade" id="userModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">안녕하세요.
+                    {{userID}}</h4>
+                </div>
+                <div class="modal-body">
+                    <ul >
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="/logout">로그아웃</a></li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">닫기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    

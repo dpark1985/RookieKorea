@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="ko" ng-app="profile" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="ko" ng-app="profile" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="ko" ng-app="profile"><!--<![endif]-->
+
+
+<head>
+    <base href="/profile/coach/">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <title>루키코리아::스포츠 레슨 전문 플랫폼</title>
+
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="../../libraries/bootstrap/css/bootstrap.min.css">
+
+    <!-- Custom -->
+    <link rel="stylesheet" href="../../stylesheets/common.css">
+    <link rel="stylesheet" href="../../stylesheets/profile.css">
+
+
+    <!-- Web Fonts -->
+    <link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin'>
+
+    <!-- CSS Global Compulsory -->
+    <link rel="stylesheet" href="../../assets/css/style.css">
+
+    <!-- CSS Header and Footer -->
+    <link rel="stylesheet" href="../../assets/css/headers/header-default.css">
+    <link rel="stylesheet" href="../../assets/css/footers/footer-v1.css">
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="../../assets/plugins/animate.css">
+    <link rel="stylesheet" href="../../assets/plugins/line-icons/line-icons.css">
+    <link rel="stylesheet" href="../../assets/plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../assets/plugins/parallax-slider/css/parallax-slider.css">
+    <link rel="stylesheet" href="../../assets/plugins/owl-carousel/owl-carousel/owl.carousel.css">
+
+</head>
+
+<body>
+
+<div class="wrapper">
+    <nav-custom></nav-custom>
+
+    <div class="container-fluid sectionContainer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-2 menuSection" ng-controller="profileLeftCtrl">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <img class="media-object img-circle toCenter" ng-src="../../{{coachData.personalInfo.img}}" alt="...">
+                            <div class="leftUserInfoText">
+                                <p class="text-center"><strong><%= userID %></strong></p>
+                                <p class=""><a href="#"><i class="fa fa-cog"></i> 프로필</a> <a href="#"><i class="fa fa-envelope"></i></i> 쪽지</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-group">
+                        <a href="#" class="list-group-item">레슨정보</a>
+                        <a href="#" class="list-group-item">회원정보</a>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-10 mainSection">
+                    <div ng-view ng-cloak></div>  
+                </div>
+            </div>  
+        </div>
+    </div>
+
+    <footer-custom></footer-custom>
+</div>
+
+<script src="../../libraries/jquery/jquery.min.js"></script>
+<script src="../../libraries/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../libraries/angular/angular/angular.min.js"></script>
+<script src="../../libraries/angular/angular/angular-route.min.js"></script>
+<script src="../../libraries/ui-bootstrap/ui-bootstrap-tpls-0.14.3.min.js"></script>
+<script src="../../libraries/angular/angular/i18n/angular-locale_ko-kr.js"></script>
+
+<script src="../../javascripts/controlls/commonCtrl.js"></script>
+<script src="../../javascripts/controlls/coachProfileCtrl.js"></script>
+
+
+<!-- JS Page Level -->
+<script type="text/javascript" src="../../assets/js/app.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        App.init();
+
+    });
+</script>
+
+<% if(!everyauth.loggedIn) { %>
+    <script>
+        location.href="/login";
+    </script>
+<% } %>
+<script>
+    var isLoggedIn = <%= everyauth.loggedIn %>
+    <% if(everyauth.loggedIn) { %>
+        var userID = "<%= userID %>";
+    <% } %>
+</script>
+
+<!--[if lt IE 9]>
+    <script src="assets/plugins/respond.js"></script>
+    <script src="assets/plugins/html5shiv.js"></script>
+    <script src="assets/plugins/placeholder-IE-fixes.js"></script>
+<![endif]-->
+
+</body>
+
+</html>

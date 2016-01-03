@@ -1,0 +1,135 @@
+<div class="panel panel-default" id="setupPage2">
+    <div class="panel-heading">
+        <h3 class="panel-title">레스 정보 (2/4)</h3>
+    </div>
+
+    <div class="panel-body section">
+        <div class="panel panel-default setupInfo">
+            <div class="panel-body ">
+                레슨 정보를 입력해주세요. 레슨 정보는 "레슨 정보" 에서 수정하실 수 있습니다. 
+            </div>
+        </div>   
+        <hr/>
+        <div>
+            <div class="form-group">
+                <label for="inputSports">스포츠 종목</label>
+                <div class="panel panel-default sectionInfo">
+                    <div class="panel-body">
+                        <p>레슨 스포츠 종목을 선택해 주세요.</p>
+                        <hr class="infoHr"/>
+                        <input type="text" id="lessonSports" ng-model="coachData.lessonSports" uib-typeahead="sports for sports in sportsList | filter:$viewValue | limitTo:8" class="form-control">
+                        <br/><span>레슨 스포츠: [<span>{{coachData.lessonSports}}</span><span ng-if="coachData.lessonSports == null || coachData.lessonSports == ''">스포츠를 선택해 주세요.</span>]</span>
+                    </div>
+                </div>
+            </div>
+            <hr/>
+            <div class="form-group">
+                <label for="inputLessonTimeFee">레슨시간 및 레슨비</label>
+                <div class="panel panel-default sectionInfo">
+                    <div class="panel-body">
+                        <p>레슨 시간(분 단위)과 월 레슨비를 입력해주세요.</p>
+                        <hr class="infoHr"/>
+                        <div class="row" id="inputLessonTimeFee">
+                            <div class="form-group col-sm-6">
+                                <label for="lessonTime">레슨시간</label>
+                                <input type="text" class="form-control" id="lessonTime" ng-model="coachData.lessonTime" placeholder="20분 (숫자만 입력)">
+                                <br/><span>세션당: [{{coachData.lessonTime}}분]</span>
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label for="lessonFee">레슨비</label>
+                                <input type="text" class="form-control" id="lessonFee" ng-model="coachData.lessonFee" placeholder="&#8361;150,000/월 (숫자만 입력)">
+                                <br/><span>레슨비: [{{coachData.lessonFee | currency:"&#8361;":0}}/월]</span>
+                            </div>
+                        </div>
+                        <hr class="infoHr"/>
+                        <div class="row" id="inputLessonDays">
+                            <div class="form-group col-sm-12">
+                                <label for="availability">레슨 요일</label>
+                                <br/><span>레슨 가능한 요일을 선택해 주세요.</span>
+                                <table class="table available" id="availability">
+                                    <tr>
+                                        <th class="text-center">일</th>
+                                        <th class="text-center">월</th>
+                                        <th class="text-center">화</th>
+                                        <th class="text-center">수</th>
+                                        <th class="text-center">목</th>
+                                        <th class="text-center">금</th>
+                                        <th class="text-center">토</th>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center" id="lessonsun" ng-click="available('sun')">X</td>
+                                        <td class="text-center" id="lessonmon" ng-click="available('mon')">X</td>
+                                        <td class="text-center" id="lessontue" ng-click="available('tue')">X</td>
+                                        <td class="text-center" id="lessonwed" ng-click="available('wed')">X</td>
+                                        <td class="text-center" id="lessonthr" ng-click="available('thr')">X</td>
+                                        <td class="text-center" id="lessonfri" ng-click="available('fri')">X</td>
+                                        <td class="text-center" id="lessonsat" ng-click="available('sat')">X</td>
+                                    </tr>
+                                </table>
+                                <br/><span>레슨 요일: [<span ng-repeat="lessonDays in coachData.lessonDays">{{lessonDays}}, </span><span ng-if="coachData.lessonDays.length == 0">레슨 요일</span>]</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+            <hr/>
+            <div class="form-group">
+                <label for="inputLessonLocation">레슨 위치</label>
+                <div class="panel panel-default sectionInfo">
+                    <div class="panel-body">
+                        <p>레슨을 할 장소의 코트이름을 입력해주세요. 코트의 위치를 지도에서 찾아 더블클릭해 주세요.</p>
+                        <hr class="infoHr"/>
+                        <div class="form-group">
+                            <label for="courtName">코트 이름</label>
+                            <input type="text" class="form-control" id="courtName" ng-model="coachData.lessonGPS.courtName" placeholder="예) 치악체육관">
+                            <br/><span>코트 이름: [<span>{{coachData.lessonGPS.courtName}}</span><span ng-if="coachData.lessonGPS.courtName == null || coachData.lessonGPS.courtName == ''">코트장 이름을 입력해주세요.</span>]</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="courtLocation">코트 이름</label>
+                            <br/><span>코트의 위치를 지도에서 찾아 &#34;<span class="underLine">더블클릭</span>&#34; 해주세요!</span>
+                            <div id="clickLatlng" class="indent"></div>
+                            <div id="address" class="indent"></div>
+                            <div class="map_wrap" id="courtLocation">
+                                <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
+                                <script src="../../../javascripts/utilities/mapCtrl.js"></script>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+            <hr/>
+            <button ng-click="toBackward1()" class="btn btn-default">뒤로</button>
+            <button type="buttom" ng-click="setupPage2()"class="btn btn-default">다음</button>
+        </div>
+    </div>
+</div>
+
+
+<div id="alertModal2" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">잘못된 입력</h4>
+            </div>
+            <div class="modal-body">
+                <ul ng-if="errs">
+                    <li ng-repeat="err in errs">{{err}}</li>
+                </ul>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div id="gpsModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                GPS 감지중</br>
+                <i class="fa fa-spinner fa-spin"></i>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

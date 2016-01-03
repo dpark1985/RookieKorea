@@ -1,0 +1,109 @@
+<div class="panel panel-default" id="setupPage4">
+    <div class="panel-heading">
+        <h3 class="panel-title">레스 정보 (4/4 - 옵션)</h3>
+    </div>
+
+    <div class="panel-body section">
+        <div class="panel panel-default setupInfo">
+            <div class="panel-body ">
+                현제 레슨중인 회원을 등록해 주세요.
+            </div>
+        </div> 
+        <hr/>
+        <div>
+            <div class="form-group">
+                <label for="inputLessonSchedule">레슨회원 등록</label>
+                <div class="panel panel-default sectionInfo">
+                    <div class="panel-body">
+                        <p>레슨회원의 정보를 입력하고 &#34;추가&#34; 버튼을 클릭해주세요.</p>
+                        <hr class="infoHr"/>
+
+
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label for="memberName" class="col-sm-2 control-label timePicker1">회원이름</label>
+                                <div class="col-sm-4 timePicker2">
+                                    <input type="text" class="form-control" id="memberName" placeholder="회원이름" ng-model="member.name">
+                                </div>
+                                <label for="memberLessonTime" class="col-sm-2 control-label lessonTime">레슨시간</label>
+                                <div class="col-sm-4">
+                                    <uib-timepicker ng-model="lessonTime" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></uib-timepicker>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="memberPhone" class="col-sm-2 control-label">전화번호</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" id="memberPhone" placeholder="전화번호" ng-model="member.phone">
+                                </div>
+                                <label for="memberLessonTime" class="col-sm-2 control-label">시작일</label>
+                                <div class="col-sm-4">
+                                    <p class="input-group">
+                                        <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="status.opened" datepicker-options="dateOptions" close-text="Close" current-text="오늘" clear-text="리셋" close-text="닫기"/>
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-default" ng-click="open($event)">
+                                                <i class="glyphicon glyphicon-calendar"></i>
+                                            </button>
+                                        </span>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <button type="button" class="btn btn-default" ng-click="addMember()">추가</button>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+            <hr/>
+            <div class="form-group" ng-if="coachData.members.length != 0">
+                <label for="inputLessonSchedule">레슨 회원 목록</label>
+                <div class="panel panel-default sectionInfo">
+                    <div class="panel-body">
+                        <p>&#34;삭제&#34; 버튼을 클릭하면 해당 회원을 삭제할 수 있습니다.</p>
+                        <hr class="infoHr"/>
+                        <div class="row" ng-if="coachData.members.length != 0">
+                            <div class="col-sm-6 col-md-4" ng-repeat="member in coachData.members">
+                                <div class="thumbnail">
+                                    <div class="caption">
+                                        <h3>{{member.name}}</h3>
+                                        <p>레슨 시간: {{member.lessonTime}}</p>
+                                        <p>레슨 시작일: {{member.startDate | date : 'yyyy-MM-dd'}}</p>
+                                        <p>전화번호: {{member.phone}}</p>
+                                        <p><a href="#" class="btn btn-danger" role="button" ng-click="deleteMember(member.phone)">삭제</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr/>
+            <button ng-click="toBackward3()" class="btn btn-default">뒤로</button>
+            <button type="button" ng-click="setupPage4()" class="btn btn-default">완료</button>
+        </div>
+    </div>
+</div>
+
+<div id="alertModal4" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">잘못된 입력</h4>
+            </div>
+            <div class="modal-body">
+                <ul ng-if="errs">
+                    <li ng-repeat="err in errs">{{err}}</li>
+                </ul>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ko" ng-app="index" ng-cloak>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <title>루키코리아::스포츠 레슨 전문 플랫폼</title>
+
+    <!-- Angular Material Design -->
+    <link rel="stylesheet" href="libraries/angular/angular-material/angular-material.min.css">
+
+    <!-- Bootstrap -->
+    <link href="libraries/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- FontAwsome -->
+    <link rel="stylesheet" href="libraries/font-awesome/css/font-awesome.min.css">
+
+    <!-- Custom -->
+    <link href="stylesheets/common.css" rel="stylesheet">
+    <link href="stylesheets/index.css" rel="stylesheet">
+
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]><![endif]-->
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
+
+</head>
+
+<body ng-controller="indexCtrl">
+
+    <nav-bar></nav-bar>
+
+
+
+
+    <div class="jumbotron rkBanner">
+        <div class="innerJumbo">
+            <h3>스포츠를 쉽게 배울수 있는 곳</h3>
+            <h1>스포츠 레슨 전문 플랫폼</h1>
+            <h2>루키코리아</h2>
+            <div layout="row" layout-align="center center">
+                <md-button href="/findlessons"id="searchLesson" flex="33" class="md-raised md-primary" >레슨 검색</md-button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="container-fluid stats">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-4">
+                    <h4>등록된 레슨</h4>
+                    <h3>123,234</h3>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    <h4>실행된 레슨</h4>
+                    <h3>123,234</h3>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    <h4>비/전문 코치님</h4>
+                    <h3>123,234</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid lessonList">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12">
+                    <h4>등록된 레슨요청 리스트</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-3">
+                    <md-whiteframe class="md-whiteframe-2dp listItem">
+                        <div class="row title">
+                            <div class="col-xs-6">
+                                <span class="sportsName">테니스</span>
+                            </div>
+                            <div class="col-xs-6">
+                                <span class="location">강원/원주</span>
+                            </div>
+                        </div>
+                        <div class="row details">
+                            <div class="col-xs-4">
+                                <span class="fee"> 80,000</span>
+                            </div>
+                            <div class="col-xs-4">
+                                <span class="duration">1개월</span>
+                            </div>
+                            <div class="col-xs-4">
+                                <span class="applicants">3명</span>
+                            </div>
+                        </div>
+                    </md-whiteframe>
+                </div>
+                <div class="col-xs-12 col-sm-3">
+                    <md-whiteframe class="md-whiteframe-2dp listItem">
+                        <div class="row title">
+                            <div class="col-xs-6">
+                                <span class="sportsName">테니스</span>
+                            </div>
+                            <div class="col-xs-6">
+                                <span class="location">강원/원주</span>
+                            </div>
+                        </div>
+                        <div class="row details">
+                            <div class="col-xs-4">
+                                <span class="fee"> 80,000</span>
+                            </div>
+                            <div class="col-xs-4">
+                                <span class="duration">1개월</span>
+                            </div>
+                            <div class="col-xs-4">
+                                <span class="applicants">3명</span>
+                            </div>
+                        </div>
+                    </md-whiteframe>
+                </div>
+                <div class="col-xs-12 col-sm-3">
+                    <md-whiteframe class="md-whiteframe-2dp listItem">
+                        <div class="row title">
+                            <div class="col-xs-6">
+                                <span class="sportsName">테니스</span>
+                            </div>
+                            <div class="col-xs-6">
+                                <span class="location">강원/원주</span>
+                            </div>
+                        </div>
+                        <div class="row details">
+                            <div class="col-xs-4">
+                                <span class="fee"> 80,000</span>
+                            </div>
+                            <div class="col-xs-4">
+                                <span class="duration">1개월</span>
+                            </div>
+                            <div class="col-xs-4">
+                                <span class="applicants">3명</span>
+                            </div>
+                        </div>
+                    </md-whiteframe>
+                </div>
+                <div class="col-xs-12 col-sm-3">
+                    <md-whiteframe class="md-whiteframe-2dp listItem">
+                        <div class="row title">
+                            <div class="col-xs-6">
+                                <span class="sportsName">테니스</span>
+                            </div>
+                            <div class="col-xs-6">
+                                <span class="location">강원/원주</span>
+                            </div>
+                        </div>
+                        <div class="row details">
+                            <div class="col-xs-4">
+                                <span class="fee"> 80,000</span>
+                            </div>
+                            <div class="col-xs-4">
+                                <span class="duration">1개월</span>
+                            </div>
+                            <div class="col-xs-4">
+                                <span class="applicants">3명</span>
+                            </div>
+                        </div>
+                    </md-whiteframe>
+                </div>
+                <div class="col-xs-12 col-sm-3">
+                    <md-whiteframe class="md-whiteframe-2dp listItem">
+                        <div class="row title">
+                            <div class="col-xs-6">
+                                <span class="sportsName">테니스</span>
+                            </div>
+                            <div class="col-xs-6">
+                                <span class="location">강원/원주</span>
+                            </div>
+                        </div>
+                        <div class="row details">
+                            <div class="col-xs-4">
+                                <span class="fee"> 80,000</span>
+                            </div>
+                            <div class="col-xs-4">
+                                <span class="duration">1개월</span>
+                            </div>
+                            <div class="col-xs-4">
+                                <span class="applicants">3명</span>
+                            </div>
+                        </div>
+                    </md-whiteframe>
+                </div>
+                <div class="col-xs-12 col-sm-3">
+                    <md-whiteframe class="md-whiteframe-2dp listItem">
+                        <div class="row title">
+                            <div class="col-xs-6">
+                                <span class="sportsName">테니스</span>
+                            </div>
+                            <div class="col-xs-6">
+                                <span class="location">강원/원주</span>
+                            </div>
+                        </div>
+                        <div class="row details">
+                            <div class="col-xs-4">
+                                <span class="fee"> 80,000</span>
+                            </div>
+                            <div class="col-xs-4">
+                                <span class="duration">1개월</span>
+                            </div>
+                            <div class="col-xs-4">
+                                <span class="applicants">3명</span>
+                            </div>
+                        </div>
+                    </md-whiteframe>
+                </div>
+                <div class="col-xs-12 col-sm-3">
+                    <md-whiteframe class="md-whiteframe-2dp listItem">
+                        <div class="row title">
+                            <div class="col-xs-6">
+                                <span class="sportsName">테니스</span>
+                            </div>
+                            <div class="col-xs-6">
+                                <span class="location">강원/원주</span>
+                            </div>
+                        </div>
+                        <div class="row details">
+                            <div class="col-xs-4">
+                                <span class="fee"> 80,000</span>
+                            </div>
+                            <div class="col-xs-4">
+                                <span class="duration">1개월</span>
+                            </div>
+                            <div class="col-xs-4">
+                                <span class="applicants">3명</span>
+                            </div>
+                        </div>
+                    </md-whiteframe>
+                </div>
+                <div class="col-xs-12 col-sm-3">
+                    <md-whiteframe class="md-whiteframe-2dp listItem">
+                        <div class="row title">
+                            <div class="col-xs-6">
+                                <span class="sportsName">테니스</span>
+                            </div>
+                            <div class="col-xs-6">
+                                <span class="location">강원/원주</span>
+                            </div>
+                        </div>
+                        <div class="row details">
+                            <div class="col-xs-4">
+                                <span class="fee"> 80,000</span>
+                            </div>
+                            <div class="col-xs-4">
+                                <span class="duration">1개월</span>
+                            </div>
+                            <div class="col-xs-4">
+                                <span class="applicants">3명</span>
+                            </div>
+                        </div>
+                    </md-whiteframe>
+                </div>
+                <div class="col-xs-12 col-sm-3">
+                    <md-whiteframe class="md-whiteframe-2dp listItem">
+                        <div class="row title">
+                            <div class="col-xs-6">
+                                <span class="sportsName">테니스</span>
+                            </div>
+                            <div class="col-xs-6">
+                                <span class="location">강원/원주</span>
+                            </div>
+                        </div>
+                        <div class="row details">
+                            <div class="col-xs-4">
+                                <span class="fee"> 80,000</span>
+                            </div>
+                            <div class="col-xs-4">
+                                <span class="duration">1개월</span>
+                            </div>
+                            <div class="col-xs-4">
+                                <span class="applicants">3명</span>
+                            </div>
+                        </div>
+                    </md-whiteframe>
+                </div>
+                <div class="col-xs-12 col-sm-3">
+                    <md-whiteframe class="md-whiteframe-2dp listItem">
+                        <div class="row title">
+                            <div class="col-xs-6">
+                                <span class="sportsName">테니스</span>
+                            </div>
+                            <div class="col-xs-6">
+                                <span class="location">강원/원주</span>
+                            </div>
+                        </div>
+                        <div class="row details">
+                            <div class="col-xs-4">
+                                <span class="fee"> 80,000</span>
+                            </div>
+                            <div class="col-xs-4">
+                                <span class="duration">1개월</span>
+                            </div>
+                            <div class="col-xs-4">
+                                <span class="applicants">3명</span>
+                            </div>
+                        </div>
+                    </md-whiteframe>
+                </div>
+                <div class="col-xs-12 col-sm-3">
+                    <md-whiteframe class="md-whiteframe-2dp listItem">
+                        <div class="row title">
+                            <div class="col-xs-6">
+                                <span class="sportsName">테니스</span>
+                            </div>
+                            <div class="col-xs-6">
+                                <span class="location">강원/원주</span>
+                            </div>
+                        </div>
+                        <div class="row details">
+                            <div class="col-xs-4">
+                                <span class="fee"> 80,000</span>
+                            </div>
+                            <div class="col-xs-4">
+                                <span class="duration">1개월</span>
+                            </div>
+                            <div class="col-xs-4">
+                                <span class="applicants">3명</span>
+                            </div>
+                        </div>
+                    </md-whiteframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid adds2">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12">
+                    <h4>누구나 쉽게 배우고 가르칠수 있는 곳</h4>
+                    <h3>루키코리아</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-3">
+                    <div class="addsTitle">
+                        실력만 있다면 OK!!
+                    </div>
+                    <div class="addsInfo">
+                        실력만 있다면 누구나 코치가 될 수 있어요. 지금 당장 코치 등록 하세요.
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-3">
+                    <div class="addsTitle">
+                        실력있는 코치
+                    </div>
+                    <div class="addsInfo">
+                        루키코리아에서 코치님들을 만나보세요. 실력이 쑥쑥 성장합니다.
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-3">
+                    <div class="addsTitle">
+                        쉽게 스포츠를 배우자
+                    </div>
+                    <div class="addsInfo">
+                        열정과 의지만 있다면 누구나 쉽게 스포츠를 배울 수 있어요.
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-3">
+                    <div class="addsTitle">
+                        레슨 정보
+                    </div>
+                    <div class="addsInfo">
+                        코치님들이 운영하고 있는 레슨을 쉽게 확인하고 등록할 수 있어요.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-fluid adds1">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12">
+                    <p>실력만 있다면 누구나 코치가 될 수 있습니다 . <md-button ng-if="!login" id="register" class="md-raised md-primary lastBtn" ng-click="toRegister()">회원가입</md-button><md-button ng-if="login" id="register" class="md-raised md-primary lastBtn" ng-click="">레슨 검색</md-button></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid process">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12">
+                    <h4>건강한 스포츠 문화</h4>
+                    <h3>루키코리아 프로세스</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12">
+                    <img class="processImg" src="images/process/process1.png">
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container-fluid adds3">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12">
+                    <h4>지금 당장 레슨검색을 해보세요. 실력이 쑥쑥!! <md-button ng-if="!login" id="register" class="md-raised md-primary lastBtn" ng-click="toRegister()">회원가입</md-button><md-button ng-if="login" id="register" class="md-raised md-primary lastBtn" ng-click="">레슨 검색</md-button></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <footer-custom></footer-custom>
+
+
+
+
+    <script src="libraries/jquery/jquery.min.js"></script>
+    <script src="libraries/bootstrap/js/bootstrap.min.js"></script>
+    <script src="libraries/angular/angular/angular.min.js"></script>
+    <script src="libraries/angular/angular/angular-route.min.js"></script>
+    <script src="libraries/angular/angular-animate/angular-animate.min.js"></script>
+    <script src="libraries/angular/angular-aria/angular-aria.min.js"></script>
+    <script src="libraries/angular/angular-material/angular-material.min.js"></script>
+    <script src="javascripts/commonCtrl.js"></script>
+    <script src="javascripts/indexCtrl.js"></script>
+
+</body>
+
+</html>

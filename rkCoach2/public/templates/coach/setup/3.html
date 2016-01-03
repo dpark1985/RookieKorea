@@ -1,0 +1,100 @@
+<div class="panel panel-default" id="setupPage3">
+    <div class="panel-heading">
+        <h3 class="panel-title">레스 정보 (3/4)</h3>
+    </div>
+
+    <div class="panel-body section">
+        <div class="panel panel-default setupInfo">
+            <div class="panel-body ">
+                레슨 정보를 입력해주세요. 레슨 정보는 "레슨 정보" 에서 수정하실 수 있습니다. 
+            </div>
+        </div> 
+        <hr/>
+        <div>
+            <div class="form-group">
+                <label for="inputLessonSchedule">레슨 운영시간</label>
+                <div class="panel panel-default sectionInfo">
+                    <div class="panel-body">
+                        <p>하루중 몇시부터 몇시까지 레슨하시나요?</p>
+                        <hr class="infoHr"/>
+
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label for="memberLessonTime" class="col-sm-2 control-label lessonTime">시작 시간</label>
+                                <div class="col-sm-4">
+                                    <uib-timepicker ng-model="startTime" ng-change="opTimeStartSelected()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></uib-timepicker>
+                                    <br/><span>레슨 운영시간: {{coachData.start}} ~ {{coachData.end}}</span>
+                                </div>
+                                <label for="memberLessonTime" class="col-sm-2 control-label lessonTime">종료 시간</label>
+                                <div class="col-sm-4">
+                                    <uib-timepicker ng-model="endTime" ng-change="opTimeEndSelected()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></uib-timepicker>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <hr/>
+            <div class="form-group">
+                <label for="inputLessonSchedule">레슨 스케줄 설정</label>
+                <div class="panel panel-default sectionInfo">
+                    <div class="panel-body">
+                        <p>레슨 가능 스케줄을 설정해주세요.</p>
+                        <hr class="infoHr"/>
+                        <div class="form-group col-sm-12">
+                            <label for="availability">레슨 가능 스케줄</label>
+                            <br/><span>레슨 가능한 스케줄을 클릭해서 활성화 시켜주세요.</span>
+                            <br/><span>요일을 클릭하면 전체 스케줄이 선택됩니다.</span>
+
+                            <table class="table schedule" id="schedule">
+                                <tr>
+                                    <th class="text-center" id="hourText">시간</th>
+                                    <th class="text-center" ng-click="selectAll('sun')">일</th>
+                                    <th class="text-center" ng-click="selectAll('mon')">월</th>
+                                    <th class="text-center" ng-click="selectAll('tue')">화</th>
+                                    <th class="text-center" ng-click="selectAll('wed')">수</th>
+                                    <th class="text-center" ng-click="selectAll('thr')">목</th>
+                                    <th class="text-center" ng-click="selectAll('fri')">금</th>
+                                    <th class="text-center" ng-click="selectAll('sat')">토</th>
+                                </tr>
+                                <tr ng-repeat="opHours in opTimeHours">
+                                    <td class="text-center hours" >{{opHours}}:00</td>
+                                    <td class="text-center" id="sun{{opHours}}" ng-click="lessonTime('sun', opHours)">X</td>
+                                    <td class="text-center" id="mon{{opHours}}" ng-click="lessonTime('mon', opHours)">X</td>
+                                    <td class="text-center" id="tue{{opHours}}" ng-click="lessonTime('tue', opHours)">X</td>
+                                    <td class="text-center" id="wed{{opHours}}" ng-click="lessonTime('wed', opHours)">X</td>
+                                    <td class="text-center" id="thr{{opHours}}" ng-click="lessonTime('thr', opHours)">X</td>
+                                    <td class="text-center" id="fri{{opHours}}" ng-click="lessonTime('fri', opHours)">X</td>
+                                    <td class="text-center" id="sat{{opHours}}" ng-click="lessonTime('sat', opHours)">X</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr/>
+            <button ng-click="toBackward2()" class="btn btn-default">뒤로</button>
+            <button type="button" ng-click="setupPage3()" class="btn btn-default">다음</button>
+        </div>
+    </div>
+</div>
+
+
+<div id="alertModal3" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">잘못된 입력</h4>
+            </div>
+            <div class="modal-body">
+                <ul ng-if="errs">
+                    <li ng-repeat="err in errs">{{err}}</li>
+                </ul>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

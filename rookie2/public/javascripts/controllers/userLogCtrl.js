@@ -83,8 +83,11 @@ angular.module('userLogCtrl', ['ngRoute'])
 			.then(function(response) {
 			    // this callback will be called asynchronously
 			    // when the response is available
-			    $window.location.href = '/';
+			    console.log('success');
+			    console.log(response);
+			    //$window.location.href = '/';
 			}, function(response) {
+				console.log('error=='+response);
 			    // called asynchronously if an error occurs
 			    // or server returns response with an error status.
 			});

@@ -90,7 +90,9 @@ exports.active = function(everyauth, db){
 			password: password
 		}, function(error, user){
 			if(error){
-				promise.fulfill([getCode('auth:1')]);
+				console.log('============asdfasdfasdfasdf=============');
+				error.push('Testing Login Failed');
+				promise.fulfill(errors);
 			} else if(user){
 				db.users.find({login: login}, function (err, data){
 					var temp = data[0].curLoginDate;

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <title>루키코리아::스포츠 레슨 전문 플랫폼</title>
+
+
+    <!-- Web Fonts -->
+    <link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin'>
+
+    <!-- CSS Global Compulsory -->
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="assets/plugins/animate.css">
+    <link rel="stylesheet" href="assets/plugins/line-icons/line-icons.css">
+    <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css">
+
+    <!-- CSS Page Style -->
+    <link rel="stylesheet" href="assets/css/pages/page_log_reg_v2.css">
+
+    <!-- CSS Customization -->
+    <link rel="stylesheet" href="assets/css/custom.css">
+</head>
+
+<body>
+<!--=== Content Part ===-->
+<div class="container">
+    <!--Reg Block-->
+    <form class="reg-block" method="POST">
+        <div class="reg-block-header">
+            <h2>로그인</h2>
+            <ul class="social-icons text-center">
+                <li><a class="rounded-x social_facebook" data-original-title="Facebook" href="#"></a></li>
+                <li><a class="rounded-x social_twitter" data-original-title="Twitter" href="#"></a></li>
+                <li><a class="rounded-x social_googleplus" data-original-title="Google Plus" href="#"></a></li>
+                <li><a class="rounded-x social_linkedin" data-original-title="Linkedin" href="#"></a></li>
+            </ul>
+            <p>아직 회원이 아니신가요? <a class="color-green" href="/register">회원 가입하기</a></p>
+        </div>
+
+    <% if(typeof errors != 'undefined') { %>
+
+        <div class="alert alert-danger" role="alert">
+        
+            <% errors.forEach(function (error) { %>
+                <li>
+                    <%= JSON.stringify(error) %>
+                </li>
+            <% }); %>
+        </div>    
+
+    <% } %>
+
+        <div class="input-group margin-bottom-20">
+            <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+            <input type="text" name="login" class="form-control" id="inputLogin" placeholder="아이디">
+        </div>
+        <div class="input-group margin-bottom-20">
+            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+            <input type="password" name="password" class="form-control" id="inputPassword" placeholder="비밀번호">
+        </div>
+ 
+        <div class="checkbox">
+            <label>
+                <input type="checkbox">
+                <p>로그인 상태 유지</p>
+            </label>
+        </div>
+
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <button type="submit" class="btn-u btn-block">로그인</button>
+            </div>
+        </div>
+        <hr>
+
+            <p>비밀번호를 잊으셨나요? <a class="color-green" href="#">비밀번호 찾기</a></p>
+  
+    </form>
+    <!--End Reg Block-->
+
+
+</div><!--/container-->
+<!--=== End Content Part ===-->
+
+
+
+	<% if(everyauth.loggedIn) { %>
+		<script>
+			location.href="/";
+		</script>
+	<% } %>
+
+<!-- JS Global Compulsory -->
+<script type="text/javascript" src="assets/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="assets/plugins/jquery/jquery-migrate.min.js"></script>
+<script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<!-- JS Implementing Plugins -->
+<script type="text/javascript" src="assets/plugins/backstretch/jquery.backstretch.min.js"></script>
+
+<!-- JS Page Level -->
+<script type="text/javascript" src="assets/js/app.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        App.init();
+    });
+</script>
+<script type="text/javascript">
+    $.backstretch([
+      "assets/img/bg/19.jpg",
+      "assets/img/bg/18.jpg",
+      ], {
+        fade: 1000,
+        duration: 7000
+    });
+</script>
+<!--[if lt IE 9]>
+    <script src="assets/plugins/respond.js"></script>
+    <script src="assets/plugins/html5shiv.js"></script>
+    <script src="assets/plugins/placeholder-IE-fixes.js"></script>
+<![endif]-->
+
+</body>
+</html>

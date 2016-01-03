@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="ko" ng-app="coachDetail" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="ko" ng-app="coachDetail" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="ko" ng-app="coachDetail"><!--<![endif]-->
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <title>루키코리아::스포츠 레슨 전문 플랫폼</title>
+
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="../libraries/bootstrap/css/bootstrap.min.css">
+
+    <!-- Custom -->
+    <link rel="stylesheet" href="../stylesheets/common.css">
+
+
+
+    <!-- Web Fonts -->
+    <link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin'>
+
+    <!-- CSS Global Compulsory -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+    <!-- CSS Header and Footer -->
+    <link rel="stylesheet" href="../assets/css/headers/header-default.css">
+    <link rel="stylesheet" href="../assets/css/footers/footer-v1.css">
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="../assets/plugins/animate.css">
+    <link rel="stylesheet" href="../assets/plugins/line-icons/line-icons.css">
+    <link rel="stylesheet" href="../assets/plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/plugins/parallax-slider/css/parallax-slider.css">
+    <link rel="stylesheet" href="../assets/plugins/owl-carousel/owl-carousel/owl.carousel.css">
+
+</head>
+
+<body>
+    <script>
+        var isLoggedIn = <%= everyauth.loggedIn %>
+        <% if(everyauth.loggedIn) { %>
+            var userType = "<%= userType %>";
+            var userID = "<%= userID %>";
+            var initialSetup = "<%= initialSetup %>";
+        <% } %>
+    </script>
+
+    <div class="wrapper">
+        <nav-custom></nav-custom>
+
+        <div class="container-fluid sectionContainer">
+            <div class="container">
+
+    
+    코치 프로파일 <%= coachID %>
+
+    <br/>
+
+    코치 이름
+
+    <br/>
+    스포츠 종목
+
+    <br/>
+    리뷰 숫자
+    <br/>
+    자기 소개
+    <br/>
+    본인 검증 (코치 경력)
+    <br/>
+    레슨 정보
+    <br/>
+
+    <ul>
+        <a href="/reserve">2</a>
+        <a href="">2</a>
+        <a href="">2</a>
+        <a href="">2</a>
+        <a href="">2</a>
+        <a href="">2</a>
+        <a href="">2</a>
+        <a href="">2</a>
+    </ul>
+            </div>
+        </div>
+
+
+        <footer-custom></footer-custom>
+
+
+    </div>
+    <!-- /.wrapper -->
+
+
+
+
+
+    <script src="../libraries/jquery/jquery.min.js"></script>
+    <script src="../libraries/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../libraries/angular/angular/angular.min.js"></script>
+    <script src="../libraries/angular/angular/angular-route.min.js"></script>
+
+    <script src="../javascripts/controlls/commonCtrl.js"></script>
+    <script src="../javascripts/controlls/coachDetailCtrl.js"></script>
+
+
+
+        <!-- JS Implementing Plugins -->
+    <script type="text/javascript" src="../assets/plugins/parallax-slider/js/modernizr.js"></script>
+    <script type="text/javascript" src="../assets/plugins/parallax-slider/js/jquery.cslider.js"></script>
+    <script type="text/javascript" src="../assets/plugins/owl-carousel/owl-carousel/owl.carousel.js"></script>
+    <!-- JS Page Level -->
+    <script type="text/javascript" src="../assets/js/app.js"></script>
+    <script type="text/javascript" src="../assets/js/plugins/owl-carousel.js"></script>
+    <script type="text/javascript" src="../assets/js/plugins/parallax-slider.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+            App.init();
+            OwlCarousel.initOwlCarousel();
+            ParallaxSlider.initParallaxSlider();
+        });
+    </script>
+    <!--[if lt IE 9]>
+        <script src="assets/plugins/respond.js"></script>
+        <script src="assets/plugins/html5shiv.js"></script>
+        <script src="assets/plugins/placeholder-IE-fixes.js"></script>
+    <![endif]-->
+
+
+</body>
+
+</html>

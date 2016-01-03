@@ -87,11 +87,8 @@ app.use(logger('dev'));
 app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser('your secret here'));
-app.use(session({
-    key: 'session',
-    store: sessionStore
-}));
-app.use(everyauth.middleware());
+app.use(session());
+app.use(everyauth.middleware(app));
 app.use(router);
 app.use(cors());
 app.use(express.static(path.join(__dirname, 'public')));

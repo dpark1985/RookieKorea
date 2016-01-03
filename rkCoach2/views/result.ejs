@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="ko" ng-app="result" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="ko" ng-app="result" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="ko" ng-app="result"> <!--<![endif]-->
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <title>루키코리아::스포츠 레슨 전문 플랫폼</title>
+
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="libraries/bootstrap/css/bootstrap.min.css">
+
+    <!-- Custom -->
+    <link rel="stylesheet" href="stylesheets/common.css">
+    <link rel="stylesheet" href="stylesheets/result.css">
+
+
+    <!-- Web Fonts -->
+    <link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin'>
+
+    <!-- CSS Global Compulsory -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- CSS Header and Footer -->
+    <link rel="stylesheet" href="assets/css/headers/header-default.css">
+    <link rel="stylesheet" href="assets/css/footers/footer-v1.css">
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="assets/plugins/animate.css">
+    <link rel="stylesheet" href="assets/plugins/line-icons/line-icons.css">
+    <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/plugins/parallax-slider/css/parallax-slider.css">
+    <link rel="stylesheet" href="assets/plugins/owl-carousel/owl-carousel/owl.carousel.css">
+
+</head>
+
+<body>
+
+    <script>
+        var isLoggedIn = <%= everyauth.loggedIn %>
+        <% if(everyauth.loggedIn) { %>
+            var userID = "<%= userID %>";
+        <% } %>
+    </script>
+
+    <div class="wrapper">
+        <nav-custom></nav-custom>
+
+        <div class="container-fluid sectionContainer">
+            <div class="container">
+  
+                <div class="panel panel-default title">
+                    <div class="panel-body">
+                        <div class="page-header">
+                            <h1><%= sports %> <small><%= location1 %> - <%= location2 %></small></h1>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="panel panel-default list">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">전문 코치님</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="media">
+                            <div class="media-left listImg">
+                                <a href="#">
+                                    <img class="media-object img-circle" src="http://dummyimage.com/100x100/000/fff" alt="...">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">박준현&#32;<span class="badge sports">테니스</span>&#32;<span class="badge able">활동가능</span>&#32;<span class="badge pro">전문코치</span></h4>
+                                <h5><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>리뷰가 없습니다.</h5>
+                                <h5>지역: 강원도 원주시</h5>
+                                <h5>코트: 원주시 테니스 협회</h5>
+                            </div>
+                            <div class="media-right">
+                                <a href="/coach_details/1" class="btn btn-primary btn-lg" role="button">레슨 정보</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default list">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">전문 코치님</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="media">
+                            <div class="media-left listImg">
+                                <a href="#">
+                                    <img class="media-object img-circle" src="http://dummyimage.com/100x100/000/fff" alt="...">
+                                </a>
+                            </div>
+                            <div class="media-body list">
+                                <h4 class="media-heading">박준현&#32;<span class="badge sports">테니스</span>&#32;<span class="badge disable">활동불가능</span>&#32;<span class="badge pro">전문코치</span></h4>
+                                <h5><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>리뷰가 없습니다.</h5>
+                                <h5>지역: 강원도 원주시</h5>
+                                <h5>코트: 원주시 테니스 협회</h5>
+                            </div>
+                            <div class="media-right">
+                                <a href="/coach_details/2" class="btn btn-primary btn-lg" role="button">레슨 정보</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default list">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">루키코리아 인증 코치님</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="media">
+                            <div class="media-left listImg">
+                                <a href="#">
+                                    <img class="media-object img-circle" src="http://dummyimage.com/100x100/000/fff" alt="...">
+                                </a>
+                            </div>
+                            <div class="media-body list">
+                                <h4 class="media-heading">박준현&#32;<span class="badge sports">테니스</span>&#32;<span class="badge able">활동가능</span>&#32;<span class="badge rookie">루키코치</span></h4>
+                                <h5><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>리뷰가 없습니다.</h5>
+                                <h5>지역: 강원도 원주시</h5>
+                                <h5>코트: 원주시 테니스 협회</h5>
+                            </div>
+                            <div class="media-right">
+                                <a href="/coach_details/3" class="btn btn-primary btn-lg" role="button">레슨 정보</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default list">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">비전문 코치님</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="media">
+                            <div class="media-left listImg">
+                                <a href="#">
+                                    <img class="media-object img-circle" src="http://dummyimage.com/100x100/000/fff" alt="...">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">박준현&#32;<span class="badge sports">테니스</span>&#32;<span class="badge able">활동가능</span>&#32;<span class="badge ama">비전문코치</span></h4>
+                                <h5><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>리뷰가 없습니다.</h5>
+                                <h5>지역: 강원도 원주시</h5>
+                                <h5>코트: 원주시 테니스 협회</h5>
+                            </div>
+                            <div class="media-right">
+                                <a href="/coach_details/4" class="btn btn-primary btn-lg" role="button">레슨 정보</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default moreList">
+                   
+                    <div class="panel-body text-center">
+                        <p>원하시는 정보가 없나요?</p>
+                        <a href="#" class="btn btn-primary" role="button">더 많은 코치님 검색 하기</a>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+            <!-- /.container -->
+        </div>
+        <!-- /.container-fluid.sectionContainer -->
+
+
+
+        <footer-custom></footer-custom>
+
+    </div>
+    <!-- /.wrapper -->
+
+
+  
+  
+
+
+
+
+
+    <script src="libraries/jquery/jquery.min.js"></script>
+    <script src="libraries/bootstrap/js/bootstrap.min.js"></script>
+    <script src="libraries/angular/angular/angular.min.js"></script>
+    <script src="libraries/angular/angular/angular-route.min.js"></script>
+
+    <script src="javascripts/controlls/commonCtrl.js"></script>
+    <script src="javascripts/controlls/resultCtrl.js"></script>
+
+
+
+        <!-- JS Implementing Plugins -->
+    <script type="text/javascript" src="assets/plugins/parallax-slider/js/modernizr.js"></script>
+    <script type="text/javascript" src="assets/plugins/parallax-slider/js/jquery.cslider.js"></script>
+    <script type="text/javascript" src="assets/plugins/owl-carousel/owl-carousel/owl.carousel.js"></script>
+    <!-- JS Page Level -->
+    <script type="text/javascript" src="assets/js/app.js"></script>
+    <script type="text/javascript" src="assets/js/plugins/owl-carousel.js"></script>
+    <script type="text/javascript" src="assets/js/plugins/parallax-slider.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+            App.init();
+            OwlCarousel.initOwlCarousel();
+            ParallaxSlider.initParallaxSlider();
+        });
+    </script>
+    <!--[if lt IE 9]>
+        <script src="assets/plugins/respond.js"></script>
+        <script src="assets/plugins/html5shiv.js"></script>
+        <script src="assets/plugins/placeholder-IE-fixes.js"></script>
+    <![endif]-->
+
+
+</body>
+
+</html>

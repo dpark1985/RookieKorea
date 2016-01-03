@@ -1,0 +1,223 @@
+
+/* setup.ejs */
+.sectionContainer {
+	padding-top: 40px;
+	padding-bottom: 60px;
+}
+/* setup.ejs */
+
+/* common */
+.sectionInfo {
+	margin-bottom: 0;
+}
+
+.sectionInfo > div {
+	padding-bottom: 15px;
+}
+
+.setupInfo {
+	margin-bottom: 0;
+}
+
+.setupInfo > div {
+	padding-bottom: 15px;
+	background-color: #244C6F;
+	color: #fff;
+}
+
+.infoHr {
+	margin-top: 0;
+	margin-bottom: 15px;
+}
+/* common */
+
+
+/* leftMenu */
+.menuSection {
+
+}
+
+@media (min-width: 768px) and (max-width: 992px) { 
+	.menuSection > div > div > img {
+		width: 63px;
+		height: 63px;
+	}
+
+}
+
+.panel-body {
+	padding-bottom: 0;
+}
+
+.panel-body.section {
+	padding-bottom: 60px;
+}
+
+.leftUserInfoText {
+	margin-top: 10px;
+}
+
+.leftUserInfoText > p > a {
+	margin-right: 10px;
+}
+
+img.media-object.img-circle.toCenter {
+	width: 100px;
+	height: 100px;
+}
+/* leftMenu */
+
+
+/* 1.html */
+.address {
+	margin-bottom: 5px;
+}
+
+.address > div:first-child {
+	padding-right: 5px;
+}
+
+.address > div:last-child {
+	padding-left: 5px;
+}
+
+@media (max-width: 992px) { 
+	.address > div:first-child {
+		padding-right: 15px;
+		margin-bottom: 5px;
+	}
+
+	.address > div:last-child {
+		padding-left: 15px;
+	}
+}
+
+.imgupload{
+	width: 200px; 
+	height: 200px; 
+	background: url('../../images/btn/userImg2.png') no-repeat 0 0;
+}
+
+#infoImg {
+	overflow: hidden;
+    opacity: 0;
+    width: 200px;
+    height: 200px;
+    cursor: pointer;
+}
+/* 1.html */
+
+/* 2.html */
+.map_wrap, .map_wrap * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
+.map_wrap a, .map_wrap a:hover, .map_wrap a:active{color:#000;text-decoration: none;}
+.map_wrap {position:relative;width:100%;height:500px;}
+#menu_wrap {position:absolute;top:0;left:0;bottom:0;width:250px;margin:10px 0 30px 10px;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.7);z-index: 1;font-size:12px;border-radius: 10px;}
+.bg_white {background:#fff;}
+#menu_wrap hr {display: block; height: 1px;border: 0; border-top: 2px solid #5F5F5F;margin:3px 0;}
+#menu_wrap .option{text-align: center;}
+#menu_wrap .option p {margin:10px 0;}  
+#menu_wrap .option button {margin-left:5px;}
+#placesList li {list-style: none;}
+#placesList .item {position:relative;border-bottom:1px solid #888;overflow: hidden;cursor: pointer;min-height: 65px;}
+#placesList .item span {display: block;margin-top:4px;}
+#placesList .item h5, #placesList .item .info {text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
+#placesList .item .info{padding:10px 0 10px 55px;}
+#placesList .info .gray {color:#8a8a8a;}
+#placesList .info .jibun {padding-left:26px;background:url(http://i1.daumcdn.net/localimg/localimages/07/mapapidoc/places_jibun.png) no-repeat;}
+#placesList .info .tel {color:#009900;}
+#placesList .item .markerbg {float:left;position:absolute;width:36px; height:37px;margin:10px 0 0 10px;background:url(http://i1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png) no-repeat;}
+#placesList .item .marker_1 {background-position: 0 -10px;}
+#placesList .item .marker_2 {background-position: 0 -56px;}
+#placesList .item .marker_3 {background-position: 0 -102px}
+#placesList .item .marker_4 {background-position: 0 -148px;}
+#placesList .item .marker_5 {background-position: 0 -194px;}
+#placesList .item .marker_6 {background-position: 0 -240px;}
+#placesList .item .marker_7 {background-position: 0 -286px;}
+#placesList .item .marker_8 {background-position: 0 -332px;}
+#placesList .item .marker_9 {background-position: 0 -378px;}
+#placesList .item .marker_10 {background-position: 0 -423px;}
+#placesList .item .marker_11 {background-position: 0 -470px;}
+#placesList .item .marker_12 {background-position: 0 -516px;}
+#placesList .item .marker_13 {background-position: 0 -562px;}
+#placesList .item .marker_14 {background-position: 0 -608px;}
+#placesList .item .marker_15 {background-position: 0 -654px;}
+#pagination {margin:10px auto;text-align: center;}
+#pagination a {display:inline-block;margin-right:10px;}
+#pagination .on {font-weight: bold; cursor: default;color:#777;}
+
+
+
+.table.available>tbody>tr>td, .table.available>tbody>tr>th, .table.available>tfoot>tr>td, .table.available>tfoot>tr>th, .table.available>thead>tr>td, .table.available>thead>tr>th,
+.table.schedule>tbody>tr>td, .table.schedule>tbody>tr>th, .table.schedule>tfoot>tr>td, .table.schedule>tfoot>tr>th, .table.schedule>thead>tr>td, .table.schedule>thead>tr>th {
+	border-right: 1px solid #ddd;
+}
+
+.table.available>tbody>tr,
+.table.schedule>tbody>tr {
+	border-left: 1px solid #ddd;
+}
+
+
+.table.available>tbody>tr:last-child,
+table#schedule.table.schedule,
+.table.schedule>tbody>tr:last-child {
+	border-bottom: 1px solid #ddd;
+}
+
+.table.available>tbody>tr:last-child>td,
+.table.schedule>tbody>tr>th,
+.table.schedule>tbody>tr>td {
+	cursor: pointer;
+}
+
+.table.schedule>tbody>tr>td {
+	color: #fff;
+}
+
+#hourText:hover {
+	cursor: text;
+	background-color: #fff;
+	color: #333;
+}
+
+td.text-center.hours.ng-binding {
+	cursor: text;
+	color: #333;
+}
+
+td.text-center.hours.ng-binding:hover {
+	background-color: #fff;
+	color: #333;
+}
+
+.table.available>tbody>tr:last-child>td:hover,
+.table.schedule>tbody>tr>th:hover,
+.table.schedule>tbody>tr>td:hover {
+	background-color: #244C6F;
+	color: #fff;
+}
+
+.availableDay {
+	background-color: #244C6F;
+	color: #fff;
+}
+
+/* 2.html */
+
+/* 4.html */
+label.col-sm-2.control-label.lessonTime,
+label.col-sm-2.control-label.timePicker1 {
+	height: 102px;
+	line-height: 102px;
+	padding-top: 0;
+}
+
+div.col-sm-4.timePicker2 {
+	padding-top: 34px;
+}
+
+
+/* 4.html */
+
+
+
