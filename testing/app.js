@@ -17,7 +17,6 @@ var db = mongojs(baseURI, collections);
 
 
 
-
 var app = express();
 
 // view engine setup
