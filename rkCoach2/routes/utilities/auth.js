@@ -21,11 +21,11 @@ exports.active = function(everyauth, db, crypto){
 	auth.extractExtraRegistrationParams(function (req) {
 		return {
 			userType: req.param('userType'),
-			name: req.param('name'),
-			phone: req.param('phone'),
-			loginEmail: req.param('loginEmail'),
-			password2: req.param('password2'),
-			termsAgreed: req.param('termsAgreed')
+			name: req.param.name,
+			phone: req.param.phone,
+			loginEmail: req.param.loginEmail,
+			password2: req.param.password2,
+			termsAgreed: req.param.termsAgreed
 		}
 	});
 	auth.validateRegistration(function (userAttribute, errors){ 
