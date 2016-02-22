@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html ng-app="mongodbTest">
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+
+
+
+
+  </head>
+  <body ng-controller="mongodbTest">
+
+
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Change data
+</button>
+
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+
+
+    <% for(var i=0; i< users.split('},').length; i++) {%>
+    	<p><%= users.split('},')[i] %></p>
+	<% } %>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+
+
+
+<form ng-submit="changePW()">
+  <div class="form-group">
+    <label for="inputID">User ID</label>
+    <input type="text" class="form-control" id="inputID" ng-model="userInput.username" placeholder="User ID">
+  </div>
+  <div class="form-group">
+    <label for="inputPW">New Password</label>
+    <input type="text" class="form-control" id="inputPW" ng-model="userInput.newPW" placeholder="New Password">
+  </div>
+
+
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+
+
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script src="javascripts/mongodbTest.js"></script>
+
+  </body>
+</html>

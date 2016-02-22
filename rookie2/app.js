@@ -33,6 +33,8 @@ var customView = require('./routes/customView');
 var customModel = require('./routes/customModel');
 
 
+console.log('========teting==========');
+//console.log(db.getCollectionNames());
 
 // DataBase connection
 var baseURI = "52.69.2.200/rookiekorea";
@@ -90,7 +92,7 @@ app.use(cookieParser('your secret here'));
 app.use(session());
 app.use(everyauth.middleware(app));
 app.use(router);
-//app.use(cors());
+app.use(cors());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(function (req, res, next) {
     req.db = db;
