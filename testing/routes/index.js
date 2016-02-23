@@ -10,10 +10,21 @@ router.get('/', function(req, res, next) {
 		console.log(data);
 	});
 
+
+
+
 	console.log('================');
 
 	var collection = req.db.collection('users');
 	//console.log(collection);
+
+	collection.getIndexes(function (err, data){
+		console.log(data);
+	})
+
+	collection.count({}, function (err, data){
+		console.log("Count: " + data);
+	})
 
 	collection.find({}, function (err, data){
 		//console.log(data);
